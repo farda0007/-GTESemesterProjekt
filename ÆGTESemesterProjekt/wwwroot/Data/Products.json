@@ -13,5 +13,10 @@
     "Id": 2,
     "ProductName": "B\u00F8rste",
     "Price": 300
+  },
+  {
+    "Id": 3,
+    "ProductName": "vodka",
+    "Price": 499
   }
 ]
