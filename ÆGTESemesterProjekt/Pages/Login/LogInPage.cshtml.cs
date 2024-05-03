@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
+using ÆGTESemesterProjekt.Services;
+using ÆGTESemesterProjekt.Models;
 
 namespace ÆGTESemesterProjekt.Pages.Login
 {
@@ -36,8 +38,8 @@ namespace ÆGTESemesterProjekt.Pages.Login
         public async Task<IActionResult> OnPost()
         {
 
-            List<User> users = _userService.Users;
-            foreach (User user in users)
+            List<Employee> users = _userService.Users;
+            foreach (Models.User user in users)
             {
                 if (UserName == user.UserName)
                 {

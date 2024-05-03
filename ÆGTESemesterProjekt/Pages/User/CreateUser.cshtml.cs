@@ -1,3 +1,4 @@
+using ÆGTESemesterProjekt.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -22,15 +23,15 @@ namespace ÆGTESemesterProjekt.Pages.User
             _userService = userService;
         }
 
-        public async Task<IActionResult> OnPostAsync()
-        {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-            await _userService.AddUserAsync(new User(UserName, passwordHasher.HashPassword(null, Password)));
-            //_userService.AddUser(new User(UserName, Password));
-            return RedirectToPage("/Item/GetAllItems");
-        }
+        //public async Task<IActionResult> OnPostAsync()
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return Page();
+        //    }
+        //    await _userService.AddUserAsync(new User(UserName, passwordHasher.HashPassword(null, Password)));
+        //    //_userService.AddUser(new User(UserName, Password));
+        //    return RedirectToPage("/Item/GetAllItems");
+        //}
     }
 }
