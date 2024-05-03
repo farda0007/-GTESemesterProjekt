@@ -11,7 +11,8 @@ namespace ÆGTESemesterProjekt.Services
         public ProductService(JsonFileService<Product> jsonFileProductService)
         {
             JsonFileProductService = jsonFileProductService;
-            _products = MockProducts.GetMockProducts();
+            //_products = MockProducts.GetMockProducts();
+            _products = JsonFileProductService.GetJsonObjects().ToList();
             JsonFileProductService.SaveJsonObjects(_products);
 
         }
