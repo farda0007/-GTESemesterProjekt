@@ -1,0 +1,28 @@
+﻿@page "{id:int}"
+@model ÆGTESemesterProjekt.Pages.Products.EditProductModel
+@{
+}
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Product.Id" class="control-lable"></label>
+        <input asp-for="Product.Id" class="form-control" readonly="@(true)" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.ProductName" class="control-lable"></label>
+        <input asp-for="Product.ProductName" class="form-control" />
+        <span asp-validation-for="Product.ProductName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.Price" class="control-lable"></label>
+        <input asp-for="Product.Price" class="form-control" />
+        <span asp-validation-for="Product.Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Update" class="btn btn-primary" />
+    </div>
+
+    <div>
+        <a asp-page="/Product/GetAllProducts">Back to List</a>
+    </div>
+</form>

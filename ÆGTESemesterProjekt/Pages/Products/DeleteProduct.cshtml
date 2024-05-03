@@ -1,0 +1,12 @@
+﻿@page
+@model ÆGTESemesterProjekt.Pages.Products.DeleteProductModel
+@{
+}
+<h1>Slet Produkt></h1>
+<div class="alert alert-danger">
+    <h5>Er du sikker på, at du ville slette dette produkt? - @Model.Product.ProductName</h5>
+    <form method="post">
+        <button type="submit" class="btn btn-danger">Yes</button>
+        <a class="btn btn-primary" asp-page="/Product/GetAllProducts">No</a>
+    </form>
+</div>
