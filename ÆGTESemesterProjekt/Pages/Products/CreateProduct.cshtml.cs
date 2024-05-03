@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ÆGTESemesterProjekt.Pages.Products
 {
+    [Authorize(Roles = "employee")]
     public class CreateProductModel : PageModel
     {
         private IProductService _productService;

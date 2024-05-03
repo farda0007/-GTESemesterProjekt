@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<UserService, UserService>();
 builder.Services.AddSingleton<IProductService, ProductService>();
 builder.Services.AddTransient<JsonFileService<Product>>();
 
@@ -15,7 +16,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 });
 builder.Services.AddMvc().AddRazorPagesOptions(options => {
-    options.Conventions.AuthorizeFolder("/Product");
+    options.Conventions.AuthorizeFolder("/Products/GetAllProducts");
 
 }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
