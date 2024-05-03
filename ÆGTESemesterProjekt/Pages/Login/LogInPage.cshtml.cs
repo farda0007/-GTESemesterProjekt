@@ -51,11 +51,11 @@ namespace ÆGTESemesterProjekt.Pages.Login
 
                         var claims = new List<Claim> { new Claim(ClaimTypes.Name, UserName) };
 
-                        if (UserName == "admin") claims.Add(new Claim(ClaimTypes.Role, "admin"));
+                        if (UserName == "Employee") claims.Add(new Claim(ClaimTypes.Role, "Employee"));
 
                         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-                        return RedirectToPage("/Item/GetAllItems");
+                        return RedirectToPage("/Product/GetAllProducts");
                     }
                 }
             }

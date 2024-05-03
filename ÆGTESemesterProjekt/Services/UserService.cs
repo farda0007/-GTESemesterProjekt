@@ -6,8 +6,8 @@ namespace ÆGTESemesterProjekt.Services
     {
         public List<Employee> Users { get; set; }
         private JsonFileService<Employee> UserJsonFileService;
-        // public User LoggedInUser { get; set; }
-        // public static User LoggedInTeamMember = null;
+        public User LoggedInUser { get; set; }
+
 
         public UserService(JsonFileService<Employee> UserJsonFileService)
         {
@@ -15,7 +15,7 @@ namespace ÆGTESemesterProjekt.Services
             //Users = MockUsers.GetUsers();
             Users = UserJsonFileService.GetJsonObjects().ToList();
             UserJsonFileService.SaveJsonObjects(Users);
-            //LoggedInUser = Users[0];
+            LoggedInUser = Users[0];
         }
     }
 }
