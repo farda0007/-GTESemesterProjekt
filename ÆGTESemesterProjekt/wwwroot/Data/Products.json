@@ -1,17 +1,22 @@
 [
   {
+    "Id": 9,
+    "ProductName": "Hej",
+    "Price": 9999
+  },
+  {
     "Id": 1,
-    "ProductName": "Vinyl",
-    "Price": 5999
+    "ProductName": "varm pladeafspiller",
+    "Price": 999
   },
   {
     "Id": 2,
-    "ProductName": "Vinyl",
-    "Price": 5999
+    "ProductName": "B\u00F8rste",
+    "Price": 300
   },
   {
     "Id": 3,
-    "ProductName": "Vinyl",
-    "Price": 5999
+    "ProductName": "vodka",
+    "Price": 499
   }
 ]
