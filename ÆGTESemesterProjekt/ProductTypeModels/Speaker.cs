@@ -14,8 +14,13 @@ namespace ÆGTESemesterProjekt.ProductTypeModels
         {
         }
 
-        public Speaker(int id, string productName, int price) : base(id, productName, price)
+        public Speaker(string brand, string type, string dimensions, List<Speaker> speakers, string speakerType, int id, string productName, int price) : base(id, productName, price)
         {
+            Brand = brand;
+            Type = type;
+            Dimensions = dimensions;
+            Speakers = speakers;
+            SpeakerType = speakerType;
         }
     }
 }

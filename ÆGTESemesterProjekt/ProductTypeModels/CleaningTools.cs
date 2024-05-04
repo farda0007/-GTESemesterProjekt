@@ -12,8 +12,10 @@ namespace ÆGTESemesterProjekt.ProductTypeModels
         {
         }
 
-        public CleaningTools(int id, string productName, int price) : base(id, productName, price)
+        public CleaningTools(string brand, List<CleaningTools> tools, int id, string productName, int price) : base(id, productName, price)
         {
+            Brand = brand;
+            Tools = tools;
         }
     }
 }

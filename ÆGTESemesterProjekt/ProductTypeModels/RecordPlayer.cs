@@ -13,8 +13,12 @@ namespace ÆGTESemesterProjekt.ProductTypeModels
         {
         }
 
-        public RecordPlayer(int id, string productName, int price) : base(id, productName, price)
+        public RecordPlayer(string brand, string type, string color, List<RecordPlayer> recordPlayers, int id, string productName, int price) : base(id, productName, price)
         {
+            Brand = brand;
+            Type = type;
+            Color = color;
+            this.recordPlayers = recordPlayers;
         }
     }
 }

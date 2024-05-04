@@ -16,8 +16,14 @@ namespace ÆGTESemesterProjekt.ProductTypeModels
         {
         }
 
-        public Vinyl(int id, string productName, int price) : base(id, productName, price)
+        public Vinyl(string artist, string title, string condition, string label, int year, List<Vinyl> vinyls, int id, string productName, int price) : base(id, productName, price)
         {
+            Artist = artist;
+            Title = title;
+            Condition = condition;
+            Label = label;
+            Year = year;
+            Vinyls = vinyls;
         }
     }
 }

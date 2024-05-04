@@ -13,8 +13,14 @@ namespace ÆGTESemesterProjekt.ProductTypeModels
         {
         }
 
-        public Radio(int id, string productName, int price) : base(id, productName, price)
+        public Radio(string brand, string dimensions, bool bluetooth, List<Radio> radios, int id, string productName, int price) : base(id, productName, price)
         {
+            Brand = brand;
+            Dimensions = dimensions;
+            Bluetooth = bluetooth;
+            Radios = radios;
+            
         }
+
     }
 }

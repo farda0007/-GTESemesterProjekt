@@ -11,8 +11,11 @@ namespace ÆGTESemesterProjekt.ProductTypeModels
         {
         }
 
-        public Headset(int id, string productName, int price) : base(id, productName, price)
+        public Headset(string brand, bool wireless, List<Headset> headsets, int id, string productName, int price) : base(id, productName, price)
         {
+            Brand = brand;
+            Wireless = wireless;
+            Headsets = headsets;
         }
     }
 }
