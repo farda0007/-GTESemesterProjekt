@@ -22,7 +22,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 });
 builder.Services.AddMvc().AddRazorPagesOptions(options => {
-    options.Conventions.AuthorizeFolder("/Product");
+    options.Conventions.AuthorizeFolder("/Products/GetAllProducts");
 
 }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
