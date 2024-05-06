@@ -1,3 +1,4 @@
+using ÆGTESemesterProjekt.Models;
 using ÆGTESemesterProjekt.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -7,7 +8,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ÆGTESemesterProjekt.Pages.User
 {
-    [Authorize(Roles = "employee")]
     public class CreateUserModel : PageModel
     {
         private PasswordHasher<string> passwordHasher;
@@ -17,21 +17,26 @@ namespace ÆGTESemesterProjekt.Pages.User
         [BindProperty, DataType(DataType.Password)]
         public string Password { get; set; }
 
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Phone { get; set; }
+        public string Email { get; set; }
+
         public CreateUserModel(UserService userService)
         {
             this.passwordHasher = new PasswordHasher<string>();
             _userService = userService;
         }
 
-        //public async Task<IActionResult> OnPostAsync()
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return Page();
-        //    }
-        //    await _userService.AddUserAsync(new User(UserName, passwordHasher.HashPassword(null, Password)));
-        //    //_userService.AddUser(new User(UserName, Password));
-        //    return RedirectToPage("/Item/GetAllItems");
-        //}
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+            await _userService.AddUserAsync(new Customer(Id, UserName, Name, passwordHasher.HashPassword(null, Password), Phone, Email));
+            //_userService.AddUser(new User(UserName, Password));
+            return RedirectToPage("/Index");
+    }
     }
 }
