@@ -18,5 +18,24 @@ namespace ÆGTESemesterProjekt.Services
             UserJsonFileService.SaveJsonObjects(Users);
             //LoggedInUser = Users[0];
         }
+
+        public async Task AddUserAsync(User user)
+        {
+            Users.Add(user);
+            //await _dbService.AddObjectAsync(user);
+            _userJsonFileService.SaveJsonObjects(Users);
+
+        }
+        public User GetUserByUserName(string userName)
+        {
+            foreach (User user in Users)
+                if (userName == user.UserName)
+                {
+                    return user;
+                }
+            return null;
+        }
+
+
     }
 }
