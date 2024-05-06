@@ -2,30 +2,24 @@ using ÆGTESemesterProjekt.Models;
 using ÆGTESemesterProjekt.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-//builder.Services.AddSingleton<UserService, UserService>();
+builder.Services.AddSingleton<UserService, UserService>();
 builder.Services.AddSingleton<IProductService, ProductService>();
 builder.Services.AddTransient<JsonFileService<Product>>();
+builder.Services.AddTransient<JsonFileService<User>>();
+builder.Services.AddTransient<JsonFileService<Employee>>();
+builder.Services.AddTransient<JsonFileService<Customer>>();
 
-builder.Services.Configure<CookiePolicyOptions>(options => {
-    // This lambda determines whether user consent for non-essential cookies is needed for a given request. options.CheckConsentNeeded = context => true;
-    options.MinimumSameSitePolicy = SameSiteMode.None;
-
-});
-
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(cookieOptions => {
-    cookieOptions.LoginPath = "/Login/LogInPage";
-
-});
-builder.Services.AddMvc().AddRazorPagesOptions(options => {
-    options.Conventions.AuthorizeFolder("/Products/GetAllProducts");
-
-}).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-
+builder.Services.Configure<CookiePolicyOptions>(options => { 
+	// This lambda determines whether user consent for non-essential cookies is needed for a given request.
+options.CheckConsentNeeded = context => true; options.MinimumSameSitePolicy = SameSiteMode.None;  });  
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(cookieOptions => { cookieOptions.LoginPath = "/LogIn/LogInPage";  }); 
+builder.Services.AddMvc().AddRazorPagesOptions(options => { options.Conventions.AuthorizeFolder("/Products/GetAllProducts");  }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -40,7 +34,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();

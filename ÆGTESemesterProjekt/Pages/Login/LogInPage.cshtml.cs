@@ -13,7 +13,7 @@ namespace ÆGTESemesterProjekt.Pages.Login
     public class LogInPageModel : PageModel
     {
 
-        //public static User LoggedInUser { get; set; } = null;
+        public static Models.User LoggedInUser { get; set; } = null;
 
         private UserService _userService;
 
@@ -38,7 +38,7 @@ namespace ÆGTESemesterProjekt.Pages.Login
         public async Task<IActionResult> OnPost()
         {
 
-            List<Employee> users = _userService.Users;
+            List<Models.User> users = _userService.Users;
             foreach (Models.User user in users)
             {
                 if (UserName == user.UserName)

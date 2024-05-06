@@ -1,21 +1,22 @@
-﻿using ÆGTESemesterProjekt.Models;
+﻿using ÆGTESemesterProjekt.MockData;
+using ÆGTESemesterProjekt.Models;
 
 namespace ÆGTESemesterProjekt.Services
 {
     public class UserService
     {
-        public List<Employee> Users { get; set; }
-        private JsonFileService<Employee> UserJsonFileService;
-        public User LoggedInUser { get; set; }
+        public List<User> Users { get; set; }
+        private JsonFileService<User> _userJsonFileService;
+        //public User LoggedInUser { get; set; }
 
 
-        public UserService(JsonFileService<Employee> UserJsonFileService)
+        public UserService(JsonFileService<User> UserJsonFileService)
         {
-            this.UserJsonFileService = UserJsonFileService;
-            //Users = MockUsers.GetUsers();
-            Users = UserJsonFileService.GetJsonObjects().ToList();
+            _userJsonFileService = UserJsonFileService;
+            Users = MockUsers.GetUsers();
+            //Users = UserJsonFileService.GetJsonObjects().ToList();
             UserJsonFileService.SaveJsonObjects(Users);
-            LoggedInUser = Users[0];
+            //LoggedInUser = Users[0];
         }
     }
 }
