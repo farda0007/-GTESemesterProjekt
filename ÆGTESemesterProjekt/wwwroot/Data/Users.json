@@ -1,6 +1,6 @@
 [
   {
-    "Id": 1,
+    "UserId": 0,
     "UserName": "employee",
     "Name": "employee",
     "Password": "123",
@@ -8,7 +8,7 @@
     "Email": "Arda@mail.com"
   },
   {
-    "Id": 1,
+    "UserId": 0,
     "UserName": "Akhmed",
     "Name": "Akh",
     "Password": "Admin",
