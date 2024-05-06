@@ -12,7 +12,7 @@ namespace ÆGTESemesterProjekt.Pages.Login
             //LogInPageModel.LoggedInUser = null;
 
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToPage("/index");
+            return RedirectToPage("/Index");
         }
     }
 }
