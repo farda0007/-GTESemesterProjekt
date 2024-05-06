@@ -16,7 +16,8 @@ namespace ÆGTESemesterProjekt.Models
         public string Password { get; set; }
         public int Phone { get; set; }
         public string Email { get; set; }
-        public User()
+		public virtual ICollection<Order> Orders { get; set; }
+		public User()
         {
             //UserName = "";
             //Password = "";
@@ -27,7 +28,7 @@ namespace ÆGTESemesterProjekt.Models
         // fjern evt id.
         public User( string userName, string name, string password, int phone, string email)
         {
-            //Id = id;
+            UserId = userid;
             UserName = userName;
             Name = name;
             Password = password;
