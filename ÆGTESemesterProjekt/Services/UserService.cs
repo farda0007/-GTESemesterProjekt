@@ -13,8 +13,8 @@ namespace ÆGTESemesterProjekt.Services
         public UserService(JsonFileService<User> UserJsonFileService)
         {
             _userJsonFileService = UserJsonFileService;
-            Users = MockUsers.GetUsers();
-            //Users = UserJsonFileService.GetJsonObjects().ToList();
+            //Users = MockUsers.GetUsers();
+            Users = UserJsonFileService.GetJsonObjects().ToList();
             UserJsonFileService.SaveJsonObjects(Users);
             //LoggedInUser = Users[0];
         }
