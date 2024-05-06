@@ -57,12 +57,12 @@ namespace ÆGTESemesterProjekt.Pages.Login
                     //    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
                     //    return RedirectToPage("/Products/GetAllProducts");
                     //}
-                    var claims = new List<Claim> { new Claim(ClaimTypes.Name, UserName) };
-                    if (UserName == "employee") claims.Add(new Claim(ClaimTypes.Role, "employee"));
+                                 var claims = new List<Claim> { new Claim(ClaimTypes.Name, UserName) };
+             if (UserName == "employee") claims.Add(new Claim(ClaimTypes.Role, "employee"));
 
-                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-                    return RedirectToPage("/Products/GetAllProducts");
+             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+             return RedirectToPage("/Products/GetAllProducts");
                 }
             }
             Message = "Invalid attempt";

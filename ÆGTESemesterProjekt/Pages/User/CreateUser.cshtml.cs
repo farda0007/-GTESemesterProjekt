@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ÆGTESemesterProjekt.Pages.User
 {
-    [Authorize(Roles = "admin")]
+    [Authorize(Roles = "employee")]
     public class CreateUserModel : PageModel
     {
         private PasswordHasher<string> passwordHasher;
