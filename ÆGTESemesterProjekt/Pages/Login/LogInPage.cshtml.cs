@@ -13,7 +13,7 @@ namespace ÆGTESemesterProjekt.Pages.Login
     public class LogInPageModel : PageModel
     {
 
-        public static Models.User LoggedInUser { get; set; } = null;
+        //public static Models.User LoggedInUser { get; set; } = null;
 
         private UserService _userService;
 
@@ -43,20 +43,26 @@ namespace ÆGTESemesterProjekt.Pages.Login
             {
                 if (UserName == user.UserName)
                 {
-                    var passwordHasher = new PasswordHasher<string>();
+                    //var passwordHasher = new PasswordHasher<string>();
 
-                    if (passwordHasher.VerifyHashedPassword(null, user.Password, Password) == PasswordVerificationResult.Success)
-                    {
-                        //LoggedInUser = user;
+                    //if (passwordHasher.VerifyHashedPassword(null, user.Password, Password) == PasswordVerificationResult.Success)
+                    //{
+                    //    //LoggedInUser = user;
 
-                        var claims = new List<Claim> { new Claim(ClaimTypes.Name, UserName) };
+                    //    var claims = new List<Claim> { new Claim(ClaimTypes.Name, UserName) };
 
-                        if (UserName == "Employee") claims.Add(new Claim(ClaimTypes.Role, "Employee"));
+                    //    if (UserName == "employee") claims.Add(new Claim(ClaimTypes.Role, "employee"));
 
-                        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-                        return RedirectToPage("/Product/GetAllProducts");
-                    }
+                    //    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    //    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+                    //    return RedirectToPage("/Products/GetAllProducts");
+                    //}
+                    var claims = new List<Claim> { new Claim(ClaimTypes.Name, UserName) };
+                    if (UserName == "employee") claims.Add(new Claim(ClaimTypes.Role, "employee"));
+
+                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+                    return RedirectToPage("/Products/GetAllProducts");
                 }
             }
             Message = "Invalid attempt";

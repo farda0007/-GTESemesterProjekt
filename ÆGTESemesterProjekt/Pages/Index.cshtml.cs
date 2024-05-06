@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ÆGTESemesterProjekt.Pages.Login;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ÆGTESemesterProjekt.Pages
@@ -14,7 +17,12 @@ namespace ÆGTESemesterProjekt.Pages
 
 		public void OnGet()
 		{
+			//if (LogInPageModel.LoggedInUser == null)
+			//{
 
+			//	HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+			//}
 		}
-	}
+    }
 }
