@@ -5,11 +5,11 @@ namespace ÆGTESemesterProjekt.Models
 {
     public class User
     {
-        //[Display(Name = "User ID")]
-        //[Required(ErrorMessage = "Der skal angives et ID til User")]
-        //[Range(typeof(int), minimum: "0", maximum: "100000", ErrorMessage = "ID skal være mellem {1} og {2}")]
-        //[Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "User ID")]
+        [Required(ErrorMessage = "Der skal angives et ID til User")]
+        [Range(typeof(int), minimum: "0", maximum: "100000", ErrorMessage = "ID skal være mellem {1} og {2}")]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string UserName { get; set; }
         public string Name { get; set; }
@@ -24,7 +24,7 @@ namespace ÆGTESemesterProjekt.Models
             //Phone = 0;
             //Email = "";
         }
-
+        // fjern evt id.
         public User(int id, string userName, string name, string password, int phone, string email)
         {
             Id = id;
