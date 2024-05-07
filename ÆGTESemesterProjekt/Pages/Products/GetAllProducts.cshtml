@@ -19,6 +19,7 @@
                             <p class="card-text">Produkt beskrivelse</p>
                             <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditProduct" asp-route-id="@product.Id"><i class="fa-sharp fa-solid fa-pen"></i></a>
                             <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteProduct" asp-route-id="@product.Id"><i class="fas fa-trash"></i></a>
+                            <a class="btn btn-primary btn-sm" type="button" title="Detail" asp-page="DetailProduct" asp-route-id="@product.Id"><i class="fa fa-info"></i></a>
                         </div>
                     </div>
                 </div>
@@ -26,6 +27,7 @@
             }
     </div>
 </div>
+
 <p>
     <a class="btn btn-primary" asp-page="CreateProduct"> Create a new Item </a>
 </p>

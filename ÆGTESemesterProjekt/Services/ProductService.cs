@@ -22,7 +22,13 @@ namespace ÆGTESemesterProjekt.Services
 
 
 		}
+		public async Task AddProductAsync(Product product)
+		{
+			_products.Add(product);
 
+			//await _dbService.AddObjectAsync(item);
+
+		}
 		public List<Product> GetProduct() { return _products; }
         public void AddProduct(Product product)
         {
