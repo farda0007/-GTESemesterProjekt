@@ -52,6 +52,8 @@ namespace ÆGTESemesterProjekt.Services
                     {
                         p.ProductName = product.ProductName;
                         p.Price = product.Price;
+                        p.ProductImage = product.ProductImage;
+                        p.ProductName = product.ProductName;
                     }
                 }
                 JsonFileProductService.SaveJsonObjects(_products);
