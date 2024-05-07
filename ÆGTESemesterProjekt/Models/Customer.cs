@@ -8,9 +8,9 @@
         {
         }
 
-        public Customer(int id, string userName, string name, string password, int phone, string email) : base(userName, name, password, phone, email)
+        public Customer(string userName, string name, string password, int phone, string email) : base(userName, name, password, phone, email)
         {
-            CustomerId = id;
+            
         }
     }
 }

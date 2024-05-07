@@ -28,27 +28,9 @@
   },
   {
     "Id": 0,
-    "UserName": "ParaArda",
+    "UserName": "H\u00E5ndtaske",
     "Name": null,
-    "Password": "AQAAAAIAAYagAAAAEMwEC6SUNt0pHlP/fCxwdkRPygY/4jMW0Gs1\u002BhF9SUpJBK5d4gThw2kzA79/ufidKQ==",
-    "Phone": 0,
-    "Email": null,
-    "Orders": null
-  },
-  {
-    "Id": 0,
-    "UserName": "ThommyGun",
-    "Name": null,
-    "Password": "AQAAAAIAAYagAAAAEOIY9Lpvuj2BOH2p1E0El54qUSHRqGnE1CX2tBQErtq6M4OMOCqWyPceYmF\u002BJNEFAw==",
-    "Phone": 0,
-    "Email": null,
-    "Orders": null
-  },
-  {
-    "Id": 0,
-    "UserName": "hehe",
-    "Name": null,
-    "Password": "AQAAAAIAAYagAAAAEAk4gTgZUl1J2RkIXlSv1h7C\u002BDN\u002Bj4hAULq821F3eDMsP0sO0F5/eD3gyq6zWTSlCg==",
+    "Password": "AQAAAAIAAYagAAAAED4xU9uNZlJD6AYZvtRAsoB5nkZpjfaqXoCoezjtcfw2sqiU8D9b1sNgWT7WVEuS/w==",
     "Phone": 0,
     "Email": null,
     "Orders": null

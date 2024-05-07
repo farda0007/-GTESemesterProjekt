@@ -35,7 +35,10 @@ namespace ÆGTESemesterProjekt.Services
                 }
             return null;
         }
-
+        public List<User> GetUsers()
+        {
+            return Users;
+        }
 
     }
 }
