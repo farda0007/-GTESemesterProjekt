@@ -26,9 +26,8 @@ namespace ÆGTESemesterProjekt.Models
             //Email = "";
         }
         // fjern evt id.
-        public User(int id, string userName, string name, string password, int phone, string email)
+        public User(string userName, string name, string password, int phone, string email)
         {
-            UserId = userid;
             UserName = userName;
             Name = name;
             Password = password;

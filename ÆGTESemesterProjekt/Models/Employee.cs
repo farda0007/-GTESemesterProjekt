@@ -8,7 +8,7 @@
         {
         }
 
-        public Employee(int id, string userName, string name, string password, int phone, string email) : base(id, userName, name, password, phone, email)
+        public Employee(int id, string userName, string name, string password, int phone, string email) : base(userName, name, password, phone, email)
         {
             EmployeeId = id;
         }
