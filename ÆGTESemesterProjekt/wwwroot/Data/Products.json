@@ -1,28 +1,8 @@
 [
   {
-    "Id": 9,
-    "ProductName": "Hej",
-    "Price": 9999
-  },
-  {
-    "Id": 1,
-    "ProductName": "varm pladeafspiller",
-    "Price": 999
-  },
-  {
-    "Id": 2,
-    "ProductName": "B\u00F8rste",
-    "Price": 300
-  },
-  {
     "Id": 3,
     "ProductName": "vodka",
     "Price": 499
-  },
-  {
-    "Id": 4,
-    "ProductName": "ffff",
-    "Price": 2222
   },
   {
     "Id": 5,
@@ -35,8 +15,13 @@
     "Price": 66666
   },
   {
-    "Id": 7,
-    "ProductName": "7777",
-    "Price": 77777
+    "Id": 8,
+    "ProductName": "8888",
+    "Price": 8888
+  },
+  {
+    "Id": 2,
+    "ProductName": "2222",
+    "Price": 2222
   }
 ]

@@ -3,6 +3,7 @@ using ÆGTESemesterProjekt.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using ÆGTESemesterProjekt.EFDbContext;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,8 @@ builder.Services.AddTransient<JsonFileService<Product>>();
 builder.Services.AddTransient<JsonFileService<User>>();
 builder.Services.AddTransient<JsonFileService<Employee>>();
 builder.Services.AddTransient<JsonFileService<Customer>>();
+builder.Services.AddDbContext<ProductDbContext>();
+builder.Services.AddTransient<DbService>();
 
 builder.Services.Configure<CookiePolicyOptions>(options => { 
 	// This lambda determines whether user consent for non-essential cookies is needed for a given request.
