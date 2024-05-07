@@ -7,10 +7,10 @@ namespace ÆGTESemesterProjekt.EFDbContext
 	{
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
 		{
-			options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ItemDB; Integrated Security=True; Connect Timeout=30; Encrypt=False");
+			options.UseSqlServer(@"Data Source=mssql15.unoeuro.com;Initial Catalog=atll_dk_db_vinyl_database;User ID=atll_dk;Password=********;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
 		}
 
-		public DbSet<Product> Items { get; set; }
+		public DbSet<Product> Products { get; set; }
 		public DbSet<User> Users { get; set; }
 	}
 
