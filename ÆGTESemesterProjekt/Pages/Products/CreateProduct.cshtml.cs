@@ -19,9 +19,10 @@ namespace ÆGTESemesterProjekt.Pages.Products
 		private IProductService _productService;
         [BindProperty]
         public Product Product { get; set; }
-        public CreateProductModel(IProductService productService, IWebHostEnvironment webHost)
-        {
-            _productService = productService;
+
+		public CreateProductModel(IProductService productService, IWebHostEnvironment webHost)
+		{
+			_productService = productService;
 			_webHostEnvironment = webHost;
 		}
         public IActionResult OnGet()
