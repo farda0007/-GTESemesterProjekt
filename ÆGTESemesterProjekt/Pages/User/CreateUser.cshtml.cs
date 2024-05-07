@@ -17,7 +17,6 @@ namespace ÆGTESemesterProjekt.Pages.User
         [BindProperty, DataType(DataType.Password)]
         public string Password { get; set; }
 
-        public int Id { get; set; }
         public string Name { get; set; }
         public int Phone { get; set; }
         public string Email { get; set; }
@@ -34,7 +33,7 @@ namespace ÆGTESemesterProjekt.Pages.User
             {
                 return Page();
             }
-            await _userService.AddUserAsync(new Customer(Id, UserName, Name, passwordHasher.HashPassword(null, Password), Phone, Email));
+            await _userService.AddUserAsync(new Customer(UserName, Name, passwordHasher.HashPassword(null, Password), Phone, Email));
             //_userService.AddUser(new User(UserName, Password));
             return RedirectToPage("/Index");
     }

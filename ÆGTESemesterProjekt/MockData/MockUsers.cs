@@ -6,8 +6,8 @@ namespace ÆGTESemesterProjekt.MockData
     {
         private static List<User> users = new List<User>()
         {
-            new Employee(1, "employee", "employee", "123", 60714904, "Arda@mail.com"),
-            new Employee(1, "Akhmed", "Akh", "Admin", 13131919, "Akhmedes@mail.com")
+            new Employee("employee", "employee", "123", 60714904, "Arda@mail.com"),
+            new Employee("Akhmed", "Akh", "Admin", 13131919, "Akhmedes@mail.com")
         };
 
         public static List<User> GetUsers()
