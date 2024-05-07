@@ -2,36 +2,50 @@
   {
     "Id": 3,
     "ProductName": "vodka",
-    "Price": 499
+    "Price": 499,
+    "Description": null,
+    "ProductImage": null
   },
   {
     "Id": 5,
     "ProductName": "55555",
-    "Price": 55555
+    "Price": 55555,
+    "Description": null,
+    "ProductImage": null
   },
   {
     "Id": 6,
     "ProductName": "66666",
-    "Price": 66666
+    "Price": 66666,
+    "Description": null,
+    "ProductImage": null
   },
   {
     "Id": 8,
     "ProductName": "8888",
-    "Price": 8888
+    "Price": 8888,
+    "Description": null,
+    "ProductImage": null
   },
   {
     "Id": 2,
     "ProductName": "2222",
-    "Price": 2222
+    "Price": 2222,
+    "Description": null,
+    "ProductImage": null
   },
   {
     "Id": 3,
     "ProductName": "33333",
-    "Price": 3333
+    "Price": 3333,
+    "Description": null,
+    "ProductImage": null
   },
   {
     "Id": 4,
     "ProductName": "4444",
-    "Price": 44444
+    "Price": 44444,
+    "Description": null,
+    "ProductImage": null
   }
 ]
