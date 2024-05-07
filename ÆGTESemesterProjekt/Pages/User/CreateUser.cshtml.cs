@@ -16,9 +16,12 @@ namespace ÆGTESemesterProjekt.Pages.User
         public string UserName { get; set; }
         [BindProperty, DataType(DataType.Password)]
         public string Password { get; set; }
+        [BindProperty]
 
         public string Name { get; set; }
+        [BindProperty]
         public int Phone { get; set; }
+        [BindProperty]
         public string Email { get; set; }
 
         public CreateUserModel(UserService userService)
