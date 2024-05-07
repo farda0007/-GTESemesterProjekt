@@ -62,7 +62,7 @@ namespace ÆGTESemesterProjekt.Pages.Login
 
              var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
              await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-             return RedirectToPage("/Products/GetAllProducts");
+             return RedirectToPage("/Index");
                 }
             }
             Message = "Invalid attempt";
