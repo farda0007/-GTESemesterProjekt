@@ -5,7 +5,8 @@
     "Name": "employee",
     "Password": "123",
     "Phone": 60714904,
-    "Email": "Arda@mail.com"
+    "Email": "Arda@mail.com",
+    "Orders": null
   },
   {
     "Id": 0,
@@ -13,7 +14,8 @@
     "Name": "Akh",
     "Password": "Admin",
     "Phone": 13131919,
-    "Email": "Akhmedes@mail.com"
+    "Email": "Akhmedes@mail.com",
+    "Orders": null
   },
   {
     "Id": 0,
@@ -21,7 +23,8 @@
     "Name": null,
     "Password": "AQAAAAIAAYagAAAAEJNbWvE542YSme3jmC\u002BHtQvcKpi3YzQ\u002BZLujWGzdYBH4Di2Ypl0MmzQH5Odk8sHqdw==",
     "Phone": 0,
-    "Email": null
+    "Email": null,
+    "Orders": null
   },
   {
     "Id": 0,
@@ -29,7 +32,8 @@
     "Name": null,
     "Password": "AQAAAAIAAYagAAAAEMwEC6SUNt0pHlP/fCxwdkRPygY/4jMW0Gs1\u002BhF9SUpJBK5d4gThw2kzA79/ufidKQ==",
     "Phone": 0,
-    "Email": null
+    "Email": null,
+    "Orders": null
   },
   {
     "Id": 0,
@@ -37,6 +41,7 @@
     "Name": null,
     "Password": "AQAAAAIAAYagAAAAEF6AO49PFhCXGLzTvAIsc5Zzz9DUraxvO\u002BlW/hhgenJGR7iWurpD2trsRZWC9bojiw==",
     "Phone": 0,
-    "Email": null
+    "Email": null,
+    "Orders": null
   }
 ]
