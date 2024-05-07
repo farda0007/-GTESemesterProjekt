@@ -7,15 +7,17 @@ namespace ÆGTESemesterProjekt.Services
 	{
         private JsonFileService<Product> JsonFileProductService;
         private List<Product> _products;
-        private DbService _dbService;
+        //private DbService _dbService;
+        private DbGenericService<Product> _dbService;
 
-        public ProductService(JsonFileService<Product> jsonFileProductService)
+        public ProductService(JsonFileService<Product> jsonFileProductService, DbGenericService<Product> dbService)
         {
             JsonFileProductService = jsonFileProductService;
-            //_dbService = dbService;
+            _dbService = dbService;
             //_products = MockProducts.GetMockProducts();
             _products = JsonFileProductService.GetJsonObjects().ToList();
             //JsonFileProductService.SaveJsonObjects(_products);
+            //_dbService.SaveObjects(_products);
             //_products = _dbService.GetProducts().Result;
         }
 
@@ -28,7 +30,7 @@ namespace ÆGTESemesterProjekt.Services
 		{
 			_products.Add(product);
 
-			//await _dbService.AddObjectAsync(item);
+			await _dbService.AddObjectAsync(product);
 
 		}
 		public List<Product> GetProduct() { return _products; }
@@ -36,6 +38,7 @@ namespace ÆGTESemesterProjekt.Services
         {
             _products.Add(product);
             JsonFileProductService.SaveJsonObjects(_products);
+            _dbService.SaveObjects(_products);
 
         }
         public List<Product> GetProducts()
