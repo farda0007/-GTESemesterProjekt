@@ -47,5 +47,12 @@
     "Price": 44444,
     "Description": null,
     "ProductImage": null
+  },
+  {
+    "Id": 1,
+    "ProductName": "Dansk Top Vinyl",
+    "Price": 499,
+    "Description": "Ukendt Kunstner Vinyl",
+    "ProductImage": "Dansktop.jpg"
   }
 ]

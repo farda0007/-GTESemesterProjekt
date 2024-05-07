@@ -27,7 +27,7 @@ namespace ÆGTESemesterProjekt.Services
 		public async Task AddProductAsync(Product product)
 		{
 			_products.Add(product);
-
+			JsonFileProductService.SaveJsonObjects(_products);
 			//await _dbService.AddObjectAsync(item);
 
 		}
