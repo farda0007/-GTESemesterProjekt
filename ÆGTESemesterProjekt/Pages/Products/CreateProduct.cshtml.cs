@@ -53,7 +53,7 @@ namespace ÆGTESemesterProjekt.Pages.Products
 				Product.ProductImage = ProcessUploadedFile();
 			}
 			await _productService.AddProductAsync(Product);
-			return RedirectToPage("Products/GetAllProducts");
+			return RedirectToPage("/Products/GetAllProducts");
 		}
 		private string ProcessUploadedFile()
 		{
