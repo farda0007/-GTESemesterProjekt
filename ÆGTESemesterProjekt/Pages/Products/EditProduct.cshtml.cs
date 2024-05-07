@@ -31,7 +31,7 @@ namespace ÆGTESemesterProjekt.Pages.Products
                 return Page();
             }
             _productService.UpdateProduct(Product);
-            return RedirectToPage("GetAllProducts");
+            return RedirectToPage("/Products/GetAllProducts");
         }
     }
 }
