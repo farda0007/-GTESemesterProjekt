@@ -15,14 +15,25 @@
                         <div class="card-body">
                             <h5 class="card-title">@product.ProductName</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Id: @product.Id</h6>
-                            <p class="card-text">Price: @product.Price</p>
-                            <p class="card-text">xxxxx</p>
-                            <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditProduct" asp-route-id="@product.Id">
-                                <i class="fa-sharp fa-solid fa-pen"></i>
-                            </a>
-                            <a class="btn btn-danger btn-sm" type="button" title="Delete" asp-page="DeleteProduct" asp-route-id="@product.Id">
-                                <i class="fas fa-trash"></i>
-                            </a>
+                            <p class="card-text">Pris: @product.Price</p>
+                            <p class="card-text">Produkt beskrivelse</p>
+                                <div class="form-group">
+                    <label asp-for="@product.ProductImage" class="control-lable"></label>
+                    <input asp-for="@product.ProductImage" class="form-control" />
+                    <span asp-validation-for="@product.ProductImage" class="text-danger"></span>
+                    </div> 
+
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Default file input example</label>
+                                <input class="form-control" type="file" id="formFile">
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@product.Description" class="control-lable"></label>
+                                <input asp-for="@product.Description" class="form-control" />
+                                <span asp-validation-for="@product.Description" class="text-danger"></span>
+                            </div>
+                            <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditProduct" asp-route-id="@product.Id"><i class="fa-sharp fa-solid fa-pen"></i></a>
+                            <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteProduct" asp-route-id="@product.Id"><i class="fas fa-trash"></i></a>
                         </div>
                     </div>
                 </div>
@@ -30,6 +41,7 @@
         }
     </div>
 </div>
+
 <p>
     <a class="btn btn-primary" asp-page="CreateProduct">Create a new Item</a>
 </p>

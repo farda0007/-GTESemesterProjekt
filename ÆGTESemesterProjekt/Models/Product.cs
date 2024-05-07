@@ -16,19 +16,21 @@
 		public int Price { get; set; }
 
 		//public int Count { get; set; }
-		//public string Description { get; set; }
-		//public string ProductImage { get; set; }
+		public string Description { get; set; }
+		public string ProductImage { get; set; }
 
 
 		public Product()
 		{
 		}
 
-		public Product(int id, string productName, int price)
+		public Product(int id, string productName, int price, string description, string productImage)
 		{
 			Id = id;
 			ProductName = productName;
 			Price = price;
+			Description = description;
+			ProductImage = productImage;
 		}
 	}
 }

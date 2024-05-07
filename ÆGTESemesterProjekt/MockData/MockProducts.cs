@@ -7,9 +7,9 @@ namespace ÆGTESemesterProjekt.MockData
 
 		private static List<Product> _products = new List<Product>()
 		{
-			new Product(1, "Vinyl", 5999),//, "test.jpg"
-			new Product(2, "Vinyl", 5999),//, "test.jpg"
-			new Product(3, "Vinyl", 5999)//"test.jpg"
+			new Product(1, "Vinyl", 5999, "Hans Philip og Jens MccCoy", "DanskTop"),//, "test.jpg"
+			new Product(2, "Vinyl", 5999, "Fallout boys", "Save Rock & Roll"),//, "test.jpg"
+			new Product(3, "Vinyl", 5999, "Kendrick Lamar", "ToPimpaButterfly")//"test.jpg"
         };
 		public static List<Product> GetMockProducts()
 		{
