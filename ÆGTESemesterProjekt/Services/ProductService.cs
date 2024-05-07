@@ -7,14 +7,16 @@ namespace ÆGTESemesterProjekt.Services
 	{
         private JsonFileService<Product> JsonFileProductService;
         private List<Product> _products;
+        private DbService _dbService;
 
         public ProductService(JsonFileService<Product> jsonFileProductService)
         {
             JsonFileProductService = jsonFileProductService;
+            //_dbService = dbService;
             //_products = MockProducts.GetMockProducts();
             _products = JsonFileProductService.GetJsonObjects().ToList();
-            JsonFileProductService.SaveJsonObjects(_products);
-
+            //JsonFileProductService.SaveJsonObjects(_products);
+            //_products = _dbService.GetProducts().Result;
         }
 
         public ProductService()

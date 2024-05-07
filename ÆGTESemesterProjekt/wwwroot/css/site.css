@@ -20,3 +20,13 @@ html {
 body {
   margin-bottom: 60px;
 }
+<style >
+.product-card {
+    margin: 10px; /* Smaller margin around each card */
+}
+
+.container {
+    max-width: 95%; /* Adjust width of the container to suit your design */
+}
+
+</style >

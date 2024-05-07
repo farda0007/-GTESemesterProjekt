@@ -3,33 +3,36 @@
 @{
 }
 <h1>Products</h1>
-<div class="container mx-auto mt-4">
+<div class="container mx-auto mt-4" style="max-width: 95%;">
     <div class="row">
-            @if (@Model.Products != null)
+        @if (Model.Products != null)
+        {
+            foreach (var product in Model.Products)
             {
-                foreach (var product in Model.Products)
-                {
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="XXX" class="card-img-top" alt="Billede af XXXXXX" />
+                <div class="col-md-3 col-sm-6">
+                    <div class="card" style="width: 18rem; margin: 10px;">
+
                         <div class="card-body">
                             <h5 class="card-title">@product.ProductName</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Id: @product.Id</h6>
-                            <p class="card-text">Pris: @product.Price</p>
-                            <p class="card-text">Produkt beskrivelse</p>
-                            <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditProduct" asp-route-id="@product.Id"><i class="fa-sharp fa-solid fa-pen"></i></a>
-                            <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteProduct" asp-route-id="@product.Id"><i class="fas fa-trash"></i></a>
+                            <p class="card-text">Price: @product.Price</p>
+                            <p class="card-text">xxxxx</p>
+                            <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditProduct" asp-route-id="@product.Id">
+                                <i class="fa-sharp fa-solid fa-pen"></i>
+                            </a>
+                            <a class="btn btn-danger btn-sm" type="button" title="Delete" asp-page="DeleteProduct" asp-route-id="@product.Id">
+                                <i class="fas fa-trash"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-                }
             }
+        }
     </div>
 </div>
 <p>
-    <a class="btn btn-primary" asp-page="CreateProduct"> Create a new Item </a>
+    <a class="btn btn-primary" asp-page="CreateProduct">Create a new Item</a>
 </p>
-        
 
 @* <table class="table table-bordered table-hover table-striped">
     <thread>
