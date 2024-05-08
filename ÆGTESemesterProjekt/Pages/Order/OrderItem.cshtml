@@ -1,0 +1,11 @@
+﻿@page
+@model ÆGTESemesterProjekt.Pages.Order.OrderItemModel
+@{
+}
+<form method="post">
+    <div class="form-group">
+        <label asp-for="order.Count" class="control-lable"></label>
+        <input asp-for="order.Count" class="form-control" />
+        <span asp-validation-for="order.Count" class="text-danger"></span>
+    </div>
+</form>

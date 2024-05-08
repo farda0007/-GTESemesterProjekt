@@ -10,7 +10,7 @@ namespace ÆGTESemesterProjekt.Models
         [Range(typeof(int), minimum: "0", maximum: "100000", ErrorMessage = "ID skal være mellem {1} og {2}")]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int UserId { get; set; }
         public string UserName { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }

@@ -1,17 +1,20 @@
-﻿namespace ÆGTESemesterProjekt.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ÆGTESemesterProjekt.Models
 {
 	public class Product
 	{
-		//[Display(Name = "Produkt ID")]
-		//[Required(ErrorMessage = "Der skal angives et ID til produktet")]
-		//[Range(typeof(int), minimum: "0", maximum: "10000", ErrorMessage = "Id skal være mellem {1} og {2}")]
-		//// Muligvis skal fjernes...
-		//[Key]
-		//[DatabaseGenerated(DatabaseGeneratedOption.None)]
+		[Display(Name = "Produkt ID")]
+		[Required(ErrorMessage = "Der skal angives et ID til produktet")]
+		[Range(typeof(int), minimum: "0", maximum: "10000", ErrorMessage = "Id skal være mellem {1} og {2}")]
+		// Muligvis skal fjernes...
+		[Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.None)]
 		public int Id { get; set; }
-		//[Display(Name = "Produkt navn")]
-		//[Required(ErrorMessage = "Produktet skal have et navn")]
-		//[StringLength(100)]
+		[Display(Name = "Produkt navn")]
+		[Required(ErrorMessage = "Produktet skal have et navn")]
+		[StringLength(100)]
 		public string ProductName { get; set; }
 		public int Price { get; set; }
 

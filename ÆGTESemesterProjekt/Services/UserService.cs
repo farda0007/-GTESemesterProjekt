@@ -8,14 +8,17 @@ namespace ÆGTESemesterProjekt.Services
         public List<User> Users { get; set; }
         private JsonFileService<User> _userJsonFileService;
         //public User LoggedInUser { get; set; }
+        private DbGenericService<User> _dbService;
 
 
-        public UserService(JsonFileService<User> UserJsonFileService)
+        public UserService(JsonFileService<User> UserJsonFileService, DbGenericService<User> dbService)
         {
             _userJsonFileService = UserJsonFileService;
             //Users = MockUsers.GetUsers();
             Users = UserJsonFileService.GetJsonObjects().ToList();
             UserJsonFileService.SaveJsonObjects(Users);
+            _dbService = dbService;
+            _dbService.SaveObjects(Users);
             //LoggedInUser = Users[0];
         }
 
