@@ -1,4 +1,5 @@
-﻿using ÆGTESemesterProjekt.Models;
+﻿using ÆGTESemesterProjekt.MockData;
+using ÆGTESemesterProjekt.Models;
 
 namespace ÆGTESemesterProjekt.Services
 {
@@ -13,9 +14,9 @@ namespace ÆGTESemesterProjekt.Services
         {
             JsonFileRepairService = jsonFileRepairService;
             _dbService = dbService;
-            //_products = MockProducts.GetMockProducts();
+            _repairs = MockRepairs.GetMockRepairs();
             _repairs = JsonFileRepairService.GetJsonObjects().ToList();
-            //JsonFileProductService.SaveJsonObjects(_products);
+            JsonFileRepairService.SaveJsonObjects(_repairs);
             _dbService.SaveObjects(_repairs);
             //_products = _dbService.GetObjectsAsync().Result.ToList();
         }
