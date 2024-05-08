@@ -8,11 +8,12 @@ namespace ÆGTESemesterProjekt.Models
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int OrderId { get; set; }
+		
 		[DataType(DataType.Date)]
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
 		public DateTime Date { get; set; }
 
-		public int UserId { get; set; }
+		public int userId { get; set; }
 		public User User { get; set; }
 		public int ProductId { get; set; }
 		public Product Product { get; set; }

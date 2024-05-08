@@ -20,7 +20,7 @@ namespace ÆGTESemesterProjekt.Pages.Order
         public IActionResult OnGet()
         {
             Models.User CurrentUser = _UserService.GetUserByUserName(HttpContext.User.Identity.Name);
-            MyOrders = _UserService.GetUserOrdersAsync(CurrentUser).Result.Orders;
+            MyOrders = _UserService.GetUserOrders(CurrentUser).Result.Orders;
 
             return Page();
         }
