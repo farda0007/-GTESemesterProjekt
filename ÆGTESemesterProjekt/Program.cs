@@ -11,8 +11,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<UserService, UserService>();
 builder.Services.AddSingleton<IProductService, ProductService>();
-builder.Services.AddSingleton<IRepairService, RepairService>();
-
 builder.Services.AddTransient<JsonFileService<Product>>();
 builder.Services.AddTransient<JsonFileService<User>>();
 builder.Services.AddTransient<JsonFileService<Employee>>();

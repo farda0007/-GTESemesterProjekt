@@ -36,7 +36,7 @@ namespace ÆGTESemesterProjekt.Services
         {
             _products.Add(product);
             JsonFileProductService.SaveJsonObjects(_products);
-            _dbService.SaveObjects(_products);
+            //_dbService.SaveObjects(_products);
         }
         public List<Product> GetProducts()
         {

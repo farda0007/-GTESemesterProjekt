@@ -14,7 +14,7 @@ namespace ÆGTESemesterProjekt.Models
 
 		public int UserId { get; set; }
 		public User User { get; set; }
-		public int ItemId { get; set; }
+		public int ProductId { get; set; }
 		public Product Product { get; set; }
 		[Range(1, int.MaxValue, ErrorMessage = "Count must be more than {1}")]
 		public int Count { get; set; }

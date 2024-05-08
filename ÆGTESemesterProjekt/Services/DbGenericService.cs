@@ -55,10 +55,8 @@ namespace ÆGTESemesterProjekt.Services
                 foreach (T obj in objs)
                 {
                     context.Set<T>().Add(obj);
-                    context.SaveChanges();
                 }
-
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
         }
     }
