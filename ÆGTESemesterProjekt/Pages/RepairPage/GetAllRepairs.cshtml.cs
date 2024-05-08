@@ -5,6 +5,7 @@ namespace ÆGTESemesterProjekt.Pages.RepairPage
 {
     public class GetAllRepairsModel : PageModel
     {
+        public List<Models.Repair>? Repairs { get; private set; }
         public void OnGet()
         {
         }
