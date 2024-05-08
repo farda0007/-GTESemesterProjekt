@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\RepairPage\" />
     <Folder Include="wwwroot\Data\" />
   </ItemGroup>
 
