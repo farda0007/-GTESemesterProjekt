@@ -17,6 +17,9 @@ builder.Services.AddTransient<JsonFileService<Employee>>();
 builder.Services.AddTransient<JsonFileService<Customer>>();
 builder.Services.AddDbContext<ProductDbContext>();
 builder.Services.AddTransient<DbService>();
+builder.Services.AddTransient<DbGenericService<Product>>();
+builder.Services.AddTransient<DbGenericService<User>>();
+builder.Services.AddTransient<DbGenericService<Order>>();
 
 builder.Services.Configure<CookiePolicyOptions>(options => { 
 	// This lambda determines whether user consent for non-essential cookies is needed for a given request.

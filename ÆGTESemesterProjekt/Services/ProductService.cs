@@ -17,21 +17,19 @@ namespace ÆGTESemesterProjekt.Services
             //_products = MockProducts.GetMockProducts();
             _products = JsonFileProductService.GetJsonObjects().ToList();
             //JsonFileProductService.SaveJsonObjects(_products);
-            //_dbService.SaveObjects(_products);
-            //_products = _dbService.GetProducts().Result;
+            _dbService.SaveObjects(_products);
+            //_products = _dbService.GetObjectsAsync().Result.ToList();
         }
 
         public ProductService()
 		{
-
 
 		}
 		public async Task AddProductAsync(Product product)
 		{
 			_products.Add(product);
 
-			await _dbService.AddObjectAsync(product);
-
+			//await _dbService.AddObjectAsync(product);
 		}
 		public List<Product> GetProduct() { return _products; }
         public void AddProduct(Product product)
@@ -39,7 +37,6 @@ namespace ÆGTESemesterProjekt.Services
             _products.Add(product);
             JsonFileProductService.SaveJsonObjects(_products);
             _dbService.SaveObjects(_products);
-
         }
         public List<Product> GetProducts()
         {
