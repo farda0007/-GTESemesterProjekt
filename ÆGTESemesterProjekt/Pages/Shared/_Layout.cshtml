@@ -21,7 +21,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                                             @{
-                        if (Context.User.Identity == null)
+                        if (Context.User.Identity != null)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-black" asp-area="" asp-page="/Login/LogInPage">Login</a>
@@ -53,6 +53,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/User/GetAllCustomers">Admin Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/RepairPage/GetAllRepairs">Repererararationer</a>
                         </li>
                     </ul>
                 </div>
