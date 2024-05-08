@@ -1,6 +1,5 @@
 using ÆGTESemesterProjekt.DAO;
 using ÆGTESemesterProjekt.Models;
-using ÆGTESemesterProjekt.Service;
 using ÆGTESemesterProjekt.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
