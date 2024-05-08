@@ -52,4 +52,5 @@ namespace ÆGTESemesterProjekt.Services
             }
             return user;
         }
+    }
 }
