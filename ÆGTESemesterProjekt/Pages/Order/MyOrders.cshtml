@@ -1,0 +1,53 @@
+﻿@page
+@model ÆGTESemesterProjekt.Pages.Order.MyOrdersModel
+@{
+}
+<h1>Mine Ordre</h1>
+<br />
+<div class="test">
+    <table class="table table-bordered table-hover table-striped" width="60%">
+        <thead>
+            <tr class="btn-secondary active">
+                <th>Order ID</th>
+                <th>Order Dato</th>
+                <th>Product Id</th>
+                <th>Product</th>
+                <th>Pris</th>
+                <th>Antal</th>
+                <th>Total pris</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (@Model.MyOrders != null)
+            {
+                foreach (var order in Model.MyOrders)
+                {
+                    <tr class="btn-secondary">
+                        <td>
+                            @order.OrderId
+                        </td>
+                        <td>
+                            @order.Date
+                        </td>
+
+                        <td>
+                            @order.ProductId
+                        </td>
+                        <td>
+                            @order.Product.ProductName
+                        </td>
+                        <td>
+                            @order.Product.Price
+                        </td>
+                        <td>
+                            @order.Count
+                        </td>
+                        <td>
+                            @(order.Count * order.Product.Price)
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

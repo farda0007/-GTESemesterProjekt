@@ -1,4 +1,5 @@
-﻿using ÆGTESemesterProjekt.MockData;
+﻿using ÆGTESemesterProjekt.DAO;
+using ÆGTESemesterProjekt.MockData;
 using ÆGTESemesterProjekt.Models;
 
 namespace ÆGTESemesterProjekt.Services
@@ -9,17 +10,27 @@ namespace ÆGTESemesterProjekt.Services
         private JsonFileService<User> _userJsonFileService;
         //public User LoggedInUser { get; set; }
         private DbGenericService<User> _dbService;
+        private UserDbService _userDbService;
 
 
-        public UserService(JsonFileService<User> UserJsonFileService, DbGenericService<User> dbService)
+        public UserService(JsonFileService<User> UserJsonFileService, UserDbService userDbService, DbGenericService<User> dbService)
         {
             _userJsonFileService = UserJsonFileService;
+            _dbService = dbService;
+            _userDbService = userDbService;
             //Users = MockUsers.GetUsers();
             Users = UserJsonFileService.GetJsonObjects().ToList();
             UserJsonFileService.SaveJsonObjects(Users);
-            _dbService = dbService;
             _dbService.SaveObjects(Users);
             //LoggedInUser = Users[0];
+        }
+        //public IEnumerable<OrderDAO> GetUserOrdersAsync(User user)
+        //{
+        //    return _userDbService.GetOrdersByUserIdAsync(user.UserId).Result;
+        //}
+        public async Task<User> GetUserOrdersAsync(User user)
+        {
+            return await _userDbService.GetOrdersByUserIdAsync(user.UserId);
         }
 
         public async Task AddUserAsync(User user)
