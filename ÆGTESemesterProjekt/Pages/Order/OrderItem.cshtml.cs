@@ -37,7 +37,7 @@ namespace ÆGTESemesterProjekt.Pages.Order
             }
             product = _productService.GetProduct(id);
             user = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
-            order.UserId = user.UserId;
+            order.userId = user.UserId;
             order.ProductId = product.Id;
             order.Date = DateTime.Now;
             order.Count = Count;

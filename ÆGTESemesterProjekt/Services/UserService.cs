@@ -24,11 +24,8 @@ namespace ÆGTESemesterProjekt.Services
             _dbService.SaveObjects(Users);
             //LoggedInUser = Users[0];
         }
-        //public IEnumerable<OrderDAO> GetUserOrdersAsync(User user)
-        //{
-        //    return _userDbService.GetOrdersByUserIdAsync(user.UserId).Result;
-        //}
-        public async Task<User> GetUserOrdersAsync(User user)
+
+        public async Task<User> GetUserOrders(User user)
         {
             return await _userDbService.GetOrdersByUserIdAsync(user.UserId);
         }
