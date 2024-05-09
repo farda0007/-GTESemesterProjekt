@@ -11,6 +11,7 @@
       "ProductImage": null
     },
     "Image": "repair1.jpg",
+    "RepairStatus": 0,
     "RepPrice": 1200,
     "EstDate": "2024-07-09T00:00:00+02:00"
   },
@@ -26,6 +27,7 @@
       "ProductImage": null
     },
     "Image": "repair2.jpg",
+    "RepairStatus": 2,
     "RepPrice": 1200,
     "EstDate": "2029-05-09T00:00:00+02:00"
   }
