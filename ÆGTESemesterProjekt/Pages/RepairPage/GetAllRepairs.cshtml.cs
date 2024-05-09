@@ -14,7 +14,7 @@ namespace ÆGTESemesterProjekt.Pages.RepairPage
         public List<Models.Repair>? Repairs { get; private set; }
         public void OnGet()
         {
-            Repairs = _repairService.GetRepair();
+            Repairs = _repairService.GetRepairs();
         }
     }
 }
