@@ -52,5 +52,23 @@
     "Phone": 82828282,
     "Email": "hej@hej.dk",
     "Orders": null
+  },
+  {
+    "UserId": 11,
+    "UserName": "capri",
+    "Name": "capri",
+    "Password": "AQAAAAIAAYagAAAAEOQM4mhprgtd9ULierTf2tJZ3FdO7kPH5DWUGPqJ91POug8yFo5QAG3pNdrCeMyhRQ==",
+    "Phone": 92929292,
+    "Email": "capri@capri.com",
+    "Orders": null
+  },
+  {
+    "UserId": 12,
+    "UserName": "capri",
+    "Name": "capri",
+    "Password": "AQAAAAIAAYagAAAAECzscQ1EnAzjf8Q3qWXCUAuBtGP0xPgeqXxnKo0WUY5Ibqc1W6jHDA2HW4rgW6BCTA==",
+    "Phone": 92929292,
+    "Email": "capri@capri.com",
+    "Orders": null
   }
 ]

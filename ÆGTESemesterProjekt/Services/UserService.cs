@@ -19,9 +19,9 @@ namespace ÆGTESemesterProjekt.Services
             _dbService = dbService;
             _userDbService = userDbService;
             //Users = MockUsers.GetUsers();
-            Users = UserJsonFileService.GetJsonObjects().ToList();
+            Users = _userJsonFileService.GetJsonObjects().ToList();
             //UserJsonFileService.SaveJsonObjects(Users);
-            _dbService.SaveObjects(Users);
+            //_dbService.SaveObjects(Users);
             //LoggedInUser = Users[0];
         }
 
@@ -33,7 +33,7 @@ namespace ÆGTESemesterProjekt.Services
         public async Task AddUserAsync(User user)
         {
             Users.Add(user);
-            //await _dbService.AddObjectAsync(user);
+            await _dbService.AddObjectAsync(user);
             _userJsonFileService.SaveJsonObjects(Users);
 
         }
