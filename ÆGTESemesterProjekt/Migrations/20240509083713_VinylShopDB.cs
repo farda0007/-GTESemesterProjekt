@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ÆGTESemesterProjekt.Migrations
 {
     /// <inheritdoc />
-    public partial class VinylDB : Migration
+    public partial class VinylShopDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

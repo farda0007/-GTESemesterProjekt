@@ -12,8 +12,8 @@ using ÆGTESemesterProjekt.EFDbContext;
 namespace ÆGTESemesterProjekt.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20240508084919_VinylDB")]
-    partial class VinylDB
+    [Migration("20240509083713_VinylShopDB")]
+    partial class VinylShopDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

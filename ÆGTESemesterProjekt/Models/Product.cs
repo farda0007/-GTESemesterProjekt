@@ -27,9 +27,8 @@ namespace ÆGTESemesterProjekt.Models
 		{
 		}
 
-		public Product(int id, string productName, int price, string description, string productImage)
+		public Product(string productName, int price, string description, string productImage)
 		{
-			Id = id;
 			ProductName = productName;
 			Price = price;
 			Description = description;
