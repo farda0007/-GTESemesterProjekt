@@ -28,7 +28,6 @@ namespace ÆGTESemesterProjekt.Services
 		public async Task AddProductAsync(Product product)
 		{
 			_products.Add(product);
-
 			//await _dbService.AddObjectAsync(product);
 		}
 		public List<Product> GetProduct() { return _products; }
@@ -66,7 +65,7 @@ namespace ÆGTESemesterProjekt.Services
                 if (product.Id == productId)
                 {
                     _products.Remove(product);
-                    //JsonFileProductService.SaveJsonObjects(_products);
+                    JsonFileProductService.SaveJsonObjects(_products);
                     _dbService.DeleteObjectAsync(product);
                     return product;
                 }
