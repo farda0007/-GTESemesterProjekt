@@ -1,23 +1,27 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ÆGTESemesterProjekt.Models;
 
 namespace ÆGTESemesterProjekt.Services
 {
-    //public class WishlistService : IWishlistService
-    //{
-    //    private readonly SessionState _session;
-
-    //    public WishlistService(SessionState session)
-    //    {
-    //        _session = session;
-    //    }
-
-    //    public void AddToWishlist(int productId, int userId)
-    //    {
-    //        var wishlist = _session.Get<List<WishlistProduct>>(userId) ?? new List<WishlistProduct>();
-    //        wishlist.Add(new WishlistProduct { ProductId = productId });
-    //        _session.Set(userId.wishlist);
-    //    }
+    public class WishlistService : DbGenericService<Wishlist>
+    {
+        public List<Wishlist> _wishlist;
+        public DbGenericService<Wishlist> _dbService;
 
 
-    //}
+        public WishlistService()
+        {
+        }
+
+        public WishlistService(DbGenericService<Wishlist> dbService)
+        {
+            _dbService = dbService;
+            _wishlist = _dbService.GetObjectsAsync().Result.ToList();
+        }
+
+        public void AddToWishlist(Wishlist wishlist)
+        {
+            _wishlist.Add(wishlist);
+            _dbService.AddObjectAsync(wishlist);
+        }
+    }
 }
