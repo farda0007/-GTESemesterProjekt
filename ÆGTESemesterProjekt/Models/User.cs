@@ -5,6 +5,7 @@ namespace ÆGTESemesterProjekt.Models
 {
     public class User
     {
+        // Id virker ikke til databasen er oppe og køre.
         [Display(Name = "User ID")]
         [Required(ErrorMessage = "Der skal angives et ID til User")]
         [Range(typeof(int), minimum: "0", maximum: "100000", ErrorMessage = "ID skal være mellem {1} og {2}")]
