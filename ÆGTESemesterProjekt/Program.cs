@@ -17,6 +17,7 @@ builder.Services.AddTransient<JsonFileService<Product>>();
 builder.Services.AddTransient<JsonFileService<User>>();
 builder.Services.AddTransient<JsonFileService<Employee>>();
 builder.Services.AddTransient<JsonFileService<Customer>>();
+builder.Services.AddTransient<JsonFileService<Repair>>();
 builder.Services.AddDbContext<ProductDbContext>();
 builder.Services.AddTransient<DbService>();
 builder.Services.AddTransient<DbGenericService<Product>>();
