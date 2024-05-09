@@ -1,6 +1,6 @@
 [
   {
-    "UserId": 0,
+    "UserId": 1,
     "UserName": "employee",
     "Name": "employee",
     "Password": "123",
@@ -9,7 +9,7 @@
     "Orders": null
   },
   {
-    "UserId": 0,
+    "UserId": 2,
     "UserName": "Nesbit my butt",
     "Name": "Thor Nesbitt",
     "Password": "AQAAAAIAAYagAAAAEGAJQNAlEospdDAkqs61BLukxHsAIyvSPRbCRGq8D9eJ8hjTo2wEkK6wsOzWYUPYbQ==",
@@ -18,7 +18,7 @@
     "Orders": null
   },
   {
-    "UserId": 0,
+    "UserId": 3,
     "UserName": "Lasse H\u00E5ndtaske",
     "Name": "Lasse Hammer",
     "Password": "AQAAAAIAAYagAAAAEAf2uVHQApBuzqw7dL7OdMzzdogbJuAXVdh9JrAh2JoM6rAFMREQBJsb9YzuSHWaEA==",
@@ -27,12 +27,30 @@
     "Orders": null
   },
   {
-    "UserId": 0,
+    "UserId": 4,
     "UserName": "Arda",
     "Name": "Arda Para",
     "Password": "AQAAAAIAAYagAAAAEHy9R5KPJ8Z5e8KfI05c2vi88nmRO2yEn4GJclGivBNmWR\u002BAoMlUkvTLu7Ku0o8gZQ==",
     "Phone": 16237189,
     "Email": "ArdaPara@Yahoo.com",
+    "Orders": null
+  },
+  {
+    "UserId": 0,
+    "UserName": "Kaffe",
+    "Name": "Kaffe",
+    "Password": "AQAAAAIAAYagAAAAEG/YLnFOX6cdzLUDtjOY8ZR12YuXrL2dBVaZRbVnRWk0NJLLQQ2cIBByTDiekeC9FQ==",
+    "Phone": 90909090,
+    "Email": "Kaffe@kaffe.com",
+    "Orders": null
+  },
+  {
+    "UserId": 0,
+    "UserName": "Hej",
+    "Name": "Hej",
+    "Password": "AQAAAAIAAYagAAAAEDKrzGKgpBfDgDl/N/4E9D6tqjqCKzl3GVDUFmjkm5Pt5Uwb1b77vi3vV3xCWtiejQ==",
+    "Phone": 82828282,
+    "Email": "hej@hej.dk",
     "Orders": null
   }
 ]

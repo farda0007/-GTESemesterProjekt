@@ -7,7 +7,7 @@ namespace ÆGTESemesterProjekt.EFDbContext
 	{
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
 		{
-			options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=VinylDB; Integrated Security=True; Connect Timeout=30; Encrypt=False");
+			options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=VinylShopDB; Integrated Security=True; Connect Timeout=30; Encrypt=False");
 		}
 
 		public DbSet<Product> Product { get; set; }
