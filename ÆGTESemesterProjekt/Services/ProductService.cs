@@ -16,8 +16,8 @@ namespace ÆGTESemesterProjekt.Services
             _dbService = dbService;
             //_products = MockProducts.GetMockProducts();
             _products = JsonFileProductService.GetJsonObjects().ToList();
-            //JsonFileProductService.SaveJsonObjects(_products);
-            _dbService.SaveObjects(_products);
+            JsonFileProductService.SaveJsonObjects(_products);
+            //_dbService.SaveObjects(_products);
             //_products = _dbService.GetObjectsAsync().Result.ToList();
         }
 
@@ -66,7 +66,8 @@ namespace ÆGTESemesterProjekt.Services
                 if (product.Id == productId)
                 {
                     _products.Remove(product);
-                    JsonFileProductService.SaveJsonObjects(_products);
+                    //JsonFileProductService.SaveJsonObjects(_products);
+                    _dbService.DeleteObjectAsync(product);
                     return product;
                 }
             }
