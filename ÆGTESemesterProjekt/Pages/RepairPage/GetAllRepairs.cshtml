@@ -11,23 +11,20 @@
             {
                 <div class="col-md-3 col-sm-6">
                     <div class="card" style="width: 18rem; margin: 10px;">
-
                         <div class="card-body">
                             <h5 class="card-title">@product.RepProduct</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Id: @product.CaseId</h6>
-                            <p class="card-text">@product.Description</p>
                             <p class="card-text">Reperation beskrivelse</p>
-                            <h5 class="card-title">@product.RepPrice</h5>
+                            <p class="card-text">@product.Description</p>
                             <p class="card-text">Reperation Pris</p>
-                            <h5 class="card-title">@product.SubDate</h5>
+                            <h5 class="card-title">@product.RepPrice</h5>
                             <p class="card-text">Dato modtaget.</p>
-                            <h5 class="card-title">@product.EstDate</h5>
+                            <h5 class="card-title">@product.SubDate.ToShortDateString()</h5>
                             <p class="card-text">Estimeret dato</p>
+                            <h5 class="card-title">@product.EstDate.ToShortDateString()</h5>
                             <h5 class="card-title">@product.Image</h5>
-                            <h5 class="card-title">@product.</h5>  
-                            <div class="form-group">
-                            </div>
-
+                            <p class="card-text">Status</p>
+                            <h5 class="card-title">@product.RepairStatus</h5>
                         </div>
                     </div>
                 </div>
@@ -35,7 +32,3 @@
         }
     </div>
 </div>
-
-<p>
-    <a class="btn btn-primary" asp-page="CreateRepair">Opret ny ticket</a>
-</p>
