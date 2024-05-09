@@ -1,0 +1,32 @@
+[
+  {
+    "CaseId": 1,
+    "SubDate": "2024-05-08T23:00:00+02:00",
+    "Description": "Fejl",
+    "RepProduct": {
+      "Id": 0,
+      "ProductName": null,
+      "Price": 0,
+      "Description": null,
+      "ProductImage": null
+    },
+    "Image": "repair1.jpg",
+    "RepPrice": 1200,
+    "EstDate": "2024-07-09T00:00:00+02:00"
+  },
+  {
+    "CaseId": 1,
+    "SubDate": "2024-05-08T19:00:00+02:00",
+    "Description": "Hele lortet kn\u00E6kket p\u00E5 midten",
+    "RepProduct": {
+      "Id": 0,
+      "ProductName": null,
+      "Price": 0,
+      "Description": null,
+      "ProductImage": null
+    },
+    "Image": "repair2.jpg",
+    "RepPrice": 1200,
+    "EstDate": "2029-05-09T00:00:00+02:00"
+  }
+]
