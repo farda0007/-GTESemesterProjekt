@@ -28,9 +28,18 @@ namespace ÆGTESemesterProjekt.Pages.Wishlist
             user = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
-
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+            product = _productService.GetProduct(id);
+            user = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+            wishlist.userId = user.UserId;
+            wishlist.ProductId = product.Id;
+            _wishlistService.AddToWishlist(wishlist);
+            return RedirectToPage("/Products/GetAllProducts");
         }
     }
 }
