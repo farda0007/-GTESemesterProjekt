@@ -20,7 +20,7 @@
 		{
 		}
 
-		public Repair(int caseId, DateTime subDate, string description, Product repProduct, string image, double repPrice, DateTime estDate)
+		public Repair(int caseId, DateTime subDate, string description, Product repProduct, string image, status repStatus, double repPrice, DateTime estDate)
 		{
 			CaseId = caseId;
 			SubDate = subDate;
