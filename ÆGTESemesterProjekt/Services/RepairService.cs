@@ -10,13 +10,13 @@ namespace ÆGTESemesterProjekt.Services
         //private DbService _dbService;
         private DbGenericService<Repair> _dbService;
 
-        public RepairService(JsonFileService<Repair> jsonFileRepairService, DbGenericService<Repair> dbService)
+        public RepairService(JsonFileService<Repair> jsonFileRepairService)
         {
             JsonFileRepairService = jsonFileRepairService;
-            _dbService = dbService;
-            //_repairs = MockRepairs.GetMockRepairs();
-            _repairs = JsonFileRepairService.GetJsonObjects().ToList();
-            //JsonFileRepairService.SaveJsonObjects(_repairs);
+            //_dbService = dbService;
+            _repairs = MockRepairs.GetMockRepairs();
+            //_repairs = JsonFileRepairService.GetJsonObjects().ToList();
+            JsonFileRepairService.SaveJsonObjects(_repairs);
             _dbService.SaveObjects(_repairs);
             //_products = _dbService.GetObjectsAsync().Result.ToList();
         }

@@ -4,7 +4,7 @@ namespace ÆGTESemesterProjekt.Services
 {
     public interface IRepairService
     {
-        List<Repair> GetRepair();
+        List<Repair> GetRepairs();
         Task AddRepairAsync(Repair repair);
         void AddRepair(Repair repair);
         void UpdateRepair(Repair repair);
