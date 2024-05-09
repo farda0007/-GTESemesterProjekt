@@ -1,19 +1,5 @@
 [
   {
-    "Id": 3,
-    "ProductName": "vodka",
-    "Price": 499,
-    "Description": null,
-    "ProductImage": null
-  },
-  {
-    "Id": 5,
-    "ProductName": "55555",
-    "Price": 55555,
-    "Description": null,
-    "ProductImage": null
-  },
-  {
     "Id": 6,
     "ProductName": "66666",
     "Price": 66666,

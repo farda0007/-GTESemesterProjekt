@@ -43,5 +43,14 @@
     "Phone": 90909090,
     "Email": "Kaffe@kaffe.com",
     "Orders": null
+  },
+  {
+    "UserId": 0,
+    "UserName": "Hej",
+    "Name": "Hej",
+    "Password": "AQAAAAIAAYagAAAAEDKrzGKgpBfDgDl/N/4E9D6tqjqCKzl3GVDUFmjkm5Pt5Uwb1b77vi3vV3xCWtiejQ==",
+    "Phone": 82828282,
+    "Email": "hej@hej.dk",
+    "Orders": null
   }
 ]

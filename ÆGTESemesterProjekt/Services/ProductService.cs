@@ -15,10 +15,10 @@ namespace ÆGTESemesterProjekt.Services
             JsonFileProductService = jsonFileProductService;
             _dbService = dbService;
             //_products = MockProducts.GetMockProducts();
-            _products = JsonFileProductService.GetJsonObjects().ToList();
-            JsonFileProductService.SaveJsonObjects(_products);
-            //_dbService.SaveObjects(_products);
-            //_products = _dbService.GetObjectsAsync().Result.ToList();
+            //_products = JsonFileProductService.GetJsonObjects().ToList();
+            //JsonFileProductService.SaveJsonObjects(_products);
+            _products = _dbService.GetObjectsAsync().Result.ToList();
+            _dbService.SaveObjects(_products);
         }
 
         public ProductService()
@@ -28,14 +28,14 @@ namespace ÆGTESemesterProjekt.Services
 		public async Task AddProductAsync(Product product)
 		{
 			_products.Add(product);
-			//await _dbService.AddObjectAsync(product);
+			await _dbService.AddObjectAsync(product);
 		}
 		public List<Product> GetProduct() { return _products; }
         public void AddProduct(Product product)
         {
             _products.Add(product);
             JsonFileProductService.SaveJsonObjects(_products);
-            //_dbService.SaveObjects(_products);
+            _dbService.SaveObjects(_products);
         }
         public List<Product> GetProducts()
         {
