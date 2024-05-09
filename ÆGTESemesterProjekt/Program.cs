@@ -22,6 +22,7 @@ builder.Services.AddTransient<DbService>();
 builder.Services.AddTransient<DbGenericService<Product>>();
 builder.Services.AddTransient<DbGenericService<User>>();
 builder.Services.AddTransient<DbGenericService<Order>>();
+builder.Services.AddTransient<DbGenericService<Wishlist>>();
 builder.Services.AddTransient<UserDbService, UserDbService>();
 
 
