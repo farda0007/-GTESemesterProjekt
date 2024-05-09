@@ -15,9 +15,9 @@ namespace ÆGTESemesterProjekt.Services
             JsonFileProductService = jsonFileProductService;
             _dbService = dbService;
             //_products = MockProducts.GetMockProducts();
-            //_products = JsonFileProductService.GetJsonObjects().ToList();
-            //JsonFileProductService.SaveJsonObjects(_products);
-            _products = _dbService.GetObjectsAsync().Result.ToList();
+            _products = JsonFileProductService.GetJsonObjects().ToList();
+            JsonFileProductService.SaveJsonObjects(_products);
+            //_products = _dbService.GetObjectsAsync().Result.ToList();
             _dbService.SaveObjects(_products);
         }
 

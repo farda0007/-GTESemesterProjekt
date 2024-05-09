@@ -22,6 +22,7 @@
 
 		public Repair(int caseId, DateTime subDate, string description, Product repProduct, string image, status repStatus, double repPrice, DateTime estDate)
 		{
+			status repSatus = repStatus;
 			CaseId = caseId;
 			SubDate = subDate;
 			Description = description;
