@@ -17,6 +17,7 @@ namespace ÆGTESemesterProjekt.Pages.RepairPage
         private IRepairService _repairService;
 		//[BindProperty]
 		public List<Models.Product>? ProductsList { get; private set; }
+		[BindProperty]
 		public Product Product { get; set; }
         [BindProperty]
         public Repair Repair { get; set; }

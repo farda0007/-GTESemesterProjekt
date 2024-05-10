@@ -30,6 +30,25 @@ namespace ÆGTESemesterProjekt.Pages.Wishlist
             user = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
         }
 
+        //public IActionResult OnPostAddToWishlist(int productId)
+        //{
+        //    var user = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+        //    if (user == null)
+        //    {
+        //        return RedirectToPage("/Login");
+        //    }
+        //    var product = _productService.GetProduct(productId);
+        //    if (product == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var wishlist = new Wishlist(user, product);
+        //    _wishlistService.AddToWishlist(wishlist);
+
+        //    return RedirectToPage("/Wishlist/ViewWishlist");
+        //}
+
         public IActionResult OnPost(int id)
         {
             if (!ModelState.IsValid)
