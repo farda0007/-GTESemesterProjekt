@@ -15,7 +15,7 @@ namespace ÆGTESemesterProjekt.Pages.Products
 		public List<Models.Product>? Products { get; private set; }
 		public void OnGet()
 		{
-			Products = _productService.GetProduct();
+			Products = _productService.GetProducts();
 		}
 
 	}
