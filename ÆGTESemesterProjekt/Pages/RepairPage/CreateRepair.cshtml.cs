@@ -15,19 +15,23 @@ namespace ÆGTESemesterProjekt.Pages.RepairPage
         public IFormFile? Photo { get; set; }
 
         private IRepairService _repairService;
-        //[BindProperty]
-        //public Product Product { get; set; }
+		//[BindProperty]
+		public List<Models.Product>? ProductsList { get; private set; }
+		public Product Product { get; set; }
         [BindProperty]
         public Repair Repair { get; set; }
-        public CreateRepairModel(IRepairService repairService, IWebHostEnvironment webHost)
+		private IProductService _productService;
+		public CreateRepairModel(IRepairService repairService, IWebHostEnvironment webHost, IProductService productService)
         {
+            _productService = productService;
             _repairService = repairService;
             _webHostEnvironment = webHost;
+            
         }
-        public IActionResult OnGet()
+        public void OnGet()
         {
-            return Page();
-        }
+			ProductsList = _productService.GetProducts();
+		}
         //public IActionResult OnPost()
         //{
         //    if (!ModelState.IsValid)
