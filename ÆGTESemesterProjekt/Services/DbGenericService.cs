@@ -56,7 +56,6 @@ namespace ÆGTESemesterProjekt.Services
                 {
                     context.Set<T>().Add(obj);
                 }
-
                 context.SaveChanges();
             }
         }

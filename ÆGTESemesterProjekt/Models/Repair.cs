@@ -1,8 +1,13 @@
-﻿namespace ÆGTESemesterProjekt.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ÆGTESemesterProjekt.Models
 {
     public class Repair
     {
-        public int CaseId { get; set; }
+        [Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.None)]
+		public int CaseId { get; set; }
         public DateTime SubDate { get; set; }
         public string Description { get; set; }
         public Product RepProduct { get; set; }

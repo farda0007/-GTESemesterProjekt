@@ -14,6 +14,7 @@ namespace ÆGTESemesterProjekt.EFDbContext
 		public DbSet<User> Users { get; set; }
         public DbSet<Order> Orders { get; set; }
 		public DbSet<Wishlist> Wishlist { get; set; }
+		public DbSet<Repair> Repair { get; set; }
     }
 
 }
