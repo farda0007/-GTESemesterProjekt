@@ -15,8 +15,8 @@ namespace ÆGTESemesterProjekt.Pages.RepairPage
         public IFormFile? Photo { get; set; }
 
         private IRepairService _repairService;
-        [BindProperty]
-        public Product Product { get; set; }
+        //[BindProperty]
+        //public Product Product { get; set; }
         [BindProperty]
         public Repair Repair { get; set; }
         public CreateRepairModel(IRepairService repairService, IWebHostEnvironment webHost)

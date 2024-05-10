@@ -55,6 +55,9 @@ namespace ÆGTESemesterProjekt.Services
                         r.Description = repair.Description;
                         r.RepProduct = repair.RepProduct;
                         r.Image = repair.Image;
+                        r.RepPrice = repair.RepPrice;
+                        r.RepairStatus = repair.RepairStatus;
+                        r.EstDate = repair.EstDate;
                        
                     }
                 }
