@@ -8,17 +8,17 @@ namespace ÆGTESemesterProjekt.Services
         private JsonFileService<Product> JsonFileProductService;
         private List<Product> _products;
         //private DbService _dbService;
-        private DbGenericService<Product> _dbService;
+        private DbGenericService<Product> _genericService;
 
-        public ProductService(JsonFileService<Product> jsonFileProductService, DbGenericService<Product> dbService)
+        public ProductService(JsonFileService<Product> jsonFileProductService, DbGenericService<Product> genericService)
         {
             JsonFileProductService = jsonFileProductService;
-            _dbService = dbService;
+            _genericService = genericService;
             //_products = MockProducts.GetMockProducts();
             _products = JsonFileProductService.GetJsonObjects().ToList();
-            JsonFileProductService.SaveJsonObjects(_products);
+            //JsonFileProductService.SaveJsonObjects(_products);
+            _genericService.SaveObjects(_products);
             //_products = _dbService.GetObjectsAsync().Result.ToList();
-            _dbService.SaveObjects(_products);
         }
 
         public ProductService()
@@ -28,14 +28,14 @@ namespace ÆGTESemesterProjekt.Services
 		public async Task AddProductAsync(Product product)
 		{
 			_products.Add(product);
-			await _dbService.AddObjectAsync(product);
+			_genericService.AddObjectAsync(product);
 		}
 		public List<Product> GetProduct() { return _products; }
         public void AddProduct(Product product)
         {
             _products.Add(product);
             JsonFileProductService.SaveJsonObjects(_products);
-            _dbService.SaveObjects(_products);
+            _genericService.SaveObjects(_products);
         }
         public List<Product> GetProducts()
         {
@@ -66,7 +66,7 @@ namespace ÆGTESemesterProjekt.Services
                 {
                     _products.Remove(product);
                     JsonFileProductService.SaveJsonObjects(_products);
-                    _dbService.DeleteObjectAsync(product);
+                    _genericService.DeleteObjectAsync(product);
                     return product;
                 }
             }

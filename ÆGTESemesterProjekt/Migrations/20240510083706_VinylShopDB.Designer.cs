@@ -12,7 +12,7 @@ using ÆGTESemesterProjekt.EFDbContext;
 namespace ÆGTESemesterProjekt.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20240509083713_VinylShopDB")]
+    [Migration("20240510083706_VinylShopDB")]
     partial class VinylShopDB
     {
         /// <inheritdoc />
@@ -112,6 +112,29 @@ namespace ÆGTESemesterProjekt.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("ÆGTESemesterProjekt.Models.Wishlist", b =>
+                {
+                    b.Property<int>("WishlistId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WishlistId"));
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("userId")
+                        .HasColumnType("int");
+
+                    b.HasKey("WishlistId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("userId");
+
+                    b.ToTable("Wishlist");
+                });
+
             modelBuilder.Entity("ÆGTESemesterProjekt.Models.Order", b =>
                 {
                     b.HasOne("ÆGTESemesterProjekt.Models.Product", "Product")
@@ -122,6 +145,25 @@ namespace ÆGTESemesterProjekt.Migrations
 
                     b.HasOne("ÆGTESemesterProjekt.Models.User", "User")
                         .WithMany("Orders")
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ÆGTESemesterProjekt.Models.Wishlist", b =>
+                {
+                    b.HasOne("ÆGTESemesterProjekt.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ÆGTESemesterProjekt.Models.User", "User")
+                        .WithMany()
                         .HasForeignKey("userId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
