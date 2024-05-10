@@ -17,7 +17,7 @@ namespace ÆGTESemesterProjekt.Services
 		{
 			using (var context = new ProductDbContext())
 			{
-				return await context.Users.ToListAsync();
+				return await context.User.ToListAsync();
 			}
 		}
 		public async Task AddProduct(Product product)
@@ -32,7 +32,7 @@ namespace ÆGTESemesterProjekt.Services
 		{
 			using (var context = new ProductDbContext())
 			{
-				context.Users.Add(user);
+				context.User.Add(user);
 				context.SaveChanges();
 			}
 		}
@@ -56,7 +56,7 @@ namespace ÆGTESemesterProjekt.Services
 			{
 				foreach (User user in users)
 				{
-					context.Users.Add(user);
+					context.User.Add(user);
 
 				}
 				context.SaveChanges();

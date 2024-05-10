@@ -61,23 +61,5 @@
     "Phone": 92929292,
     "Email": "capri@capri.com",
     "Orders": null
-  },
-  {
-    "UserId": 12,
-    "UserName": "capri",
-    "Name": "capri",
-    "Password": "AQAAAAIAAYagAAAAECzscQ1EnAzjf8Q3qWXCUAuBtGP0xPgeqXxnKo0WUY5Ibqc1W6jHDA2HW4rgW6BCTA==",
-    "Phone": 92929292,
-    "Email": "capri@capri.com",
-    "Orders": null
-  },
-  {
-    "UserId": 13,
-    "UserName": "employee",
-    "Name": "employee",
-    "Password": "AQAAAAIAAYagAAAAEK1sUVRIrCKU2yc986gyN9m2upKcy\u002Bgffd8cprEPDV4Q8UWbK0sZzfZ8ZBZRjDToxw==",
-    "Phone": 90909090,
-    "Email": "emp@emp.com",
-    "Orders": null
   }
 ]

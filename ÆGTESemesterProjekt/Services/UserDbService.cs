@@ -44,7 +44,7 @@ namespace ÆGTESemesterProjekt.Services
 
             using (var context = new ProductDbContext())
             {
-                user = context.Users
+                user = context.User
                 .Include(u => u.Orders)
                 .ThenInclude(i => i.Product)
                 .AsNoTracking()
