@@ -16,7 +16,7 @@ namespace ÆGTESemesterProjekt.Pages.RepairPage
 
         private IRepairService _repairService;
 		//[BindProperty]
-		public List<Models.Product>? ProductsList { get; private set; }
+		public List<Models.Product>? Products { get; private set; }
 		[BindProperty]
 		public Product Product { get; set; }
         [BindProperty]
@@ -31,7 +31,7 @@ namespace ÆGTESemesterProjekt.Pages.RepairPage
         }
         public void OnGet()
         {
-			ProductsList = _productService.GetProducts();
+			Products = _productService.GetProducts();
 		}
         //public IActionResult OnPost()
         //{
