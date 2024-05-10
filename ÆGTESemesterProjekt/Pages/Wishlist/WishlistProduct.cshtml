@@ -3,3 +3,30 @@
 @{
 }
 <h1>Wishlist</h1>
+<div class="container mx-auto mt-4" style="max-width: 95%;">
+    <div class="row">
+        @if (@Model.wishlists != null)
+        {
+            foreach (var wishlist in Model.wishlists)
+            {
+                <div class="col-md-3 col-sm-6">
+                    <div class="card" style="width: 18rem; margin: 10px;">
+
+                        <div class="card-body">
+                            <h5 class="card-title">@wishlist.Product</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Id: @wishlist.ProductId</h6>
+                            <p class="card-text">Produkt beskrivelse</p>
+                            <div class="form-group">
+                            </div>
+                            @* <a class="btn btn-primary btn-sm" type="button" title="Detail" asp-page="DetailProduct" asp-route-id="@product.Id"><i class="fa fa-info"></i></a>
+                            <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditProduct" asp-route-id="@product.Id"><i class="fa-sharp fa-solid fa-pen"></i></a>
+                            <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteProduct" asp-route-id="@product.Id"><i class="fas fa-trash"></i></a>
+                            <a class="btn btn-primary btn-sm " type="button" title="Order" asp-page="/Order/OrderItem" asp-route-id="@product.Id"><i class="fa fa-shopping-cart"></i></a>
+                            <a class="btn btn-primary btn-sm" type="button" title="Wishlist" asp-page="Wishlist" asp-route-id="@Wishlist"><i class="fa-sharp fa-solid fa-heart"></i></a> *@
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
