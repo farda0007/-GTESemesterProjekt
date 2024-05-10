@@ -1,7 +1,7 @@
 [
   {
     "CaseId": 1,
-    "SubDate": "2024-05-08T23:00:00+02:00",
+    "SubDate": "2024-05-09T23:00:00+02:00",
     "Description": "Fejl",
     "RepProduct": {
       "Id": 0,
@@ -13,11 +13,11 @@
     "Image": "repair1.jpg",
     "RepairStatus": 0,
     "RepPrice": 1200,
-    "EstDate": "2024-07-09T00:00:00+02:00"
+    "EstDate": "2024-07-10T00:00:00+02:00"
   },
   {
     "CaseId": 1,
-    "SubDate": "2024-05-08T19:00:00+02:00",
+    "SubDate": "2024-05-09T19:00:00+02:00",
     "Description": "Hele lortet kn\u00E6kket p\u00E5 midten",
     "RepProduct": {
       "Id": 0,
@@ -29,6 +29,6 @@
     "Image": "repair2.jpg",
     "RepairStatus": 2,
     "RepPrice": 1200,
-    "EstDate": "2029-05-09T00:00:00+02:00"
+    "EstDate": "2029-05-10T00:00:00+02:00"
   }
 ]

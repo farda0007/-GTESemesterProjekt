@@ -1,0 +1,52 @@
+﻿@page "{id:int}"
+@model ÆGTESemesterProjekt.Pages.RepairPage.EditRepairModel
+@{
+}
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Repair.CaseId" class="control-lable"></label>
+        <input asp-for="Repair.CaseId" class="form-control" readonly="@(true)" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Repair.RepProduct" class="control-lable"></label>
+        <input asp-for="Repair.RepProduct" class="form-control" />
+        <span asp-validation-for="Repair.RepProduct" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Repair.Description" class="control-lable"></label>
+        <input asp-for="Repair.Description" class="form-control" />
+        <span asp-validation-for="Repair.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Repair.Image" class="control-lable"></label>
+        <input asp-for="Repair.Image" class="form-control" />
+        <span asp-validation-for="Repair.Image" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Repair.SubDate" class="control-lable"></label>
+        <input asp-for="Repair.SubDate" class="form-control" />
+        <span asp-validation-for="Repair.SubDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Repair.EstDate" class="control-lable"></label>
+        <input asp-for="Repair.EstDate" class="form-control" />
+        <span asp-validation-for="Repair.EstDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Repair.RepPrice" class="control-lable"></label>
+        <input asp-for="Repair.RepPrice" class="form-control" />
+        <span asp-validation-for="Repair.RepPrice" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Repair.RepairStatus" class="control-lable"></label>
+        <input asp-for="Repair.RepairStatus" class="form-control" />
+        <span asp-validation-for="Repair.RepairStatus" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Update" class="btn btn-primary" />
+    </div>
+
+    <div>
+        <a asp-page="/Products/GetAllProducts">Back to List</a>
+    </div>
+</form>
