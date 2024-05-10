@@ -43,7 +43,15 @@
 	<div class="form-group">
 		<label asp-for="@Model.Repair.RepairStatus" class="control-lable"></label>
 		<input asp-for="@Model.Repair.RepairStatus" class="form-control" />
+		<select id="statusSelect">
+			@foreach (var status in Enum.GetValues(typeof(Models.Repair.Status)))
+			{
+				<option value="@status">@status</option>
+			}
+		</select>
 	</div>
+
+
 	<p>
 		<div class="form-group">
 			<input type="submit" value="Create" class="btn btn-primary" />
