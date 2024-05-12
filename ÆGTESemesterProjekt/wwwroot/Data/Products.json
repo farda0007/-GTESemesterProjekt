@@ -1,44 +1,16 @@
 [
   {
-    "Id": 6,
-    "ProductName": "66666",
-    "Price": 66666,
-    "Description": null,
-    "ProductImage": null
-  },
-  {
-    "Id": 8,
-    "ProductName": "8888",
-    "Price": 8888,
-    "Description": null,
-    "ProductImage": null
-  },
-  {
-    "Id": 2,
-    "ProductName": "2222",
-    "Price": 2222,
-    "Description": null,
-    "ProductImage": null
-  },
-  {
-    "Id": 3,
-    "ProductName": "33333",
-    "Price": 3333,
-    "Description": null,
-    "ProductImage": null
-  },
-  {
-    "Id": 4,
-    "ProductName": "4444",
-    "Price": 44444,
-    "Description": null,
-    "ProductImage": null
-  },
-  {
     "Id": 1,
     "ProductName": "Dansk Top Vinyl",
     "Price": 499,
     "Description": "Ukendt Kunstner Vinyl",
     "ProductImage": "Dansktop.jpg"
+  },
+  {
+    "Id": 2,
+    "ProductName": "To Pimp a Butterfly",
+    "Price": 400,
+    "Description": "Kendrick Lamar",
+    "ProductImage": "ToPimp.jpeg"
   }
 ]

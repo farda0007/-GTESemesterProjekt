@@ -14,8 +14,9 @@ namespace ÆGTESemesterProjekt.Models
 		public int Id { get; set; }
 		[Display(Name = "Produkt navn")]
 		[Required(ErrorMessage = "Produktet skal have et navn")]
-		[StringLength(30)]
+		[StringLength(100)]
 		public string ProductName { get; set; }
+		[Required(ErrorMessage = "Der skal angives en pris")]
 		public decimal Price { get; set; }
 
 		//public int Count { get; set; }
