@@ -8,14 +8,21 @@ namespace ÆGTESemesterProjekt.Pages.Products
     public class GetAllProductsModel : PageModel
     {
 		private IProductService _productService;
+		public List<Models.Product>? Products { get; private set; }
+		[BindProperty] 
+		public string SearchString { get; set; }
 		public GetAllProductsModel(IProductService productService) //Dependency Injection
 		{
 			this._productService = productService;
 		}
-		public List<Models.Product>? Products { get; private set; }
 		public void OnGet()
 		{
 			Products = _productService.GetProducts();
+		}
+		public IActionResult OnPostNameSearch()
+		{
+			Products = _productService.NameSearch(SearchString).ToList();
+			return Page();
 		}
 
 	}

@@ -3,6 +3,11 @@
 @{
 }
 <h1>Products</h1>
+
+<form method="post" class="form-inline">
+    <input asp-for="SearchString" class="form-control mr-1" placeholder="Enter search term" />
+    <input type="submit" asp-page-handler="NameSearch" value="Search" class="btn btn-primary" />
+</form>
 <div class="container mx-auto mt-4" style="max-width: 95%;">
     <div class="row">
         @if (Model.Products != null)

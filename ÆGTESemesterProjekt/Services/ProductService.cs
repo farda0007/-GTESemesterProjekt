@@ -84,6 +84,19 @@ namespace ÆGTESemesterProjekt.Services
             }
             return null;
         }
-    }
+		public IEnumerable<Product> NameSearch(string str)
+		{
+			List<Product> nameSearch = new List<Product>();
+			foreach (Product product in _products)
+			{
+				if (product.ProductName.ToLower().Contains(str.ToLower()))
+				{
+					nameSearch.Add(product);
+				}
+			}
+
+			return nameSearch;
+		}
+	}
 
 }
