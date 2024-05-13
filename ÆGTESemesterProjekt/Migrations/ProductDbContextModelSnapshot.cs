@@ -96,8 +96,9 @@ namespace ÆGTESemesterProjekt.Migrations
                     b.Property<double>("RepPrice")
                         .HasColumnType("float");
 
-                    b.Property<int>("RepProductId")
-                        .HasColumnType("int");
+                    b.Property<string>("RepProduct")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("RepairStatus")
                         .HasColumnType("int");
@@ -106,8 +107,6 @@ namespace ÆGTESemesterProjekt.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("CaseId");
-
-                    b.HasIndex("RepProductId");
 
                     b.ToTable("Repair");
                 });
@@ -184,17 +183,6 @@ namespace ÆGTESemesterProjekt.Migrations
                     b.Navigation("Product");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("ÆGTESemesterProjekt.Models.Repair", b =>
-                {
-                    b.HasOne("ÆGTESemesterProjekt.Models.Product", "RepProduct")
-                        .WithMany()
-                        .HasForeignKey("RepProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("RepProduct");
                 });
 
             modelBuilder.Entity("ÆGTESemesterProjekt.Models.Wishlist", b =>

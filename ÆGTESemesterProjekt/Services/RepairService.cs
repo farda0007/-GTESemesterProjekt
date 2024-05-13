@@ -7,18 +7,20 @@ namespace ÆGTESemesterProjekt.Services
     {
         private JsonFileService<Repair> JsonFileRepairService;
         private List<Repair> _repairs;
+        private DbGenericService<Repair> _genericDbService;
         //private DbService _dbService;
         //private DbGenericService<Repair> _dbService;
 
-        public RepairService(JsonFileService<Repair> jsonFileRepairService)
+        public RepairService(JsonFileService<Repair> jsonFileRepairService, DbGenericService<Repair> genericDbService)
         {
             JsonFileRepairService = jsonFileRepairService;
+            _genericDbService = genericDbService;
             //_dbService = dbService;
-            _repairs = MockRepairs.GetMockRepairs();
-            //_repairs = JsonFileRepairService.GetJsonObjects().ToList();
+            //_repairs = MockRepairs.GetMockRepairs();
+            _repairs = JsonFileRepairService.GetJsonObjects().ToList();
             JsonFileRepairService.SaveJsonObjects(_repairs);
-            //_dbService.SaveObjects(_repairs);
-            //_products = _dbService.GetObjectsAsync().Result.ToList();
+            //_repairs = _genericDbService.GetObjectsAsync().Result.ToList();
+            _genericDbService.SaveObjects(_repairs);
         }
 
         public RepairService()
@@ -29,15 +31,15 @@ namespace ÆGTESemesterProjekt.Services
         public async Task AddRepairAsync(Repair repair)
         {
             _repairs.Add(repair);
-
-            //await _dbService.AddObjectAsync(product);
+            JsonFileRepairService.SaveJsonObjects(_repairs);
+            await _genericDbService.AddObjectAsync(repair);
         }
         public List<Repair> GetRepair() { return _repairs; }
         public void AddRepair(Repair repair)
         {
             _repairs.Add(repair);
             JsonFileRepairService.SaveJsonObjects(_repairs);
-            //_dbService.SaveObjects(_repairs);
+            _genericDbService.SaveObjects(_repairs);
         }
         public List<Repair> GetRepairs()
         {
@@ -62,6 +64,7 @@ namespace ÆGTESemesterProjekt.Services
                     }
                 }
                 JsonFileRepairService.SaveJsonObjects(_repairs);
+                _genericDbService.SaveObjects(_repairs);
             }
     }
         public Repair DeleteRepair(int? repairId)
@@ -72,6 +75,7 @@ namespace ÆGTESemesterProjekt.Services
                 {
                     _repairs.Remove(repair);
                     JsonFileRepairService.SaveJsonObjects(_repairs);
+                    _genericDbService.SaveObjects(_repairs);
                     return repair;
                 }
             }

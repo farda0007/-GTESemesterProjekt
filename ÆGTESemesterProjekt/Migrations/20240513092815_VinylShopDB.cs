@@ -27,6 +27,24 @@ namespace ÆGTESemesterProjekt.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Repair",
+                columns: table => new
+                {
+                    CaseId = table.Column<int>(type: "int", nullable: false),
+                    SubDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RepProduct = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RepairStatus = table.Column<int>(type: "int", nullable: false),
+                    RepPrice = table.Column<double>(type: "float", nullable: false),
+                    EstDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Repair", x => x.CaseId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "User",
                 columns: table => new
                 {
@@ -41,30 +59,6 @@ namespace ÆGTESemesterProjekt.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_User", x => x.UserId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Repair",
-                columns: table => new
-                {
-                    CaseId = table.Column<int>(type: "int", nullable: false),
-                    SubDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RepProductId = table.Column<int>(type: "int", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RepairStatus = table.Column<int>(type: "int", nullable: false),
-                    RepPrice = table.Column<double>(type: "float", nullable: false),
-                    EstDate = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Repair", x => x.CaseId);
-                    table.ForeignKey(
-                        name: "FK_Repair_Product_RepProductId",
-                        column: x => x.RepProductId,
-                        principalTable: "Product",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -130,11 +124,6 @@ namespace ÆGTESemesterProjekt.Migrations
                 name: "IX_Order_userId",
                 table: "Order",
                 column: "userId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Repair_RepProductId",
-                table: "Repair",
-                column: "RepProductId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Wishlist_ProductId",
