@@ -31,7 +31,7 @@ namespace ÆGTESemesterProjekt.Services
         public async Task AddRepairAsync(Repair repair)
         {
             _repairs.Add(repair);
-
+            JsonFileRepairService.SaveJsonObjects(_repairs);
             await _genericDbService.AddObjectAsync(repair);
         }
         public List<Repair> GetRepair() { return _repairs; }
