@@ -18,34 +18,29 @@ namespace ÆGTESemesterProjekt.Pages.RepairPage
         public IFormFile? Photo { get; set; }
 
         private IRepairService _repairService;
-        //[BindProperty]
-        public List<Models.Product>? Products { get; private set; }
         [BindProperty]
-        public Product Product { get; set; }
-        [BindProperty]
+
         public Repair Repair { get; set; }
-        private IProductService _productService;
-        public CreateRepairModel(IRepairService repairService, IWebHostEnvironment webHost, IProductService productService)
+        public CreateRepairModel(IRepairService repairService, IWebHostEnvironment webHost)
         {
-            _productService = productService;
             _repairService = repairService;
             _webHostEnvironment = webHost;
 
         }
-        public void OnGet()
-        {
-            Products = _productService.GetProducts();
-        }
-        //public IActionResult OnPost()
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return Page();
-        //    }
-        //    _productService.AddProduct(Product);
-        //    return RedirectToPage("GetAllProducts");
-        //}
-        public async Task<IActionResult> OnPostAsync()
+		public IActionResult OnGet()
+		{
+			return Page();
+		}
+		//public IActionResult OnPost()
+		//{
+		//    if (!ModelState.IsValid)
+		//    {
+		//        return Page();
+		//    }
+		//    _productService.AddProduct(Product);
+		//    return RedirectToPage("GetAllProducts");
+		//}
+		public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
