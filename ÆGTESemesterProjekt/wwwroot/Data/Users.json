@@ -36,30 +36,21 @@
     "Orders": null
   },
   {
-    "UserId": 0,
-    "UserName": "Kaffe",
-    "Name": "Kaffe",
-    "Password": "AQAAAAIAAYagAAAAEG/YLnFOX6cdzLUDtjOY8ZR12YuXrL2dBVaZRbVnRWk0NJLLQQ2cIBByTDiekeC9FQ==",
-    "Phone": 90909090,
-    "Email": "Kaffe@kaffe.com",
-    "Orders": null
-  },
-  {
-    "UserId": 0,
-    "UserName": "Hej",
-    "Name": "Hej",
-    "Password": "AQAAAAIAAYagAAAAEDKrzGKgpBfDgDl/N/4E9D6tqjqCKzl3GVDUFmjkm5Pt5Uwb1b77vi3vV3xCWtiejQ==",
-    "Phone": 82828282,
-    "Email": "hej@hej.dk",
-    "Orders": null
-  },
-  {
     "UserId": 11,
     "UserName": "capri",
     "Name": "capri",
     "Password": "AQAAAAIAAYagAAAAEOQM4mhprgtd9ULierTf2tJZ3FdO7kPH5DWUGPqJ91POug8yFo5QAG3pNdrCeMyhRQ==",
     "Phone": 92929292,
     "Email": "capri@capri.com",
+    "Orders": null
+  },
+  {
+    "UserId": 3,
+    "UserName": "hej",
+    "Name": "hej",
+    "Password": "AQAAAAIAAYagAAAAEM5wZGOhOUsTvZoPx2bGr6ghgnf6zAtcuTDY1FnQKoX5jhvpv6wPcYEQ6jHfIkoBXQ==",
+    "Phone": 82828282,
+    "Email": "hej@hej.dk",
     "Orders": null
   }
 ]
