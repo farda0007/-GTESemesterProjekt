@@ -11,7 +11,11 @@ namespace ÆGTESemesterProjekt.Pages.Products
 		public List<Models.Product>? Products { get; private set; }
 		[BindProperty] 
 		public string SearchString { get; set; }
-		public GetAllProductsModel(IProductService productService) //Dependency Injection
+        [BindProperty]
+        public int MinPrice { get; set; }
+        [BindProperty]
+        public int MaxPrice { get; set; }
+        public GetAllProductsModel(IProductService productService) //Dependency Injection
 		{
 			this._productService = productService;
 		}
@@ -23,7 +27,12 @@ namespace ÆGTESemesterProjekt.Pages.Products
 		{
 			Products = _productService.NameSearch(SearchString).ToList();
 			return Page();
-		}
+        }
+        public IActionResult OnPostPriceFilter()
+        {
+            Products = _productService.PriceFilter(MaxPrice, MinPrice).ToList();
+            return Page();
+        }
 
-	}
+    }
 }
