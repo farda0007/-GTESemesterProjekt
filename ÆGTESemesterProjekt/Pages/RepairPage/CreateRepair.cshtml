@@ -12,13 +12,6 @@
 	<div class="form-group">
 		<label asp-for="@Model.Repair.RepProduct" class="control-label"></label>
 		<input asp-for="@Model.Repair.RepProduct" class="form-control" />
-		<select id="repProduct">
-			@foreach (var product in Model.Products)
-			{
-				<option value="@product.Id">@product.ProductName</option>
-			}
-		</select>
-
 	</div>
 	<div class="form-group">
 		<label asp-for="@Model.Repair.Description" class="control-label"></label>
@@ -48,8 +41,8 @@
 		<input asp-for="@Model.Repair.RepPrice" class="form-control" />
 	</div>
 	<div class="form-group">
-		<label asp-for="@Model.Repair.RepairStatus" class="control-lable"></label>
-		<input asp-for="@Model.Repair.RepairStatus" class="form-control" />
+@* 		<label asp-for="@Model.Repair.RepairStatus" class="control-lable"></label>
+		<input asp-for="@Model.Repair.RepairStatus" class="form-control" /> *@
 		<select id="statusSelect">
 			@foreach (var status in Enum.GetValues(typeof(Models.Repair.Status)))
 			{
