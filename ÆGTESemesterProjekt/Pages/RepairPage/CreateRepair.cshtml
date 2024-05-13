@@ -28,12 +28,12 @@
 		<label asp-for="@Model.Repair.SubDate" class="control-lable"></label>
 		<input asp-for="@Model.Repair.SubDate" class="form-control" />
 	</div>
-
+@* 
 	<div class="form-group">
 		<label asp-for="@Model.Repair.Image" class="control-lable"></label>
 		<input asp-for="@Model.Repair.Image" class="form-control" />
 		<span asp-validation-for="@Model.Repair.Image" class="text-danger"></span>
-	</div>
+	</div> *@
 
 	<div class="mb-3">
 		<label for="formFile" class="form-label">Default file input example</label>
@@ -48,8 +48,8 @@
 		<input asp-for="@Model.Repair.RepPrice" class="form-control" />
 	</div>
 	<div class="form-group">
-		<label asp-for="@Model.Repair.RepairStatus" class="control-lable"></label>
-		<input asp-for="@Model.Repair.RepairStatus" class="form-control" />
+@* 		<label asp-for="@Model.Repair.RepairStatus" class="control-lable"></label>
+		<input asp-for="@Model.Repair.RepairStatus" class="form-control" /> *@
 		<select id="statusSelect">
 			@foreach (var status in Enum.GetValues(typeof(Models.Repair.Status)))
 			{

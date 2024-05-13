@@ -1,38 +1,41 @@
 using ÆGTESemesterProjekt.Models;
 using ÆGTESemesterProjekt.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace ÆGTESemesterProjekt.Pages.RepairPage
 {
+    [Authorize(Roles = "employee")]
     public class CreateRepairModel : PageModel
     {
 
 
 
-		private IWebHostEnvironment _webHostEnvironment;
+        private IWebHostEnvironment _webHostEnvironment;
         [BindProperty]
         public IFormFile? Photo { get; set; }
 
         private IRepairService _repairService;
-		//[BindProperty]
-		public List<Models.Product>? Products { get; private set; }
-		[BindProperty]
-		public Product Product { get; set; }
+        //[BindProperty]
+        public List<Models.Product>? Products { get; private set; }
+        [BindProperty]
+        public Product Product { get; set; }
         [BindProperty]
         public Repair Repair { get; set; }
-		private IProductService _productService;
-		public CreateRepairModel(IRepairService repairService, IWebHostEnvironment webHost, IProductService productService)
+        private IProductService _productService;
+        public CreateRepairModel(IRepairService repairService, IWebHostEnvironment webHost, IProductService productService)
         {
             _productService = productService;
             _repairService = repairService;
             _webHostEnvironment = webHost;
-            
+
         }
         public void OnGet()
         {
-			Products = _productService.GetProducts();
-		}
+            Products = _productService.GetProducts();
+        }
         //public IActionResult OnPost()
         //{
         //    if (!ModelState.IsValid)
@@ -75,5 +78,6 @@ namespace ÆGTESemesterProjekt.Pages.RepairPage
             }
             return uniqueFileName;
         }
-    }
+	}
 }
+
