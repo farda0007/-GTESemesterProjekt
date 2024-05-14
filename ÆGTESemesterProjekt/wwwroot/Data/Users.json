@@ -6,7 +6,8 @@
     "Password": "123",
     "Phone": 60714904,
     "Email": "Arda@mail.com",
-    "Orders": null
+    "Orders": null,
+    "Wishlist": null
   },
   {
     "UserId": 2,
@@ -15,7 +16,8 @@
     "Password": "AQAAAAIAAYagAAAAEGAJQNAlEospdDAkqs61BLukxHsAIyvSPRbCRGq8D9eJ8hjTo2wEkK6wsOzWYUPYbQ==",
     "Phone": 91578217,
     "Email": "thorsskolemail@edu.zealand.dk",
-    "Orders": null
+    "Orders": null,
+    "Wishlist": null
   },
   {
     "UserId": 3,
@@ -24,7 +26,8 @@
     "Password": "AQAAAAIAAYagAAAAEAf2uVHQApBuzqw7dL7OdMzzdogbJuAXVdh9JrAh2JoM6rAFMREQBJsb9YzuSHWaEA==",
     "Phone": 4891724,
     "Email": "lassehammer@edu.zealand.dk",
-    "Orders": null
+    "Orders": null,
+    "Wishlist": null
   },
   {
     "UserId": 4,
@@ -33,7 +36,8 @@
     "Password": "AQAAAAIAAYagAAAAEHy9R5KPJ8Z5e8KfI05c2vi88nmRO2yEn4GJclGivBNmWR\u002BAoMlUkvTLu7Ku0o8gZQ==",
     "Phone": 16237189,
     "Email": "ArdaPara@Yahoo.com",
-    "Orders": null
+    "Orders": null,
+    "Wishlist": null
   },
   {
     "UserId": 0,
@@ -42,7 +46,8 @@
     "Password": "AQAAAAIAAYagAAAAEG/YLnFOX6cdzLUDtjOY8ZR12YuXrL2dBVaZRbVnRWk0NJLLQQ2cIBByTDiekeC9FQ==",
     "Phone": 90909090,
     "Email": "Kaffe@kaffe.com",
-    "Orders": null
+    "Orders": null,
+    "Wishlist": null
   },
   {
     "UserId": 0,
@@ -51,7 +56,8 @@
     "Password": "AQAAAAIAAYagAAAAEDKrzGKgpBfDgDl/N/4E9D6tqjqCKzl3GVDUFmjkm5Pt5Uwb1b77vi3vV3xCWtiejQ==",
     "Phone": 82828282,
     "Email": "hej@hej.dk",
-    "Orders": null
+    "Orders": null,
+    "Wishlist": null
   },
   {
     "UserId": 11,
@@ -60,6 +66,7 @@
     "Password": "AQAAAAIAAYagAAAAEOQM4mhprgtd9ULierTf2tJZ3FdO7kPH5DWUGPqJ91POug8yFo5QAG3pNdrCeMyhRQ==",
     "Phone": 92929292,
     "Email": "capri@capri.com",
-    "Orders": null
+    "Orders": null,
+    "Wishlist": null
   }
 ]

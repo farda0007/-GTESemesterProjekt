@@ -30,6 +30,11 @@ namespace ÆGTESemesterProjekt.Services
             return await _userDbService.GetOrdersByUserIdAsync(user.UserId);
         }
 
+        public async Task<Wishlist> GetUserWishlist(User user)
+        {
+            return await _userDbService.GetWishlistByUserIdAsync(user.UserId);
+        }
+
         public async Task AddUserAsync(User user)
         {
             Users.Add(user);

@@ -1,9 +1,25 @@
-﻿namespace ÆGTESemesterProjekt.Services
+﻿using ÆGTESemesterProjekt.Models;
+
+namespace ÆGTESemesterProjekt.Services
 {
     public interface IWishlistService
     {
-        //void AddToWishlist(int productId, int userId);
-        //void RemoveFromWishlist(int productId, int userId);
-        //List<WishlistProduct> GetWishlistProducts(int userId);
+        //List<wishlists> GetWishlist();
+
+        //Task AddWishlistAsync(Wishlist wishlist);
+
+        //void AddWishlist(Wishlist wishlist);
+
+        //void UpdateWishlist(Wishlist wishlist);
+
+        //Wishlist
+
+
+        //List<Repair> GetRepairs();
+        //Task AddRepairAsync(Repair repair);
+        //void AddRepair(Repair repair);
+        //void UpdateRepair(Repair repair);
+        //Repair DeleteRepair(int? repairID);
+        //Repair GetRepair(int Id);
     }
 }

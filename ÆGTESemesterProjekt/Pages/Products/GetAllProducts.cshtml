@@ -25,7 +25,7 @@
                             <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditProduct" asp-route-id="@product.Id"><i class="fa-sharp fa-solid fa-pen"></i></a>
                             <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteProduct" asp-route-id="@product.Id"><i class="fas fa-trash"></i></a>
                             <a class="btn btn-primary btn-sm " type="button" title="Order" asp-page="/Order/OrderItem" asp-route-id="@product.Id"><i class="fa fa-shopping-cart"></i></a>
-                            @* <a class="btn btn-primary btn-sm" type="button" title="Add To Wishlist" asp-page="/Wishlist/AddToWishlist" asp-route-productId="@product.Id"><i class="fa-sharp fa-solid fa-heart"></i></a> *@
+                            <a class="btn btn-primary btn-sm" type="button" title="Add To Wishlist" asp-page-handler="AddToWishlist" asp-route-id="@product.Id"><i class="fa-sharp fa-solid fa-heart"></i></a>
 
                             @* <a class="btn btn-primary btn-sm" type="button" title="Wishlist" asp-page="/Wishlist/WishlistProduct" asp-route-id=""><i class="fa-sharp fa-solid fa-heart"></i></a> *@
                         </div>
