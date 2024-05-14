@@ -1,10 +1,12 @@
 using ÆGTESemesterProjekt.Models;
 using ÆGTESemesterProjekt.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ÆGTESemesterProjekt.Pages.RepairPage
 {
+    [Authorize(Roles = "employee")]
     public class DeleteRepairModel : PageModel
     {
         private IRepairService _repairService;

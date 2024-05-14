@@ -20,24 +20,23 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                                            @{
-                        if (Context.User.Identity != null)
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-black" asp-area="" asp-page="/Login/LogInPage">Login</a>
-                            </li>
-                        }
-                        else
-                        {
+                        @{
+                            if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item nav-link text-blackme-3">
+                                    User: @User.Identity.Name
+                                </li>
 
-                            <li class="nav-item nav-link text-blackme-3">
-                                User: @Context.User.Identity
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link text-black" asp-area="" asp-page="/Login/LogOut">Logout</a>
-                            </li>
-                        }
+                                <li class="nav-item">
+                                    <a class="nav-link text-black" asp-area="" asp-page="/Login/LogOut">Logout</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-black" asp-area="" asp-page="/Login/LogInPage">Login</a>
+                                </li>
+                            }
                         }
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
@@ -58,7 +57,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/RepairPage/GetAllRepairs">Repererararationer</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Wishlist/WishlistProduct">Wishlist</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Wishlist/GetAllWishlistProduct">Wishlist</a>
                         </li>
                         </li>
                         <li class="nav-item">

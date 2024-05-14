@@ -52,5 +52,27 @@ namespace ÆGTESemesterProjekt.Services
             }
             return user;
         }
+
+        public async Task<Wishlist> GetWishlistByUserIdAsync(int userId)
+        {
+            if (userId > 0)
+            {
+                var wishlist = await GetWishlistByUserIdAsync(userId);
+                return wishlist;
+                //User user;
+                //using (var context = new ProductDbContext())
+                //{
+                //    user = context.User
+                //        .Include(u => u.Wishlist)
+                //        .ThenInclude(i => i.Product)
+                //        .AsNoTracking()
+                //        .FirstOrDefault(u => u.UserId == id);
+                //}
+            }
+            else
+            {
+                throw new ArgumentException("Invalid user ID provided / No products wishlisted");
+            }
+        }
     }
 }
