@@ -1,13 +1,15 @@
+using ÆGTESemesterProjekt.EFDbContext;
 using ÆGTESemesterProjekt.Models;
 using ÆGTESemesterProjekt.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace ÆGTESemesterProjekt.Pages.Wishlist
 {
     public class WishlistProductModel : PageModel
     {
-        public IProductService _productService;
+        private IProductService _productService;
         public UserService _userService;
         public WishlistService _wishlistService;
 
@@ -22,45 +24,65 @@ namespace ÆGTESemesterProjekt.Pages.Wishlist
             _wishlistService = wishlistService;
         }
 
-        public List<Models.Wishlist>? wishlists { get; set; } = new List<Models.Wishlist>();
+        public List<Models.Wishlist> Wishlist;
 
-        public void OnGet(int id)
+        public void OnGet()
         {
-            product = _productService.GetProduct(id);
-            user = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+            var user = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+            Wishlist = new List<Models.Wishlist>();
+           
         }
 
-        //public IActionResult OnPostAddToWishlist(int productId)
-        //{
-        //    var user = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
-        //    if (user == null)
-        //    {
-        //        return RedirectToPage("/Login");
-        //    }
-        //    var product = _productService.GetProduct(productId);
-        //    if (product == null)
-        //    {
-        //        return NotFound();
-        //    }
 
-        //    var wishlist = new Wishlist(user, product);
-        //    _wishlistService.AddToWishlist(wishlist);
+        public List<Models.Wishlist> OnGetWishlistItemsByUserId(int userId)
+        {
+            Models.User user;
+            using (var context = new ProductDbContext())
+            {
+                return context.Wishlist
+                .Where(w => w.userId == userId)
+                .Select(w => new Models.Wishlist
+                {
+                    ProductId = w.ProductId,
+                   //Product = w.Product.ProductName,
+                }).ToList();
+            }
+        }
 
-        //    return RedirectToPage("/Wishlist/ViewWishlist");
-        //}
-
-        public IActionResult OnPost(int id)
+        public IActionResult OnPostAddToWishlist (int id)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+
             product = _productService.GetProduct(id);
             user = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+
+            if (user == null || product == null)
+            {
+                return Page();
+            }
+
             wishlist.userId = user.UserId;
             wishlist.ProductId = product.Id;
             _wishlistService.AddToWishlist(wishlist);
-            return RedirectToPage("/Products/GetAllProducts");
+
+            return RedirectToPage("/products/GetAllProducts");
         }
+
+        //public IActionResult OnPost(int id)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return Page();
+        //    }
+        //    product = _productService.GetProduct(id);
+        //    user = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+        //    wishlist.userId = user.UserId;
+        //    wishlist.ProductId = product.Id;
+        //    _wishlistService.AddToWishlist(wishlist);
+        //    return RedirectToPage("/Products/GetAllProducts");
+        //}    
     }
 }

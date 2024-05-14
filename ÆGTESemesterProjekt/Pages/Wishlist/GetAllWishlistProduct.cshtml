@@ -1,0 +1,21 @@
+﻿@page
+@model ÆGTESemesterProjekt.Pages.Wishlist.GetAllWishlistProductModel
+@{
+}
+@if (Model.Wishlist != null)
+{
+    foreach (var wishlist in Model.Wishlist)
+    {
+        <tr class="btn-secondary">
+            <td>
+                @wishlist.Product
+            </td>
+            @* <td>
+                @wishlist.Product.ProductNa
+            </td>
+            <td>
+                @wishlist.Product.Price
+            </td> *@
+        </tr>
+    }
+}

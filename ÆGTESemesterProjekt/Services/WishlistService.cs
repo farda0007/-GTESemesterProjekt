@@ -1,4 +1,5 @@
 ﻿using ÆGTESemesterProjekt.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ÆGTESemesterProjekt.Services
 {
@@ -6,7 +7,6 @@ namespace ÆGTESemesterProjekt.Services
     {
         public List<Wishlist> _wishlist;
         public DbGenericService<Wishlist> _dbService;
-
 
         public WishlistService()
         {
@@ -17,6 +17,8 @@ namespace ÆGTESemesterProjekt.Services
             _dbService = dbService;
             _wishlist = _dbService.GetObjectsAsync().Result.ToList();
         }
+
+        
 
         public void AddToWishlist(Wishlist wishlist)
         {
