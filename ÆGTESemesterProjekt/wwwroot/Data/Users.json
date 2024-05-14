@@ -46,7 +46,8 @@
     "Password": "AQAAAAIAAYagAAAAEOQM4mhprgtd9ULierTf2tJZ3FdO7kPH5DWUGPqJ91POug8yFo5QAG3pNdrCeMyhRQ==",
     "Phone": 92929292,
     "Email": "capri@capri.com",
-    "Orders": null
+    "Orders": null,
+    "Wishlist": null
   },
   {
     "UserId": 3,
@@ -65,7 +66,8 @@
     "Password": "AQAAAAIAAYagAAAAEFLtSVSgummgOn8XVTYeht6PgRlA1z4oReKQyte3dBZXF9zhgn\u002BoQBIG4JYI2ZBolA==",
     "Phone": 123,
     "Email": "123",
-    "Orders": null
+    "Orders": null,
+    "Wishlist": null
   },
   {
     "UserId": 2,
@@ -74,6 +76,17 @@
     "Password": "AQAAAAIAAYagAAAAEOhwgc4VXg4Ga3po3Serk8D1RA58eXQL5l77AysPKmHv7z5tzdPPcC85MR8VL2HR/g==",
     "Phone": 60714904,
     "Email": "thomas@mial.com",
-    "Orders": null
+    "Orders": null,
+    "Wishlist": null
+  },
+  {
+    "UserId": 3,
+    "UserName": "employee",
+    "Name": "employee",
+    "Password": "AQAAAAIAAYagAAAAECTW0T8ZMcGnjOO6sBg6sZVCyOZGBMFYDrCUerZlkOX/N4oc8qC99UH2PXP2mLA3\u002BA==",
+    "Phone": 333333333,
+    "Email": "employee",
+    "Orders": null,
+    "Wishlist": null
   }
 ]
