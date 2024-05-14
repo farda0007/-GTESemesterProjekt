@@ -3,7 +3,6 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ÆGTESemesterProjekt.EFDbContext;
 
@@ -12,11 +11,9 @@ using ÆGTESemesterProjekt.EFDbContext;
 namespace ÆGTESemesterProjekt.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20240514092229_VinylShopDB")]
-    partial class VinylShopDB
+    partial class ProductDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,6 +71,9 @@ namespace ÆGTESemesterProjekt.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -197,7 +197,7 @@ namespace ÆGTESemesterProjekt.Migrations
                         .IsRequired();
 
                     b.HasOne("ÆGTESemesterProjekt.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Wishlist")
                         .HasForeignKey("userId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -210,6 +210,8 @@ namespace ÆGTESemesterProjekt.Migrations
             modelBuilder.Entity("ÆGTESemesterProjekt.Models.User", b =>
                 {
                     b.Navigation("Orders");
+
+                    b.Navigation("Wishlist");
                 });
 #pragma warning restore 612, 618
         }

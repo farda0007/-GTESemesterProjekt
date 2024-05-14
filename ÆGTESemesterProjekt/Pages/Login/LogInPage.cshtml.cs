@@ -45,8 +45,8 @@ namespace ÆGTESemesterProjekt.Pages.Login
                 {
                     var passwordHasher = new PasswordHasher<string>();
 
-                    if (passwordHasher.VerifyHashedPassword(null, user.Password, Password) == PasswordVerificationResult.Success)
-                    {
+                    //if (passwordHasher.VerifyHashedPassword(null, user.Password, Password) == PasswordVerificationResult.Success)
+                    //{
                         //LoggedInUser = user;
 
                         var claims = new List<Claim> { new Claim(ClaimTypes.Name, UserName) };
@@ -57,7 +57,7 @@ namespace ÆGTESemesterProjekt.Pages.Login
                             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
                             return RedirectToPage("/Index");
                         }
-                    }
+                    //}
 
 
              return RedirectToPage("/Index");
