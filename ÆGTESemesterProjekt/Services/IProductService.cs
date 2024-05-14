@@ -10,5 +10,7 @@ namespace ÆGTESemesterProjekt.Services
         void UpdateProduct(Product product);
         Product DeleteProduct(int? productID);
         Product GetProduct(int Id);
+		IEnumerable<Product> NameSearch(string str);
+        IEnumerable<Product> PriceFilter(int maxPrice, int minPrice = 0);
     }
 }

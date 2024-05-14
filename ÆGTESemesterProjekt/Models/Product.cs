@@ -22,19 +22,30 @@ namespace ÆGTESemesterProjekt.Models
 		//public int Count { get; set; }
 		public string Description { get; set; }
 		public string ProductImage { get; set; }
-
+        public Producttype Type { get; set; }
+        public enum Producttype
+		{
+			CleaningTool,
+			Headset,
+			Radio,
+			RecordPlayer,
+			Speaker,
+			Vinyl
+		}
+		
 
 		public Product()
 		{
 		}
 
-		public Product(int id, string productName, decimal price, string description, string productImage)
+		public Product(int id, string productName, decimal price, string description, string productImage, Producttype type)
 		{
 			Id = id;
 			ProductName = productName;
 			Price = price;
 			Description = description;
 			ProductImage = productImage;
+			Type = type;
 		}
 	}
 }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using static ÆGTESemesterProjekt.Models.Product;
 
 namespace ÆGTESemesterProjekt.Pages.Products
 {
@@ -11,13 +12,15 @@ namespace ÆGTESemesterProjekt.Pages.Products
     public class CreateProductModel : PageModel
     {
 
-
+		[BindProperty]
+		public string TypeSelect { get; set; }
 		private IWebHostEnvironment _webHostEnvironment;
 		[BindProperty]
 		public IFormFile? Photo { get; set; }
 
 		private IProductService _productService;
         [BindProperty]
+
         public Product Product { get; set; }
 
 		public CreateProductModel(IProductService productService, IWebHostEnvironment webHost)
@@ -53,8 +56,14 @@ namespace ÆGTESemesterProjekt.Pages.Products
 				}
 				Product.ProductImage = ProcessUploadedFile();
 			}
+			Product product = new Product
+			{
+				ProductName = this.Product.ProductName,
+				Price = this.Product.Price,
+				Type = (Producttype)Enum.Parse(typeof(Producttype), TypeSelect)
+			};
 			await _productService.AddProductAsync(Product);
-			return RedirectToPage("/Products/GetAllProducts");
+			return RedirectToPage($"/Products/{TypeSelect}");
 		}
 		private string ProcessUploadedFile()
 		{

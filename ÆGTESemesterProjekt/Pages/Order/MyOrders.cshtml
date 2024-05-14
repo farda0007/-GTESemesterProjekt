@@ -17,35 +17,30 @@
             </tr>
         </thead>
         <tbody>
-            @if (@Model.MyOrders != null)
+            @if (Model.MyOrders != null)
             {
+                decimal totalPrice = 0; // Initialize total price variable
                 foreach (var order in Model.MyOrders)
                 {
                     <tr class="btn-secondary">
-                        <td>
-                            @order.OrderId
-                        </td>
-                        <td>
-                            @order.Date
-                        </td>
-
-                        <td>
-                            @order.ProductId
-                        </td>
-                        <td>
-                            @order.Product.ProductName
-                        </td>
-                        <td>
-                            @order.Product.Price
-                        </td>
-                        <td>
-                            @order.Count
-                        </td>
-                        <td>
-                            @(order.Count * order.Product.Price)
-                        </td>
+                        <td>@order.OrderId</td>
+                        <td>@order.Date</td>
+                        <td>@order.ProductId</td>
+                        <td>@order.Product.ProductName</td>
+                        <td>@order.Product.Price</td>
+                        <td>@order.Count</td>
+                        <td>@(order.Count * order.Product.Price)</td>
+                        @*Tilføjer den individuelle totalpris til den overordnede totalpris*@
+                        @{
+                            totalPrice += order.Count * order.Product.Price;
+                        }
                     </tr>
                 }
+                <tr class="btn-secondary">
+                    <td colspan="6" style="text-align: right;"><strong>Total pris for alle produkter:</strong></td>
+                    <td>@totalPrice</td>
+                </tr>
+                 }
             }
         </tbody>
     </table>
