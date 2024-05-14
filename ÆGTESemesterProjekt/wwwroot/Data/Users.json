@@ -1,6 +1,6 @@
 [
   {
-    "UserId": 1,
+    "UserId": 6,
     "UserName": "employee",
     "Name": "employee",
     "Password": "123",
@@ -10,82 +10,22 @@
     "Wishlist": null
   },
   {
-    "UserId": 2,
-    "UserName": "Nesbit my butt",
-    "Name": "Thor Nesbitt",
-    "Password": "AQAAAAIAAYagAAAAEGAJQNAlEospdDAkqs61BLukxHsAIyvSPRbCRGq8D9eJ8hjTo2wEkK6wsOzWYUPYbQ==",
-    "Phone": 91578217,
-    "Email": "thorsskolemail@edu.zealand.dk",
+    "UserId": 7,
+    "UserName": "Akhmed",
+    "Name": "Akh",
+    "Password": "Admin",
+    "Phone": 13131919,
+    "Email": "Akhmedes@mail.com",
     "Orders": null,
     "Wishlist": null
   },
   {
-    "UserId": 3,
-    "UserName": "Lasse H\u00E5ndtaske",
-    "Name": "Lasse Hammer",
-    "Password": "AQAAAAIAAYagAAAAEAf2uVHQApBuzqw7dL7OdMzzdogbJuAXVdh9JrAh2JoM6rAFMREQBJsb9YzuSHWaEA==",
-    "Phone": 4891724,
-    "Email": "lassehammer@edu.zealand.dk",
-    "Orders": null,
-    "Wishlist": null
-  },
-  {
-    "UserId": 4,
-    "UserName": "Arda",
-    "Name": "Arda Para",
-    "Password": "AQAAAAIAAYagAAAAEHy9R5KPJ8Z5e8KfI05c2vi88nmRO2yEn4GJclGivBNmWR\u002BAoMlUkvTLu7Ku0o8gZQ==",
-    "Phone": 16237189,
-    "Email": "ArdaPara@Yahoo.com",
-    "Orders": null,
-    "Wishlist": null
-  },
-  {
-    "UserId": 11,
-    "UserName": "capri",
-    "Name": "capri",
-    "Password": "AQAAAAIAAYagAAAAEOQM4mhprgtd9ULierTf2tJZ3FdO7kPH5DWUGPqJ91POug8yFo5QAG3pNdrCeMyhRQ==",
-    "Phone": 92929292,
-    "Email": "capri@capri.com",
-    "Orders": null,
-    "Wishlist": null
-  },
-  {
-    "UserId": 3,
-    "UserName": "hej",
-    "Name": "hej",
-    "Password": "AQAAAAIAAYagAAAAEM5wZGOhOUsTvZoPx2bGr6ghgnf6zAtcuTDY1FnQKoX5jhvpv6wPcYEQ6jHfIkoBXQ==",
-    "Phone": 82828282,
-    "Email": "hej@hej.dk",
-    "Orders": null,
-    "Wishlist": null
-  },
-  {
-    "UserId": 1,
-    "UserName": "nielsen",
-    "Name": "martin",
-    "Password": "AQAAAAIAAYagAAAAEFLtSVSgummgOn8XVTYeht6PgRlA1z4oReKQyte3dBZXF9zhgn\u002BoQBIG4JYI2ZBolA==",
-    "Phone": 123,
-    "Email": "123",
-    "Orders": null,
-    "Wishlist": null
-  },
-  {
-    "UserId": 2,
-    "UserName": "employee",
-    "Name": "thomas",
-    "Password": "AQAAAAIAAYagAAAAEOhwgc4VXg4Ga3po3Serk8D1RA58eXQL5l77AysPKmHv7z5tzdPPcC85MR8VL2HR/g==",
-    "Phone": 60714904,
-    "Email": "thomas@mial.com",
-    "Orders": null,
-    "Wishlist": null
-  },
-  {
-    "UserId": 3,
+    "UserId": 8,
     "UserName": "employee",
     "Name": "employee",
-    "Password": "AQAAAAIAAYagAAAAECTW0T8ZMcGnjOO6sBg6sZVCyOZGBMFYDrCUerZlkOX/N4oc8qC99UH2PXP2mLA3\u002BA==",
-    "Phone": 333333333,
-    "Email": "employee",
+    "Password": "AQAAAAIAAYagAAAAEMTsOtbDhvm2I\u002BO8Zgommg9emFaGwrfD\u002BIfoW2sxFyDinttkPlgABjzNpdvRaVTTJw==",
+    "Phone": 29292929,
+    "Email": "employee@employee.com",
     "Orders": null,
     "Wishlist": null
   }
