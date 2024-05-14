@@ -36,6 +36,7 @@ namespace ÆGTESemesterProjekt.Models
 
 		public Product()
 		{
+			Type = 0;
 		}
 
 		public Product(int id, string productName, decimal price, string description, string productImage, Producttype type)

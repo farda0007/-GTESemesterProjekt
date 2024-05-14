@@ -16,8 +16,8 @@ namespace ÆGTESemesterProjekt.Services
         {
             _userJsonFileService = UserJsonFileService;
             _dbService = dbService;
-            Users = MockUsers.GetUsers();
-            //Users = _userJsonFileService.GetJsonObjects().ToList();
+            //Users = MockUsers.GetUsers();
+            Users = _userJsonFileService.GetJsonObjects().ToList();
             //_userJsonFileService.SaveJsonObjects(Users);
             _dbService.SaveObjects(Users);
             //LoggedInUser = Users[0];

@@ -8,12 +8,12 @@ using static ÆGTESemesterProjekt.Models.Product;
 
 namespace ÆGTESemesterProjekt.Pages.Products
 {
-    [Authorize(Roles = "employee")]
+    //[Authorize(Roles = "employee")]
     public class CreateProductModel : PageModel
     {
 
 		[BindProperty]
-		public string TypeSelect { get; set; }
+		public Producttype TypeSelect { get; set; }
 		private IWebHostEnvironment _webHostEnvironment;
 		[BindProperty]
 		public IFormFile? Photo { get; set; }
@@ -56,18 +56,18 @@ namespace ÆGTESemesterProjekt.Pages.Products
 				}
 				Product.ProductImage = ProcessUploadedFile();
 			}
-			Product product = new Product
-			{
-				Id = this.Product.Id,
-				ProductName = this.Product.ProductName,
-				Price = this.Product.Price,
-				Description = this.Product.Description,
-				ProductImage = this.Product.ProductImage,
+			//Product product = new Product
+			//{
+			//	Id = this.Product.Id,
+			//	ProductName = this.Product.ProductName,
+			//	Price = this.Product.Price,
+			//	Description = this.Product.Description,
+			//	ProductImage = this.Product.ProductImage,
 				
-				Type = (Producttype)Enum.Parse(typeof(Producttype), TypeSelect)
-			};
+			//	Type = (Producttype)Enum.Parse(typeof(Producttype), TypeSelect)
+			//};
 			await _productService.AddProductAsync(Product);
-			return RedirectToPage($"/Products/{TypeSelect}");
+			return RedirectToPage("/Products/GetAllProducts");
 		}
 		private string ProcessUploadedFile()
 		{

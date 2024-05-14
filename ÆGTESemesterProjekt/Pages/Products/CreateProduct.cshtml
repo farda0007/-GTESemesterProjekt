@@ -44,17 +44,17 @@
 		</select>
 	</div> *@
 	<div>
-		<label for="productType">Product Type:</label>
-		<select id="productType" asp-for="TypeSelect">
+		<label for="Product.Type">Product Type:</label>
+		<select asp-for="Product.Type" name = "Product.Type">
 			<option value="">Select a product type</option>
-			<option value="RecordPlayer">Pladeafspiller</option>
-			<option value="Vinyl">Vinyl</option>
-			<option value="Speaker">højtaler</option>
-			<option value="Headset">Headset</option>
-			<option value="CleaningTool">Rengørings udstyr</option>
-			<option value="Radio">Radio</option>
+			<option value="0">Pladeafspiller</option>
+			<option value="1">Vinyl</option>
+			<option value="2">Højtaler</option>
+			<option value="3">Headset</option>
+			<option value="4">Rengørings udstyr</option>
+			<option value="5">Radio</option>
 		</select>
-		<span asp-validation-for="TypeSelect"></span>
+		<span asp-validation-for="Product.Type"></span>
 	</div>
 
 
