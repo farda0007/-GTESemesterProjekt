@@ -11,9 +11,9 @@ namespace ÆGTESemesterProjekt.Pages.Order
         public UserService _userService;
         public OrderService _orderService;
 
-        public Models.User user {  get; set; }
-        public Product product { get; set; }
-        public Models.Order order { get; set; } = new Models.Order();
+        public Models.User User {  get; set; }
+        public Product Product { get; set; }
+        public Models.Order Order { get; set; } = new Models.Order();
         [BindProperty]
         public int Count { get; set; }
 
@@ -25,8 +25,8 @@ namespace ÆGTESemesterProjekt.Pages.Order
         }
         public void OnGet(int id)
         {
-            product = _productService.GetProduct(id);
-            user = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+            Product = _productService.GetProduct(id);
+            User = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
         }
 
         public IActionResult OnPost(int id)
@@ -35,13 +35,13 @@ namespace ÆGTESemesterProjekt.Pages.Order
             {
                 return Page();
             }
-            product = _productService.GetProduct(id);
-            user = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
-            order.userId = user.UserId;
-            order.ProductId = product.Id;
-            order.Date = DateTime.Now;
-            order.Count = Count;
-            _orderService.AddOrder(order);
+            Product = _productService.GetProduct(id);
+            User = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+            Order.userId = User.UserId;
+            Order.ProductId = Product.Id;
+            Order.Date = DateTime.Now;
+            Order.Count = Count;
+            _orderService.AddOrder(Order);
             return RedirectToPage("/Products/GetAllProducts");
         }
     }
