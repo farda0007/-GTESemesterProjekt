@@ -58,8 +58,12 @@ namespace ÆGTESemesterProjekt.Pages.Products
 			}
 			Product product = new Product
 			{
+				Id = this.Product.Id,
 				ProductName = this.Product.ProductName,
 				Price = this.Product.Price,
+				Description = this.Product.Description,
+				ProductImage = this.Product.ProductImage,
+				
 				Type = (Producttype)Enum.Parse(typeof(Producttype), TypeSelect)
 			};
 			await _productService.AddProductAsync(Product);
