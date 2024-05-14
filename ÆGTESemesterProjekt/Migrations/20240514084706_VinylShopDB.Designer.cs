@@ -12,7 +12,7 @@ using ÆGTESemesterProjekt.EFDbContext;
 namespace ÆGTESemesterProjekt.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20240513115503_VinylShopDB")]
+    [Migration("20240514084706_VinylShopDB")]
     partial class VinylShopDB
     {
         /// <inheritdoc />
@@ -74,6 +74,9 @@ namespace ÆGTESemesterProjekt.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

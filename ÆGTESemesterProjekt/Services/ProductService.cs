@@ -54,10 +54,12 @@ namespace ÆGTESemesterProjekt.Services
                         p.Price = product.Price;
                         p.ProductImage = product.ProductImage;
                         p.ProductName = product.ProductName;
+                        p.Type = product.Type;
                     }
                 }
                 JsonFileProductService.SaveJsonObjects(_products);
-            }
+				_genericDbService.SaveObjects(_products);
+			}
         }
         public Product DeleteProduct(int? productId)
         {
@@ -89,10 +91,12 @@ namespace ÆGTESemesterProjekt.Services
 			List<Product> nameSearch = new List<Product>();
 			foreach (Product product in _products)
 			{
-				if (product.ProductName.ToLower().Contains(str.ToLower()))
-				{
-					nameSearch.Add(product);
-				}
+
+                    if (product.ProductName.ToLower().Contains(str.ToLower()))
+                    {
+                        nameSearch.Add(product);
+                    }
+                
 			}
 
 			return nameSearch;

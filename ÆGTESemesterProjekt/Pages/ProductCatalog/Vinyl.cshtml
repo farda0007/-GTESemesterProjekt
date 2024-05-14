@@ -2,3 +2,22 @@
 @model ÆGTESemesterProjekt.Pages.ProductCatalog.VinylModel
 @{
 }
+<p>Alle vinyler</p>
+
+@if (Model.VinylProducts.Any())
+{
+    <ul>
+        @foreach (var product in Model.VinylProducts)
+        {
+            <li>
+                <h3>@product.ProductName</h3>
+                <p>Price: @product.Price</p>
+
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>Der er ikke flere vinyler tilgængelig</p>
+}

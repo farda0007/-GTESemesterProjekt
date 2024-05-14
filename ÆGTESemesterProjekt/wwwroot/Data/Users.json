@@ -52,5 +52,14 @@
     "Phone": 82828282,
     "Email": "hej@hej.dk",
     "Orders": null
+  },
+  {
+    "UserId": 1,
+    "UserName": "nielsen",
+    "Name": "martin",
+    "Password": "AQAAAAIAAYagAAAAEFLtSVSgummgOn8XVTYeht6PgRlA1z4oReKQyte3dBZXF9zhgn\u002BoQBIG4JYI2ZBolA==",
+    "Phone": 123,
+    "Email": "123",
+    "Orders": null
   }
 ]
