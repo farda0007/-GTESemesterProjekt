@@ -1,4 +1,7 @@
-﻿using ÆGTESemesterProjekt.Models;
+﻿using ÆGTESemesterProjekt.EFDbContext;
+using ÆGTESemesterProjekt.Models;
+using ÆGTESemesterProjekt.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace ÆGTESemesterProjekt.Services
@@ -7,7 +10,7 @@ namespace ÆGTESemesterProjekt.Services
     {
         public List<Wishlist> _wishlist;
         public DbGenericService<Wishlist> _dbService;
-
+        
         public WishlistService()
         {
         }
