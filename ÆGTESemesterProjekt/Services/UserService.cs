@@ -9,25 +9,23 @@ namespace ÆGTESemesterProjekt.Services
         public List<User> Users { get; set; }
         private JsonFileService<User> _userJsonFileService;
         //public User LoggedInUser { get; set; }
-        private DbGenericService<User> _dbService;
-        private UserDbService _userDbService;
+        private UserDbService _dbService;
 
 
-        public UserService(JsonFileService<User> UserJsonFileService, UserDbService userDbService, DbGenericService<User> dbService)
+        public UserService(JsonFileService<User> UserJsonFileService, UserDbService dbService)
         {
             _userJsonFileService = UserJsonFileService;
             _dbService = dbService;
-            _userDbService = userDbService;
             //Users = MockUsers.GetUsers();
             Users = _userJsonFileService.GetJsonObjects().ToList();
-            UserJsonFileService.SaveJsonObjects(Users);
-            //_userDbService.SaveObjects(Users);
+            //_userJsonFileService.SaveJsonObjects(Users);
+            _dbService.SaveObjects(Users);
             //LoggedInUser = Users[0];
         }
 
         public async Task<User> GetUserOrders(User user)
         {
-            return await _userDbService.GetOrdersByUserIdAsync(user.UserId);
+            return await _dbService.GetOrdersByUserIdAsync(user.UserId);
         }
 
         public async Task AddUserAsync(User user)
