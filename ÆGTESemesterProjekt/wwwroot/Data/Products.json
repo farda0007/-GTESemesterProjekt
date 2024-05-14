@@ -2,7 +2,7 @@
   {
     "Id": 1,
     "ProductName": "Vinyl",
-    "Price": 5999,
+    "Price": 5999.00,
     "Description": "Hans Philip og Jens MccCoy",
     "ProductImage": "Dansktop.jpg",
     "Type": 5
@@ -10,17 +10,9 @@
   {
     "Id": 2,
     "ProductName": "Vinyl",
-    "Price": 5999,
+    "Price": 5999.00,
     "Description": "Tupac",
     "ProductImage": "Theunderground.jpg",
-    "Type": 5
-  },
-  {
-    "Id": 3,
-    "ProductName": "Vinyl",
-    "Price": 5999,
-    "Description": "Kendrick Lamar",
-    "ProductImage": "ToPimp.jpg",
     "Type": 5
   }
 ]
