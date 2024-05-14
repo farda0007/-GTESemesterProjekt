@@ -1,9 +1,11 @@
 using ÆGTESemesterProjekt.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ÆGTESemesterProjekt.Pages.RepairPage
 {
+    [Authorize(Roles = "employee")]
     public class EditRepairModel : PageModel
     {
         private IRepairService _repairService;

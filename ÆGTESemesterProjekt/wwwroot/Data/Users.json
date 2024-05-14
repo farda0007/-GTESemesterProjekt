@@ -61,5 +61,14 @@
     "Phone": 123,
     "Email": "123",
     "Orders": null
+  },
+  {
+    "UserId": 2,
+    "UserName": "employee",
+    "Name": "thomas",
+    "Password": "AQAAAAIAAYagAAAAEOhwgc4VXg4Ga3po3Serk8D1RA58eXQL5l77AysPKmHv7z5tzdPPcC85MR8VL2HR/g==",
+    "Phone": 60714904,
+    "Email": "thomas@mial.com",
+    "Orders": null
   }
 ]
