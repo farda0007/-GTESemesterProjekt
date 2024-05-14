@@ -19,7 +19,7 @@
         <tbody>
             @if (Model.MyOrders != null)
             {
-                decimal totalPrice = 0; // Initialize total price variable
+                decimal totalPrice = 0; 
                 foreach (var order in Model.MyOrders)
                 {
                     <tr class="btn-secondary">
@@ -30,7 +30,7 @@
                         <td>@order.Product.Price</td>
                         <td>@order.Count</td>
                         <td>@(order.Count * order.Product.Price)</td>
-                        @*Tilføjer den individuelle totalpris til den overordnede totalpris*@
+                        @*Tilføjer den individuelle totalpris til den overordnede r*@
                         @{
                             totalPrice += order.Count * order.Product.Price;
                         }
