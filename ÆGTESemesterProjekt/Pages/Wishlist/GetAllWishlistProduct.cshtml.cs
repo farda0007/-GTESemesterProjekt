@@ -8,20 +8,18 @@ namespace ÆGTESemesterProjekt.Pages.Wishlist
 {
     public class GetAllWishlistProductModel : PageModel
     {
+        public UserService UserService { get; set; }
 
-        public UserService _UserService {  get; set; }
-
-        public IEnumerable<Models.Wishlist> Wishlist { get; set; }
+        public IEnumerable<Models.Wishlist> MyWishlist { get; set; }
 
         public GetAllWishlistProductModel(UserService userService)
         {
-            _UserService = userService;
+            UserService = userService;
         }
+
         public IActionResult OnGet()
         {
-            Models.User CurrentUser = _UserService.GetUserByUserName(HttpContext.User.Identity.Name);
-            //var WishlistProduct = CurrentUser.Wishlist;
-            //var WishlistProduct = _UserService.GetUserWishlist(CurrentUser).Result.Wishlist;
+            Models.User CurrentUser = UserService.GetUserByUserName(HttpContext.User.Identity.Name);
 
             return Page();
         }
