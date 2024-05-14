@@ -2,10 +2,25 @@
 @model ÆGTESemesterProjekt.Pages.Order.OrderItemModel
 @{
 }
-<form method="post">
-    <div class="form-group">
-        <label asp-for="order.Count" class="control-lable"></label>
-        <input asp-for="order.Count" class="form-control" />
-        <span asp-validation-for="order.Count" class="text-danger"></span>
+<div class="row">
+    <div class="col-md-4">
+        <div>
+            User: @Model.User.UserName
+        </div>
+        <div>
+            Product: @Model.Product.ProductName
+        </div>
+
+
+        <form method="post">
+            Count:
+            <input asp-for="@Model.Count" class="form-control" />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
-</form>
+</div>
+<div>
+    <a asp-page="../Product/GetAllProducts">Back to List</a>
+</div>
