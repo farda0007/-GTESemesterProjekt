@@ -63,15 +63,15 @@ namespace ÆGTESemesterProjekt.Pages.Wishlist
                 return Page();
             }
 
-            var wishlist = _wishlistService.OnGetWishlistItemsByUserId(userId);
-            if (wishlist == null)
-            {
-                wishlist = new Wishlist { UserId = user.UserId };
-            }
+            //var wishlist = _wishlistService.OnGetWishlistItemsByUserId(userId);
+            //if (wishlist == null)
+            //{
+            //    wishlist = new Wishlist { UserId = user.UserId };
+            //}
 
 
-            wishlist.Products.Add(product); //Istansiering af wishlist
-            _wishlistService.AddToWishlist(wishlist);
+            //wishlist.Products.Add(product); //Istansiering af wishlist
+            //_wishlistService.AddToWishlist(wishlist);
 
             //wishlist.userId = user.UserId;
             //wishlist.ProductId = product.Id;
