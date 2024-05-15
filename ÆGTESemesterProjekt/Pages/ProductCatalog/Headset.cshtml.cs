@@ -9,7 +9,13 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
     public class HeadsetModel : PageModel
     {
         private readonly IProductService _productService;
+        [BindProperty]
+        public string SearchString { get; set; }
+        [BindProperty]
+        public int MinPrice { get; set; }
+        [BindProperty]
 
+        public int MaxPrice { get; set; }
         public HeadsetModel(IProductService productService)
         {
             _productService = productService;
@@ -22,6 +28,16 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
             // Filter products based on the specified product type
             HeadsetProducts = _productService.GetProducts().Where(p => p.Type == Producttype.Headset).ToList();
 
+            return Page();
+        }
+        public IActionResult OnPostNameSearch()
+        {
+            HeadsetProducts = _productService.NameSearch(SearchString).ToList();
+            return Page();
+        }
+        public IActionResult OnPostPriceFilter()
+        {
+            HeadsetProducts = _productService.PriceFilter(MaxPrice, MinPrice).ToList();
             return Page();
         }
     }

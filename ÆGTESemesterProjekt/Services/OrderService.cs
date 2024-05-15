@@ -22,5 +22,9 @@ namespace ÆGTESemesterProjekt.Services
             _orderList.Add(order);
             _dbService.AddObjectAsync(order);
         }
+        public List<Order> GetOrders()
+        {
+            return _orderList;    
+        }
     }
 }

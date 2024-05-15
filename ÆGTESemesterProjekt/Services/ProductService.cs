@@ -92,11 +92,13 @@ namespace ÆGTESemesterProjekt.Services
 			List<Product> nameSearch = new List<Product>();
 			foreach (Product product in _products)
 			{
-
+                if (str != null)
+                {
                     if (product.ProductName.ToLower().Contains(str.ToLower()))
                     {
                         nameSearch.Add(product);
                     }
+                }
                 
 			}
 

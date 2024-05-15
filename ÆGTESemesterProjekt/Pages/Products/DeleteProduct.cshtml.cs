@@ -1,9 +1,11 @@
 using ÆGTESemesterProjekt.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ÆGTESemesterProjekt.Pages.Products
 {
+    [Authorize(Roles = "employee")]
     public class DeleteProductModel : PageModel
     {
         private IProductService _productService;

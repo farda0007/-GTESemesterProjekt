@@ -8,8 +8,8 @@ using static ÆGTESemesterProjekt.Models.Product;
 
 namespace ÆGTESemesterProjekt.Pages.Products
 {
-    //[Authorize(Roles = "employee")]
-    public class CreateProductModel : PageModel
+	[Authorize(Roles = "employee")]
+	public class CreateProductModel : PageModel
     {
 
 		[BindProperty]

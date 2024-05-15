@@ -9,6 +9,13 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
     public class SpeakerModel : PageModel
     {
         private readonly IProductService _productService;
+        [BindProperty]
+        public string SearchString { get; set; }
+        [BindProperty]
+        public int MinPrice { get; set; }
+        [BindProperty]
+
+        public int MaxPrice { get; set; }
 
         public SpeakerModel(IProductService productService)
         {
@@ -22,6 +29,16 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
             // Filter products based on the specified product type
             SpeakerProducts = _productService.GetProducts().Where(p => p.Type == Producttype.Speaker).ToList();
 
+            return Page();
+        }
+        public IActionResult OnPostNameSearch()
+        {
+            SpeakerProducts = _productService.NameSearch(SearchString).ToList();
+            return Page();
+        }
+        public IActionResult OnPostPriceFilter()
+        {
+            SpeakerProducts = _productService.PriceFilter(MaxPrice, MinPrice).ToList();
             return Page();
         }
     }
