@@ -1,0 +1,32 @@
+[
+  {
+    "UserId": 1,
+    "UserName": "employee",
+    "Name": "employee",
+    "Password": "123",
+    "Phone": 60714904,
+    "Email": "Arda@mail.com",
+    "Orders": null,
+    "WishlistProducts": null
+  },
+  {
+    "UserId": 2,
+    "UserName": "Akhmed",
+    "Name": "Akh",
+    "Password": "Admin",
+    "Phone": 13131919,
+    "Email": "Akhmedes@mail.com",
+    "Orders": null,
+    "WishlistProducts": null
+  },
+  {
+    "UserId": 3,
+    "UserName": "hej",
+    "Name": "hej",
+    "Password": "AQAAAAIAAYagAAAAEDRdYqVQ5rl5IBG7GWku6Dw8bVWXm5wHmTKvWSRf0s0kZ7E1BuONSSad/j/OzY\u002B1HA==",
+    "Phone": 123,
+    "Email": "hej",
+    "Orders": null,
+    "WishlistProducts": null
+  }
+]

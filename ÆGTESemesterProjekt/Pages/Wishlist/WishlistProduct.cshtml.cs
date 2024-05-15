@@ -30,7 +30,6 @@ namespace ÆGTESemesterProjekt.Pages.Wishlist
         {
             var user = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
             Wishlist = new List<Models.Wishlist>();
-           
         }
 
 
@@ -77,7 +76,7 @@ namespace ÆGTESemesterProjekt.Pages.Wishlist
             //wishlist.ProductId = product.Id;
             //_wishlistService.AddToWishlist(wishlist);
 
-            return RedirectToPage("/products/GetAllProducts");
+            return RedirectToPage("/Products/GetAllProducts");
         }
 
         //public IActionResult OnPost(int id)
