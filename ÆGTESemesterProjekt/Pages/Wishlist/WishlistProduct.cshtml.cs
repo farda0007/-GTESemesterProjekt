@@ -30,7 +30,6 @@ namespace ÆGTESemesterProjekt.Pages.Wishlist
         {
             var user = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
             Wishlist = new List<Models.Wishlist>();
-           
         }
 
 
