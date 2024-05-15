@@ -18,7 +18,7 @@ namespace ÆGTESemesterProjekt.Models
         public int Phone { get; set; }
         public string Email { get; set; }
 		public virtual ICollection<Order> Orders { get; set; }
-        public virtual ICollection<Wishlist> Wishlist { get; set; }
+        public virtual ICollection<Wishlist> WishlistProducts { get; set; }
 		public User()
         {
             //UserName = "";

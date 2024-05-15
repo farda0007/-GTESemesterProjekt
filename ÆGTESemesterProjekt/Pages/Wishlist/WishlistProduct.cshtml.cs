@@ -34,7 +34,7 @@ namespace ÆGTESemesterProjekt.Pages.Wishlist
         }
 
 
-        public List<Models.Wishlist> OnGetWishlistItemsByUserId(int userId)
+        public List<Models.Wishlist> OnGetWishlistItemsByUserIdAsync(int userId)
         {
             Models.User user;
             using (var context = new ProductDbContext())
@@ -49,24 +49,33 @@ namespace ÆGTESemesterProjekt.Pages.Wishlist
             }
         }
 
-        public IActionResult OnPostAddToWishlist (int id)
+        public IActionResult OnPostAddToWishlist (int productId, int userId)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            product = _productService.GetProduct(id);
-            user = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
-
+            var product = _productService.GetProduct(productId);
+            var user = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
             if (user == null || product == null)
             {
                 return Page();
             }
 
-            wishlist.userId = user.UserId;
-            wishlist.ProductId = product.Id;
-            _wishlistService.AddToWishlist(wishlist);
+            //var wishlist = _wishlistService.OnGetWishlistItemsByUserId(userId);
+            //if (wishlist == null)
+            //{
+            //    wishlist = new Wishlist { UserId = user.UserId };
+            //}
+
+
+            //wishlist.Products.Add(product); //Istansiering af wishlist
+            //_wishlistService.AddToWishlist(wishlist);
+
+            //wishlist.userId = user.UserId;
+            //wishlist.ProductId = product.Id;
+            //_wishlistService.AddToWishlist(wishlist);
 
             return RedirectToPage("/products/GetAllProducts");
         }

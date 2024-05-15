@@ -5,6 +5,8 @@ namespace ÆGTESemesterProjekt.Services
 {
     public class DbGenericService<T> : IService<T> where T : class
     {
+        
+
         public async Task<IEnumerable<T>> GetObjectsAsync()
         {
             using (var context = new ProductDbContext())
