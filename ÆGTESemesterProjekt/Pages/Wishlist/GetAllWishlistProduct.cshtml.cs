@@ -19,7 +19,9 @@ namespace ÆGTESemesterProjekt.Pages.Wishlist
 
         public IActionResult OnGet()
         {
-            Models.User CurrentUser = UserService.GetUserByUserName(HttpContext.User.Identity.Name);
+            Models.User CurrentUser = _UserService.GetUserByUserName(HttpContext.User.Identity.Name);
+            var WishlistProduct = CurrentUser.Wishlist;
+            //var WishlistProduct = _UserService.GetUserWishlist(CurrentUser).Result.Wishlist;
 
             return Page();
         }

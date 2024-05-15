@@ -1,36 +1,41 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Velkommen til ATLL - Musik til hverdagen!";
 }
-
 <html>
 <head>
-    
     <style>
+
+        .intro {
+            height: 100%;
+        }
+
+        .form-control {
+            border-color: transparent;
+        }
+
         body {
             margin: 0;
             font-family: Roboto, sans-serif;
         }
 
-         .cards-wrapper {
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .cards-wrapper {
             display: flex;
             justify-content: center;
         }
 
-        .card-card {
-            margin: 5px;
-            border: none;
-            border-radius: 0;
-            box-shadow: 2px 4px 4px 0 #555555;
+
+        .image-wrapper {
+            height: auto;
+            width: auto;
+            object-fit: cover;
         }
-
-         .image-wrapper {
-                    height: auto;
-                    width: auto;
-                    object-fit: cover;
-
-                } 
 
         .card-card img {
             max-width: 100%;
@@ -46,34 +51,34 @@
         .product-container {
             padding: 50px;
             display: flex;
-            overflow-x: auto;
             scroll-behavior: smooth;
-        }
-
-        .product-container::-webkit-scrollbar {
-            display: none;
-
+            overflow: hidden;
         }
 
         .product-card {
             flex: 0 0 auto;
-            width: 350px;
+            width: 300px;
             height: 500px;
             margin-right: 40px;
+        }
+
+        .card-deck {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
         }
 
         .product-image {
             position: relative;
             width: 100%;
-            height: 350px;
-            overflow: hidden;
+            height: auto;
+            object-fit: cover;
         }
 
         .product-thumb {
             width: 100%;
-            height: 350px;
+            height: auto;
             object-fit: cover;
-
         }
 
         .discount-tag {
@@ -88,6 +93,10 @@
             right: 10px;
             top: 10px;
             text-transform: capitalize;
+        }
+
+        .carousel {
+            overflow: hidden;
         }
 
         .card-btn {
@@ -126,8 +135,7 @@
             text-transform: uppercase;
         }
 
-        .product-short-description
-        {
+        .product-short-description {
             width: 100%;
             height: 20px;
             line-height: 20px;
@@ -136,7 +144,7 @@
             text-transform: capitalize;
             margin: 5px 0;
         }
-        
+
         .price {
             font-weight: 900;
             font-size: 20px;
@@ -175,47 +183,15 @@
             opacity: 0.2;
         }
 
-        .pre-btn:hover, .nxt-btn:hover {
-            opacity: 1;
-        }
+            .pre-btn:hover, .nxt-btn:hover {
+                opacity: 1;
+            }
 
-        /* .collection-container {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            grid-gap: 10px;
-        }
-
-        .collection {
-            position: relative;
-        } */
-
-        .collection img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* .collection p {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            text-align: center;
-            color: #fff;
-            font-size: 50px;
-            text-transform: capitalize;
-        } */
-
-        /* .collection:nth-child(3) {
-            grid-column: span 2;
-            margin-bottom: 10px;
-        } */
 
         .hero-image {
             background-image: url("https://wallpapers.com/images/hd/beach-dance-party-3672-x-2216-wallpaper-ofvoyz40hzp2u6wj.jpg");
             background-color: #cccccc;
-            height: 400px;
+            height: 500px;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -230,6 +206,40 @@
             transform: translate(-50%, -50%);
             color: white;
         }
+
+        .btn-pille {
+            background-color: black;
+            border: none;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            border-radius: 50px;
+            font-size: 20px;
+        }
+
+        .btn-submit {
+            background-color: black;
+            border: none;
+            color: white;
+            padding: 10px 30px;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 50px;
+            font-size: 20px;
+            float: right;
+            margin-top: 10px;
+        }
+
+        .card-news {
+            background: whitesmoke;
+            height: 280px;
+            width: 450px;
+            border-radius: 5px;
+        }
+
 
         .h4 {
             margin-left: 50px;
@@ -262,76 +272,34 @@
         <div class="container-fluid p-3 mt-3 text-white text-center">
             <div class="row">
                 <div class="col-sm-2">
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white; height:55px;width:130px; font-size:20px;">
-                            Vinyler
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </div>
+                    <form action="/ProductCatalog/Radio" method="get">
+                        <button type="submit" class="btn" style="color:white; height:55px;width:210px; font-size:28px; border: none; border-radius: 5px;">Radio</button>
+                    </form>
                 </div>
                 <div class="col-sm-2">
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white; height:55px;width:130px; font-size:20px;">
-                            Headset
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </div>
+                    <form action="/ProductCatalog/Headset" method="get">
+                        <button type="submit" class="btn" style="color:white; height:55px;width:210px; font-size:28px; border: none; border-radius: 5px;">Headset</button>
+                    </form>
                 </div>
                 <div class="col-sm-2">
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white; height:55px;width:auto; font-size:20px;">
-                            Pladespiller
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </div>
+                    <form action="/ProductCatalog/Vinyl" method="get">
+                        <button type="submit" class="btn" style="color:white; height:55px;width:210px; font-size:28px; border: none; border-radius: 5px;">Vinyl</button>
+                    </form>
                 </div>
                 <div class="col-sm-2">
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white; height:55px;width:130px; font-size:20px;">
-                            Vinyler
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </div>
+                    <form action="/ProductCatalog/RecordPlayer" method="get">
+                        <button type="submit" class="btn" style="color:white; height:55px;width:210px; font-size:28px; border: none; border-radius: 5px;">Pladeafspiller</button>
+                    </form>
                 </div>
                 <div class="col-sm-2">
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white; height:55px;width:130px; font-size:20px;">
-                            Vinyler
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </div>
+                        <form action="/ProductCatalog/CleaningTool" method="get">
+                            <button type="submit" class="btn" style="color:white; height:80px;width:210px; font-size:28px; border: none; border-radius: 5px;">Rengørings udstyr</button>
+                        </form>
                 </div>
                 <div class="col-sm-2">
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white; height:55px;width:130px; font-size:20px;">
-                            Tilbud
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </div>
+                    <form action="/ProductCatalog/Speaker" method="get">
+                        <button type="submit" class="btn" style="color:white; height:55px;width:210px; font-size:28px; border: none; border-radius: 5px;">Højtaler</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -344,31 +312,31 @@
 
 
     <section>
-  <div id="demo" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div id="demo" class="carousel carousel-dark slide" data-bs-ride="carousel">
 
-        @*carousel og billeder *@
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="cards-wrapper">
-    <div class="product-container">
-    <div class="product-card">
-    <div class="product-image">
-    <span class="discount-tag">50% off</span>
+            @*carousel og billeder *@
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="cards-wrapper">
+                        <div class="product-container">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <span class="discount-tag">50% off</span>
                                     <img src="https://i5.walmartimages.com/seo/Taylor-Swift-Midnights-Moonstone-Blue-Edition-Rock-Vinyl_3cbd6077-35f8-422a-a700-e1ae9f795aa6.6455a2dd753e5ed19de358a809e244af.png?odnHeight=768&odnWidth=768&odnBg=FFFFFF" class="product-thumb" alt="" />
-    <button class="card-btn">add to wishlist</button>
-    </div>
-    <div class="product-info">
-    <h2 class="product-brand">Midnights</h2>
+                                    <button class="card-btn">add to wishlist</button>
+                                </div>
+                                <div class="product-info">
+                                    <h2 class="product-brand">Midnights</h2>
                                     <p class="product-short-description">"Midnights" Album af Taylor Swift (2022)</p>
-    <span class="price">$20</span><span class="actual-price">$40</span>
-    </div>
-    </div>
-                </div>
+                                    <span class="price">$20</span><span class="actual-price">$40</span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="product-container">
                             <div class="product-card">
                                 <div class="product-image">
                                     <span class="discount-tag">50% tilbud</span>
-                                    <img src="https://thevinylfactory.com/wp-content/uploads/2023/08/taylor.jpg" class="product-thumb" alt="" />
+                                    <img src="https://upload.wikimedia.org/wikipedia/en/d/d5/Taylor_Swift_-_1989_%28Taylor%27s_Version%29.png" class="product-thumb" alt="" />
                                     <button class="card-btn">add to wishlist</button>
                                 </div>
                                 <div class="product-info">
@@ -393,7 +361,7 @@
                             </div>
                         </div>
                         <div class="product-container">
-                            <div class="product-card">
+                            <div class="product-card card-body-2">
                                 <div class="product-image">
                                     <span class="discount-tag">50% off</span>
                                     <img src="https://www.deafmanvinyl.com/cdn/shop/products/Taylor-Swift-Reputation-picture-disc_2048x2048.webp?v=1666714973" class="product-thumb" alt="" />
@@ -420,264 +388,110 @@
                                 </div>
                             </div>
                         </div>
-            </div>
-        </div>
-                    <div class="carousel-item">
+                    </div>
+                </div>
+                <div class="carousel-item">
                     <div class="cards-wrapper">
-                    <div class="product-container">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <span class="discount-tag">50% off</span>
+                        <div class="product-container">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <span class="discount-tag">50% off</span>
                                     <img src="https://study.com/cimages/course-image/big-picture-thinking-in-business_183979_large.jpg" class="product-thumb" alt="" />
-                                <button class="card-btn">Føj til Favoritter</button>
-                            </div>
-                            <div class="product-info">
+                                    <button class="card-btn">Føj til Favoritter</button>
+                                </div>
+                                <div class="product-info">
                                     <h2 class="product-brand">what is blud thinking about</h2>
                                     <p class="product-short-description">You not the thinker!</p>
                                     <span class="price">200,-</span><span class="actual-price">400,-</span>
+                                </div>
                             </div>
                         </div>
-            </div>
-        </div>
-            </div>
+                    </div>
+                </div>
 
-                    @*<div class="card-card">
-                        <div class="image-wrapper">
-                            <img src="https://img.pixers.pics/pho_wat(s3:700/FO/59/05/58/16/700_FO59055816_1fa9cde3d60f0826a2e989df0cf0671b.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/hyggespredende-taepper-vinyl-record.jpg.jpg" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-dark">Gå til produkt</a>
-                        </div>
-                    </div>
-                    <div class="card-card">
-                        <div class="image-wrapper">
-                            <img src="https://img.pixers.pics/pho_wat(s3:700/FO/59/05/58/16/700_FO59055816_1fa9cde3d60f0826a2e989df0cf0671b.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/hyggespredende-taepper-vinyl-record.jpg.jpg" alt />
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-dark">Gå til produkt</a>
-                        </div>
-                    </div>
-                </div>
+                @* Kontrol Knapper *@
+                <button class="pre-btn" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="nxt-btn" type="button" data-bs-target="#demo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
             </div>
-            <div class="carousel-item">
-                <div class="cards-wrapper">
-                    <div class="card-card" style="width: 18rem;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/12in-Vinyl-LP-Record-Angle.jpg/800px-12in-Vinyl-LP-Record-Angle.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-dark">Gå til produkt</a>
-                        </div>
-                    </div>
-                    <div class="card-card" style="width: 18rem;">
-                        <img src="https://img.pixers.pics/pho_wat(s3:700/FO/59/05/58/16/700_FO59055816_1fa9cde3d60f0826a2e989df0cf0671b.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/hyggespredende-taepper-vinyl-record.jpg.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-dark">Gå til produkt</a>
-                        </div>
-                    </div>
-                    <div class="card-card" style="width: 18rem;">
-                        <img src="https://img.pixers.pics/pho_wat(s3:700/FO/59/05/58/16/700_FO59055816_1fa9cde3d60f0826a2e989df0cf0671b.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/hyggespredende-taepper-vinyl-record.jpg.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-dark">Gå til produkt</a>
-                        </div>
-                    </div>
-                    <div class="card-card" style="width: 18rem;">
-                        <img src="https://img.pixers.pics/pho_wat(s3:700/FO/59/05/58/16/700_FO59055816_1fa9cde3d60f0826a2e989df0cf0671b.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/hyggespredende-taepper-vinyl-record.jpg.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-dark">Gå til produkt</a>
-                        </div>
-                    </div>
-                    <div class="card-card" style="width: 18rem;">
-                        <img src="https://img.pixers.pics/pho_wat(s3:700/FO/59/05/58/16/700_FO59055816_1fa9cde3d60f0826a2e989df0cf0671b.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/hyggespredende-taepper-vinyl-record.jpg.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-dark">Gå til produkt</a>
-                        </div>
-                    </div>
-                </div>
-                ¨
-            </div>
-            <div class="carousel-item">
-                <div class="cards-wrapper">
-                    <div class="card-card" style="width: 18rem;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/12in-Vinyl-LP-Record-Angle.jpg/800px-12in-Vinyl-LP-Record-Angle.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-dark">Gå til produkt</a>
-                        </div>
-                    </div>
-                    <div class="card-card" style="width: 18rem;">
-                        <img src="https://img.pixers.pics/pho_wat(s3:700/FO/59/05/58/16/700_FO59055816_1fa9cde3d60f0826a2e989df0cf0671b.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/hyggespredende-taepper-vinyl-record.jpg.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-dark">Gå til produkt</a>
-                        </div>
-                    </div>
-                    <div class="card-card" style="width: 18rem;">
-                        <img src="https://img.pixers.pics/pho_wat(s3:700/FO/59/05/58/16/700_FO59055816_1fa9cde3d60f0826a2e989df0cf0671b.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/hyggespredende-taepper-vinyl-record.jpg.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-dark">Gå til produkt</a>
-                        </div>
-                    </div>
-                    <div class="card-card" style="width: 18rem;">
-                        <img src="https://img.pixers.pics/pho_wat(s3:700/FO/59/05/58/16/700_FO59055816_1fa9cde3d60f0826a2e989df0cf0671b.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/hyggespredende-taepper-vinyl-record.jpg.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-dark">Gå til produkt</a>
-                        </div>
-                    </div>
-                    <div class="card-card" style="width: 18rem;">
-                        <img src="https://img.pixers.pics/pho_wat(s3:700/FO/59/05/58/16/700_FO59055816_1fa9cde3d60f0826a2e989df0cf0671b.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/hyggespredende-taepper-vinyl-record.jpg.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-dark">Gå til produkt</a>
-                        </div>
-                    </div>
-                </div>
-                    </div>*@
-
-                    @* Kontrol Knapper *@
-            <button class="pre-btn" type="button" data-bs-target="#demo" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="nxt-btn" type="button" data-bs-target="#demo" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
-        </div>
         </div>
     </section>
 
-    @*<section class="product">
-        <h2 class="product-category">best selling</h2>
-        <button class="pre-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223" />
-            </svg>
-            </button>
-        <button class="nxt-btn"><img src="carousel-control-next-icon" alt="" />
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671" />
-            </svg>
-        </button>
-        <div class="product-container">
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="https://img.pixers.pics/pho_wat(s3:700/FO/59/05/58/16/700_FO59055816_1fa9cde3d60f0826a2e989df0cf0671b.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/hyggespredende-taepper-vinyl-record.jpg.jpg" class="product-thumb" alt="" />
-                    <button class="card-btn">add to wishlist</button>
-                </div>
-               <div class="product-info">
-                   <h2 class="product-brand">brand</h2>
-                   <p class="product-short-description">a short line about the product</p>
-                   <span class="price">$20</span><span class="actual-price">$40</span>
-               </div>
-            </div>
-            <div class="product-container">
-                <div class="product-card">
-                    <div class="product-image">
-                        <span class="discount-tag">50% off</span>
-                        <img src="https://img.pixers.pics/pho_wat(s3:700/FO/59/05/58/16/700_FO59055816_1fa9cde3d60f0826a2e989df0cf0671b.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/hyggespredende-taepper-vinyl-record.jpg.jpg" class="product-thumb" alt="" />
-                        <button class="card-btn">add to wishlist</button>
-                    </div>
-                    <div class="product-info">
-                        <h2 class="product-brand">brand</h2>
-                        <p class="product-short-description">a short line about the product</p>
-                        <span class="price">$20</span><span class="actual-price">$40</span>
-                    </div>
-                </div>
-                <div class="product-container">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <span class="discount-tag">50% off</span>
-                            <img src="https://img.pixers.pics/pho_wat(s3:700/FO/59/05/58/16/700_FO59055816_1fa9cde3d60f0826a2e989df0cf0671b.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/hyggespredende-taepper-vinyl-record.jpg.jpg" class="product-thumb" alt="" />
-                            <button class="card-btn">add to wishlist</button>
-                        </div>
-                        <div class="product-info">
-                            <h2 class="product-brand">brand</h2>
-                            <p class="product-short-description">a short line about the product</p>
-                            <span class="price">$20</span><span class="actual-price">$40</span>
-                        </div>
-                    </div>
-                    <div class="product-container">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <span class="discount-tag">50% off</span>
-                                <img src="https://img.pixers.pics/pho_wat(s3:700/FO/59/05/58/16/700_FO59055816_1fa9cde3d60f0826a2e989df0cf0671b.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/hyggespredende-taepper-vinyl-record.jpg.jpg" class="product-thumb" alt="" />
-                                <button class="card-btn">add to wishlist</button>
-                            </div>
-                            <div class="product-info">
-                                <h2 class="product-brand">brand</h2>
-                                <p class="product-short-description">a short line about the product</p>
-                                <span class="price">$20</span><span class="actual-price">$40</span>
-                            </div>
-                        </div>
-        </div>
-    </section>*@
 
     <div class="container-fluid p-3 mt-3 text-dark text-center">
+        <h1>Spørgsmål og Svar</h1>
         <div class="row">
-            @* <div class="card-deck"> *@
             <div class="col-sm-4">
-                <div class="card h-50">
-                    <div class="image-wrapper">
+                <div class="card h-100">
+                    <img class="card-img-top" src="https://images.pexels.com/photos/6671991/pexels-photo-6671991.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Guy teaching music">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Retur af ødelagt varer</h5>
+                        <p class="card-text">Hvordan får man returneret en vare som er gået i stykker?.</p>
+                        <a href="#" class="btn btn-dark mt-auto">Gå til spørgsmål</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card h-100">
                     <img class="card-img-top" src="https://thumbs.dreamstime.com/b/silhouette-man-giving-helping-hand-to-another-man-who-fell-to-ground-silhouette-man-giving-helping-hand-to-116865617.jpg" alt="Card image cap">
-                </div>
-                    <div class="card-body bg-light">
-                        <h5 class="card-title">Spørgsmål 1</h5>
-                        <p class="card-text">Hvordan køber man slaver i store 2024? Det skal være de gode nogle :).</p>
-                        <a href="#" class="btn btn-dark">Gå til spørgsmål</a>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">mere filler text</h5>
+                        <p class="card-text">Skibidi? Toilet?</p>
+                        <a href="#" class="btn btn-dark mt-auto">Gå til spørgsmål</a>
                     </div>
                 </div>
-                </div>
-               @*  <div class="card-deck"> *@
+            </div>
             <div class="col-sm-4">
-            <div class="card h-50">
-                <div class="image-wrapper">
-                        <img class="card-img-top" src="https://thumbs.dreamstime.com/b/silhouette-man-giving-helping-hand-to-another-man-who-fell-to-ground-silhouette-man-giving-helping-hand-to-116865617.jpg" alt="Card image cap">
-                </div>
-                <div class="card-body">
-                        <h5 class="card-title">Spørgsmål 2</h5>
-                    <p class="card-text">How to become racist? I love formula 1 racing. Oh and how to rape? I love eminem</p>
-                    <a href="#" class="btn btn-dark">Gå til spørgsmål</a>
-                </div>
-                </div>
-                </div>
-    @* </div> *@
-                @* <div class="card-deck"> *@
-    <div class="col-sm-4">
-            <div class="card h-50">
-                    <div class="image-wrapper">
-                        <img class="card-img-top" src="https://thumbs.dreamstime.com/b/silhouette-man-giving-helping-hand-to-another-man-who-fell-to-ground-silhouette-man-giving-helping-hand-to-116865617.jpg" alt="Card image cap">
+                <div class="card h-100">
+                    <img class="card-img-top" src="https://thumbs.dreamstime.com/b/silhouette-man-giving-helping-hand-to-another-man-who-fell-to-ground-silhouette-man-giving-helping-hand-to-116865617.jpg" alt="Card image cap">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Spørgsmål 3</h5>
+                        <p class="card-text">Tekst til at fylde spørgsmål ud med det kan fx handle om at du er skibidi?????.</p>
+                        <a href="#" class="btn btn-dark mt-auto">Gå til spørgsmål</a>
                     </div>
-                <div class="card-body">
-                    <h5 class="card-title">Spørgsmål 3</h5>
-                    <p class="card-text">Tekst til at fylde spørgsmål ud med det kan fx handle om at du er skibidi?????.</p>
-                    <a href="#" class="btn btn-dark">Gå til spørgsmål</a>
-                </div> 
                 </div>
-                </div>
-            @* </div> *@
-    </div>
+            </div>
+        </div>
     </div>
 
 
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center pb-5" style="height:5px;">
+            <div class="col-auto">
+                <a href="#" class="btn-pille btn-dark">Se alle spørgsmål</a>
+            </div>
+        </div>
+    </div>
 
+    <div class="container-fluid">
+        <div class="row justify-content-end align-items-center">
+            <div class="col-md-7 pt-5" style="height:500px; width:650px;">
+                <img src="https://images.pexels.com/photos/1751731/pexels-photo-1751731.jpeg?cs=srgb&dl=pexels-brent-keane-181485-1751731.jpg&fm=jpg" class="img-fluid" alt="Newsletter Image">
+            </div>
+            <div class="col-md-5">
+                <div class="card-news">
+                    <div class="card-body">
+                        <h3 class="card-title text-left mb-4">Tilmed dig nyhedsbrevet.</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputName">Navn</label>
+                                <input type="text" class="form-control mb-2" id="exampleInputName" aria-describedby="nameHelp" placeholder="Navn">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+                                <button type="submit" class="btn btn-dark btn-submit">Tilmed</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
+
+
+

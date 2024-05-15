@@ -12,7 +12,7 @@ using ÆGTESemesterProjekt.EFDbContext;
 namespace ÆGTESemesterProjekt.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20240515070741_VinylShopDB")]
+    [Migration("20240514101045_VinylShopDB")]
     partial class VinylShopDB
     {
         /// <inheritdoc />
@@ -200,7 +200,7 @@ namespace ÆGTESemesterProjekt.Migrations
                         .IsRequired();
 
                     b.HasOne("ÆGTESemesterProjekt.Models.User", "User")
-                        .WithMany("WishlistProducts")
+                        .WithMany("Wishlist")
                         .HasForeignKey("userId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -214,7 +214,7 @@ namespace ÆGTESemesterProjekt.Migrations
                 {
                     b.Navigation("Orders");
 
-                    b.Navigation("WishlistProducts");
+                    b.Navigation("Wishlist");
                 });
 #pragma warning restore 612, 618
         }
