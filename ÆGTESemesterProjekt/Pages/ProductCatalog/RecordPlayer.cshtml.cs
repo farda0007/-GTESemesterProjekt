@@ -9,6 +9,13 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
     public class RecordPlayerModel : PageModel
     {
         private readonly IProductService _productService;
+        [BindProperty]
+        public string SearchString { get; set; }
+        [BindProperty]
+        public int MinPrice { get; set; }
+        [BindProperty]
+
+        public int MaxPrice { get; set; }
 
         public RecordPlayerModel(IProductService productService)
         {
@@ -22,6 +29,16 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
             // Filter products based on the specified product type
             RecordPlayerProducts = _productService.GetProducts().Where(p => p.Type == Producttype.RecordPlayer).ToList();
 
+            return Page();
+        }
+        public IActionResult OnPostNameSearch()
+        {
+            RecordPlayerProducts = _productService.NameSearch(SearchString).ToList();
+            return Page();
+        }
+        public IActionResult OnPostPriceFilter()
+        {
+            RecordPlayerProducts = _productService.PriceFilter(MaxPrice, MinPrice).ToList();
             return Page();
         }
     }

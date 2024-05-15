@@ -9,6 +9,13 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
     public class CleaningToolModel : PageModel
     {
         private readonly IProductService _productService;
+        [BindProperty]
+        public string SearchString { get; set; }
+        [BindProperty]
+        public int MinPrice { get; set; }
+        [BindProperty]
+
+        public int MaxPrice { get; set; }
 
         public CleaningToolModel(IProductService productService)
         {
@@ -22,6 +29,16 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
             // Filter products based on the specified product type
             CleaningToolProducts = _productService.GetProducts().Where(p => p.Type == Producttype.CleaningTool).ToList();
 
+            return Page();
+        }
+        public IActionResult OnPostNameSearch()
+        {
+            CleaningToolProducts = _productService.NameSearch(SearchString).ToList();
+            return Page();
+        }
+        public IActionResult OnPostPriceFilter()
+        {
+            CleaningToolProducts = _productService.PriceFilter(MaxPrice, MinPrice).ToList();
             return Page();
         }
     }

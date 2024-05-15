@@ -9,8 +9,13 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
 	public class VinylModel : PageModel
 	{
 		private readonly IProductService _productService;
-
-		public VinylModel(IProductService productService)
+        [BindProperty]
+        public string SearchString { get; set; }
+        [BindProperty]
+        public int MinPrice { get; set; }
+        [BindProperty]
+        public int MaxPrice { get; set; }
+        public VinylModel(IProductService productService)
 		{
 			_productService = productService;
 		}
@@ -24,5 +29,15 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
 
 			return Page();
 		}
-	}
+        public IActionResult OnPostNameSearch()
+        {
+            VinylProducts = _productService.NameSearch(SearchString).ToList();
+            return Page();
+        }
+        public IActionResult OnPostPriceFilter()
+        {
+            VinylProducts = _productService.PriceFilter(MaxPrice, MinPrice).ToList();
+            return Page();
+        }
+    }
 }
