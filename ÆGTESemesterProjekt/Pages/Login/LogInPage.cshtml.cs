@@ -37,30 +37,27 @@ namespace ÆGTESemesterProjekt.Pages.Login
 
         public async Task<IActionResult> OnPost()
         {
-
             List<Models.User> users = _userService.Users;
             foreach (Models.User user in users)
             {
                 if (UserName == user.UserName)
                 {
-                    var passwordHasher = new PasswordHasher<string>();
+                    var passwordHasher = new PasswordHasher<Models.User>();
 
-                    //if (passwordHasher.VerifyHashedPassword(null, user.Password, Password) == PasswordVerificationResult.Success)
+                    //// Verify the hashed password using the PasswordHasher
+                    //if (passwordHasher.VerifyHashedPassword(user, user.Password, Password) == PasswordVerificationResult.Success)
                     //{
-                        //LoggedInUser = user;
-
                         var claims = new List<Claim> { new Claim(ClaimTypes.Name, UserName) };
 
-                        if (UserName == "employee") claims.Add(new Claim(ClaimTypes.Role, "employee"));
+                        if (UserName == "employee")
                         {
-                            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-                            return RedirectToPage("/Index");
+                            claims.Add(new Claim(ClaimTypes.Role, "employee"));
                         }
+
+                        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+                        return RedirectToPage("/Index");
                     //}
-
-
-             return RedirectToPage("/Index");
                 }
             }
             Message = "Invalid attempt";
