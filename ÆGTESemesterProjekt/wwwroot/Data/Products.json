@@ -14,5 +14,69 @@
     "Description": "Tupac",
     "ProductImage": "Theunderground.jpg",
     "Type": 5
+  },
+  {
+    "Id": 3,
+    "ProductName": "To Pimp A Butterfly",
+    "Price": 599.00,
+    "Description": "Kendrick Lamar",
+    "ProductImage": "Topimp.jpg",
+    "Type": 5
+  },
+  {
+    "Id": 42,
+    "ProductName": "adwa",
+    "Price": 252.00,
+    "Description": "adw",
+    "ProductImage": "awdwa",
+    "Type": 3
+  },
+  {
+    "Id": 423,
+    "ProductName": "Tupac",
+    "Price": 4848.00,
+    "Description": "ad2a",
+    "ProductImage": "ToPimp.jpg",
+    "Type": 5
+  },
+  {
+    "Id": 429,
+    "ProductName": "wdadwa",
+    "Price": 5829.00,
+    "Description": "adwji",
+    "ProductImage": "awdaj",
+    "Type": 2
+  },
+  {
+    "Id": 489,
+    "ProductName": "Tupac",
+    "Price": 499.00,
+    "Description": "1241",
+    "ProductImage": "ToPimp.jpg",
+    "Type": 5
+  },
+  {
+    "Id": 928,
+    "ProductName": "Tupac",
+    "Price": 499.00,
+    "Description": "fa2as",
+    "ProductImage": "ToPimp.jpg",
+    "Type": 5
+  },
+  {
+    "Id": 4784,
+    "ProductName": "Tupac",
+    "Price": 499.00,
+    "Description": "udwa",
+    "ProductImage": "Topimp.jpg",
+    "Type": 5
+  },
+  {
+    "Id": 8421,
+    "ProductName": "Tupac",
+    "Price": 499.00,
+    "Description": "awdaw",
+    "ProductImage": "ToPimp.jpg",
+    "Type": 5
   }
 ]

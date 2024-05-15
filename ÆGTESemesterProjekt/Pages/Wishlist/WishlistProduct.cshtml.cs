@@ -77,7 +77,7 @@ namespace ÆGTESemesterProjekt.Pages.Wishlist
             //wishlist.ProductId = product.Id;
             //_wishlistService.AddToWishlist(wishlist);
 
-            return RedirectToPage("/products/GetAllProducts");
+            return RedirectToPage("/Products/GetAllProducts");
         }
 
         //public IActionResult OnPost(int id)

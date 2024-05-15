@@ -2,7 +2,7 @@
 @model ÆGTESemesterProjekt.Pages.ProductCatalog.VinylModel
 @{
 }
-<p>Alle vinyler</p>
+@* <p>Alle vinyler</p>
 
 @if (Model.VinylProducts.Any())
 {
@@ -20,4 +20,30 @@
 else
 {
     <p>Der er ikke flere vinyler tilgængelig</p>
-}
+} *@
+<div class="container mx-auto mt-4" style="max-width: 95%;">
+    <div class="row">
+        @if (Model.VinylProducts != null)
+        {
+            foreach (var product in Model.VinylProducts)
+            {
+                <div class="col-md-3 col-sm-6">
+                    <div class="card" style="width: 18rem; margin: 10px;">
+
+                        <img src="~/images/@product.ProductImage" style="max-width: 95%; display: block; margin: auto; padding: 25px;">
+
+                        <div class="card-body">
+                            <h5 class="card-title">@product.ProductName</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Id: @product.Id</h6>
+                            <p class="card-text">Pris: @product.Price</p>
+                            <p class="card-text">@product.Description</p>
+                            <p class="card-text">@product.Type</p>
+                            <div class="form-group">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
