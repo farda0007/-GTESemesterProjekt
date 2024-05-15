@@ -1,0 +1,25 @@
+﻿@page
+@model ÆGTESemesterProjekt.Pages.Order.GetAllOrdersModel
+@{
+}
+<div class="container mx-auto mt-4" style="max-width: 95%;">
+    <div class="row">
+        @if (Model.Orders != null)
+        {
+            foreach (var order in Model.Orders)
+            {
+                <div class="col-md-3 col-sm-6">
+                    <div class="card" style="width: 18rem; margin: 10px;">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted">Id: @order</h6>
+                            <p class="card-text">Bestillinger: @order</p>
+                            <div class="form-group">
+                            </div>
+                            @* <a class="btn btn-primary btn-sm" type="button" title="Wishlist" asp-page="/Wishlist/WishlistProduct" asp-route-id=""><i class="fa-sharp fa-solid fa-heart"></i></a> *@
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
