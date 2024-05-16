@@ -1,6 +1,6 @@
 [
   {
-    "UserId": 0,
+    "UserId": 11,
     "UserName": "employee",
     "Name": "employee",
     "Password": "123",
@@ -10,12 +10,22 @@
     "WishlistProducts": null
   },
   {
-    "UserId": 0,
+    "UserId": 12,
     "UserName": "Akhmed",
     "Name": "Akh",
     "Password": "Admin",
     "Phone": 13131919,
     "Email": "Akhmedes@mail.com",
+    "Orders": null,
+    "WishlistProducts": null
+  },
+  {
+    "UserId": 13,
+    "UserName": "hej",
+    "Name": "hej",
+    "Password": "AQAAAAIAAYagAAAAEFxS/0J/megDVaw88wEXaosmWypczxQWbxkF6vw\u002Bya3686bdyz8wZCd7gxE1KWNNpw==",
+    "Phone": 123,
+    "Email": "arda",
     "Orders": null,
     "WishlistProducts": null
   }
