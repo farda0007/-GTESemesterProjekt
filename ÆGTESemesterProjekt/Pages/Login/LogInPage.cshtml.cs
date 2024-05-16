@@ -25,6 +25,7 @@ namespace ÆGTESemesterProjekt.Pages.Login
 
         public string UserName { get; set; }
         [BindProperty, DataType(DataType.Password)]
+        [Required(ErrorMessage = "Der skal angives en kode")]
         public string Password { get; set; }
 
         public string Message { get; set; }
