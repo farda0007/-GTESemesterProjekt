@@ -19,7 +19,8 @@ namespace ÆGTESemesterProjekt.Models
         public string Email { get; set; }
 		public virtual ICollection<Order> Orders { get; set; }
         public virtual ICollection<Wishlist> WishlistProducts { get; set; }
-		public User()
+        public virtual ICollection<ShoppingCart> CartProducts { get; set; }
+        public User()
         {
             //UserName = "";
             //Password = "";
