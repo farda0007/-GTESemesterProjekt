@@ -81,7 +81,7 @@ namespace ÆGTESemesterProjekt.Services
             using (var context = new ProductDbContext())
             {
                 user = context.User
-                .Include(u => u.Orders)
+                .Include(u => u.CartProducts)
                 .ThenInclude(i => i.Product)
                 .AsNoTracking()
                 .FirstOrDefault(u => u.UserId == id);

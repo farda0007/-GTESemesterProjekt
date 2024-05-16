@@ -42,6 +42,7 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
             ShoppingCart.Count = Count;
             _cartService.AddCart(ShoppingCart);
             return RedirectToPage("/ShoppingCart/MyCart");
+
         }
     }
 }

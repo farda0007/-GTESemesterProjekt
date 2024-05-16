@@ -16,7 +16,7 @@ namespace ÆGTESemesterProjekt.Services
             _dbService = dbService;
             _cartList = _dbService.GetObjectsAsync().Result.ToList();
         }
-
+            
         public void AddCart(ShoppingCart cart)
         {
             _cartList.Add(cart);
