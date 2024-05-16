@@ -19,7 +19,7 @@ namespace ÆGTESemesterProjekt.Services
             //Users = MockUsers.GetUsers();
             //Users = _userJsonFileService.GetJsonObjects().ToList();
             Users = _dbService.GetObjectsAsync().Result.ToList();
-            _userJsonFileService.SaveJsonObjects(Users);
+            //_userJsonFileService.SaveJsonObjects(Users);
             _dbService.SaveObjects(Users);
             //LoggedInUser = Users[0];
         }
@@ -27,6 +27,10 @@ namespace ÆGTESemesterProjekt.Services
         public async Task<User> GetUserOrders(User user)
         {
             return await _dbService.GetOrdersByUserIdAsync(user.UserId);
+        }
+        public async Task<User> GetCartProducts(User user)
+        {
+            return await _dbService.GetCartByUserIdAsync(user.UserId);
         }
 
         public async Task<Wishlist> GetUserWishlist(User user)

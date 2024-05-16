@@ -12,7 +12,7 @@ using ÆGTESemesterProjekt.EFDbContext;
 namespace ÆGTESemesterProjekt.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20240515070741_VinylShopDB")]
+    [Migration("20240516072149_VinylShopDB")]
     partial class VinylShopDB
     {
         /// <inheritdoc />
@@ -38,6 +38,9 @@ namespace ÆGTESemesterProjekt.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<decimal>("FinalPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");

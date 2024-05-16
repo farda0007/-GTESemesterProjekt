@@ -74,5 +74,19 @@ namespace ÆGTESemesterProjekt.Services
                 throw new ArgumentException("Invalid user ID provided / No products wishlisted");
             }
         }
+        public async Task<User> GetCartByUserIdAsync(int id)
+        {
+            User user;
+
+            using (var context = new ProductDbContext())
+            {
+                user = context.User
+                .Include(u => u.Orders)
+                .ThenInclude(i => i.Product)
+                .AsNoTracking()
+                .FirstOrDefault(u => u.UserId == id);
+            }
+            return user;
+        }
     }
 }
