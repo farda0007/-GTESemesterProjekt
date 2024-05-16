@@ -13,12 +13,12 @@ namespace ÆGTESemesterProjekt.Pages.User
         private PasswordHasher<string> passwordHasher;
         private UserService _userService;
         [BindProperty]
-        //[RegularExpression("^(?!employee$).*", ErrorMessage = "The value 'employee' is not allowed.")]
+        [RegularExpression("^(?!employee$).*", ErrorMessage = "The value 'employee' is not allowed.")]
         public string UserName { get; set; }
         [BindProperty, DataType(DataType.Password)]
         public string Password { get; set; }
         [BindProperty]
-        //[RegularExpression("^(?!employee$).*", ErrorMessage = "The value 'employee' is not allowed.")]
+        [RegularExpression("^(?!employee$).*", ErrorMessage = "The value 'employee' is not allowed.")]
         public string Name { get; set; }
         [BindProperty]
         public int Phone { get; set; }
@@ -37,7 +37,7 @@ namespace ÆGTESemesterProjekt.Pages.User
             {
                 return Page();
             }
-            await _userService.AddUserAsync(new Customer(UserName, Name, passwordHasher.HashPassword(null, Password), Phone, Email));
+            await _userService.AddUserAsync(new Models.User(UserName, Name, passwordHasher.HashPassword(null, Password), Phone, Email));
             //_userService.AddUser(new User(UserName, Password));
             return RedirectToPage("/Index");
     }

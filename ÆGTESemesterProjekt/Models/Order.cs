@@ -12,6 +12,7 @@ namespace ÆGTESemesterProjekt.Models
 		[DataType(DataType.Date)]
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
 		public DateTime Date { get; set; }
+		public decimal FinalPrice { get; set; }
 
 		public int userId { get; set; }
 		public User User { get; set; }
@@ -19,6 +20,7 @@ namespace ÆGTESemesterProjekt.Models
 		public Product Product { get; set; }
 		[Range(1, int.MaxValue, ErrorMessage = "Count must be more than {1}")]
 		public int Count { get; set; }
+		
 
 		public Order()
 		{

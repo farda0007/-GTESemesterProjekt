@@ -197,7 +197,7 @@ namespace ÆGTESemesterProjekt.Migrations
                         .IsRequired();
 
                     b.HasOne("ÆGTESemesterProjekt.Models.User", "User")
-                        .WithMany("Wishlist")
+                        .WithMany("WishlistProducts")
                         .HasForeignKey("userId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -211,7 +211,7 @@ namespace ÆGTESemesterProjekt.Migrations
                 {
                     b.Navigation("Orders");
 
-                    b.Navigation("Wishlist");
+                    b.Navigation("WishlistProducts");
                 });
 #pragma warning restore 612, 618
         }
