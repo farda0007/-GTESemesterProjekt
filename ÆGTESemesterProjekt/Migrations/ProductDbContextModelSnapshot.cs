@@ -117,6 +117,32 @@ namespace ÆGTESemesterProjekt.Migrations
                     b.ToTable("Repair");
                 });
 
+            modelBuilder.Entity("ÆGTESemesterProjekt.Models.ShoppingCart", b =>
+                {
+                    b.Property<int>("CartId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartId"));
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CartId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ShoppingCart");
+                });
+
             modelBuilder.Entity("ÆGTESemesterProjekt.Models.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -191,6 +217,25 @@ namespace ÆGTESemesterProjekt.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ÆGTESemesterProjekt.Models.ShoppingCart", b =>
+                {
+                    b.HasOne("ÆGTESemesterProjekt.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ÆGTESemesterProjekt.Models.User", "User")
+                        .WithMany("CartProducts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("ÆGTESemesterProjekt.Models.Wishlist", b =>
                 {
                     b.HasOne("ÆGTESemesterProjekt.Models.Product", "Product")
@@ -212,6 +257,8 @@ namespace ÆGTESemesterProjekt.Migrations
 
             modelBuilder.Entity("ÆGTESemesterProjekt.Models.User", b =>
                 {
+                    b.Navigation("CartProducts");
+
                     b.Navigation("Orders");
 
                     b.Navigation("WishlistProducts");

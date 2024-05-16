@@ -8,6 +8,12 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
     {
         public UserService UserService;
         public IEnumerable<Models.ShoppingCart> MyCartProducts { get; set; }
+
+        public MyCartModel(UserService userService)
+        {
+            UserService = userService;
+        }
+
         public IActionResult OnGet()
         {
             Models.User CurrentUser = UserService.GetUserByUserName(HttpContext.User.Identity.Name);

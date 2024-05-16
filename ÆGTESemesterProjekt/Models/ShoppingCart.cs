@@ -8,6 +8,7 @@ namespace ÆGTESemesterProjekt.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CartId { get; set; }
+        public int userId { get; set; }
         public Product Product { get; set; }
         public User User { get; set; }
         [Range(1, int.MaxValue, ErrorMessage = "Count must be more than {1}")]
