@@ -32,7 +32,7 @@ namespace ÆGTESemesterProjekt.Pages.Order
             return Page();
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
             const string validDiscountCode = "uWu";
             decimal Discount = 0.10m;
@@ -46,6 +46,7 @@ namespace ÆGTESemesterProjekt.Pages.Order
             DiscountAmount = Totalprice * Discount;
             FinalPrice = Totalprice - DiscountAmount;
 
+            return Page();
         }
     }
 }
