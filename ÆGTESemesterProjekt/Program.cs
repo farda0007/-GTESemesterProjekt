@@ -4,8 +4,13 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using ÆGTESemesterProjekt.EFDbContext;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<DbService>();
+
 
 // Add services to the container.
 builder.Services.AddRazorPages();
