@@ -10,19 +10,6 @@ namespace ÆGTESemesterProjekt.Pages.Messages
 {
     public class GetAllMessagesModel : PageModel
     {
-        private readonly DbService _dbService;
-
-        public GetAllMessagesModel(DbService dbService)
-        {
-            _dbService = dbService;
-        }
-
-        public List<Message> messages { get; set; }
-
-        public async Task OnGetAsync()
-        {
-            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
-            messages = await _dbService.GetMessageAsync(userId);
-        }
+        
     }
 }
