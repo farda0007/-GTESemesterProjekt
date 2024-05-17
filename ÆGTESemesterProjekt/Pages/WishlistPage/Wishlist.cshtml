@@ -13,9 +13,12 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="card" style="width: 18rem; margin: 10px;">
                         <div class="card-body">
+                            <img src="~/images/@product.ProductImage" style="max-width: 95%; display: block; margin: auto; padding: 25px;">
+
                             <h5 class="card-title">@product.ProductName</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@product.Description</h6>
                             <h6 class="card-subtitle mb-2 text-muted">@product.Price</h6>
-                            <p class="card-text">@product.Description</p>
+                            <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteWishlist" asp-route-id="@product.Id"><i class="fas fa-trash"></i></a>
                             <div class="form-group">
 
                             </div>

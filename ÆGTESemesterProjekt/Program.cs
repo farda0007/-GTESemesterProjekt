@@ -17,6 +17,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddSingleton<UserService, UserService>();
 builder.Services.AddSingleton<IProductService, ProductService>();
 builder.Services.AddSingleton<IRepairService, RepairService>();
+builder.Services.AddSingleton<IWishlistService, WishlistService>();
 builder.Services.AddSingleton<OrderService, OrderService>();
 builder.Services.AddSingleton<ShoppingCartService, ShoppingCartService>();
 builder.Services.AddSingleton<WishlistService, WishlistService>();
