@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Pages\Wishlist\" />
     <Folder Include="wwwroot\Data\" />
   </ItemGroup>
 
