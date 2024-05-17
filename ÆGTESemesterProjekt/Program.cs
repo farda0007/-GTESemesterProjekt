@@ -20,7 +20,6 @@ builder.Services.AddSingleton<IRepairService, RepairService>();
 builder.Services.AddSingleton<IWishlistService, WishlistService>();
 builder.Services.AddSingleton<OrderService, OrderService>();
 builder.Services.AddSingleton<ShoppingCartService, ShoppingCartService>();
-builder.Services.AddSingleton<WishlistService, WishlistService>();
 builder.Services.AddTransient<JsonFileService<Product>>();
 builder.Services.AddTransient<JsonFileService<User>>();
 builder.Services.AddTransient<JsonFileService<Employee>>();
