@@ -1,8 +1,9 @@
 ﻿@page
-@model IndexModel
+@model ÆGTESemesterProjekt.Pages.IndexModel;
 @{
-    ViewData["Title"] = "Velkommen til ATLL - Musik til hverdagen!";
+    ViewData ["Title"] = "Velkommen til ATLL - Musik til hverdagen!";
 }
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -246,6 +247,7 @@
         .h4 {
             margin-left: 50px;
         }
+
     </style>
 </head>
 <body>
@@ -320,21 +322,26 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="cards-wrapper">
+                        @foreach (var product in Model.Products)
+                        { 
+
                         <div class="product-container">
-                            <div class="product-card">
-                                <div class="product-image">
-                                    <span class="discount-tag">50% off</span>
-                                    <img src="https://i5.walmartimages.com/seo/Taylor-Swift-Midnights-Moonstone-Blue-Edition-Rock-Vinyl_3cbd6077-35f8-422a-a700-e1ae9f795aa6.6455a2dd753e5ed19de358a809e244af.png?odnHeight=768&odnWidth=768&odnBg=FFFFFF" class="product-thumb" alt="" />
-                                    <button class="card-btn">add to wishlist</button>
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <span class="discount-tag">50% off</span>
+                                        <img src="~/images/@product.ProductImage" class="product-thumb" alt="@product.ProductName" />
+                                        <button class="card-btn">add to wishlist</button>
+                                    </div>
+                                    <div class="product-info">
+                                        <h2 class="product-brand">@product.ProductName</h2>
+                                        <p class="product-short-description">@product.Description</p>
+                                        <span class="price">20,-</span><span class="actual-price">@product.Price ,-</span>
+                                    </div>
                                 </div>
-                                <div class="product-info">
-                                    <h2 class="product-brand">Midnights</h2>
-                                    <p class="product-short-description">"Midnights" Album af Taylor Swift (2022)</p>
-                                    <span class="price">$20</span><span class="actual-price">$40</span>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="product-container">
+                                }
+
+                            @* <div class="product-container">
                             <div class="product-card">
                                 <div class="product-image">
                                     <span class="discount-tag">50% tilbud</span>
@@ -407,7 +414,7 @@
                                     <span class="price">200,-</span><span class="actual-price">400,-</span>
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
 
