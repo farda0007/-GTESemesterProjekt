@@ -131,14 +131,14 @@ namespace ÆGTESemesterProjekt.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("userId")
                         .HasColumnType("int");
 
                     b.HasKey("CartId");
 
                     b.HasIndex("ProductId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("userId");
 
                     b.ToTable("ShoppingCart");
                 });
@@ -227,7 +227,7 @@ namespace ÆGTESemesterProjekt.Migrations
 
                     b.HasOne("ÆGTESemesterProjekt.Models.User", "User")
                         .WithMany("CartProducts")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("userId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
