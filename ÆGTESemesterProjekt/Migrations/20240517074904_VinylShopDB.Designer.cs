@@ -12,7 +12,11 @@ using ÆGTESemesterProjekt.EFDbContext;
 namespace ÆGTESemesterProjekt.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
+<<<<<<<< HEAD:ÆGTESemesterProjekt/Migrations/20240517074904_VinylShopDB.Designer.cs
     [Migration("20240517074904_VinylShopDB")]
+========
+    [Migration("20240517081448_VinylShopDB")]
+>>>>>>>> 589caf0bf877d97193db23b1607f1a9a3b2458a3:ÆGTESemesterProjekt/Migrations/20240517081448_VinylShopDB.Designer.cs
     partial class VinylShopDB
     {
         /// <inheritdoc />
