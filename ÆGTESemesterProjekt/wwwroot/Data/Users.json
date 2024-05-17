@@ -1,6 +1,6 @@
 [
   {
-    "UserId": 0,
+    "UserId": 1,
     "UserName": "employee",
     "Name": "employee",
     "Password": "123",
@@ -10,7 +10,47 @@
     "WishlistProducts": null
   },
   {
-    "UserId": 0,
+    "UserId": 2,
+    "UserName": "Akhmed",
+    "Name": "Akh",
+    "Password": "Admin",
+    "Phone": 13131919,
+    "Email": "Akhmedes@mail.com",
+    "Orders": null,
+    "WishlistProducts": null
+  },
+  {
+    "UserId": 3,
+    "UserName": "employee",
+    "Name": "employee",
+    "Password": "123",
+    "Phone": 60714904,
+    "Email": "Arda@mail.com",
+    "Orders": null,
+    "WishlistProducts": null
+  },
+  {
+    "UserId": 4,
+    "UserName": "Akhmed",
+    "Name": "Akh",
+    "Password": "Admin",
+    "Phone": 13131919,
+    "Email": "Akhmedes@mail.com",
+    "Orders": null,
+    "WishlistProducts": null
+  },
+  {
+    "UserId": 5,
+    "UserName": "employee",
+    "Name": "employee",
+    "Password": "123",
+    "Phone": 60714904,
+    "Email": "Arda@mail.com",
+    "Orders": null,
+    "WishlistProducts": null
+  },
+  {
+    "UserId": 6,
     "UserName": "Akhmed",
     "Name": "Akh",
     "Password": "Admin",

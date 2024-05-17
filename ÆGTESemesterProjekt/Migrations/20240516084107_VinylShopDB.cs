@@ -69,6 +69,7 @@ namespace ÆGTESemesterProjekt.Migrations
                     OrderId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FinalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     userId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     Count = table.Column<int>(type: "int", nullable: false)
@@ -85,6 +86,33 @@ namespace ÆGTESemesterProjekt.Migrations
                     table.ForeignKey(
                         name: "FK_Order_User_userId",
                         column: x => x.userId,
+                        principalTable: "User",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ShoppingCart",
+                columns: table => new
+                {
+                    CartId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Count = table.Column<int>(type: "int", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ShoppingCart", x => x.CartId);
+                    table.ForeignKey(
+                        name: "FK_ShoppingCart_Product_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Product",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ShoppingCart_User_UserId",
+                        column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
@@ -127,6 +155,16 @@ namespace ÆGTESemesterProjekt.Migrations
                 column: "userId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ShoppingCart_ProductId",
+                table: "ShoppingCart",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ShoppingCart_UserId",
+                table: "ShoppingCart",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Wishlist_ProductId",
                 table: "Wishlist",
                 column: "ProductId");
@@ -145,6 +183,9 @@ namespace ÆGTESemesterProjekt.Migrations
 
             migrationBuilder.DropTable(
                 name: "Repair");
+
+            migrationBuilder.DropTable(
+                name: "ShoppingCart");
 
             migrationBuilder.DropTable(
                 name: "Wishlist");

@@ -1,0 +1,48 @@
+﻿
+@page
+@model ÆGTESemesterProjekt.Pages.Messages.GetAllMessagesModel
+@{
+    ViewData["Title"] = "Messages";
+}
+<h2>Messages</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Sender</th>
+            <th>Recipient</th>
+            <th>Content</th>
+            <th>TimeStamp</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var message in Model.messages)
+        {
+            <tr>
+                <td>@message.Sender.UserName</td>
+                <td>@message.Recipient.UserName</td>
+                <td>@message.Content</td>
+                <td>@message.TimeStamp</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" asp-page="./Respond" asp-route-id="@message.MessageId">Respond</a>
+                </td>
+            </tr>
+            @if (message.Responses.Any())
+            {
+                <tr>
+                    <td colspane="5">
+                        <ul>
+                            @foreach (var response in message.Responses)
+                            {
+                                <li>
+                                    <strong>@response.Sender.UserName:</strong> @response.Content <small class="text-muted">(@response.TimeStamp)</small>
+                                </li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<a class="btn btn-primary" asp-page="./SendMessage">Send a new message</a>

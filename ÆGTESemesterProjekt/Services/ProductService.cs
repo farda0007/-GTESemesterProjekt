@@ -16,9 +16,8 @@ namespace ÆGTESemesterProjekt.Services
             _genericDbService = genericDbService;
             //_products = MockProducts.GetMockProducts();
             _products = JsonFileProductService.GetJsonObjects().ToList();
-
             //_products = _genericDbService.GetObjectsAsync().Result.ToList();
-            JsonFileProductService.SaveJsonObjects(_products);
+            //JsonFileProductService.SaveJsonObjects(_products);
             _genericDbService.SaveObjects(_products);
         }
 

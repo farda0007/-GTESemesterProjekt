@@ -1,0 +1,44 @@
+﻿@page
+@model ÆGTESemesterProjekt.Pages.ShoppingCart.MyCartModel
+@{
+}
+<h1>Min kurv</h1>
+<br />
+<div class="test">
+    <table class="table table-bordered table-hover table-striped" width="60%">
+        <thead>
+            <tr class="btn-secondary active">
+                <th>Product Id</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Count</th>
+                <th>Total Order Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (@Model.MyCartProducts != null)
+            {
+                foreach (var shoppingCart in Model.MyCartProducts)
+                {
+                    <tr class="btn-secondary">
+                        <td>
+                            @shoppingCart.ProductId
+                        </td>
+                        <td>
+                            @shoppingCart.Product.ProductName
+                        </td>
+                        <td>
+                            @shoppingCart.Product.Price
+                        </td>
+                        <td>
+                            @shoppingCart.Count
+                        </td>
+                        <td>
+                            @(shoppingCart.Count * shoppingCart.Product.Price)
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
