@@ -8,15 +8,13 @@ namespace ÆGTESemesterProjekt.Services
         public DbGenericService<Order> _dbService;
 
         public OrderService()
-        {
+        { 
         }
-
         public OrderService(DbGenericService<Order> dbService)
         {
             _dbService = dbService;
             _orderList = _dbService.GetObjectsAsync().Result.ToList();
         }
-
         public void AddOrder(Order order)
         {
             _orderList.Add(order);
