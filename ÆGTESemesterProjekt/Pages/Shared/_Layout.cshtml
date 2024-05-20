@@ -34,59 +34,63 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Forside</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Fortrolighedspolitik</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/User/CreateUser">Ny bruger</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Products/GetAllProducts">Produkter</a>
                         </li>
 
-                        @if (User.IsInRole("employee"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/User/GetAllCustomers">Alle medlemmer</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/RepairPage/GetAllRepairs">Reperationer</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Messages/GetAllMessages">Beskeder</a>
-                            </li>
-                        }
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Wishlist/GetAllWishlistProduct">Ønskeliste</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Order/MyOrders">Mine Ordre</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav ms-auto">
+                    @if (User.IsInRole("employee"))
+                    {
+                        <div class="dropdown">
+                            <a class="btn dropdown-toggle text-dark" data-bs-toggle="dropdown">
+                                Administration
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link text-dark" asp-area="" asp-page="/User/GetAllCustomers">Alle medlemmer</a>
+                                <li><a class="nav-link text-dark" asp-area="" asp-page="/RepairPage/GetAllRepairs">Reperationer</a>
+                                <li><a class="nav-link text-dark" asp-area="" asp-page="/Messages/GetAllMessages">Beskeder</a>
+                            </ul>
+                        </div>
+                    }
+
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
                         @{
+
                             if (User.Identity.IsAuthenticated)
                             {
-                                <li class="nav-item nav-link text-black me-3">
-                                    User: @User.Identity.Name
-                                </li>
+                            <li class="nav-item nav-link text-black">
+                                Hello @User.Identity.Name!
+                            </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link text-black" asp-area="" asp-page="/Login/LogOut">Log Ud</a>
-                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-black" asp-area="" asp-page="/Login/LogOut">Log ud</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/WishlistPage/Wishlist">
+                                    <i class="fa-solid fa-heart"></i>
+                                    Ønskeliste
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Order/MyOrders">Mine Ordre</a>
+
+                            </li>
                             }
                             else
                             {
-                                <li class="nav-item">
-                                    <a class="nav-link text-black" asp-area="" asp-page="/Login/LogInPage">Log ind</a>
-                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-black" asp-area="" asp-page="/Login/LogInPage">
+                                    <i class="fa-solid fa-user"></i>
+                                    Log in/Opret Konto
+                                </a>
+                            </li>
                             }
                         }
-                    </ul>
             </div>
-                </div>
         </nav>
     
 
