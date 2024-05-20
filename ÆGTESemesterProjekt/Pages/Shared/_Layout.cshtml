@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ÆGTESemesterProjekt.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        .navbar-nav.ms-auto {
+            margin-left: auto;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -20,24 +25,6 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        @{
-                            if (User.Identity.IsAuthenticated)
-                            {
-                                <li class="nav-item nav-link text-blackme-3">
-                                    User: @User.Identity.Name
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link text-black" asp-area="" asp-page="/Login/LogOut">Log Ud</a>
-                                </li>
-                            }
-                            else
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-black" asp-area="" asp-page="/Login/LogInPage">Log ind</a>
-                                </li>
-                            }
-                        }
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Forside</a>
                         </li>
@@ -65,11 +52,29 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Wishlist/GetAllWishlistProduct">Ønskeliste</a>
                         </li>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-page="/Order/MyOrders">Mine Ordre</a>
                         </li>
                     </ul>
+                    <ul class="navbar-nav ms-auto">
+                        @{
+                            if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item nav-link text-black me-3">
+                                    User: @User.Identity.Name
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-black" asp-area="" asp-page="/Login/LogOut">Log Ud</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-black" asp-area="" asp-page="/Login/LogInPage">Log ind</a>
+                                </li>
+                            }
+                        }
                     </ul>
                 </div>
             </div>
