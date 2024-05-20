@@ -1,0 +1,23 @@
+﻿@page
+@model ÆGTESemesterProjekt.Pages.Wishlist.ConfirmWishlistModel
+@{
+}
+<div class="row">
+    <div class="col-md-4">
+        <div>
+            User: @Model.User.UserName
+        </div>
+        <div>
+            Product: @Model.Product.ProductName
+        </div>
+
+
+        <form method="post">
+            <input type="hidden" name="id" value="@Model.Product?.Id" />
+            <button type="submit" class="btn btn-primary">Tilføj til ønskeliste</button>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-page="/Wishlist">Se ønskeliste</a>
+</div>

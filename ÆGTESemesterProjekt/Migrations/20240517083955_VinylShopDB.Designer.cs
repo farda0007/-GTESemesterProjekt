@@ -12,7 +12,7 @@ using ÆGTESemesterProjekt.EFDbContext;
 namespace ÆGTESemesterProjekt.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20240517081448_VinylShopDB")]
+    [Migration("20240517083955_VinylShopDB")]
     partial class VinylShopDB
     {
         /// <inheritdoc />

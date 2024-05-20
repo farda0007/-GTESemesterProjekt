@@ -29,5 +29,12 @@ body {
     max-width: 95%; /* Adjust width of the container to suit your design */
 }
 
+.footer { 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    z-index: 10;
+}
+
 </style >
 
