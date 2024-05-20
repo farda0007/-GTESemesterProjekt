@@ -12,7 +12,7 @@ using ÆGTESemesterProjekt.EFDbContext;
 namespace ÆGTESemesterProjekt.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20240516075738_VinylShopDB")]
+    [Migration("20240517112934_VinylShopDB")]
     partial class VinylShopDB
     {
         /// <inheritdoc />
@@ -24,6 +24,36 @@ namespace ÆGTESemesterProjekt.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("ÆGTESemesterProjekt.Models.Message", b =>
+                {
+                    b.Property<int>("MessageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MessageId"));
+
+                    b.Property<string>("MessageAuthor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MessageContent")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("MessageDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MessageTitle")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("MessageId");
+
+                    b.ToTable("Messages");
+                });
 
             modelBuilder.Entity("ÆGTESemesterProjekt.Models.Order", b =>
                 {
@@ -120,6 +150,32 @@ namespace ÆGTESemesterProjekt.Migrations
                     b.ToTable("Repair");
                 });
 
+            modelBuilder.Entity("ÆGTESemesterProjekt.Models.ShoppingCart", b =>
+                {
+                    b.Property<int>("CartId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartId"));
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("userId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CartId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("userId");
+
+                    b.ToTable("ShoppingCart");
+                });
+
             modelBuilder.Entity("ÆGTESemesterProjekt.Models.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -194,6 +250,25 @@ namespace ÆGTESemesterProjekt.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ÆGTESemesterProjekt.Models.ShoppingCart", b =>
+                {
+                    b.HasOne("ÆGTESemesterProjekt.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ÆGTESemesterProjekt.Models.User", "User")
+                        .WithMany("CartProducts")
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("ÆGTESemesterProjekt.Models.Wishlist", b =>
                 {
                     b.HasOne("ÆGTESemesterProjekt.Models.Product", "Product")
@@ -215,6 +290,8 @@ namespace ÆGTESemesterProjekt.Migrations
 
             modelBuilder.Entity("ÆGTESemesterProjekt.Models.User", b =>
                 {
+                    b.Navigation("CartProducts");
+
                     b.Navigation("Orders");
 
                     b.Navigation("WishlistProducts");

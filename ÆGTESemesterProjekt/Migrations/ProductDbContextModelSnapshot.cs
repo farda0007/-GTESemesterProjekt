@@ -22,6 +22,36 @@ namespace ÆGTESemesterProjekt.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("ÆGTESemesterProjekt.Models.Message", b =>
+                {
+                    b.Property<int>("MessageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MessageId"));
+
+                    b.Property<string>("MessageAuthor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MessageContent")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("MessageDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MessageTitle")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("MessageId");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("ÆGTESemesterProjekt.Models.Order", b =>
                 {
                     b.Property<int>("OrderId")
@@ -131,14 +161,14 @@ namespace ÆGTESemesterProjekt.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("userId")
                         .HasColumnType("int");
 
                     b.HasKey("CartId");
 
                     b.HasIndex("ProductId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("userId");
 
                     b.ToTable("ShoppingCart");
                 });
@@ -227,7 +257,7 @@ namespace ÆGTESemesterProjekt.Migrations
 
                     b.HasOne("ÆGTESemesterProjekt.Models.User", "User")
                         .WithMany("CartProducts")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("userId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

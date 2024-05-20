@@ -40,7 +40,7 @@ namespace ÆGTESemesterProjekt.Pages.Wishlist
             Wishlist.userId = User.UserId;
             Wishlist.ProductId = Product.Id;
             
-            _wishlistService.AddWishlist(Wishlist);
+            //_wishlistService.AddWishlist(Wishlist);
             return RedirectToPage("/Wishlist/GetAllWishlistProduct");
         }
     }
