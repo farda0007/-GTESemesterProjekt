@@ -1,45 +1,59 @@
-﻿using ÆGTESemesterProjekt.EFDbContext;
-using ÆGTESemesterProjekt.Models;
-using ÆGTESemesterProjekt.Services;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using ÆGTESemesterProjekt.Models;
 
 namespace ÆGTESemesterProjekt.Services
 {
-    public class WishlistService : DbGenericService<Wishlist>//, IWishlistService
+    public class WishlistService : IWishlistService
     {
-        //public List<Wishlist> _wishlist;
-        //public DbGenericService<Wishlist> _dbService;
+        private readonly List<Wishlist> _wishlists = new List<Wishlist>();
+        private JsonFileService<Wishlist> _wishlistJsonFileService;
+        private DbGenericService<Wishlist> _dbService;
 
-        //public WishlistService()
-        //{
-        //}
-        //private readonly DbContext _context;
 
-        //public WishlistService(DbContext context) : base(context)
-        //{
-        //    _context = context;
-        //}
+        public WishlistService(JsonFileService<Wishlist> wishlistJsonFileService, DbGenericService<Wishlist> dbService)
+        {
+            //_wishlists = wishlists;
+            _wishlistJsonFileService = wishlistJsonFileService;
+            _dbService = dbService;
+            _wishlistJsonFileService.SaveJsonObjects(_wishlists);
+            _dbService.SaveObjects(_wishlists);
+        }
 
-        //public async Task<Wishlist> OnGetWishlistItemsById(int wishlistId)
-        //{
-        //    return await _context.Wishlist
-        //                         .Include(w => w.Items) // Include WishlistItems in the query
-        //                         .FirstOrDefaultAsync(w => w.Id == wishlistId);
-        //}
-
-        
-        //Skal kigges på 
-        //public WishlistService(DbGenericService<Wishlist> dbService)
-        //{
-        //    _dbService = dbService;
-        //    _wishlist = _dbService.GetObjectsAsync().Result.ToList();
-        //}
-
-        //public void AddToWishlist(Wishlist wishlist)
-        //{
-        //    _wishlist.Add(wishlist);
-        //    _dbService.AddObjectAsync(wishlist);
-        //}
+        public async Task AddWishlist(Wishlist wishlist)
+        {
+            _wishlists.Add(wishlist);
+            await _dbService.AddObjectAsync(wishlist);
+            _wishlistJsonFileService.SaveJsonObjects(_wishlists);
+        }
+        public Wishlist DeleteWishlist(int? WishlistId)
+        {
+            foreach (Wishlist wishlist in _wishlists)
+            {
+                if (wishlist.WishlistId == WishlistId)
+                {
+                    _wishlists.Remove(wishlist);
+                    _wishlistJsonFileService.SaveJsonObjects(_wishlists);
+                    _dbService.DeleteObjectAsync(wishlist);
+                    return wishlist;
+                }
+            }
+            return null;
+        }
+        public Wishlist GetWishlist(int Id)
+        {
+            foreach (Wishlist wishlist in _wishlists)
+            {
+                if (Id == wishlist.WishlistId)
+                {
+                    return wishlist;
+                }
+            }
+            return null;
+        }
+        public List<Wishlist> GetWishlistByUserId(int userId)
+        {
+            return _wishlists.Where(w => w.userId == userId).ToList();
+        }
     }
 }
+
+

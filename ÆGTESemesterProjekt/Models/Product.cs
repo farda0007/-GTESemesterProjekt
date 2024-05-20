@@ -22,8 +22,12 @@ namespace ÆGTESemesterProjekt.Models
 		//public int Count { get; set; }
 		public string Description { get; set; }
 		public string ProductImage { get; set; }
-        public Producttype Type { get; set; }
-        public enum Producttype
+		public Producttype Type { get; set; }
+
+		[Display(Name = "Er Favorit?")]
+		public bool IsFavourite { get; set; }
+
+		public enum Producttype
 		{
 			CleaningTool,
 			Headset,
@@ -32,14 +36,15 @@ namespace ÆGTESemesterProjekt.Models
 			Speaker,
 			Vinyl
 		}
-		
+
 
 		public Product()
 		{
 			Type = 0;
+			IsFavourite = false;
 		}
 
-		public Product(int id, string productName, decimal price, string description, string productImage, Producttype type)
+		public Product(int id, string productName, decimal price, string description, string productImage, Producttype type, bool isFavourite)
 		{
 			Id = id;
 			ProductName = productName;
@@ -47,6 +52,7 @@ namespace ÆGTESemesterProjekt.Models
 			Description = description;
 			ProductImage = productImage;
 			Type = type;
+			IsFavourite = isFavourite;
 		}
 	}
 }

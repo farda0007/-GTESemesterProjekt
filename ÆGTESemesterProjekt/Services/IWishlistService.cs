@@ -2,12 +2,13 @@
 
 namespace ÆGTESemesterProjekt.Services
 {
-
     public interface IWishlistService
     {
-        Task<Wishlist> OnGetWishlistItemsById(int wishlistId);
+        //List<Wishlist> GetWishlist();
+        //Task AddWishlistAsync(Wishlist wishlist);
+        //void AddWishlist(Wishlist wishlist);
+        //void UpdateRepair(Repair repair);
+        Wishlist DeleteWishlist(int? wishlistID);
+        Wishlist GetWishlist(int Id);
     }
-   
-
-
 }
