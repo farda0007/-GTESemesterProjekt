@@ -11,7 +11,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<DbService>();
 
-
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<UserService, UserService>();
