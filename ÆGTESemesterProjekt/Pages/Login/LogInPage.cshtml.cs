@@ -46,8 +46,8 @@ namespace ÆGTESemesterProjekt.Pages.Login
                     var passwordHasher = new PasswordHasher<Models.User>();
 
                     //// Verify the hashed password using the PasswordHasher
-                    //if (passwordHasher.VerifyHashedPassword(user, user.Password, Password) == PasswordVerificationResult.Success)
-                    //{
+                    if (passwordHasher.VerifyHashedPassword(user, user.Password, Password) == PasswordVerificationResult.Success)
+                    {
                         var claims = new List<Claim> { new Claim(ClaimTypes.Name, UserName) };
 
                         if (UserName == "employee")
@@ -58,7 +58,7 @@ namespace ÆGTESemesterProjekt.Pages.Login
                         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
                         return RedirectToPage("/Index");
-                    //}
+                    }
                 }
             }
             Message = "Invalid attempt";
