@@ -21,6 +21,8 @@ namespace ÆGTESemesterProjekt.Migrations
                     MessageContent = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     MessageAuthor = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MessageDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    //SenderId = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    //ReceiverId = table.Column<string>(type: "nvarchar(100)", nullable: false)
                 },
                 constraints: table =>
                 {
