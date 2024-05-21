@@ -11,18 +11,16 @@ namespace ÆGTESemesterProjekt.Pages.Wishlist
         private readonly IProductService _productService;
         private readonly UserService _userService;
         private readonly WishlistService _wishlistService;
-        private readonly ILogger<ConfirmWishlistModel> _logger;
 
         public Models.User User { get; set; }
         public Product Product { get; set; }
         public Models.Wishlist Wishlist { get; set; } = new Models.Wishlist();
 
-        public ConfirmWishlistModel(IProductService productService, UserService userService, WishlistService wishlistService, ILogger<ConfirmWishlistModel> logger)
+        public ConfirmWishlistModel(IProductService productService, UserService userService, WishlistService wishlistService)
         {
             _productService = productService;
             _userService = userService;
             _wishlistService = wishlistService;
-            _logger = logger;
         }
 
         public IActionResult OnGet(int id)

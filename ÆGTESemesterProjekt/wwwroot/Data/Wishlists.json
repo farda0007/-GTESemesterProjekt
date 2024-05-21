@@ -5,5 +5,12 @@
     "User": null,
     "ProductId": 1,
     "Product": null
+  },
+  {
+    "WishlistId": 3,
+    "userId": 5,
+    "User": null,
+    "ProductId": 2,
+    "Product": null
   }
 ]

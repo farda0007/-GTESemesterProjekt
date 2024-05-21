@@ -30,9 +30,10 @@ namespace ÆGTESemesterProjekt.Pages.WishlistPage
         {
             Models.Wishlist deletedProduct = _iwishlistService.DeleteWishlist(Wishlist.WishlistId);
             if (deletedProduct == null)
-                return RedirectToPage("Wishlist"); //NotFound er ikke defineret endnu
+                return RedirectToPage("/NotFound"); //NotFound er ikke defineret endnu
             return RedirectToPage("Wishlist");
         }
+
     }
 }
 
