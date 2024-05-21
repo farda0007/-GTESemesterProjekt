@@ -16,29 +16,28 @@
             </tr>
         </thead>
         <tbody>
-            @if (@Model.MyCartProducts != null)
+            @if (Model.MyCartProducts != null && Model.MyCartProducts.Any())
             {
                 foreach (var shoppingCart in Model.MyCartProducts)
                 {
                     <tr class="btn-secondary">
-                        <td>
-                            @shoppingCart.ProductId
-                        </td>
-                        <td>
-                            @shoppingCart.Product.ProductName
-                        </td>
-                        <td>
-                            @shoppingCart.Product.Price
-                        </td>
-                        <td>
-                            @shoppingCart.Count
-                        </td>
-                        <td>
-                            @(shoppingCart.Count * shoppingCart.Product.Price)
-                        </td>
+                        <td>@shoppingCart.ProductId</td>
+                        <td>@shoppingCart.Product?.ProductName</td>
+                        <td>@shoppingCart.Product?.Price</td>
+                        <td>@shoppingCart.Count</td>
+                        <td>@(shoppingCart.Count * shoppingCart.Product?.Price ?? 0)</td>
                     </tr>
                 }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5">No products in your cart.</td>
+                </tr>
             }
         </tbody>
     </table>
 </div>
+<form method="post" asp-page-handler="ProceedToOrder">
+    <button type="submit" class="btn btn-primary">Proceed to Order</button>
+</form>
