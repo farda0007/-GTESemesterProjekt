@@ -19,7 +19,7 @@ namespace ÆGTESemesterProjekt.Pages.WishlistPage
 
         public IActionResult OnGet(int id)
         {
-            Wishlist = _iwishlistService.DeleteWishlist(id);
+            Wishlist = _iwishlistService.GetWishlist(id);
             if (Wishlist == null)
             {
                 return RedirectToPage("/NotFound");
