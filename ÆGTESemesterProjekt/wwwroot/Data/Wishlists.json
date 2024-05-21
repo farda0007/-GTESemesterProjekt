@@ -1,9 +1,9 @@
 [
   {
-    "WishlistId": 22,
-    "userId": 32,
+    "WishlistId": 2,
+    "userId": 5,
     "User": null,
-    "ProductId": 2,
+    "ProductId": 1,
     "Product": null
   }
 ]

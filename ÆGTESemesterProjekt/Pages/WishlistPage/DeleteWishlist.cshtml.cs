@@ -19,10 +19,10 @@ namespace ÆGTESemesterProjekt.Pages.WishlistPage
 
         public IActionResult OnGet(int id)
         {
-            Wishlist = _iwishlistService.GetWishlist(id);
+            Wishlist = _iwishlistService.DeleteWishlist(id);
             if (Wishlist == null)
             {
-                return RedirectToPage("/NotFound"); //NotFound er ikke defineret endnu
+                return RedirectToPage("/NotFound");
             }
             return Page();
         }
@@ -30,7 +30,7 @@ namespace ÆGTESemesterProjekt.Pages.WishlistPage
         {
             Models.Wishlist deletedProduct = _iwishlistService.DeleteWishlist(Wishlist.WishlistId);
             if (deletedProduct == null)
-                return RedirectToPage("/NotFound"); //NotFound er ikke defineret endnu
+                return RedirectToPage("Wishlist"); //NotFound er ikke defineret endnu
             return RedirectToPage("Wishlist");
         }
     }
