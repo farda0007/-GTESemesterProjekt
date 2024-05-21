@@ -55,6 +55,11 @@ namespace ÆGTESemesterProjekt.Services
         {
             return _wishlists.Where(w => w.userId == userId).ToList();
         }
+
+        public Task<Wishlist> OnGetWishlistItemsById(int wishlistId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

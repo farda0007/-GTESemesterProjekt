@@ -2,5 +2,22 @@
 @page
 @model ÆGTESemesterProjekt.Pages.Messages.GetAllMessagesModel
 @{
-    ViewData["Title"] = "Messages";
+    ViewData["Title"] = "Beskeder";
+}
+<h1>Beskeder</h1>
+@if(Model.Messages != null)
+{
+    <ul>
+        @foreach(var message in Model.Messages)
+        {
+            <li>
+                <strong>@message.Sender.UserName:</strong> @message.MessageContent <br>
+                <em>message.MessageDate</em>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p> Ingen Beskeder fundet!</p>
 }

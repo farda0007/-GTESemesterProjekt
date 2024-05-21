@@ -36,6 +36,12 @@ builder.Services.AddTransient<DbGenericService<Wishlist>>();
 builder.Services.AddTransient<DbGenericService<ShoppingCart>>();
 builder.Services.AddTransient<UserDbService, UserDbService>();
 
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ProductDbContext>();
+    dbContext.Database.Migrate();
+}
+
 
 
 builder.Services.Configure<CookiePolicyOptions>(options => { 
