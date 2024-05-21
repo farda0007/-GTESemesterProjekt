@@ -24,5 +24,22 @@ namespace ÆGTESemesterProjekt.Services
         {
             return _orderList;    
         }
+        public async Task CreateOrderFromCartAsync(int userId, List<ShoppingCart> cartItems)
+        {
+            var order = new Order
+            {
+                userId = userId,
+                OrderItems = cartItems.Select(c => new OrderItem
+                {
+                    ProductId = c.ProductId,
+                    Count = c.Count,
+                    Price = c.Product.Price
+                }).ToList(),
+                Date = DateTime.Now
+            };
+
+            AddOrder(order);
+            await _dbService.AddObjectAsync(order);
+        }
     }
 }

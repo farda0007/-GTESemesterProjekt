@@ -20,9 +20,10 @@ namespace ÆGTESemesterProjekt.Models
 		public Product Product { get; set; }
 		[Range(1, int.MaxValue, ErrorMessage = "Count must be more than {1}")]
 		public int Count { get; set; }
-		
+        public List<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
-		public Order()
+
+        public Order()
 		{
 		}
 
