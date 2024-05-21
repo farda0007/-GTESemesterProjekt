@@ -20,7 +20,7 @@ namespace ÆGTESemesterProjekt.Services
             //Users = _userJsonFileService.GetJsonObjects().ToList();
             //Users = _dbService.GetObjectsAsync().Result.ToList();
             //_userJsonFileService.SaveJsonObjects(Users);
-            _dbService.SaveObjects(Users);
+            //_dbService.SaveObjects(Users);
             //LoggedInUser = Users[0];
         }
 
