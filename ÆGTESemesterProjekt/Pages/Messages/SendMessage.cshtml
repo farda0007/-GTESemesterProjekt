@@ -1,6 +1,22 @@
 ﻿@page
 @model ÆGTESemesterProjekt.Pages.Messages.SendMessageModel
 @{
-    ViewData["Title"] = "Send Message";
+    ViewData["Title"] = "Send Besked";
 }
+<h1>Send Message</h1>
 
+<form method="post">
+    <div>
+        <label> Sender ID</label>
+        <input asp-for="CustomerId" />
+    </div>
+    <div>
+        <label> Receiver ID</label>
+        <input asp-for="EmployeeId" />
+    </div>
+    <div>
+        <label>Message</label>
+        <textarea asp-for="MessageContent"></textarea>
+    </div>
+    <button type="submit">Send Message</button>
+</form>
