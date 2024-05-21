@@ -38,6 +38,7 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
             Product = _productService.GetProduct(id);
             User = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
             ShoppingCart.userId = User.UserId;
+
             ShoppingCart.ProductId = Product.Id;
             ShoppingCart.Count = Count;
             _cartService.AddCart(ShoppingCart);
