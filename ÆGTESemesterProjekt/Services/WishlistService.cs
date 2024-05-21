@@ -14,6 +14,8 @@ namespace ÆGTESemesterProjekt.Services
             //_wishlists = wishlists;
             _wishlistJsonFileService = wishlistJsonFileService;
             _dbService = dbService;
+            _wishlists = _dbService.GetObjectsAsync().Result.ToList();
+
             _wishlistJsonFileService.SaveJsonObjects(_wishlists);
             _dbService.SaveObjects(_wishlists);
         }

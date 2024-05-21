@@ -5,7 +5,8 @@
     "Price": 199.00,
     "Description": "Hans Philip og Jens MccCoy",
     "ProductImage": "Dansktop.jpg",
-    "Type": 5
+    "Type": 5,
+    "IsFavourite": false
   },
   {
     "Id": 2,
@@ -13,7 +14,8 @@
     "Price": 299.00,
     "Description": "Tupac",
     "ProductImage": "Theunderground.jpg",
-    "Type": 5
+    "Type": 5,
+    "IsFavourite": false
   },
   {
     "Id": 3,
@@ -21,6 +23,7 @@
     "Price": 399.00,
     "Description": "Kendrick Lamar",
     "ProductImage": "ToPimp.jpg",
-    "Type": 5
+    "Type": 5,
+    "IsFavourite": false
   }
 ]

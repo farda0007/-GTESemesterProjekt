@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "WishlistId": 2,
+    "userId": 5,
+    "User": null,
+    "ProductId": 1,
+    "Product": null
+  }
+]
