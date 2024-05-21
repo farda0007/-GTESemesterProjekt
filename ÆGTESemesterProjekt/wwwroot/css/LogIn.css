@@ -6,27 +6,31 @@ button {
     padding: 5px;
     margin: 10px 0px;
     cursor: pointer;
-    width: 250px;
     border: none;
+    width: 100%;
+    max-width: 250px;
     border-radius: 20px;
-    font-size: 25px;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    display: block;
 }
 
 .form-container {
-    width: 100%;
+      width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80vh;
-    position: relative;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 form {
     border: none;
     box-shadow: 1px 1px 50px black;
-    height: 60%;
-    width: 30%;
-    display: flex;
+    height: auto;
+    max-width: 350px;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     padding: 5%;
@@ -36,14 +40,15 @@ form {
 }
 
 input[type=text], input[type=password] {
-    width: 300px;
+    width: 100%;
+    max-width:300px;
     margin: 8px 0;
     padding: 12px 20px;
     display: inline-block;
     border: 2px solid black;
     box-sizing: border-box;
     border-radius: 20px;
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 button:hover {
@@ -53,12 +58,12 @@ button:hover {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 2.5rem;
     font-family:Arial;
-        display:flex;
-        justify-content:center;
-        padding-bottom: 20px;
-        color: white;
+    display:flex;
+    justify-content:center;
+    padding-bottom: 20px;
+    color: white;
 
 }
 
