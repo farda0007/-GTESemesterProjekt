@@ -1,62 +1,24 @@
 [
   {
-    "UserId": 1,
-    "UserName": "employee",
-    "Name": "employee",
-    "Password": "123",
-    "Phone": 60714904,
-    "Email": "Arda@mail.com",
-    "Orders": null,
-    "WishlistProducts": null
-  },
-  {
-    "UserId": 2,
-    "UserName": "Akhmed",
-    "Name": "Akh",
-    "Password": "Admin",
-    "Phone": 13131919,
-    "Email": "Akhmedes@mail.com",
-    "Orders": null,
-    "WishlistProducts": null
-  },
-  {
-    "UserId": 3,
-    "UserName": "employee",
-    "Name": "employee",
-    "Password": "123",
-    "Phone": 60714904,
-    "Email": "Arda@mail.com",
-    "Orders": null,
-    "WishlistProducts": null
-  },
-  {
-    "UserId": 4,
-    "UserName": "Akhmed",
-    "Name": "Akh",
-    "Password": "Admin",
-    "Phone": 13131919,
-    "Email": "Akhmedes@mail.com",
-    "Orders": null,
-    "WishlistProducts": null
-  },
-  {
     "UserId": 5,
-    "UserName": "employee",
-    "Name": "employee",
-    "Password": "123",
-    "Phone": 60714904,
-    "Email": "Arda@mail.com",
+    "UserName": "Niklas",
+    "Name": "Niklas",
+    "Password": "AQAAAAIAAYagAAAAENLpUEMZ2gX7mmd9d/E0jLFzdMJi7KShEXzzbi1bX4L/\u002B8br93VgJAKfpqzx5NIX6w==",
+    "Phone": 9999999,
+    "Email": "Niklas@snailmail.com",
     "Orders": null,
-    "WishlistProducts": null
+    "WishlistProducts": null,
+    "CartProducts": null
   },
   {
     "UserId": 6,
-    "UserName": "Akhmed",
-    "Name": "Akh",
-    "Password": "Admin",
-    "Phone": 13131919,
-    "Email": "Akhmedes@mail.com",
+    "UserName": "employee",
+    "Name": "employee",
+    "Password": "AQAAAAIAAYagAAAAEDZuIbXH3KynGCEBon4dXVTeOVNMzBgh01\u002BZtCTdWrJpphyMMnxsM8YKOQtPBVIIlw==",
+    "Phone": 19191919,
+    "Email": "ArdaPara@Yahoo.com",
     "Orders": null,
-    "WishlistProducts": null
+    "WishlistProducts": null,
+    "CartProducts": null
   }
 ]

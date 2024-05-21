@@ -16,11 +16,11 @@ namespace ÆGTESemesterProjekt.Services
         {
             _userJsonFileService = UserJsonFileService;
             _dbService = dbService;
-            Users = MockUsers.GetUsers();
+            //Users = MockUsers.GetUsers();
             //Users = _userJsonFileService.GetJsonObjects().ToList();
-            //Users = _dbService.GetObjectsAsync().Result.ToList();
+            Users = _dbService.GetObjectsAsync().Result.ToList();
             //_userJsonFileService.SaveJsonObjects(Users);
-            //_dbService.SaveObjects(Users);
+            _dbService.SaveObjects(Users);
             //LoggedInUser = Users[0];
         }
 
