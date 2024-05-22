@@ -1,18 +1,17 @@
 ﻿@page
-@model ÆGTESemesterProjekt.Pages.ShoppingCart.MyCartModel
+@model ÆGTESemesterProjekt.Pages.Order.CheckOutModel
 @{
 }
-<h1>Min kurv</h1>
-<br />
-<div class="test">
-    <table class="table table-bordered table-hover table-striped" width="60%">
+<h2>Checkout</h2>
+<form method="post">
+    <table>
         <thead>
-            <tr class="btn-secondary active">
-                <th>Product Id</th>
+            <tr>
+                <th>Product ID</th>
                 <th>Product Name</th>
-                <th>Product Price</th>
-                <th>Count</th>
-                <th>Total Order Price</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
             </tr>
         </thead>
         <tbody>
@@ -22,8 +21,8 @@
                 {
                     <tr class="btn-secondary">
                         <td>@shoppingCart.ProductId</td>
-                        <td>@shoppingCart.Product?.ProductName</td>
-                        <td>@shoppingCart.Product?.Price</td>
+                        <td>@shoppingCart.Product.ProductName</td>
+                        <td>@shoppingCart.Product.Price</td>
                         <td>@shoppingCart.Count</td>
                         <td>@(shoppingCart.Count * shoppingCart.Product?.Price ?? 0)</td>
                     </tr>
@@ -37,5 +36,8 @@
             }
         </tbody>
     </table>
-</div>
-<a asp-page="/Order/Checkout" class="btn btn-primary">Proceed to Order</a>
+    <div>
+        <label>Total: @Model.Order.FinalPrice</label>
+    </div>
+    <button type="submit">Place Order</button>
+</form>

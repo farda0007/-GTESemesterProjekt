@@ -38,20 +38,20 @@ namespace ÆGTESemesterProjekt.Services
 
         //    return orderList;
         //}
-        public async Task<User> GetOrdersByUserIdAsync(int id)
-        {
-            User user;
+        //public async Task<User> GetOrdersByUserIdAsync(int id)
+        //{
+        //    User user;
 
-            using (var context = new ProductDbContext())
-            {
-                user = context.User
-                .Include(u => u.Orders)
-                .ThenInclude(i => i.Product)
-                .AsNoTracking()
-                .FirstOrDefault(u => u.UserId == id);
-            }
-            return user;
-        }
+        //    using (var context = new ProductDbContext())
+        //    {
+        //        user = context.User
+        //        .Include(u => u.Orders)
+        //        .ThenInclude(i => i.Product)
+        //        .AsNoTracking()
+        //        .FirstOrDefault(u => u.UserId == id);
+        //    }
+        //    return user;
+        //}
 
         public async Task<Wishlist> GetWishlistByUserIdAsync(int userId)
         {

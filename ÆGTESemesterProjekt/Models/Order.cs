@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using ÆGTESemesterProjekt.DAO;
 
 namespace ÆGTESemesterProjekt.Models
 {
@@ -14,24 +15,26 @@ namespace ÆGTESemesterProjekt.Models
 		public DateTime Date { get; set; }
 		public decimal FinalPrice { get; set; }
 
-		public int userId { get; set; }
+		public int UserId { get; set; }
 		public User User { get; set; }
-		public int ProductId { get; set; }
-		public Product Product { get; set; }
-		[Range(1, int.MaxValue, ErrorMessage = "Count must be more than {1}")]
-		public int Count { get; set; }
+
         public List<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
 
         public Order()
-		{
-		}
+        {
+            OrderItems = new List<OrderItem>();
+            Date = DateTime.Now;
+        }
 
-		public Order(User user, Product product)
-		{
-			Date = DateTime.Now;
-			User = user;
-			Product = product;
-		}
-	}
+        public Order(int userId)
+        {
+            UserId = userId;
+        }
+
+        public void CalculateTotal()
+        {
+            FinalPrice= OrderItems.Sum(product => product.Count * product.Price);
+        }
+    }
 }

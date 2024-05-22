@@ -6,14 +6,16 @@ namespace ÆGTESemesterProjekt.Services
     {
         public List<ShoppingCart> _cartList;
         public DbGenericService<ShoppingCart> _dbService;
+        public DbGenericService<Product> _productService;
 
         public ShoppingCartService()
         {
         }
 
-        public ShoppingCartService(DbGenericService<ShoppingCart> dbService)
+        public ShoppingCartService(DbGenericService<ShoppingCart> dbService, DbGenericService<Product> productService)
         {
             _dbService = dbService;
+            _productService = productService;
             _cartList = _dbService.GetObjectsAsync().Result.ToList();
         }
             
@@ -24,7 +26,7 @@ namespace ÆGTESemesterProjekt.Services
         }
         public List<ShoppingCart> GetCartProducts()
         {
-            return _cartList;
+            return _cartList = _dbService.GetObjectsAsync().Result.ToList();
         }
         public async Task ClearCartAsync(int userId)
         {
@@ -35,5 +37,6 @@ namespace ÆGTESemesterProjekt.Services
                 await _dbService.DeleteObjectAsync(cartItem);
             }
         }
+        
     }
 }
