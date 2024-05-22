@@ -1,0 +1,43 @@
+﻿@page
+@model ÆGTESemesterProjekt.Pages.Order.CheckOutModel
+@{
+}
+<h2>Checkout</h2>
+<form method="post">
+    <table>
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.MyCartProducts != null && Model.MyCartProducts.Any())
+            {
+                foreach (var shoppingCart in Model.MyCartProducts)
+                {
+                    <tr class="btn-secondary">
+                        <td>@shoppingCart.ProductId</td>
+                        <td>@shoppingCart.Product.ProductName</td>
+                        <td>@shoppingCart.Product.Price</td>
+                        <td>@shoppingCart.Count</td>
+                        <td>@(shoppingCart.Count * shoppingCart.Product?.Price ?? 0)</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5">No products in your cart.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <label>Total: @Model.Order.FinalPrice</label>
+    </div>
+    <button type="submit">Place Order</button>
+</form>

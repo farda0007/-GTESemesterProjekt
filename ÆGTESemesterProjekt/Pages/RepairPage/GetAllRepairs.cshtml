@@ -15,23 +15,24 @@
                             <img src="~/images/@product.Image" style="max-width: 95%; display: block; margin: auto; padding: 25px;">
 
                             <h6 class="card-subtitle mb-2 text-muted">Id: @product.CaseId</h6>
-                            <h5 class="card-title">@product.RepProduct</h5>
-                            <p class="card-text">Reperation beskrivelse</p>
+                            <h5 class="card-text">Angivet produkt</h5>
+                            <p class="card-title">@product.RepProduct</p>
+                            <h5 class="card-text">Reperation beskrivelse</h5>
                             <p class="card-text">@product.Description</p>
-                            <p class="card-text">Reperation Pris</p>
-                            <h5 class="card-title">@product.RepPrice</h5>
-                            <p class="card-text">Dato modtaget.</p>
-                            <h5 class="card-title">@product.SubDate.ToShortDateString()</h5>
-                            <p class="card-text">Estimeret dato</p>
-                            <h5 class="card-title">@product.EstDate.ToShortDateString()</h5>
-                            <h5 class="card-title">@product.Image</h5>
-                            <p class="card-text">Status</p>
-                            <h5 class="card-title">@product.RepairStatus</h5>
+                            <h5 class="card-text">Reperation Pris</h5>
+                            <p class="card-title">@product.RepPrice</p>
+                            <h5 class="card-text">Dato modtaget.</h5>
+                            <p class="card-title">@product.SubDate.ToShortDateString()</p>
+                            <h5 class="card-text">Estimeret dato</h5>
+                            <p class="card-title">@product.EstDate.ToShortDateString()</p>
+                            <h5 class="card-text">Status</h5>
+                            <p class="card-title">@product.RepairStatus</p>
+                            <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditRepair" asp-route-id="@product.CaseId"><i class="fa-sharp fa-solid fa-pen"></i></a>
+                            <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteRepair" asp-route-id="@product.CaseId"><i class="fas fa-trash"></i></a>
+
                         </div>
                     </div>
                 </div>
-                <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditRepair" asp-route-id="@product.CaseId"><i class="fa-sharp fa-solid fa-pen"></i></a>
-                <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteRepair" asp-route-id="@product.CaseId"><i class="fas fa-trash"></i></a>
 
             }
         }

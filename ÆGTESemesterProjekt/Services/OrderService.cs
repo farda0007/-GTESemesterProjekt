@@ -20,26 +20,16 @@ namespace ÆGTESemesterProjekt.Services
             _orderList.Add(order);
             _dbService.AddObjectAsync(order);
         }
-        public List<Order> GetOrders()
+        public List<Order> GetOrders()      
         {
             return _orderList;    
         }
-        public async Task CreateOrderFromCartAsync(int userId, List<ShoppingCart> cartItems)
+        public async Task<IEnumerable<Order>> GetOrdersByUserIdAsync(int userId)
         {
-            var order = new Order
-            {
-                userId = userId,
-                OrderItems = cartItems.Select(c => new OrderItem
-                {
-                    ProductId = c.ProductId,
-                    Count = c.Count,
-                    Price = c.Product.Price
-                }).ToList(),
-                Date = DateTime.Now
-            };
-
-            AddOrder(order);
-            await _dbService.AddObjectAsync(order);
+            var orders = await _dbService.GetObjectsAsync();
+            // Logging to confirm retrieval
+            Console.WriteLine($"Retrieved {orders.Count()} orders for user {userId}.");
+            return orders;
         }
     }
 }

@@ -26,11 +26,11 @@ namespace ÆGTESemesterProjekt.Services
             //LoggedInUser = Users[0];
         }
 
-        public async Task<User> GetUserOrders(User user)
-        {
-            return await _dbService.GetOrdersByUserIdAsync(user.UserId);
-        }
-        public async Task<Models.User> GetCartProducts(Models.User user)
+        //public async Task<User> GetUserOrders(User user)
+        //{
+        //    return await _dbService.GetOrdersByUserIdAsync(user.UserId);
+        //}
+        public async Task<Models.User> GetCartProducts(User user)
         {
             using (var context = new ProductDbContext())
             {
@@ -55,24 +55,18 @@ namespace ÆGTESemesterProjekt.Services
             _userJsonFileService.SaveJsonObjects(Users);
 
         }
-        public Models.User GetUserByUserName(string userName)
+        public User GetUserByUserName(string userName)
         {
-            using (var context = new ProductDbContext())
-            {
-                var user = context.User
-                    .Include(u => u.CartProducts)
-                    .ThenInclude(cp => cp.Product)
-                    .FirstOrDefault(u => u.UserName == userName);
-
-
-
-                return user;
-            }
+            foreach (User user in Users)
+                if (userName == user.UserName)
+                {
+                    return user;
+                }
+            return null;
         }
         public List<User> GetUsers()
         {
             return Users;
         }
-
     }
 }

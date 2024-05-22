@@ -11,12 +11,12 @@ namespace ÆGTESemesterProjekt.Services
         private DbGenericService<Product> _genericDbService;
 
         public ProductService(JsonFileService<Product> jsonFileProductService, DbGenericService<Product> genericDbService)
-        {
+        {   
             JsonFileProductService = jsonFileProductService;
             _genericDbService = genericDbService;
             //_products = MockProducts.GetMockProducts();
-            _products = JsonFileProductService.GetJsonObjects().ToList();
-            //_products = _genericDbService.GetObjectsAsync().Result.ToList();
+            //_products = JsonFileProductService.GetJsonObjects().ToList();
+            _products = _genericDbService.GetObjectsAsync().Result.ToList();
             //JsonFileProductService.SaveJsonObjects(_products);
             //_genericDbService.SaveObjects(_products);
         }
@@ -55,6 +55,7 @@ namespace ÆGTESemesterProjekt.Services
                         p.ProductImage = product.ProductImage;
                         p.ProductName = product.ProductName;
                         p.Type = product.Type;
+                        p.IsFavourite = product.IsFavourite;
                     }
                 }
                 JsonFileProductService.SaveJsonObjects(_products);

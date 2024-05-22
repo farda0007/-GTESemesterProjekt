@@ -56,6 +56,8 @@ else
                             <p class="card-text">Pris: @product.Price</p>
                             <p class="card-text">@product.Description</p>
                             <p class="card-text">@product.Type</p>
+                            <a class="btn btn-primary btn-sm " type="button" title="ShoppingCart" asp-page="/ShoppingCart/CartItem" asp-route-id="@product.Id"><i class="fa fa-shopping-cart"></i></a>
+                            <a class="btn btn-primary btn-sm" type="button" title="Add To Wishlist" asp-page="/WishlistPage/ConfirmWishlist" asp-route-id="@product.Id"><i class="fa-sharp fa-solid fa-heart"></i></a>
                             <div class="form-group">
                             </div>
                         </div>
