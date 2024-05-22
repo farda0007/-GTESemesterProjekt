@@ -12,7 +12,10 @@ namespace ÆGTESemesterProjekt.Models
         public string MessageTitle { get; set; }        
         public string MessageContent { get; set; }
         public string MessageResponse { get; set; }
-        public string MessageAuthor { get; set; }        
+        public string MessageAuthor { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime MessageDate { get; set; }
 
         public User Sender { get; set; }
