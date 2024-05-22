@@ -4,10 +4,10 @@
     padding: 0;
 }
 
-/* Set the background color for the entire page */
+
 body {
-    background-color: white; /* Change this to your desired color */
-    font-family: Calibri, Helvetica, sans-serif; /* Ensure consistent font style */
+    background-color: white; 
+    font-family: Calibri, Helvetica, sans-serif; 
 }
 
 .button {
@@ -16,11 +16,11 @@ body {
     cursor: pointer;
     border: none;
     width: 100%;
+    min-width: 250px;
     max-width: 250px;
     border-radius: 20px;
     font-size: 1.5rem;
     box-sizing: border-box;
-    transform: translateX(10%)
 }
 
 .form-container {
@@ -35,16 +35,17 @@ body {
     transform: translateX(-50%);
     left: 50%;
     position: absolute;
+
 }
 
 form {
     border: none;
     box-shadow: 1px 1px 10px black;
     height: 100%;
-    max-height: 550px;
+    max-height: 600px;
     max-width: 550px;
     width: 100%;
-    /*display: flex;*/
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding: 5%;
@@ -74,28 +75,11 @@ h1 {
     font-family:Arial, sans-serif;
     display:flex;
     justify-content:center;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
+    padding-top: 30px;
     color: black;
 
 }
-
-/*.split {
-    height: 100vh;
-    width: 60%;
-    position: fixed;
-    top: 0;
-}
-
-.left {
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.right {
-    right: 20%;
-}*/
 
 background-image {
   
@@ -108,16 +92,55 @@ background-image {
    margin-top: 110px;
 }
 
-/*.img-fluid {
-    background-image: url(https://static.vecteezy.com/system/resources/previews/038/974/315/non_2x/ai-generated-smiling-family-playing-piano-creating-joyful-music-together-generated-by-ai-free-photo.jpg);
-    background-color: #cccccc;
-    max-height: 900px;
-    height: 80%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    margin-top: 110px;
-}*/
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .form-container {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    form {
+        padding: 10%;
+    }
+
+    .button {
+        font-size: 1.2rem;
+        min-width: 120px;
+    }
+
+    input[type=text], input[type=password] {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .form-container {
+        max-width: 100%;
+        padding: 15px;
+        height: 90vh;
+    }
+
+    form {
+        padding: 15%;
+    }
+
+    .button {
+        font-size: 1rem;
+        min-width: 100px;
+    }
+
+    input[type=text], input[type=password] {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+}
 
 
