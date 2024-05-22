@@ -10,8 +10,6 @@ namespace ÆGTESemesterProjekt.Pages.RepairPage
     {
         private IRepairService _repairService;
         [BindProperty]
-        public Models.Product Product { get; set; }
-        [BindProperty]
         public Models.Repair Repair { get; set; }
         public EditRepairModel(IRepairService repairService)
         {
