@@ -7,6 +7,13 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
 {
     public class MyCartModel : PageModel
     {
+        public string DiscountCode { get; set; }
+        public decimal Totalprice { get; set; }
+        public decimal DiscountAmount { get; set; }
+        public decimal FinalPrice { get; set; }
+        public bool DiscountApplied { get; set; }
+
+
         public UserService _userService;
         public OrderService _orderService { get; set; }
         public ShoppingCartService _shoppingCartService { get; set; }
@@ -27,7 +34,20 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
         }
         public async Task<IActionResult> OnPostAsync()
         {
-            return RedirectToPage("/Order/Checkout);");
+            const string validDiscountCode = "uWu";
+            decimal Discount = 0.10m;
+
+            if (DiscountCode == validDiscountCode)
+            {
+                Discount = 0.10m;
+                DiscountApplied = true;
+            }
+
+            DiscountAmount = Totalprice * Discount;
+            FinalPrice = Totalprice - DiscountAmount;
+
+            return Page();
         }
     }
 }
+

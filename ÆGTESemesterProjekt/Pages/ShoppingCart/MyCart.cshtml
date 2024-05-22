@@ -18,6 +18,8 @@
         <tbody>
             @if (Model.MyCartProducts != null && Model.MyCartProducts.Any())
             {
+                decimal totalPrice = 0; // Initialize total price
+
                 foreach (var shoppingCart in Model.MyCartProducts)
                 {
                     <tr class="btn-secondary">
@@ -26,16 +28,17 @@
                         <td>@shoppingCart.Product?.Price</td>
                         <td>@shoppingCart.Count</td>
                         <td>@(shoppingCart.Count * shoppingCart.Product?.Price ?? 0)</td>
+                        @{
+                            totalPrice += shoppingCart.Count * (shoppingCart.Product?.Price ?? 0); // Add to total price
+                        }
                     </tr>
                 }
-            }
-            else
-            {
                 <tr>
-                    <td colspan="5">No products in your cart.</td>
+                    <td colspan="4" class="text-right"><strong>Total Price:</strong></td>
+                    <td>@totalPrice</td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
-<a asp-page="/Order/Checkout" class="btn btn-primary">Proceed to Order</a>
+<a asp-page="/Order/Checkout" class="btn btn-primary">Proceed to Order</a>  

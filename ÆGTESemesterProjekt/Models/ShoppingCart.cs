@@ -15,6 +15,7 @@ namespace ÆGTESemesterProjekt.Models
         public int Count { get; set; }
         public int ProductId { get; set; }
 
+
         public ShoppingCart()
         {
         }
