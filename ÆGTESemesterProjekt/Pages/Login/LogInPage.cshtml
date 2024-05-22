@@ -9,30 +9,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="~/css/LogIn.css" />
+
     </head>
 <body>
 <div class="form-container">
-
-        <div class="split right">
-            <div class="background-image"></div>
-        </div>
-
-        <div class="split left">
+        <div class="container">
     <form method="post">
         <div class="form-group">
-                <h1>
+                <h1 class="pb-5">
                     Login her
                     </h1>
                 <div class="text-danger">
                     @Model.Message
                 </div>
-            <label asp-for="UserName" class="col-form-label text-light "></label>
+            <label asp-for="UserName" class="col-form-label text-dark "></label>
             <div>
                     <input asp-for="UserName" placeholder="Username" />
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="Password" class="col-form-label text-light"></label>
+            <label asp-for="Password" class="col-form-label text-dark"></label>
             <div>
                     <input asp-for="Password" placeholder="Password" />
             </div>
@@ -40,7 +36,7 @@
         <div class="form-group">
             <button class="button">Log in</button>
         </div>
-            <div class="container text-light">
+            <div class="container text-dark">
                 Ikke medlem?
                 <a asp-area="" asp-page="/User/CreateUser">Opret Konto</a>
             </div>
