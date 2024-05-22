@@ -6,7 +6,6 @@ namespace ÆGTESemesterProjekt.Models
 	public class Product
 	{
 		[Display(Name = "Produkt ID")]
-		[Required(ErrorMessage = "Der skal angives et ID til produktet")]
 		[Range(typeof(int), minimum: "0", maximum: "10000", ErrorMessage = "Id skal være mellem {1} og {2}")]
 		// Muligvis skal fjernes...
 		[Key]

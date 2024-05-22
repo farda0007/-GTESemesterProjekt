@@ -11,7 +11,7 @@ namespace ÆGTESemesterProjekt.Services
         private DbGenericService<Product> _genericDbService;
 
         public ProductService(JsonFileService<Product> jsonFileProductService, DbGenericService<Product> genericDbService)
-        {
+        {   
             JsonFileProductService = jsonFileProductService;
             _genericDbService = genericDbService;
             //_products = MockProducts.GetMockProducts();
