@@ -55,6 +55,7 @@ namespace ÆGTESemesterProjekt.Services
                         p.ProductImage = product.ProductImage;
                         p.ProductName = product.ProductName;
                         p.Type = product.Type;
+                        p.IsFavourite = product.IsFavourite;
                     }
                 }
                 JsonFileProductService.SaveJsonObjects(_products);

@@ -10,7 +10,7 @@ namespace ÆGTESemesterProjekt.Models
 		[Range(typeof(int), minimum: "0", maximum: "10000", ErrorMessage = "Id skal være mellem {1} og {2}")]
 		// Muligvis skal fjernes...
 		[Key]
-		[DatabaseGenerated(DatabaseGeneratedOption.None)]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
 		[Display(Name = "Produkt navn")]
 		[Required(ErrorMessage = "Produktet skal have et navn")]
