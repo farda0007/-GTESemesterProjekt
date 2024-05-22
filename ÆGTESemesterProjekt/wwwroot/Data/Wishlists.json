@@ -1,6 +1,13 @@
 [
   {
-    "WishlistId": 2,
+    "WishlistId": 3,
+    "userId": 5,
+    "User": null,
+    "ProductId": 2,
+    "Product": null
+  },
+  {
+    "WishlistId": 4,
     "userId": 5,
     "User": null,
     "ProductId": 1,

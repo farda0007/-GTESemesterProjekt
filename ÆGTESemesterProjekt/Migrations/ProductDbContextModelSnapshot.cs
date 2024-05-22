@@ -36,18 +36,26 @@ namespace ÆGTESemesterProjekt.Migrations
 
                     b.Property<string>("MessageContent")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("MessageDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("MessageTitle")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ReceiverId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SenderId")
+                        .HasColumnType("int");
 
                     b.HasKey("MessageId");
+
+                    b.HasIndex("ReceiverId");
+
+                    b.HasIndex("SenderId");
 
                     b.ToTable("Messages");
                 });
@@ -82,6 +90,35 @@ namespace ÆGTESemesterProjekt.Migrations
                     b.HasIndex("userId");
 
                     b.ToTable("Order");
+                });
+
+            modelBuilder.Entity("ÆGTESemesterProjekt.Models.OrderItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderItem");
                 });
 
             modelBuilder.Entity("ÆGTESemesterProjekt.Models.Product", b =>
@@ -231,6 +268,25 @@ namespace ÆGTESemesterProjekt.Migrations
                     b.ToTable("Wishlist");
                 });
 
+            modelBuilder.Entity("ÆGTESemesterProjekt.Models.Message", b =>
+                {
+                    b.HasOne("ÆGTESemesterProjekt.Models.User", "Receiver")
+                        .WithMany()
+                        .HasForeignKey("ReceiverId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ÆGTESemesterProjekt.Models.User", "Sender")
+                        .WithMany()
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Receiver");
+
+                    b.Navigation("Sender");
+                });
+
             modelBuilder.Entity("ÆGTESemesterProjekt.Models.Order", b =>
                 {
                     b.HasOne("ÆGTESemesterProjekt.Models.Product", "Product")
@@ -248,6 +304,25 @@ namespace ÆGTESemesterProjekt.Migrations
                     b.Navigation("Product");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ÆGTESemesterProjekt.Models.OrderItem", b =>
+                {
+                    b.HasOne("ÆGTESemesterProjekt.Models.Order", "Order")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ÆGTESemesterProjekt.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("ÆGTESemesterProjekt.Models.ShoppingCart", b =>
@@ -286,6 +361,11 @@ namespace ÆGTESemesterProjekt.Migrations
                     b.Navigation("Product");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ÆGTESemesterProjekt.Models.Order", b =>
+                {
+                    b.Navigation("OrderItems");
                 });
 
             modelBuilder.Entity("ÆGTESemesterProjekt.Models.User", b =>

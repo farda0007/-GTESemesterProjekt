@@ -37,13 +37,18 @@ builder.Services.AddTransient<DbGenericService<ShoppingCart>>();
 builder.Services.AddTransient<UserDbService, UserDbService>();
 
 
-
 builder.Services.Configure<CookiePolicyOptions>(options => { 
 	// This lambda determines whether user consent for non-essential cookies is needed for a given request.
 options.CheckConsentNeeded = context => true; options.MinimumSameSitePolicy = SameSiteMode.None;  });  
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(cookieOptions => { cookieOptions.LoginPath = "/Login/LogInPage";  }); 
 builder.Services.AddMvc().AddRazorPagesOptions(options => { options.Conventions.AuthorizeFolder("/Products/GetAllProducts");  }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ProductDbContext>();
+    dbContext.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
