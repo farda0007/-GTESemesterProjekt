@@ -35,6 +35,54 @@ body {
     left: 0; 
     z-index: 10;
 }
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
 
+    .form-container {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    form {
+        padding: 10%;
+    }
+
+    .button {
+        font-size: 1.2rem;
+        min-width: 120px;
+    }
+
+    input[type=text], input[type=password] {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .form-container {
+        max-width: 100%;
+        padding: 15px;
+        height: 90vh;
+    }
+
+    form {
+        padding: 15%;
+    }
+
+    .button {
+        font-size: 1rem;
+        min-width: 100px;
+    }
+
+    input[type=text], input[type=password] {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+}
 </style >
 
