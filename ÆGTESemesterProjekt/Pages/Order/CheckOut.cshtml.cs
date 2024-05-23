@@ -34,12 +34,10 @@ namespace ÆGTESemesterProjekt.Pages.Order
         {
             if (ModelState.IsValid)
             {
-                _orderService.AddOrder(Order);
+                _orderService.AddObjectAsync(Order);
                 await _shoppingCartService.ClearCartAsync(Order.UserId);
-                return RedirectToPage("/Order/OrderConfirmation", new { orderId = Order.OrderId });
             }
-
-            return Page();
+            return RedirectToPage("/Order/OrderConfirmation", new { orderId = Order.OrderId });
         }
 
     }
