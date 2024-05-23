@@ -1,51 +1,64 @@
-﻿Body {
-    font-family: Calibri, Helvetica, sans-serif;
+﻿html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-button {
+
+body {
+    background-color: white; 
+    font-family: Calibri, Helvetica, sans-serif; 
+}
+
+.button {
     padding: 5px;
     margin: 10px 0px;
     cursor: pointer;
     border: none;
     width: 100%;
+    min-width: 250px;
     max-width: 250px;
     border-radius: 20px;
     font-size: 1.5rem;
     box-sizing: border-box;
-    display: block;
 }
 
 .form-container {
-      width: 100%;
+    width: 100%;
+    max-width: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80vh;
     padding: 10px;
     box-sizing: border-box;
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+
 }
 
 form {
     border: none;
-    box-shadow: 1px 1px 50px black;
-    height: auto;
-    max-width: 350px;
+    box-shadow: 1px 1px 10px black;
+    height: 100%;
+    max-height: 600px;
+    max-width: 550px;
     width: 100%;
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding: 5%;
-    box-sizing: border-box;
-    position: relative;
-   background-color: transparent;
+    border-radius: 10px;    
 }
 
 input[type=text], input[type=password] {
     width: 100%;
-    max-width:300px;
+    max-width:500px;
     margin: 8px 0;
     padding: 12px 20px;
     display: inline-block;
-    border: 2px solid black;
+    border: 1px solid #ccc;
     box-sizing: border-box;
     border-radius: 20px;
     font-size: 1.25rem;
@@ -59,39 +72,75 @@ button:hover {
 
 h1 {
     font-size: 2.5rem;
-    font-family:Arial;
+    font-family:Arial, sans-serif;
     display:flex;
     justify-content:center;
-    padding-bottom: 20px;
-    color: white;
+    padding-bottom: 40px;
+    padding-top: 30px;
+    color: black;
 
 }
 
-.split {
-    height: 100vh;
-    width: 60%;
-    position: fixed;
-    top: 0;
-}
-
-.left {
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.right {
-    right: 20%;
-}
-
-.background-image {
-    background-image: url(https://static.vecteezy.com/system/resources/previews/038/974/315/non_2x/ai-generated-smiling-family-playing-piano-creating-joyful-music-together-generated-by-ai-free-photo.jpg);
-    background-size: cover;
+background-image {
+  
+    max-height: 900px;
+    height: 80%;
     background-position: center;
-    width: 100%;
-    height: 0; /* Initially set height to 0 */
-    padding-top: 60%; /* This maintains a 4:3 aspect ratio (adjust as necessary) */
-    margin-top: 10%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+   margin-top: 110px;
 }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .form-container {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    form {
+        padding: 10%;
+    }
+
+    .button {
+        font-size: 1.2rem;
+        min-width: 120px;
+    }
+
+    input[type=text], input[type=password] {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .form-container {
+        max-width: 100%;
+        padding: 15px;
+        height: 90vh;
+    }
+
+    form {
+        padding: 15%;
+    }
+
+    .button {
+        font-size: 1rem;
+        min-width: 100px;
+    }
+
+    input[type=text], input[type=password] {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+}
+
 

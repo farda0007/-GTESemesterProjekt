@@ -1,0 +1,8 @@
+[
+  {
+    "SenderId": "default_customer",
+    "ReceiverId": "default_employee",
+    "MessageContent": "This is a default message.",
+    "Timestamp": "2024-05-22T00:00:00Z"
+  }
+]
