@@ -13,6 +13,8 @@ namespace ÆGTESemesterProjekt.Pages.Order
         public IEnumerable<Models.ShoppingCart> MyCartProducts { get; set; }
         [BindProperty]
         public Models.Order Order { get; set; }
+        public Models.User User { get; set; }
+        public Models.Product Product { get; set; }
 
         public CheckOutModel(ShoppingCartService shoppingCartService, UserService userService, OrderService orderService)
         {
@@ -23,8 +25,8 @@ namespace ÆGTESemesterProjekt.Pages.Order
 
         public void OnGet()
         {
-            var currentUser = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
-            var cartItems = _shoppingCartService.GetCartProducts().Where(c => c.userId == currentUser.UserId).ToList();
+            User = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+            MyCartProducts = _userService.GetCartProducts(User).Result.CartProducts;
 
         }
 
