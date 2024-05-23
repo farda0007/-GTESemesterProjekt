@@ -7,17 +7,19 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
 {
     public class MyCartModel : PageModel
     {
+        [BindProperty]
         public string DiscountCode { get; set; }
+        [BindProperty]
         public decimal Totalprice { get; set; }
         public decimal DiscountAmount { get; set; }
         public decimal FinalPrice { get; set; }
         public bool DiscountApplied { get; set; }
 
-
-        public UserService _userService;
-        public OrderService _orderService { get; set; }
-        public ShoppingCartService _shoppingCartService { get; set; }
+        private readonly UserService _userService;
+        private readonly OrderService _orderService;
+        private readonly ShoppingCartService _shoppingCartService;
         public IEnumerable<Models.ShoppingCart> MyCartProducts { get; set; }
+
         public MyCartModel(UserService userService, ShoppingCartService shoppingCartService, OrderService orderService)
         {
             _userService = userService;
@@ -27,15 +29,21 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
 
         public IActionResult OnGet()
         {
-            Models.User CurrentUser = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
-            MyCartProducts = _userService.GetCartProducts(CurrentUser).Result.CartProducts;
+            var currentUser = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+            MyCartProducts = _userService.GetCartProducts(currentUser).Result.CartProducts;
+            Totalprice = MyCartProducts.Sum(product => product.Count * (product.Product?.Price ?? 0));
 
             return Page();
         }
+
         public async Task<IActionResult> OnPostAsync()
         {
+            var currentUser = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+            MyCartProducts = _userService.GetCartProducts(currentUser).Result.CartProducts;
+            Totalprice = MyCartProducts.Sum(product => product.Count * (product.Product?.Price ?? 0));
+
             const string validDiscountCode = "uWu";
-            decimal Discount = 0.10m;
+            decimal Discount = 0m;
 
             if (DiscountCode == validDiscountCode)
             {

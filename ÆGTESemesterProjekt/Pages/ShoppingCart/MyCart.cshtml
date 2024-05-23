@@ -1,6 +1,7 @@
 ﻿@page
 @model ÆGTESemesterProjekt.Pages.ShoppingCart.MyCartModel
 @{
+    decimal totalPrice = Model.MyCartProducts?.Sum(cart => cart.Count * (cart.Product?.Price ?? 0)) ?? 0;
 }
 <h1>Min kurv</h1>
 <br />
@@ -18,8 +19,6 @@
         <tbody>
             @if (Model.MyCartProducts != null && Model.MyCartProducts.Any())
             {
-                decimal totalPrice = 0; // Initialize total price
-
                 foreach (var shoppingCart in Model.MyCartProducts)
                 {
                     <tr class="btn-secondary">
@@ -28,9 +27,6 @@
                         <td>@shoppingCart.Product?.Price</td>
                         <td>@shoppingCart.Count</td>
                         <td>@(shoppingCart.Count * shoppingCart.Product?.Price ?? 0)</td>
-                        @{
-                            totalPrice += shoppingCart.Count * (shoppingCart.Product?.Price ?? 0); // Add to total price
-                        }
                     </tr>
                 }
                 <tr>
@@ -41,4 +37,24 @@
         </tbody>
     </table>
 </div>
-<a asp-page="/Order/Checkout" class="btn btn-primary">Proceed to Order</a>  
+
+<form method="post">
+    <div class="form-group">
+        <label for="DiscountCode">Discount Code:</label>
+        <input type="text" id="DiscountCode" name="DiscountCode" class="form-control" value="@Model.DiscountCode" />
+    </div>
+    <div class="form-group">
+        <input type="hidden" id="Totalprice" name="Totalprice" value="@totalPrice" />
+    </div>
+    <button type="submit" class="btn btn-primary">Apply Discount</button>
+</form>
+
+@if (Model.DiscountApplied)
+{
+    <div>
+        <p>Rabatkode aktiveret @Model.DiscountAmount</p>
+        <p>Pris efter Rabat @Model.FinalPrice</p>
+    </div>
+}
+
+<a asp-page="/Order/Checkout" class="btn btn-primary">Proceed to Order</a>
