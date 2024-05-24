@@ -20,22 +20,33 @@ namespace ÆGTESemesterProjekt.Services
             _dbService.SaveObjects(_wishlists);
         }
 
-        public async Task AddWishlist(Wishlist wishlist)
+        public async Task AddWishlistAsync(Wishlist wishlist)
         {
             _wishlists.Add(wishlist);
             await _dbService.AddObjectAsync(wishlist);
             _wishlistJsonFileService.SaveJsonObjects(_wishlists);
         }
-        public Wishlist DeleteWishlist(int? WishlistId)
+        public Wishlist DeleteWishlist(int? productId)
         {
-            foreach (Wishlist wishlist in _wishlists)
+            foreach (Wishlist product in _wishlists)
             {
-                if (wishlist.WishlistId == WishlistId)
+                if (product.WishlistId == productId)
                 {
-                    _wishlists.Remove(wishlist);
-                    _wishlistJsonFileService.SaveJsonObjects(_wishlists);
-                    _dbService.DeleteObjectAsync(wishlist);
-                    return wishlist;
+                    _wishlists.Remove(product);
+                    _dbService.DeleteObjectAsync(product);
+                    return product;
+                }
+            }
+            return null;
+        }
+
+        public Wishlist GetWishlist(int Id)
+        {
+            foreach (Wishlist product in _wishlists)
+            {
+                if (Id == product.WishlistId)
+                {
+                    return product;
                 }
             }
             return null;
@@ -44,17 +55,7 @@ namespace ÆGTESemesterProjekt.Services
         {
             return _wishlists;
         }
-        public Wishlist GetWishlist(int WishlistId)
-        {
-            foreach (Wishlist wishlist in _wishlists)
-            {
-                if (WishlistId == wishlist.WishlistId)
-                {
-                    return wishlist;
-                }
-            }
-            return null;
-        }
+
         public List<Wishlist> GetWishlistByUserId(int userId)
         {
             return _wishlists.Where(w => w.userId == userId).ToList();

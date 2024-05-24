@@ -7,12 +7,14 @@ namespace ÆGTESemesterProjekt.Pages.WishlistPage
     public class DeleteWishlistModel : PageModel
     {
 
+
         private IWishlistService _iwishlistService;
         [BindProperty]
         public Models.Wishlist Wishlist { get; set; }
-        public DeleteWishlistModel(IWishlistService iwishlistService)
+        public DeleteWishlistModel(IWishlistService iwishlistService, DbGenericService<Models.Wishlist> dbService)
         {
             _iwishlistService = iwishlistService;
+ 
 
         }
 
