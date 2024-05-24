@@ -20,6 +20,12 @@ namespace ÆGTESemesterProjekt.Services
             _orderList.Add(order);
             _dbService.AddObjectAsync(order);
         }
+        public async Task AddOrderAsync(Order order)
+        {
+            _orderList.Add(order);
+            await _dbService.AddObjectAsync(order);
+
+        }
         public List<Order> GetOrders()      
         {
             return _orderList;    
@@ -27,8 +33,6 @@ namespace ÆGTESemesterProjekt.Services
         public async Task<IEnumerable<Order>> GetOrdersByUserIdAsync(int userId)
         {
             var orders = await _dbService.GetObjectsAsync();
-            // Logging to confirm retrieval
-            Console.WriteLine($"Retrieved {orders.Count()} orders for user {userId}.");
             return orders;
         }
     }
