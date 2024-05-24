@@ -12,35 +12,42 @@ namespace ÆGTESemesterProjekt.Pages.Messages
 {
     public class SendMessageModel : PageModel
     {
-        private readonly ProductDbContext _context;
+        //private readonly ProductDbContext _context;
 
-        public SendMessageModel(ProductDbContext context)
+        //public SendMessageModel(ProductDbContext context)
+        //{
+        //    _context = context;
+        //}
+
+        //[BindProperty]
+        //public int SenderId { get; set; }
+        //[BindProperty]
+        //public int ReceiverId { get; set; }
+        //[BindProperty]
+        //public string MessageTitle { get; set; }
+        //[BindProperty]
+        //public string MessageContent { get; set; }
+        //[BindProperty]
+        //public string MessageAuthor { get; set; }
+
+        private readonly Message _message;
+
+        [BindProperty]
+        public Message Message { get; set; }
+
+        public SendMessageModel(Message message)
         {
-            _context = context;
+            _message = message;
         }
 
-        [BindProperty]
-        public int CustomerId { get; set; }
-        [BindProperty]
-        public int EmployeeId { get; set; }
-        [BindProperty]
-        public string MessageContent { get; set; }
+        //public void OnPost()
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _message.SendMessage(Message);
+        //    }
+        //}
 
-        public async Task<IActionResult> OnPostAsync()
-        {
-            var message = new Message
-            {
-                SenderId = CustomerId,
-                ReceiverId = EmployeeId,
-                MessageContent = MessageContent,
-                MessageDate = DateTime.Now
-            };
-
-            _context.Messages.Add(message);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("/Messages/SendMessageModel");
-        }
 
     }
 }

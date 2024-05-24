@@ -1,0 +1,19 @@
+﻿@page
+@model ÆGTESemesterProjekt.Pages.Messages.AnswerMessageModel
+@{
+}
+<div>
+    <h2>Original Message</h2>
+    <p><strong>From:</strong> @Model.OriginalMessage.MessageAuthor</p>
+    <p><strong>Title:</strong> @Model.OriginalMessage.MessageTitle</p>
+    <p><strong>Content:</strong> @Model.OriginalMessage.MessageContent</p>
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="MessageId" />
+    <div>
+        <label for="answerContent">Your Answer:</label>
+        <textarea id="answerContent" asp-for="AnswerContent"></textarea>
+    </div>
+    <button type="submit">Besvar</button>
+</form>
