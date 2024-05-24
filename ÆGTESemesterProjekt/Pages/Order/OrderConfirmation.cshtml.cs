@@ -6,18 +6,33 @@ namespace ÆGTESemesterProjekt.Pages.Order
 {
     public class OrderConfirmationModel : PageModel
     {
-        private readonly OrderService _orderService;
-
+        private ShoppingCartService _shoppingCartService;
+        private UserService _userService;
+        private OrderService _orderService;
+        [BindProperty]
         public Models.Order Order { get; set; }
+        public Models.User User { get; set; }
+        public Models.Product Product { get; set; }
 
-        public OrderConfirmationModel(OrderService orderService)
+        public OrderConfirmationModel(ShoppingCartService shoppingCartService, UserService userService, OrderService orderService)
         {
+            _shoppingCartService = shoppingCartService;
+            _userService = userService;
             _orderService = orderService;
         }
-
-        public async Task OnGetAsync(int orderId)
+        public void OnGet()
         {
-            Order = _orderService.GetOrders().FirstOrDefault(o => o.OrderId == orderId);
+            User = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+
+        }
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (ModelState.IsValid)
+            {
+                _orderService.AddObjectAsync(Order);
+                await _shoppingCartService.ClearCartAsync(Order.UserId);
+            }
+            return RedirectToPage("/Order/OrderConfirmation", new { orderId = Order.OrderId });
         }
     }
 }

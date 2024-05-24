@@ -16,6 +16,7 @@ namespace ÆGTESemesterProjekt.Pages.Order
         public Models.User User { get; set; }
         public Models.Product Product { get; set; }
 
+
         public CheckOutModel(ShoppingCartService shoppingCartService, UserService userService, OrderService orderService)
         {
             _shoppingCartService = shoppingCartService;
@@ -33,8 +34,8 @@ namespace ÆGTESemesterProjekt.Pages.Order
         public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid)
-            {
-                _orderService.AddObjectAsync(Order);
+            {;
+                await _orderService.AddOrderAsync(Order);
                 await _shoppingCartService.ClearCartAsync(Order.UserId);
             }
             return RedirectToPage("/Order/OrderConfirmation", new { orderId = Order.OrderId });
