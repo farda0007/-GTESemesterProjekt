@@ -25,5 +25,23 @@
     "ProductImage": "ToPimp.jpg",
     "Type": 5,
     "IsFavourite": false
+  },
+  {
+    "Id": 4,
+    "ProductName": "ESSENTIALS VINYL KIT 1",
+    "Price": 279.00,
+    "Description": "Reng\u00F8rings set til vinyler",
+    "ProductImage": "Cleanhehhe.jpg",
+    "Type": 0,
+    "IsFavourite": false
+  },
+  {
+    "Id": 10,
+    "ProductName": "DAMN",
+    "Price": 400,
+    "Description": "test",
+    "ProductImage": "01-kendrick-lamar-damn-album-art-2017-billboard-1240.jpg",
+    "Type": 5,
+    "IsFavourite": true
   }
 ]

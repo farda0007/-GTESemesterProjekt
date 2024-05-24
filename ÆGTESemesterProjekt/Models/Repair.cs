@@ -9,7 +9,7 @@ namespace ÆGTESemesterProjekt.Models
         [Required(ErrorMessage = "Der skal angives et ID til produktet")]
         [Range(typeof(int), minimum: "0", maximum: "10000", ErrorMessage = "Id skal være mellem {1} og {2}")]
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CaseId { get; set; }
         public DateTime SubDate { get; set; }
         public string Description { get; set; }
