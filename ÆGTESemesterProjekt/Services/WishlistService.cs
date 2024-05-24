@@ -4,7 +4,7 @@ namespace ÆGTESemesterProjekt.Services
 {
     public class WishlistService : IWishlistService
     {
-        private readonly List<Wishlist> _wishlists = new List<Wishlist>();
+        private readonly List<Wishlist> _wishlists;
         private JsonFileService<Wishlist> _wishlistJsonFileService;
         private DbGenericService<Wishlist> _dbService;
 
@@ -16,7 +16,7 @@ namespace ÆGTESemesterProjekt.Services
             _dbService = dbService;
             _wishlists = _dbService.GetObjectsAsync().Result.ToList();
 
-            _wishlistJsonFileService.SaveJsonObjects(_wishlists);
+            //_wishlistJsonFileService.SaveJsonObjects(_wishlists);
             _dbService.SaveObjects(_wishlists);
         }
 
@@ -40,11 +40,15 @@ namespace ÆGTESemesterProjekt.Services
             }
             return null;
         }
-        public Wishlist GetWishlist(int Id)
+        public List<Wishlist> GetWishlists()
+        {
+            return _wishlists;
+        }
+        public Wishlist GetWishlist(int WishlistId)
         {
             foreach (Wishlist wishlist in _wishlists)
             {
-                if (Id == wishlist.WishlistId)
+                if (WishlistId == wishlist.WishlistId)
                 {
                     return wishlist;
                 }

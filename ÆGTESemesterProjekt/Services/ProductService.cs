@@ -55,6 +55,7 @@ namespace ÆGTESemesterProjekt.Services
                         p.ProductImage = product.ProductImage;
                         p.ProductName = product.ProductName;
                         p.Type = product.Type;
+                        p.Description = product.Description;
                         p.IsFavourite = product.IsFavourite;
                     }
                 }
