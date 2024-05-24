@@ -43,7 +43,7 @@ namespace ÆGTESemesterProjekt.Pages.Wishlist
             User = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
             Wishlist.userId = User.UserId;
             Wishlist.ProductId = Product.Id;
-            _wishlistService.AddWishlist(Wishlist);
+            _wishlistService.AddWishlistAsync(Wishlist);
             return RedirectToPage("/WishlistPage/Wishlist");
         }
     }
