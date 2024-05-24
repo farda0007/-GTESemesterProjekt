@@ -5,7 +5,7 @@ namespace ÆGTESemesterProjekt.Models
 {
     public class Repair
     {
-        [Display(Name = "Produkt ID")]
+        [Display(Name = "Repair ID")]
         [Required(ErrorMessage = "Der skal angives et ID til produktet")]
         [Range(typeof(int), minimum: "0", maximum: "10000", ErrorMessage = "Id skal være mellem {1} og {2}")]
         [Key]
