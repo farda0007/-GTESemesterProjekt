@@ -20,5 +20,16 @@
     "Orders": null,
     "WishlistProducts": null,
     "CartProducts": null
+  },
+  {
+    "UserId": 7,
+    "UserName": "BeskedTester",
+    "Name": "BeskedTester",
+    "Password": "AQAAAAIAAYagAAAAEJ26hUFQMpxM2nCzyUwmQ9t0M1hiUREtAuY02O6qHQqjP4N9s22GLZaKmvJFuhMnMw==",
+    "Phone": 12345678,
+    "Email": "test@ingenmail.dk",
+    "Orders": null,
+    "WishlistProducts": null,
+    "CartProducts": null
   }
 ]

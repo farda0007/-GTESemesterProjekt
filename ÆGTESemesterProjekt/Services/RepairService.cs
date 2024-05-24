@@ -18,7 +18,7 @@ namespace ÆGTESemesterProjekt.Services
             //_dbService = dbService;
             //_repairs = MockRepairs.GetMockRepairs();
             //_repairs = JsonFileRepairService.GetJsonObjects().ToList();
-            JsonFileRepairService.SaveJsonObjects(_repairs);
+            //JsonFileRepairService.SaveJsonObjects(_repairs);
             _repairs = _genericDbService.GetObjectsAsync().Result.ToList();
             _genericDbService.SaveObjects(_repairs);
         }

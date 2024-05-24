@@ -1,22 +1,32 @@
 [
   {
     "CaseId": 1,
-    "SubDate": "2024-05-12T23:00:00+02:00",
+    "SubDate": "2024-05-12T23:00:00",
     "Description": "Fejl",
     "RepProduct": "VinylSpiller",
     "Image": "repair1.jpg",
     "RepairStatus": 0,
     "RepPrice": 1200,
-    "EstDate": "2024-07-13T00:00:00+02:00"
+    "EstDate": "2024-07-13T00:00:00"
   },
   {
     "CaseId": 2,
     "SubDate": "2024-05-12T19:00:00",
     "Description": "Hele lortet kn\u00E6kket p\u00E5 midten",
-    "RepProduct": "Vinyls",
+    "RepProduct": "Vinyl",
     "Image": "repair2.jpg",
     "RepairStatus": 2,
     "RepPrice": 1200,
     "EstDate": "2029-05-13T00:00:00"
+  },
+  {
+    "CaseId": 3,
+    "SubDate": "2024-05-23T11:47:00",
+    "Description": "Venstre airpod spiller lavere ",
+    "RepProduct": "Airpods 3. Generation",
+    "Image": "aia.jpeg",
+    "RepairStatus": 0,
+    "RepPrice": 500,
+    "EstDate": "2024-05-31T10:00:00"
   }
 ]
