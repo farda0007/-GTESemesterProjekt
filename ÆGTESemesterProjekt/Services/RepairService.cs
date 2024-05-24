@@ -75,7 +75,7 @@ namespace ÆGTESemesterProjekt.Services
                 {
                     _repairs.Remove(repair);
                     JsonFileRepairService.SaveJsonObjects(_repairs);
-                    _genericDbService.SaveObjects(_repairs);
+                    _genericDbService.DeleteObjectAsync(repair);
                     return repair;
                 }
             }
