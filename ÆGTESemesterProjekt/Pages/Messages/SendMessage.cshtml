@@ -3,20 +3,26 @@
 @{
     ViewData["Title"] = "Send Besked";
 }
-<h1>Send Message</h1>
+<h1>Send Besked til butik</h1>
 
 <form method="post">
     <div>
-        <label> Sender ID</label>
-        <input asp-for="CustomerId" />
+        <label for="messageAuthor">Message Author:</label>
+        <br />
+        <input type="text" id="messageAuthor" name="MessageAuthor" value="" />
+        <br />
     </div>
     <div>
-        <label> Receiver ID</label>
-        <input asp-for="EmployeeId" />
+        <label for="messageTitle">Message Title:</label>
+        <br />
+        <input type="text" id="messageTitle" name="MessageTitle" value="" />
+        <br />
     </div>
     <div>
-        <label>Message</label>
-        <textarea asp-for="MessageContent"></textarea>
+        <label for="messageContent">Message Content:</label>
+        <br />
+        <textarea id="messageContent" name="MessageContent"></textarea>
+        <br />
     </div>
-    <button type="submit">Send Message</button>
+    <button type="submit">Send</button>
 </form>

@@ -1,26 +1,61 @@
-﻿
-@page
+﻿@page
 @model ÆGTESemesterProjekt.Pages.Messages.GetAllMessagesModel
 @{
     ViewData["Title"] = "Beskeder";
 }
 <h1>Beskeder</h1>
-@if(Model.Messages != null)
+@if (Model.Messages.Count == 0)
 {
-    <ul>
-        @foreach(var message in Model.Messages)
-        {
-            <li>
-                <strong>@message.Sender.UserName:</strong> @message.MessageContent <br>
-                <em>message.MessageDate</em>
-            </li>
-        }
-    </ul>
+    <p>No messages found.</p>
 }
 else
 {
-    <p> Ingen Beskeder fundet!</p>
+    @if (!User.IsInRole("employee"))
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sender</th>
+                    <th>Content</th>
+                    <th>Sent At</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var message in Model.Messages)
+                {
+                    <tr>
+                        <td>@message.Sender.UserName</td>
+                        <td>@message.MessageContent</td>
+                        <td>@message.MessageDate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    @if (User.IsInRole("employee"))
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sender</th>
+                    <th>Content</th>
+                    <th>Sent At</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var message in Model.Messages)
+                {
+                    <tr>
+                        <td>@message.Sender.UserName</td>
+                        <td>@message.MessageContent</td>
+                        <td>@message.MessageDate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 }
+
 <p>
-    <a class="btn btn-primary" asp-page="SendMessage">Send Message</a>
+    <a class="btn btn-primary" asp-page="SendMessage">Send Message to Store</a>
 </p>
