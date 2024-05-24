@@ -32,7 +32,7 @@ namespace ÆGTESemesterProjekt.Pages.Products
             {
                 return Page();
             }
-            _productService.UpdateProduct(Product);
+            _productService.UpdateProductAsync(Product);
             return RedirectToPage("/Products/GetAllProducts");
         }
     }

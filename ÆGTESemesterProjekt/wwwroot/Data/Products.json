@@ -38,7 +38,7 @@
   {
     "Id": 10,
     "ProductName": "DAMN",
-    "Price": 400,
+    "Price": 1234.00,
     "Description": "Kendrick Lamar",
     "ProductImage": "01-kendrick-lamar-damn-album-art-2017-billboard-1240.jpg",
     "Type": 5,

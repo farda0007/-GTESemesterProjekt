@@ -42,7 +42,7 @@ namespace ÆGTESemesterProjekt.Services
         {
             return _products;
         }
-        public void UpdateProduct(Product product)
+        public async Task UpdateProductAsync(Product product)
         {
             if (product != null)
             {
@@ -60,8 +60,8 @@ namespace ÆGTESemesterProjekt.Services
                     }
                 }
                 JsonFileProductService.SaveJsonObjects(_products);
-				_genericDbService.SaveObjects(_products);
-			}
+                await _genericDbService.UpdateObjectAsync(product);
+            }
         }
         public Product DeleteProduct(int? productId)
         {
