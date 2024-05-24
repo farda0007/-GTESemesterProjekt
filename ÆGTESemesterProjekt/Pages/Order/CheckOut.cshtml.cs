@@ -28,7 +28,6 @@ namespace ÆGTESemesterProjekt.Pages.Order
         {
             User = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
             MyCartProducts = _userService.GetCartProducts(User).Result.CartProducts;
-
         }
 
         public async Task<IActionResult> OnPostAsync()

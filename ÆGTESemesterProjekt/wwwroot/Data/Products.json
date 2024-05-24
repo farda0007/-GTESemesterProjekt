@@ -36,11 +36,38 @@
     "IsFavourite": false
   },
   {
+    "Id": 5,
+    "ProductName": "Lover",
+    "Price": 250.00,
+    "Description": "Taylor Swift",
+    "ProductImage": "taylor1.jpg",
+    "Type": 5,
+    "IsFavourite": true
+  },
+  {
+    "Id": 6,
+    "ProductName": "Fearless",
+    "Price": 200.00,
+    "Description": "Taylor Swift",
+    "ProductImage": "taylor2.jpg",
+    "Type": 5,
+    "IsFavourite": false
+  },
+  {
     "Id": 10,
     "ProductName": "DAMN",
     "Price": 400,
     "Description": "Kendrick Lamar",
     "ProductImage": "01-kendrick-lamar-damn-album-art-2017-billboard-1240.jpg",
+    "Type": 5,
+    "IsFavourite": true
+  },
+  {
+    "Id": 7,
+    "ProductName": "The Eminem Show",
+    "Price": 250,
+    "Description": "Eminem",
+    "ProductImage": "eminemshow.jpg",
     "Type": 5,
     "IsFavourite": true
   }
