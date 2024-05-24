@@ -10,23 +10,19 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ÆGTESemesterProjekt.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <style>
+   @*  <style>
         .navbar-nav.ms-auto {
             margin-left: auto;
         }
-    </style>
+    </style> *@
 </head>
 <body>
-
-
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm border box-shadow sticky-top" style="height: 100px;">
             <div class="container">
                 <a class="navbar-logoandtitle" asp-area="" asp-page="/Index">
-                    <img src="~/images/One-of-a-kind.png" style="width:100px; height:100px;" class="d-inline-block" alt="">
+                    <img src="~/images/One-of-a-kind.png" style="width:80px; height:80px;" class="d-inline-block" alt="">
                     ATLL
                 </a>
-
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -56,7 +52,7 @@
                         <a class="nav-link text-dark" asp-area="" asp-page="/ProductCatalog/Speaker">Højtaler</a>
                     </li>
                     <li class="nav-item-product">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Products/GetAllProducts">Tilbud</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Products/GetAllProducts">Alle Produkter</a>
                     </li>
                     @if (!User.IsInRole("employee"))
                     {
@@ -65,7 +61,7 @@
                         </li>
                     }
 
-                    @if (User.IsInRole("employee"))
+                    @* @if (User.IsInRole("employee"))
                     {
                         <div class="dropdown">
                             <a class="btn dropdown-toggle text-dark" data-bs-toggle="dropdown">
@@ -77,7 +73,7 @@
                                 <li><a class="nav-link text-dark" asp-area="" asp-page="/Messages/GetAllMessages">Beskeder</a>
                             </ul>
                         </div>
-                    }
+                    } *@
 
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
                         @{
@@ -87,6 +83,20 @@
                             <li class="nav-item nav-link text-black">
                                 Hello @User.Identity.Name!
                             </li>
+
+                                @if (User.IsInRole("employee"))
+                                {
+                                <div class="dropdown">
+                                <a class="btn-drop dropdown-toggle text-dark" data-bs-toggle="dropdown">
+                                        Administration
+                                </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="nav-link text-dark" asp-area="" asp-page="/User/GetAllCustomers">Alle medlemmer</a>
+                                        <li><a class="nav-link text-dark" asp-area="" asp-page="/RepairPage/GetAllRepairs">Reperationer</a>
+                                        <li><a class="nav-link text-dark" asp-area="" asp-page="/Messages/GetAllMessages">Beskeder</a>
+                                    </ul>
+                                </div>
+                                }
 
                             <li class="nav-item">
                                 <a class="nav-link text-black" asp-area="" asp-page="/Login/LogOut">Log ud</a>
@@ -101,8 +111,9 @@
 
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/ShoppingCart/MyCart"></a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/ShoppingCart/MyCart">
                                 <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
                             </li>
                             }
                             else

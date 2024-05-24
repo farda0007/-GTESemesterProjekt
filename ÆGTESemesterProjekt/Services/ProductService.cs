@@ -109,7 +109,9 @@ namespace ÆGTESemesterProjekt.Services
             List<Product> filterList = new List<Product>();
             foreach (Product product in _products)
             {
-                if ((minPrice == 0 && product.Price <= maxPrice) || (maxPrice == 0 && product.Price >= minPrice) || (product.Price >= minPrice && product.Price <= maxPrice))
+                if ((minPrice == 0 && product.Price <= maxPrice) || 
+                    (maxPrice == 0 && product.Price >= minPrice) || 
+                    (product.Price >= minPrice && product.Price <= maxPrice))
                 {
                     filterList.Add(product);
                 }
