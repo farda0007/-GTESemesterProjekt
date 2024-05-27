@@ -32,12 +32,12 @@ namespace ÆGTESemesterProjekt.Pages.Order
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) 
             {;
-                await _orderService.AddOrderAsync(Order);
-                await _shoppingCartService.ClearCartAsync(Order.UserId);
+                _orderService.AddOrderAsync(Order);
+                _shoppingCartService.ClearCartAsync(Order.UserId);
             }
-            return RedirectToPage("/Order/OrderConfirmation", new { orderId = Order.OrderId });
+            return RedirectToPage("/Order/OrderConfirmation");
         }
 
     }
