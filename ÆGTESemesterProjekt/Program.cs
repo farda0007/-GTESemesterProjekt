@@ -28,8 +28,6 @@ builder.Services.AddSingleton<ShoppingCartService, ShoppingCartService>();
 //Transient
 builder.Services.AddTransient<JsonFileService<Product>>();
 builder.Services.AddTransient<JsonFileService<User>>();
-builder.Services.AddTransient<JsonFileService<Employee>>();
-builder.Services.AddTransient<JsonFileService<Customer>>();
 builder.Services.AddTransient<JsonFileService<Repair>>();
 builder.Services.AddTransient<JsonFileService<Wishlist>>();
 builder.Services.AddTransient<JsonFileService<Message>>();

@@ -7,19 +7,21 @@ namespace ÆGTESemesterProjekt.Pages.WishlistPage
     public class DeleteWishlistModel : PageModel
     {
 
+
         private IWishlistService _iwishlistService;
         [BindProperty]
         public Models.Wishlist Wishlist { get; set; }
         public DeleteWishlistModel(IWishlistService iwishlistService)
         {
             _iwishlistService = iwishlistService;
+ 
 
         }
 
 
-        public IActionResult OnGet(int id)
+        public IActionResult OnGet(int Id)
         {
-            Wishlist = _iwishlistService.GetWishlist(id);
+            Wishlist = _iwishlistService.GetWishlist(Id);
             if (Wishlist == null)
             {
                 return RedirectToPage("/NotFound");

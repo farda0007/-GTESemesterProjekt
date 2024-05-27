@@ -7,7 +7,7 @@ namespace ÆGTESemesterProjekt.Services
 		List<Product> GetProducts();
 		Task AddProductAsync(Product product);
 		void AddProduct(Product product);
-        void UpdateProduct(Product product);
+        Task UpdateProductAsync(Product product);
         Product DeleteProduct(int? productID);
         Product GetProduct(int Id);
 		IEnumerable<Product> NameSearch(string str);

@@ -4,7 +4,7 @@ namespace ÆGTESemesterProjekt.Services
 {
     public class WishlistService : IWishlistService
     {
-        private readonly List<Wishlist> _wishlists = new List<Wishlist>();
+        private readonly List<Wishlist> _wishlists;
         private JsonFileService<Wishlist> _wishlistJsonFileService;
         private DbGenericService<Wishlist> _dbService;
 
@@ -16,41 +16,46 @@ namespace ÆGTESemesterProjekt.Services
             _dbService = dbService;
             //_wishlists = _dbService.GetObjectsAsync().Result.ToList();
 
-            _wishlistJsonFileService.SaveJsonObjects(_wishlists);
-           // _dbService.SaveObjects(_wishlists);
+            //_wishlistJsonFileService.SaveJsonObjects(_wishlists);
+            _dbService.SaveObjects(_wishlists);
         }
 
-        public async Task AddWishlist(Wishlist wishlist)
+        public async Task AddWishlistAsync(Wishlist wishlist)
         {
             _wishlists.Add(wishlist);
             await _dbService.AddObjectAsync(wishlist);
             _wishlistJsonFileService.SaveJsonObjects(_wishlists);
         }
-        public Wishlist DeleteWishlist(int? WishlistId)
+        public Wishlist DeleteWishlist(int? productId)
         {
-            foreach (Wishlist wishlist in _wishlists)
+            foreach (Wishlist product in _wishlists)
             {
-                if (wishlist.WishlistId == WishlistId)
+                if (product.WishlistId == productId)
                 {
-                    _wishlists.Remove(wishlist);
-                    _wishlistJsonFileService.SaveJsonObjects(_wishlists);
-                    _dbService.DeleteObjectAsync(wishlist);
-                    return wishlist;
+                    _wishlists.Remove(product);
+                    _dbService.DeleteObjectAsync(product);
+                    return product;
                 }
             }
             return null;
         }
+
         public Wishlist GetWishlist(int Id)
         {
-            foreach (Wishlist wishlist in _wishlists)
+            foreach (Wishlist product in _wishlists)
             {
-                if (Id == wishlist.WishlistId)
+                if (Id == product.WishlistId)
                 {
-                    return wishlist;
+                    return product;
                 }
             }
             return null;
         }
+        public List<Wishlist> GetWishlists()
+        {
+            return _wishlists;
+        }
+
         public List<Wishlist> GetWishlistByUserId(int userId)
         {
             return _wishlists.Where(w => w.userId == userId).ToList();

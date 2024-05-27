@@ -1,14 +1,5 @@
 [
   {
-    "Id": 1,
-    "ProductName": "Vinyl",
-    "Price": 199.00,
-    "Description": "Hans Philip og Jens MccCoy",
-    "ProductImage": "Dansktop.jpg",
-    "Type": 5,
-    "IsFavourite": false
-  },
-  {
     "Id": 2,
     "ProductName": "Vinyl",
     "Price": 299.00,
@@ -24,6 +15,78 @@
     "Description": "Kendrick Lamar",
     "ProductImage": "ToPimp.jpg",
     "Type": 5,
+    "IsFavourite": false
+  },
+  {
+    "Id": 4,
+    "ProductName": "ESSENTIALS VINYL KIT 1",
+    "Price": 279.00,
+    "Description": "Reng\u00F8rings set til vinyler",
+    "ProductImage": "Cleanhehhe.jpg",
+    "Type": 0,
+    "IsFavourite": false
+  },
+  {
+    "Id": 5,
+    "ProductName": "Lover",
+    "Price": 250.00,
+    "Description": "Taylor Swift",
+    "ProductImage": "taylor1.jpg",
+    "Type": 5,
+    "IsFavourite": true
+  },
+  {
+    "Id": 6,
+    "ProductName": "Fearless",
+    "Price": 200.00,
+    "Description": "Taylor Swift",
+    "ProductImage": "taylor2.jpg",
+    "Type": 5,
+    "IsFavourite": false
+  },
+  {
+    "Id": 7,
+    "ProductName": "The Eminem Show",
+    "Price": 250.00,
+    "Description": "Eminem",
+    "ProductImage": "eminemshow.jpg",
+    "Type": 5,
+    "IsFavourite": true
+  },
+  {
+    "Id": 8,
+    "ProductName": "Sonos h\u00F8jtaler s\u00E6t ",
+    "Price": 14330.00,
+    "Description": "Sonos h\u00F8jtaler s\u00E6t til stuen",
+    "ProductImage": "Sonos1.jpg",
+    "Type": 4,
+    "IsFavourite": true
+  },
+  {
+    "Id": 9,
+    "ProductName": "Sennheiser Momentum 4",
+    "Price": 1990.00,
+    "Description": "Wireless headset",
+    "ProductImage": "headset1.jpg",
+    "Type": 1,
+    "IsFavourite": false
+  },
+  {
+    "Id": 10,
+    "ProductName": "DAMN",
+    "Price": 400.00,
+    "Description": "Kendrick Lamar",
+    "ProductImage": "01-kendrick-lamar-damn-album-art-2017-billboard-1240.jpg",
+    "Type": 5,
+    "IsFavourite": true
+  },
+  {
+    "Id": 11,
+    "ProductName": "Argon Audio Soul3",
+    "Price": 899.00,
+    "Description": "Tr\u00E5dl\u00F8s",
+    "ProductImage": "headset2.jpg",
+    "Type": 1,
     "IsFavourite": false
   }
 ]

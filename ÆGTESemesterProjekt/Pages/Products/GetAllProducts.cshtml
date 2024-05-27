@@ -41,11 +41,24 @@
                             <p class="card-text">@product.Type</p>
                             <div class="form-group">
                             </div>
+
                             <a class="btn btn-primary btn-sm" type="button" title="Detail" asp-page="DetailProduct" asp-route-id="@product.Id"><i class="fa fa-info"></i></a>
-                            <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditProduct" asp-route-id="@product.Id"><i class="fa-sharp fa-solid fa-pen"></i></a>
-                            <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteProduct" asp-route-id="@product.Id"><i class="fas fa-trash"></i></a>
+                            @if (User.IsInRole("employee"))
+                            {
+                                <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditProduct" asp-route-id="@product.Id"><i class="fa-sharp fa-solid fa-pen"></i></a>
+                                <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteProduct" asp-route-id="@product.Id"><i class="fas fa-trash"></i></a>
+                            }
+                            @if (User.Identity.IsAuthenticated)
+                            {
                             <a class="btn btn-primary btn-sm " type="button" title="ShoppingCart" asp-page="/ShoppingCart/CartItem" asp-route-id="@product.Id"><i class="fa fa-shopping-cart"></i></a>
-                            <a class="btn btn-primary btn-sm" type="button" title="Add To Wishlist" asp-page="/WishlistPage/ConfirmWishlist" asp-route-id="@product.Id"><i class="fa-sharp fa-solid fa-heart"></i></a>
+                            <form asp-page="/WishlistPage/ConfirmWishlist" method="post" style="display:inline-block">
+                                <input type="hidden" name="id" value="@product.Id" />
+                                <button type="submit" class="btn btn-primary btn-sm"><i class="fa-sharp fa-solid fa-heart"></i></button>
+                            </form>
+                            }
+
+
+                           @*  <a class="btn btn-primary btn-sm" type="button" title="Add To Wishlist" asp-page="/WishlistPage/ConfirmWishlist" asp-route-id="@product.Id"><i class="fa-sharp fa-solid fa-heart"></i></a> *@
 
                             @* <a class="btn btn-primary btn-sm" type="button" title="Wishlist" asp-page="/Wishlist/WishlistProduct" asp-route-id=""><i class="fa-sharp fa-solid fa-heart"></i></a> *@
                         </div>

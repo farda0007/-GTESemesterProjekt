@@ -11,11 +11,11 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="card" style="width: 18rem; margin: 10px;">
                         <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-muted">Id: @order</h6>
-                            <p class="card-text">Bestillinger: @order</p>
+                            <h6 class="card-subtitle mb-2 text-muted">Id: @order.OrderId</h6>
+                            <p class="card-text">Bestillinger: @order.OrderItems</p>
                             <div class="form-group">
                             </div>
-                            @* <a class="btn btn-primary btn-sm" type="button" title="Wishlist" asp-page="/Wishlist/WishlistProduct" asp-route-id=""><i class="fa-sharp fa-solid fa-heart"></i></a> *@
+                        
                         </div>
                     </div>
                 </div>
