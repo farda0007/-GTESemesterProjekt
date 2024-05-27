@@ -11,42 +11,6 @@ namespace ÆGTESemesterProjekt.Services
 		private readonly List<User> _users = new();
 		private readonly List<Message> _messages = new();
 
-		public Task<List<Message>> GetMessageAsync(int userId)
-		{
-			var messages = _messages
-				.Where(m => m.SenderId == userId || m.ReceiverId == userId)
-				.ToList();
-			return Task.FromResult(messages);
-			//return _context.Messages
-			//	.Include(m => m.Sender)
-			//	.Include(m => m.Recipient)
-			//	.Include(m => m.Responses)
-			//	.where(m => m.SenderId == userId || m.RecipientId == userId)
-			//	.ToListAsync();
-		}
-
-		public Task<Message> GetMessageByIdAsync(int MessageId)
-		{
-			var message = _messages.FirstOrDefault(m => m.MessageId == MessageId);
-			return Task.FromResult(message);
-			//return _context.Messages
-			//	.Include(m => m.Sender)
-			//	.Include(m => m.Recipient)
-			//	.FirstOrDefaultAsync(m => m.MessageId == MessageId);
-		}
-
-		public Task SendMessageAsync(Message message)
-		{
-			message.MessageId = _messages.Count + 1;
-			message.MessageDate = DateTime.Now;
-			_messages.Add(message);
-			return Task.CompletedTask;
-			//_context.Messages.Add(message);
-			//await _context.SaveChangesAsync();
-		}
-
-
-
 		public async Task<List<Product>> GetProducts()
 		{
 			using (var context = new ProductDbContext())

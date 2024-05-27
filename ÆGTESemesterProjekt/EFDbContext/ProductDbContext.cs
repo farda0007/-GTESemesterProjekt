@@ -33,7 +33,6 @@ namespace ÆGTESemesterProjekt.EFDbContext
         public DbSet<Wishlist> Wishlist { get; set; }
         public DbSet<Repair> Repair { get; set; }
         public DbSet<ShoppingCart> ShoppingCart { get; set; }
-		public DbSet<Message> Messages { get; set; }
     }
 
 }

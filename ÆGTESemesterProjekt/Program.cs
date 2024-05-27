@@ -19,18 +19,16 @@ builder.Services.AddSingleton<UserService, UserService>();
 builder.Services.AddSingleton<IProductService, ProductService>();
 builder.Services.AddSingleton<IRepairService, RepairService>();
 builder.Services.AddSingleton<IWishlistService, WishlistService>();
-builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddSingleton<OrderService, OrderService>();
 builder.Services.AddSingleton<WishlistService, WishlistService>();
 builder.Services.AddSingleton<ShoppingCartService, ShoppingCartService>();
-//builder.Services.AddSingleton<MessageService, MessageService>();
+
 
 //Transient
 builder.Services.AddTransient<JsonFileService<Product>>();
 builder.Services.AddTransient<JsonFileService<User>>();
 builder.Services.AddTransient<JsonFileService<Repair>>();
 builder.Services.AddTransient<JsonFileService<Wishlist>>();
-builder.Services.AddTransient<JsonFileService<Message>>();
 
 builder.Services.AddTransient<DbService>();
 builder.Services.AddTransient<DbGenericService<Product>>();
@@ -38,10 +36,8 @@ builder.Services.AddTransient<DbGenericService<User>>();
 builder.Services.AddTransient<DbGenericService<Order>>();
 builder.Services.AddTransient<DbGenericService<Repair>>();
 builder.Services.AddTransient<DbGenericService<Wishlist>>();
-builder.Services.AddTransient<DbGenericService<Message>>();
 builder.Services.AddTransient<DbGenericService<ShoppingCart>>();
 builder.Services.AddTransient<UserDbService, UserDbService>();
-
 
 //Other
 builder.Services.AddDbContext<ProductDbContext>();
