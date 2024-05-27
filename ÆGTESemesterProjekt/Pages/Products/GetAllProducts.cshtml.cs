@@ -28,6 +28,7 @@ namespace ÆGTESemesterProjekt.Pages.Products
 			Products = _productService.NameSearch(SearchString).ToList();
 			return Page();
         }
+
         public IActionResult OnPostPriceFilter()
         {
             Products = _productService.PriceFilter(MaxPrice, MinPrice).ToList();

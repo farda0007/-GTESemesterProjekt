@@ -3,59 +3,39 @@
 @{
     ViewData["Title"] = "Beskeder";
 }
-<h1>Beskeder</h1>
-@if (Model.Messages.Count == 0)
-{
-    <p>No messages found.</p>
-}
-else
-{
-    @if (!User.IsInRole("employee"))
-    {
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Sender</th>
-                    <th>Content</th>
-                    <th>Sent At</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var message in Model.Messages)
-                {
-                    <tr>
-                        <td>@message.Sender.UserName</td>
-                        <td>@message.MessageContent</td>
-                        <td>@message.MessageDate</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-    @if (User.IsInRole("employee"))
-    {
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Sender</th>
-                    <th>Content</th>
-                    <th>Sent At</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var message in Model.Messages)
-                {
-                    <tr>
-                        <td>@message.Sender.UserName</td>
-                        <td>@message.MessageContent</td>
-                        <td>@message.MessageDate</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-}
+<h1>Messages</h1>
 
+<table>
+    <thead>
+        <tr>
+            <th>Sender</th>
+            <th>Receiver</th>
+            <th>Content</th>
+            <th>Timestamp</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Messages != null && Model.Messages.Any())
+        {
+            foreach (var message in Model.Messages)
+            {
+                <tr>
+                    <td>@message.MessageAuthor</td>
+                    <td>@message.MessageTitle</td>
+                    <td>@message.MessageContent</td>
+                    <td>@message.MessageDate</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4">No messages available</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
 <p>
-    <a class="btn btn-primary" asp-page="SendMessage">Send Message to Store</a>
+    <a class="btn btn-primary" asp-page="SendMessage">Send besked til Butik</a>
 </p>

@@ -1,48 +1,34 @@
-using Microsoft.AspNetCore.Authorization;
+using ÆGTESemesterProjekt.Services;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Security.Claims;
 using System.Threading.Tasks;
-using ÆGTESemesterProjekt.Services;
-using ÆGTESemesterProjekt.EFDbContext;
 using ÆGTESemesterProjekt.Models;
-using Microsoft.Extensions.Logging;
+using ÆGTESemesterProjekt.EFDbContext;
+
 
 namespace ÆGTESemesterProjekt.Pages.Messages
 {
     public class GetAllMessagesModel : PageModel
     {
         private readonly ProductDbContext _context;
-         
-        public GetAllMessagesModel(ProductDbContext context)
+        public IList<Message> Messages { get; set; }
+        private IMessageService _messageService;
+
+        public GetAllMessagesModel(ProductDbContext context, IMessageService messageService) //Dependency Injection
         {
             _context = context;
+            this._messageService = messageService;
         }
 
-        public IList<Message> Messages { get; set; }
 
-        public async Task OnGetAsync(int userId)
+        public void OnGet()
         {
-            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var employee = await _context.User.FirstOrDefaultAsync(u => u.UserName == "Employee");
-
-            //if (employee != null)
-            //{
-            //    Messages = await _context.Messages
-            //        .Include(m => m.Sender)
-            //        .Include(m => m.Receiver)
-            //        .Where(m => m.SenderId == userId && m.ReceiverId == userId)
-            //        .ToListAsync();
-
-            //    _logger.LogInformation("Messages Count: {Count}", Messages.Count);
-            //}
-            //else
-            //{
-            //    Messages = new List<Message>();
-            //}
-
+            Messages = _messageService.GetMessages() ?? new List<Message>();
         }
+
+
+
     }
 }

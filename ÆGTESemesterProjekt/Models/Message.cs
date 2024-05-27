@@ -8,12 +8,6 @@ namespace ÆGTESemesterProjekt.Models
 {
     public class Message
     {
-        private readonly ProductDbContext _context;
-
-        public Message(ProductDbContext context)
-        {
-            _context = context;
-        }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -37,12 +31,7 @@ namespace ÆGTESemesterProjekt.Models
         public User Receiver { get; set; }
         public int ReceiverId { get; set; }
 
-
-        public Message()
-        {
-        }
-
-        public Message(int messageId, string messageTitle, string messageContent, int parentMessageId, bool messageAnswered, string messageResponse, string messageAuthor, DateTime messageDate, User sender, int senderId, User receiver, int receiverId)
+        public Message(int messageId, string messageTitle, string messageContent, int? parentMessageId, bool messageAnswered, string messageResponse, string messageAuthor, DateTime messageDate)//, User sender, User receiver)
         {
             MessageId = messageId;
             MessageTitle = messageTitle;
@@ -52,24 +41,16 @@ namespace ÆGTESemesterProjekt.Models
             MessageResponse = messageResponse;
             MessageAuthor = messageAuthor;
             MessageDate = messageDate;
-            Sender = sender;
-            SenderId = senderId;
-            Receiver = receiver;
-            ReceiverId = receiverId;
+            //Sender = sender;
+            //Receiver = receiver;
+
         }
 
-        public IEnumerable<Message> GetAllMessages()
+        public Message()
         {
-            return _context.Messages.ToList();
-        }
-
-        public void AddMessage(Message message)
-        {
-            _context.Messages.Add(message);
-            _context.SaveChanges();
         }
 
 
-
+        
     }
 }

@@ -13,29 +13,39 @@ builder.Services.AddScoped<DbService>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+//Singleton
 builder.Services.AddSingleton<UserService, UserService>();
 builder.Services.AddSingleton<IProductService, ProductService>();
 builder.Services.AddSingleton<IRepairService, RepairService>();
 builder.Services.AddSingleton<IWishlistService, WishlistService>();
+builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddSingleton<OrderService, OrderService>();
 builder.Services.AddSingleton<WishlistService, WishlistService>();
 builder.Services.AddSingleton<ShoppingCartService, ShoppingCartService>();
+//builder.Services.AddSingleton<MessageService, MessageService>();
+
+//Transient
 builder.Services.AddTransient<JsonFileService<Product>>();
 builder.Services.AddTransient<JsonFileService<User>>();
-builder.Services.AddTransient<JsonFileService<Employee>>();
-builder.Services.AddTransient<JsonFileService<Customer>>();
 builder.Services.AddTransient<JsonFileService<Repair>>();
 builder.Services.AddTransient<JsonFileService<Wishlist>>();
-//builder.Services.AddTransient<JsonFileService<Messages>>();
-builder.Services.AddDbContext<ProductDbContext>();
+builder.Services.AddTransient<JsonFileService<Message>>();
+
 builder.Services.AddTransient<DbService>();
 builder.Services.AddTransient<DbGenericService<Product>>();
 builder.Services.AddTransient<DbGenericService<User>>();
 builder.Services.AddTransient<DbGenericService<Order>>();
 builder.Services.AddTransient<DbGenericService<Repair>>();
 builder.Services.AddTransient<DbGenericService<Wishlist>>();
+builder.Services.AddTransient<DbGenericService<Message>>();
 builder.Services.AddTransient<DbGenericService<ShoppingCart>>();
 builder.Services.AddTransient<UserDbService, UserDbService>();
+
+
+//Other
+builder.Services.AddDbContext<ProductDbContext>();
+
 
 
 builder.Services.Configure<CookiePolicyOptions>(options => { 
@@ -44,6 +54,7 @@ options.CheckConsentNeeded = context => true; options.MinimumSameSitePolicy = Sa
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(cookieOptions => { cookieOptions.LoginPath = "/Login/LogInPage";  }); 
 builder.Services.AddMvc().AddRazorPagesOptions(options => { options.Conventions.AuthorizeFolder("/Products/GetAllProducts");  }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 var app = builder.Build();
+
 
 using (var scope = app.Services.CreateScope())
 {

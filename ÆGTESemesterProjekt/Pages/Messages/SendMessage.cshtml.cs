@@ -1,52 +1,79 @@
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using ÆGTESemesterProjekt.EFDbContext;
 using ÆGTESemesterProjekt.Models;
 using ÆGTESemesterProjekt.Services;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using static ÆGTESemesterProjekt.Models.Message;
+using ÆGTESemesterProjekt.EFDbContext;
+using Microsoft.AspNetCore.Hosting;
+
 
 namespace ÆGTESemesterProjekt.Pages.Messages
 {
+    
     public class SendMessageModel : PageModel
     {
-        //private readonly ProductDbContext _context;
 
-        //public SendMessageModel(ProductDbContext context)
-        //{
-        //    _context = context;
-        //}
+        private readonly IMessageService _messageService;
+        private IWebHostEnvironment _webHostEnvironment;
+        private readonly ProductDbContext _context;
 
-        //[BindProperty]
-        //public int SenderId { get; set; }
-        //[BindProperty]
-        //public int ReceiverId { get; set; }
-        //[BindProperty]
-        //public string MessageTitle { get; set; }
-        //[BindProperty]
-        //public string MessageContent { get; set; }
-        //[BindProperty]
-        //public string MessageAuthor { get; set; }
+        public SendMessageModel(ProductDbContext context, IMessageService messageService, IWebHostEnvironment webHost)
+        {
+            _context = context;
+            _messageService = messageService;
+            _webHostEnvironment = webHost;
+        }
 
-        private readonly Message _message;
-
+        
         [BindProperty]
         public Message Message { get; set; }
 
-        public SendMessageModel(Message message)
+        [BindProperty]
+        public int SenderId { get; set; }
+
+        [BindProperty]
+        public int ReceiverId { get; set; }
+
+        [BindProperty]
+        public string MessageContent { get; set; }
+
+        
+        
+        public IActionResult OnGet()
         {
-            _message = message;
+            return Page();
         }
 
-        //public void OnPost()
+        //public IActionResult OnPost()
         //{
-        //    if (ModelState.IsValid)
+        //    if (!ModelState.IsValid)
         //    {
-        //        _message.SendMessage(Message);
+        //        return Page();
         //    }
+
+        //    _messageService.AddMessage(Message);
+        //    return RedirectToPage("GetAllMessages");
         //}
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            var message = new Message
+            {
+                SenderId = SenderId,
+                ReceiverId = ReceiverId,
+                MessageContent = MessageContent,
+                MessageDate = DateTime.UtcNow
+            };
+
+            _context.Messages.Add(message);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("/Messages/GetAllMessages");
+        }
+
 
 
     }
