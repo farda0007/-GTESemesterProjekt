@@ -23,15 +23,15 @@
                 {
                     <tr class="btn-secondary">
                         <td>@shoppingCart.ProductId</td>
-                        <td>@(shoppingCart.Product?.ProductName ?? "Product Name Not Available")</td>
-                        <td>@(shoppingCart.Product?.Price.ToString("C") ?? "0.00")</td>
+                        <td>@(shoppingCart.Product.ProductName)</td>
+                        <td>@(shoppingCart.Product.Price)</td>
                         <td>@shoppingCart.Count</td>
                         <td>@(shoppingCart.Count * (shoppingCart.Product?.Price ?? 0))</td>
                     </tr>
                 }
                 <tr>
                     <td colspan="4" class="text-right"><strong>Total Price:</strong></td>
-                    <td>@totalPrice.ToString("C")</td>
+                    <td>@totalPrice</td>
                 </tr>
             }
         </tbody>
@@ -51,9 +51,10 @@
 
 @if (Model.DiscountApplied)
 {
-    <div>
-        <p>Rabatkode aktiveret @Model.DiscountAmount</p>
-        <p>Pris efter Rabat @Model.FinalPrice</p>
+    <div class="alert alert-success">
+        <strong>Rabatkode aktiveret!</strong> Spar: @Model.DiscountAmount
+        <br>
+        <strong>Pris efter Rabat:</strong> @Model.FinalPrice    
     </div>
 }
 
