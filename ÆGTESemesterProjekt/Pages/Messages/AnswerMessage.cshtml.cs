@@ -1,5 +1,6 @@
 using ÆGTESemesterProjekt.EFDbContext;
 using ÆGTESemesterProjekt.Models;
+using ÆGTESemesterProjekt.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -7,56 +8,45 @@ using System.Security.Claims;
 
 namespace ÆGTESemesterProjekt.Pages.Messages
 {
-    [Authorize(Roles = "employee")]
     public class AnswerMessageModel : PageModel
     {
-        private readonly ProductDbContext _context;
+        private IMessageService _messageService;
 
-        public AnswerMessageModel(ProductDbContext context)
+        public AnswerMessageModel(IMessageService messageService)
         {
-            _context = context;
+            _messageService = messageService;
         }
 
         [BindProperty]
-        public int MessageId { get; set; }
-        [BindProperty]
-        public string AnswerContent { get; set; }
+        public Models.Message Message { get; set; }
 
-        public Message OriginalMessage { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(int messageId)
+        
+        public IActionResult OnGet(int id)
         {
-            OriginalMessage = await _context.Messages.FindAsync(messageId);
-            if (OriginalMessage == null)
-            {
-                return NotFound();
-            }
+            Message = _messageService.GetMessage(id);
+            if (Message == null)
+                return RedirectToPage("/NotFound"); //NotFound er ikke defineret endnu
+
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
-        {
-            var userId = GetCurrentUserId();
 
-            var answerMessage = new Message
+
+        public IActionResult OnPost()
+        {
+            if (!ModelState.IsValid)
             {
-                SenderId = userId,
-                ReceiverId = OriginalMessage.SenderId,
-                MessageContent = AnswerContent,
-                MessageDate = DateTime.Now,
-                ParentMessageId = MessageId
-            };
-
-            _context.Messages.Add(answerMessage);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("/Messages/AnswerMessageModel", new { messageId = MessageId });
+                return Page();
+            }
+            _messageService.UpdateMessage(Message);
+            return RedirectToPage("GetAllMessages");
         }
 
-        private int GetCurrentUserId()
-        {
-            // Logic to get the current user's ID from the authentication context
-            return int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
-        }
+
     }
+
+
+
+
+
 }

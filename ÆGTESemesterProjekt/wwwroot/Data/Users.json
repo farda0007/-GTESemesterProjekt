@@ -31,5 +31,16 @@
     "Orders": null,
     "WishlistProducts": null,
     "CartProducts": null
+  },
+  {
+    "UserId": 8,
+    "UserName": "testtest",
+    "Name": "test-test",
+    "Password": "AQAAAAIAAYagAAAAEOAOvQCjHoOSh8HGjfTbACQo0AJGssvYOo3LxDP8PYZlo2tpd7T4JyP2SlvKFcpa9g==",
+    "Phone": 12345678,
+    "Email": "inge@mail.dk",
+    "Orders": null,
+    "WishlistProducts": null,
+    "CartProducts": null
   }
 ]
