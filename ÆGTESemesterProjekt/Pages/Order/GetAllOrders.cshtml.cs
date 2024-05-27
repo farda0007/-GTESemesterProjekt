@@ -20,7 +20,7 @@ namespace ÆGTESemesterProjekt.Pages.Order
         }
         public void OnGet()
         {
-            Orders = OrderService.GetOrders();
+            //Orders = OrderService.GetOrders();
         }
     }
 }
