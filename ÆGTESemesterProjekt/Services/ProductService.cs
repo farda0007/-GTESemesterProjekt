@@ -28,24 +28,23 @@ namespace ÆGTESemesterProjekt.Services
 
 		public async Task AddProductAsync(Product product)
 		{
-			_products.Add(product);
-			await _genericDbService.AddObjectAsync(product);
+            _products.Add(product);
+            await _genericDbService.AddObjectAsync(product);
 		}
 		public List<Product> GetProduct() { return _products; }
-        public void AddProduct(Product product)
-        {
-            _products.Add(product);
-            JsonFileProductService.SaveJsonObjects(_products);
-            _genericDbService.SaveObjects(_products);
-        }
+        //public void AddProduct(Product product)
+        //{
+        //    _products.Add(product);
+        //    JsonFileProductService.SaveJsonObjects(_products);
+        //    _genericDbService.SaveObjects(_products);
+        //}
         public List<Product> GetProducts()
         {
             return _products;
         }
         public async Task UpdateProductAsync(Product product)
         {
-            if (product != null)
-            {
+         
                 foreach (Product p in _products)
                 {
                     if (p.Id == product.Id)
@@ -61,7 +60,7 @@ namespace ÆGTESemesterProjekt.Services
                 }
                 JsonFileProductService.SaveJsonObjects(_products);
                 await _genericDbService.UpdateObjectAsync(product);
-            }
+            
         }
         public Product DeleteProduct(int? productId)
         {
