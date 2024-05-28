@@ -1,7 +1,7 @@
 [
   {
     "Id": 2,
-    "ProductName": "Vinyl",
+    "ProductName": "The Underground Tracks",
     "Price": 299.00,
     "Description": "Tupac",
     "ProductImage": "Theunderground.jpg",
@@ -10,7 +10,7 @@
   },
   {
     "Id": 3,
-    "ProductName": "Vinyl",
+    "ProductName": "To Pimp a Butterfly",
     "Price": 399.00,
     "Description": "Kendrick Lamar",
     "ProductImage": "ToPimp.jpg",
@@ -42,7 +42,7 @@
     "Description": "Taylor Swift",
     "ProductImage": "taylor2.jpg",
     "Type": 5,
-    "IsFavourite": false
+    "IsFavourite": true
   },
   {
     "Id": 7,
@@ -88,5 +88,32 @@
     "ProductImage": "headset2.jpg",
     "Type": 1,
     "IsFavourite": false
+  },
+  {
+    "Id": 12,
+    "ProductName": "Marshall Major V",
+    "Price": 1099.00,
+    "Description": "Tr\u00E5dl\u00F8st headset",
+    "ProductImage": "headset4.jpg",
+    "Type": 1,
+    "IsFavourite": false
+  },
+  {
+    "Id": 13,
+    "ProductName": "Denon AH-D7200",
+    "Price": 6299.00,
+    "Description": "Tr\u00E5dl\u00F8st headset",
+    "ProductImage": "headset5.jpg",
+    "Type": 1,
+    "IsFavourite": false
+  },
+  {
+    "Id": 14,
+    "ProductName": "Radio 3i MK2",
+    "Price": 2199.00,
+    "Description": "Billig All-In-One Radio med DAB\u002B/FM og Internet Radio indbygget",
+    "ProductImage": "ARGRADIO.jpg",
+    "Type": 2,
+    "IsFavourite": true
   }
 ]

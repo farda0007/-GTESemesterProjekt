@@ -9,7 +9,6 @@ namespace ÆGTESemesterProjekt.Services
 	public class DbService
 	{
 		private readonly List<User> _users = new();
-		
 
 		public async Task<List<Product>> GetProducts()
 		{

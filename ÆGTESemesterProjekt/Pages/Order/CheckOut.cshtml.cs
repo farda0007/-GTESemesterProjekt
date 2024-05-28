@@ -36,8 +36,27 @@ namespace ÆGTESemesterProjekt.Pages.Order
                 return Page();
             }
 
+            User = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+            MyCartProducts = _shoppingCartService.GetCartProducts();
+
+            Order = new Models.Order
+            {
+                UserId = User.UserId,
+                User = User,
+                OrderItems = MyCartProducts.Select(cartItem => new OrderItem
+                {
+                    ProductId = cartItem.ProductId,
+                    Product = cartItem.Product,
+                    Count = cartItem.Count,
+                    Price = cartItem.Product.Price
+                }).ToList()
+            };
+
+            Order.CalculateTotal();
+
             await _orderService.AddOrderAsync(Order);
-            await _shoppingCartService.ClearCartAsync(Order.UserId);
+            await _shoppingCartService.ClearCartAsync(User.UserId);
+
             return RedirectToPage("/Order/OrderConfirmation", new { orderId = Order.OrderId });
         }
 
