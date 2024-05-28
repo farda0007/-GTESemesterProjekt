@@ -35,7 +35,7 @@ namespace ÆGTESemesterProjekt.Services
         public void AddProduct(Product product)
         {
             _products.Add(product);
-            JsonFileProductService.SaveJsonObjects(_products);
+            //JsonFileProductService.SaveJsonObjects(_products);
             _genericDbService.SaveObjects(_products);
         }
         public List<Product> GetProducts()
@@ -59,7 +59,7 @@ namespace ÆGTESemesterProjekt.Services
                         p.IsFavourite = product.IsFavourite;
                     }
                 }
-                JsonFileProductService.SaveJsonObjects(_products);
+                //JsonFileProductService.SaveJsonObjects(_products);
                 await _genericDbService.UpdateObjectAsync(product);
             }
         }

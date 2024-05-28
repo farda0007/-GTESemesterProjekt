@@ -24,7 +24,6 @@ namespace ÆGTESemesterProjekt.Services
         {
             _wishlists.Add(wishlist);
             await _dbService.AddObjectAsync(wishlist);
-            _wishlistJsonFileService.SaveJsonObjects(_wishlists);
         }
         public Wishlist DeleteWishlist(int? productId)
         {
