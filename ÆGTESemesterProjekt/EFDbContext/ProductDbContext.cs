@@ -22,11 +22,6 @@ namespace ÆGTESemesterProjekt.EFDbContext
                             Multi Subnet Failover = False");                    
         }
 
-        //public ProductDbContext(DbContextOptions<ProductDbContext> options)
-        //    : base(options)
-        //{
-        //}
-
         public DbSet<Product> Product { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<Order> Order { get; set; }

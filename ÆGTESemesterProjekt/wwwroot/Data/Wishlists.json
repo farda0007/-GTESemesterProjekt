@@ -1,16 +1,37 @@
 [
   {
-    "WishlistId": 31,
+    "WishlistId": 34,
     "userId": 5,
     "User": null,
-    "ProductId": 1,
+    "ProductId": 3,
     "Product": null
   },
   {
-    "WishlistId": 33,
+    "WishlistId": 36,
     "userId": 6,
     "User": null,
-    "ProductId": 1,
+    "ProductId": 8,
+    "Product": null
+  },
+  {
+    "WishlistId": 37,
+    "userId": 6,
+    "User": null,
+    "ProductId": 8,
+    "Product": null
+  },
+  {
+    "WishlistId": 38,
+    "userId": 5,
+    "User": null,
+    "ProductId": 4,
+    "Product": null
+  },
+  {
+    "WishlistId": 39,
+    "userId": 5,
+    "User": null,
+    "ProductId": 14,
     "Product": null
   }
 ]
