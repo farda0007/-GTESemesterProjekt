@@ -4,31 +4,90 @@
 }
 <h1>Products</h1>
 
+<style>
+    .form-control-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        border-radius: 0.2rem;
+    }
+
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        border-radius: 0.2rem;
+    }
+
+    .input-group-text {
+        padding: 0.25rem 0.5rem;
+    }
+
+    .col-md-2 {
+        flex: 0 0 12%;
+        max-width: 12%;
+    }
+
+    .filter-container {
+        max-height: 200px;
+        
+    }
+</style>
+@* div class="container-fluid">
+    <div class="row">
+    <div class="col-md-2">
 <form method="post" class="form-inline">
-    <input asp-for="SearchString" class="form-control mr-1" placeholder="Enter search term" />
-    <input type="submit" asp-page-handler="NameSearch" value="Search" class="btn btn-primary" />
+    <input asp-for="SearchString" class="form-control mb-1" placeholder="Enter search term" />
+    <input type="submit" asp-page-handler="NameSearch" value="Search" class="btn btn-primary mb-3" />
 </form>
 <form method="post" class="form-inline">
-    <div class="input-group mb-3">
+    <div class="input-group">
         <div class="input-group-prepend">
             <span class="input-group-text">Min</span>
         </div>
-        <input asp-for="MinPrice" class="form-control mr-1" />
+        <input asp-for="MinPrice" class="form-control mx-1" />
 
         <div class="input-group-prepend">
             <span class="input-group-text">Max</span>
         </div>
         <input asp-for="MaxPrice" class="form-control mr-1" />
-        <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary" />
+        <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary mx-2" />
     </div>
 </form>
+    </div>
+    </div>
+</div> *@
+
 <div class="container mx-auto mt-4" style="max-width: 95%;">
     <div class="row">
+        <div class="col-md-2 border border-2 pt-2 pb-2 filter-container">
+            <form method="post" class="form-inline">
+                <input asp-for="SearchString" class="form-control form-control-sm mb-1" placeholder="Enter search term" />
+                <input type="submit" asp-page-handler="NameSearch" value="Search" class="btn btn-primary mb-3" />
+            </form>
+            <form method="post" class="form-inline">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Min</span>
+                    </div>
+                    <input asp-for="MinPrice" class="form-control form-control-sm mx-1" />
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Max</span>
+                    </div>
+                    <input asp-for="MaxPrice" class="form-control form-control-sm mr-1" />
+                    <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary mx-2" />
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-10">
+            <div class="row">
         @if (Model.Products != null)
         {
             foreach (var product in Model.Products)
             {
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-3 col-sm-6"> 
                     <div class="card" style="width: 18rem; margin: 10px;">
 
                         <img src="~/images/@product.ProductImage" style="max-width: 95%; display: block; margin: auto; padding: 25px;">
@@ -63,11 +122,20 @@
                             @* <a class="btn btn-primary btn-sm" type="button" title="Wishlist" asp-page="/Wishlist/WishlistProduct" asp-route-id=""><i class="fa-sharp fa-solid fa-heart"></i></a> *@
                         </div>
                     </div>
-                </div>
+                </div> 
             }
         }
+
+        
+    </div>
+    </div>
     </div>
 </div>
+    @* </div>
+</div> *@
+@if (User.IsInRole("employee"))
+                            {
 <p>
     <a class="btn btn-primary" asp-page="CreateProduct">Create a new Item</a>
 </p>
+}
