@@ -24,8 +24,8 @@ namespace ÆGTESemesterProjekt.Services
 
 		public async Task AddProductAsync(Product product)
 		{
-			_products.Add(product);
-			await _genericDbService.AddObjectAsync(product);
+            _products.Add(product);
+            await _genericDbService.AddObjectAsync(product);
 		}
 		public List<Product> GetProduct() { return _products; }
         public void AddProduct(Product product)
@@ -39,8 +39,7 @@ namespace ÆGTESemesterProjekt.Services
         }
         public async Task UpdateProductAsync(Product product)
         {
-            if (product != null)
-            {
+         
                 foreach (Product p in _products)
                 {
                     if (p.Id == product.Id)
@@ -55,7 +54,7 @@ namespace ÆGTESemesterProjekt.Services
                     }
                 }
                 await _genericDbService.UpdateObjectAsync(product);
-            }
+            
         }
         public Product DeleteProduct(int? productId)
         {

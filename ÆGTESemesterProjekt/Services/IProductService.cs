@@ -6,7 +6,7 @@ namespace ÆGTESemesterProjekt.Services
 	{
 		List<Product> GetProducts();
 		Task AddProductAsync(Product product);
-		void AddProduct(Product product);
+		//void AddProduct(Product product);
         Task UpdateProductAsync(Product product);
         Product DeleteProduct(int? productID);
         Product GetProduct(int Id);
