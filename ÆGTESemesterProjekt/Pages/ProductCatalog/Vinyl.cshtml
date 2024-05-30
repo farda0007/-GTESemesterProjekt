@@ -21,6 +21,9 @@ else
 {
     <p>Der er ikke flere vinyler tilgængelig</p>
 } *@
+<head>
+    <link rel="stylesheet" href="~/css/ProductPages.css" />
+</head>
 
 <div class="container mx-auto mt-4" style="max-width: 95%;">
     <div class="row">
@@ -45,8 +48,8 @@ else
             </form>
         </div>
 
-<div class="container mx-auto mt-4" style="max-width: 95%;">
-    <div class="row">
+        <div class="col-md-10">
+            <div class="row">
         @if (Model.VinylProducts != null)
         {
             foreach (var product in Model.VinylProducts)
@@ -78,5 +81,7 @@ else
                 </div>
             }
         }
+    </div>
+    </div>
     </div>
 </div>
