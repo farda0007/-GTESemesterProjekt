@@ -32,12 +32,12 @@ namespace ÆGTESemesterProjekt.Services
             await _genericDbService.AddObjectAsync(product);
 		}
 		public List<Product> GetProduct() { return _products; }
-        //public void AddProduct(Product product)
-        //{
-        //    _products.Add(product);
-        //    JsonFileProductService.SaveJsonObjects(_products);
-        //    _genericDbService.SaveObjects(_products);
-        //}
+        public void AddProduct(Product product)
+        {
+            _products.Add(product);
+            //JsonFileProductService.SaveJsonObjects(_products);
+            _genericDbService.SaveObjects(_products);
+        }
         public List<Product> GetProducts()
         {
             return _products;
@@ -58,7 +58,7 @@ namespace ÆGTESemesterProjekt.Services
                         p.IsFavourite = product.IsFavourite;
                     }
                 }
-                JsonFileProductService.SaveJsonObjects(_products);
+                //JsonFileProductService.SaveJsonObjects(_products);
                 await _genericDbService.UpdateObjectAsync(product);
             
         }

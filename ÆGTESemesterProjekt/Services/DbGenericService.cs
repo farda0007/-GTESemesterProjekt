@@ -24,14 +24,14 @@ namespace ÆGTESemesterProjekt.Services
             }
         }
 
-        public async Task DeleteObjectAsync(T obj)
-        {
-            using (var context = new ProductDbContext())
+            public async Task DeleteObjectAsync(T obj)
             {
-                context.Set<T>().Remove(obj);
-                await context.SaveChangesAsync();
+                using (var context = new ProductDbContext())
+                {
+                    context.Set<T>().Remove(obj);
+                    await context.SaveChangesAsync();
+                }
             }
-        }
 
         public async Task UpdateObjectAsync(T obj)
         {

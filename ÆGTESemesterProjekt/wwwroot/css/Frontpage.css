@@ -29,3 +29,36 @@ li {
     text-decoration: none;
     cursor: pointer;
 }
+
+.navbar-collapse.collapse.show {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+    .navbar-collapse.collapse.show .nav-link {
+        color: white; 
+        margin-left: 10px;
+        padding-right: 10px;
+    }
+
+    .navbar-collapse.collapse.show .topoff {
+        position: absolute;
+        top: 50px;
+        right: 5%;
+    }
+
+    .nav-link {
+        color: black;
+    }
+
+    .dropdown-toggle {
+    color: black !important; 
+}
+    .navbar-collapse.collapse.show .dropdown-toggle {
+    color: white !important; 
+}
+
+    .nav-link:hover {
+    color: black;
+}
+.navbar-collapse.collapse.show .link1 {
+    color: black !important;
+}

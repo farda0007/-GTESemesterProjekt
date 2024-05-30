@@ -1,7 +1,7 @@
 [
   {
     "Id": 2,
-    "ProductName": "Vinyl",
+    "ProductName": "The Underground Tracks",
     "Price": 299.00,
     "Description": "Tupac",
     "ProductImage": "Theunderground.jpg",
@@ -10,7 +10,7 @@
   },
   {
     "Id": 3,
-    "ProductName": "Vinyl",
+    "ProductName": "To Pimp a Butterfly",
     "Price": 399.00,
     "Description": "Kendrick Lamar",
     "ProductImage": "ToPimp.jpg",
