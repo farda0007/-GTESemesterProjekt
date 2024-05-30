@@ -5,20 +5,16 @@ namespace ÆGTESemesterProjekt.Services
 {
 	public class ProductService : IProductService
 	{
-        private JsonFileService<Product> JsonFileProductService;
         private List<Product> _products;
         //private DbService _dbService;
         private DbGenericService<Product> _genericDbService;
 
-        public ProductService(JsonFileService<Product> jsonFileProductService, DbGenericService<Product> genericDbService)
+        public ProductService(DbGenericService<Product> genericDbService)
         {   
-            JsonFileProductService = jsonFileProductService;
             _genericDbService = genericDbService;
             //_products = MockProducts.GetMockProducts();
-            //_products = JsonFileProductService.GetJsonObjects().ToList();
             _products = _genericDbService.GetObjectsAsync().Result.ToList();
-            //JsonFileProductService.SaveJsonObjects(_products);
-            //_genericDbService.SaveObjects(_products);
+            _genericDbService.SaveObjects(_products);
         }
 
         public ProductService()
@@ -35,7 +31,6 @@ namespace ÆGTESemesterProjekt.Services
         public void AddProduct(Product product)
         {
             _products.Add(product);
-            //JsonFileProductService.SaveJsonObjects(_products);
             _genericDbService.SaveObjects(_products);
         }
         public List<Product> GetProducts()
@@ -59,7 +54,6 @@ namespace ÆGTESemesterProjekt.Services
                         p.IsFavourite = product.IsFavourite;
                     }
                 }
-                //JsonFileProductService.SaveJsonObjects(_products);
                 await _genericDbService.UpdateObjectAsync(product);
             }
         }
@@ -70,7 +64,6 @@ namespace ÆGTESemesterProjekt.Services
                 if (product.Id == productId)
                 {
                     _products.Remove(product);
-                    JsonFileProductService.SaveJsonObjects(_products);
                     _genericDbService.DeleteObjectAsync(product);
                     return product;
                 }

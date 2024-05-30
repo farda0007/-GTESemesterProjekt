@@ -9,17 +9,14 @@ namespace ÆGTESemesterProjekt.Services
     public class UserService
     {
         public List<User> Users { get; set; }
-        private JsonFileService<User> _userJsonFileService;
         //public User LoggedInUser { get; set; }
         private UserDbService _dbService;
 
 
-        public UserService(JsonFileService<User> UserJsonFileService, UserDbService dbService)
+        public UserService(UserDbService dbService)
         {
-            _userJsonFileService = UserJsonFileService;
             _dbService = dbService;
             //Users = MockUsers.GetUsers();
-            //Users = _userJsonFileService.GetJsonObjects().ToList();
             Users = _dbService.GetObjectsAsync().Result.ToList();
             //_userJsonFileService.SaveJsonObjects(Users);
             _dbService.SaveObjects(Users);
@@ -52,7 +49,6 @@ namespace ÆGTESemesterProjekt.Services
         {
             Users.Add(user);
             await _dbService.AddObjectAsync(user);
-            _userJsonFileService.SaveJsonObjects(Users);
 
         }
         public User GetUserByUserName(string userName)

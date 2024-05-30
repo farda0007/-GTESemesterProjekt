@@ -55,7 +55,6 @@ namespace ÆGTESemesterProjekt.Pages.Order
             Order.CalculateTotal();
 
             await _orderService.AddOrderAsync(Order);
-            await _shoppingCartService.ClearCartAsync(User.UserId);
 
             return RedirectToPage("/Order/OrderConfirmation", new { orderId = Order.OrderId });
         }

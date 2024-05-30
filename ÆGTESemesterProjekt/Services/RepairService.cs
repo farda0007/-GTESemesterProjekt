@@ -5,20 +5,17 @@ namespace ÆGTESemesterProjekt.Services
 {
     public class RepairService : IRepairService
     {
-        private JsonFileService<Repair> JsonFileRepairService;
         private List<Repair> _repairs;
         private DbGenericService<Repair> _genericDbService;
         //private DbService _dbService;
         //private DbGenericService<Repair> _dbService;
 
-        public RepairService(JsonFileService<Repair> jsonFileRepairService, DbGenericService<Repair> genericDbService)
+        public RepairService(DbGenericService<Repair> genericDbService)
         {
-            JsonFileRepairService = jsonFileRepairService;
             _genericDbService = genericDbService;
             //_dbService = dbService;
             //_repairs = MockRepairs.GetMockRepairs();
             //_repairs = JsonFileRepairService.GetJsonObjects().ToList();
-            //JsonFileRepairService.SaveJsonObjects(_repairs);
             _repairs = _genericDbService.GetObjectsAsync().Result.ToList();
             _genericDbService.SaveObjects(_repairs);
         }
@@ -31,14 +28,12 @@ namespace ÆGTESemesterProjekt.Services
         public async Task AddRepairAsync(Repair repair)
         {
             _repairs.Add(repair);
-            JsonFileRepairService.SaveJsonObjects(_repairs);
             await _genericDbService.AddObjectAsync(repair);
         }
         public List<Repair> GetRepair() { return _repairs; }
         public void AddRepair(Repair repair)
         {
             _repairs.Add(repair);
-            JsonFileRepairService.SaveJsonObjects(_repairs);
             _genericDbService.SaveObjects(_repairs);
         }
         public List<Repair> GetRepairs()
@@ -63,7 +58,6 @@ namespace ÆGTESemesterProjekt.Services
                        
                     }
                 }
-                JsonFileRepairService.SaveJsonObjects(_repairs);
                 _genericDbService.SaveObjects(_repairs);
             }
     }
@@ -74,7 +68,6 @@ namespace ÆGTESemesterProjekt.Services
                 if (repair.CaseId == repairId)
                 {
                     _repairs.Remove(repair);
-                    JsonFileRepairService.SaveJsonObjects(_repairs);
                     _genericDbService.DeleteObjectAsync(repair);
                     return repair;
                 }

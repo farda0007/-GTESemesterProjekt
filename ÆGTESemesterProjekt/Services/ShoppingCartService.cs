@@ -28,15 +28,7 @@ namespace ÆGTESemesterProjekt.Services
         {
             return _cartList = _dbService.GetObjectsAsync().Result.ToList();
         }
-        public async Task ClearCartAsync(int userId)
-        {
-            var userCartItems = _cartList.Where(c => c.userId == userId).ToList();
-            foreach (var cartItem in userCartItems)
-            {
-                _cartList.Remove(cartItem);
-                await _dbService.DeleteObjectAsync(cartItem);
-            }
-        }
+
         
     }
 }

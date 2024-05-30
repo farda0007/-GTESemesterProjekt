@@ -5,18 +5,15 @@ namespace ÆGTESemesterProjekt.Services
     public class WishlistService : IWishlistService
     {
         private List<Wishlist> _wishlists;
-        private JsonFileService<Wishlist> _wishlistJsonFileService;
         private DbGenericService<Wishlist> _dbService;
 
 
-        public WishlistService(JsonFileService<Wishlist> wishlistJsonFileService, DbGenericService<Wishlist> dbService)
+        public WishlistService(DbGenericService<Wishlist> dbService)
         {
             //_wishlists = wishlists;
-            _wishlistJsonFileService = wishlistJsonFileService;
             _dbService = dbService;
             _wishlists = _dbService.GetObjectsAsync().Result.ToList();
 
-            //_wishlistJsonFileService.SaveJsonObjects(_wishlists);
             _dbService.SaveObjects(_wishlists);
         }
 
