@@ -2,18 +2,28 @@
 @model ÆGTESemesterProjekt.Pages.User.CreateUserModel
 @{
 }
-<h1>Create a new User</h1>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/css/SignUp.css" />
+    <link rel="stylesheet" href="~/css/Frontpage.css" />
 
-<div class="row">
-    <div class="col-md-4">
+</head>
+<body>
+<div class="form-container">
+       
         <form method="post">
+                <div class="form-group">
+                    <h1>
+                        Opret en konto
+                    </h1>
 @*             <div class="form-group">
                 <label asp-for="@Model.Id" class="control-lable"></label>
                 <input asp-for="@Model.Id" class="form-control" />
 
             </div> *@
             <div class="form-group">
-                <label asp-for="@Model.Name" class="control-lable"></label>
+                <label asp-for="@Model.Name" class="control-label"></label>
                 <input asp-for="@Model.Name" class="form-control" />
 
             </div>
@@ -37,11 +47,13 @@
 
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Opret" class="button" />
+            </div>
+            </div>
+            <div>
+                <a asp-page="/Login/LogInPage">Har en konto?</a>
             </div>
         </form>
     </div>
-</div>
-<div>
-    <a asp-page="/Item/GetAllItems">Back to List</a>
-</div>
+
+</body>
