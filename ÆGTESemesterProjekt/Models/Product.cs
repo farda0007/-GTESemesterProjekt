@@ -34,7 +34,7 @@ namespace ÆGTESemesterProjekt.Models
 		[Display(Name = "Er Favorit?")]
 		public bool IsFavourite { get; set; }
 
-		public enum Producttype
+        public enum Producttype
 		{
 			CleaningTool,
 			Headset,

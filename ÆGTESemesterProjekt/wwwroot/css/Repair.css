@@ -1,0 +1,11 @@
+﻿
+.large-input {
+    width: 500px; /* Adjust the width as needed */
+    height: 200px; /* Adjust the height as needed */
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: normal;
+    font-size: 16px; /* Adjust the font size if needed */
+    box-sizing: border-box; /* Ensure padding and border are included in the height */
+    vertical-align: top;
+}
