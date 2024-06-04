@@ -23,11 +23,11 @@ namespace ÆGTESemesterProjekt.Pages.Login
         }
         [BindProperty]
 
-        [Display(Name = "")]
+        [Display(Name = "Dit Brugernavn")]
         public string UserName { get; set; }
         
         [BindProperty, DataType(DataType.Password)]
-        [Display(Name = "")]
+        [Display(Name = "Din Adgangskode")]
         [Required(ErrorMessage = "Der skal angives en kode")]
         public string Password { get; set; }
 
