@@ -9,13 +9,19 @@
 
 <div class="row" style="display: flex; align-items: center;">
     <div class="col-lg-6" style="flex: 1; position: relative;">
-        <h2 style="position: relative; left: 25vw; margin-top:5vh; margin-bottom:2vh; font-size: 2.5rem;">@Model.product.ProductName</h2>
+        <h1 class="text-muted" style="position: relative; left: 25vw; font-size: 1.25rem; margin-top:5vh">@Model.product.Type</h1>
+        <h1 style="position: relative; left: 25vw; font-size: 2.25rem;">@Model.product.ProductName</h1>
+        @if (User.IsInRole("employee"))
+        {
+        <h2 class="text-muted" style="position: relative; left: 25vw; margin-bottom:2vh; font-size: 1.25rem;">Id: @Model.product.Id</h2>
+        }
+
         <img src="~/images/@Model.product.ProductImage" style="height:auto; width:20vw; position: relative; left: 25vw;" />
     </div>
     <div class="col-lg-6">
         <div class="container-fluid">
             <h1 style="color:darkorange; padding-top: 4vh; padding-left: 1vw; display:inline-block;">@Model.product.Price,-</h1> <p style="display:inline-block; color:darkorange">/stk</p>
-            <p>Denne vare er på lager</p>
+            <p> <i style="color: limegreen; font-size: 0.75rem; padding-left: 1vw" class="fa-solid fa-circle"></i> Denne vare er på lager</p>
 
             <div class="row">
                 <div class="col-lg-6">
@@ -27,16 +33,30 @@
                                 </div>
                                     <button class="btn btn-primary" type="submit">Læg i kurv</button>
                                 </div>
-                            
                     </form>
+                    @if (User.Identity.IsAuthenticated) {
+                    <form asp-page="/WishlistPage/ConfirmWishlist" method="post" class="wishlist-form">
+                        <input type="hidden" name="id" value="@Model.product.Id" />
+                        <button type="submit" class="wishlist-button" ><i class="fa-solid fa-heart"></i> </button>
+                    </form>
+                     }
                 </div>
+                <p1 class="text-muted" style="left:25%; margin-top:2%; width:150px;"><i class="fa-solid fa-truck"></i> Fri fragt <br> <i class="fa-solid fa-rotate-left"></i> 30 dages returret</p1>
+                
+                @if (User.IsInRole("employee"))
+                {
+                    <div class="container">
+                            <a type="button" class="admincontrols" style="margin-bottom: 2px;" title="Edit" asp-page="EditProduct" asp-route-id="@Model.product.Id">Edit Product <i class="fa-sharp fa-solid fa-pen"></i></a>
+                            <a type="button" class="admincontrols" title="Delete" asp-page="DeleteProduct" asp-route-id="@Model.product.Id">Delete Product <i class="fas fa-trash"></i></a>
+                    </div>
+                }
             </div>
         </div>
     </div>
 </div>
-<div class="container" style="position:relative; left:20%; margin-top:2%;">
-<h2> Beskrivelse</h2>
-<h5>@Model.product.Description</h5>
+<div class="container" style="position:relative; right:4%; margin-top:2%; width:35%; background-color: rgb(248,247,246)">
+<h2 style="border-bottom: 1px solid rgb(188, 182, 179);"> Beskrivelse</h2>
+<h6>@Model.product.Description</h6>
 </div>
 
 @* <div class="card">
