@@ -23,8 +23,11 @@ namespace ÆGTESemesterProjekt.Pages.Login
         }
         [BindProperty]
 
+        [Display(Name = "")]
         public string UserName { get; set; }
+        
         [BindProperty, DataType(DataType.Password)]
+        [Display(Name = "")]
         [Required(ErrorMessage = "Der skal angives en kode")]
         public string Password { get; set; }
 
