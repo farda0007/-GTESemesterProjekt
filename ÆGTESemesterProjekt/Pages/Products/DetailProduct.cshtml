@@ -2,17 +2,87 @@
 @model ÆGTESemesterProjekt.Pages.Products.DetailProductModel
 @{
 }
-<div class="row mt-4">
-    <div class="col-lg-3 mb-4"></div>
-    <div class="col-lg-6 mb-4">
-        <div class="card">
+<head>
+    <link rel="stylesheet" href="~/css/DetailPage.css" />
+</head>
+
+
+<div class="row" style="display: flex; align-items: center;">
+    <div class="col-lg-6" style="flex: 1; position: relative;">
+        <h2 style="position: relative; left: 25vw; margin-top:5vh; margin-bottom:2vh; font-size: 2.5rem;">@Model.product.ProductName</h2>
+        <img src="~/images/@Model.product.ProductImage" style="height:auto; width:20vw; position: relative; left: 25vw;" />
+    </div>
+    <div class="col-lg-6">
+        <div class="container-fluid">
+            <h1 style="color:darkorange; padding-top: 4vh; padding-left: 1vw; display:inline-block;">@Model.product.Price,-</h1> <p style="display:inline-block; color:darkorange">/stk</p>
+            <p>Denne vare er på lager</p>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <form method="post">
+                        <div class="form-group">
+                            <div class="formatting">
+                            <label asp-for="Count">Antal:</label>
+                                <input asp-for="Count" class="form-control" min="1" />
+                                </div>
+                                    <button class="btn btn-primary" type="submit">Læg i kurv</button>
+                                </div>
+                            
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" style="position:relative; left:20%; margin-top:2%;">
+<h2> Beskrivelse</h2>
+<h5>@Model.product.Description</h5>
+</div>
+
+@* <div class="card">
             <div class="card-body">
                 <h3 class="card-title mb-2"><span>@Model.product.ProductName</span></h3>
                 <div class="card-text mb-4"><span>@Model.product.Description</span></div>
                 <div class="card-text mb-4"><span>@Model.product.Type</span></div>
                 <h6 class="card-footer text-muted"><span>Pris: @Model.product.Price</span></h6>
             </div>
+        </div> *@
+    @* <div class="col-lg-3 mb-4"></div> *@
+
+
+
+@* <div class="row">
+    <div class="col-md-4">
+        <div>
+            @if (Model.User != null)
+            {
+                <span>User: @Model.User.UserName</span>
+            }
+            else
+            {
+                <span>User not found.</span>
+            }
         </div>
+        <div>
+            @if (Model.Product != null)
+            {
+                <span>Product: @Model.Product.ProductName</span>
+            }
+            else
+            {
+                <span>Product not found.</span>
+            }
+        </div>
+
+        <form method="post">
+            Count:
+            <input asp-for="Count" class="form-control" />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
-    <div class="col-lg-3 mb-4"></div>
 </div>
+<div>
+    <a asp-page="../Product/GetAllProducts">Back to List</a>
+</div> *@
