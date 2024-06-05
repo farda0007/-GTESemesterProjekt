@@ -1,0 +1,109 @@
+﻿body {
+}
+
+.container-fluid {
+    max-height: 30vh;
+    min-height: 30vh;
+    max-width: 15vw;
+    min-width: 15vw;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(248,247,246);
+    border:none;
+    border-radius: 20px;
+    margin-right: 50vw;
+    margin-top: 10vh;
+    position:relative;
+
+}
+
+.btn {
+    color: white;
+    background-color: darkorange;
+    font-weight: 600;
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 30%;
+    top: 75%;
+    border: none;
+    border-radius: 0px;
+    font-size: 1.25rem;
+    transform: translateY(-50%);
+}
+
+.formatting {
+    position: absolute;
+    left: 10%;
+    top: 65%;
+    max-width: 50px;
+    width: 100%;
+    height: auto;
+}
+
+.btn:hover {
+        color: darkorange;
+        background-color: black;
+    }
+
+h1 {
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+
+}
+p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+p1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight:200;
+    position: absolute;
+    transform:translateX(-50%);
+    top: 80%;
+    left:25%;
+}
+
+.wishlist-form .wishlist-button {
+    border: none;
+    background-color: transparent; /* Ensure full opacity */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    position:absolute;
+    transform:translateX(-50%);
+    left:12vw;
+    bottom: 2vh;
+}
+
+.wishlist-form .wishlist-button .fa-heart:hover {
+        color: darkorange;
+
+}
+
+.wishlist-form .wishlist-button .fa-heart {
+        color: black;
+        font-size: 2rem;
+
+}
+
+.admincontrols {
+    color: darkorange;
+    text-decoration: none;
+    border:solid 1px;
+    border-radius:20px;
+    border-color:black;
+    background-color:white;
+    padding:8px;
+
+}
+.admincontrols[title="Delete"] {
+    position: absolute;
+    top: 55%;
+    left:50%;
+}.admincontrols[title="Edit"] {
+    position: absolute;
+    top: 55%;
+    left:15%;
+}
+
+
+

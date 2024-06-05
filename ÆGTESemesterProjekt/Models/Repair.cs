@@ -11,9 +11,17 @@ namespace ÆGTESemesterProjekt.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CaseId { get; set; }
+
+        [Display(Name = "Oprettelses Dato")]
         public DateTime SubDate { get; set; }
+
+        [Display(Name = "Beskrivelse")]
         public string Description { get; set; }
+
+        //[Display(Name = "Produkt til reperation")]
         public string RepProduct { get; set; }
+
+        [Display(Name = "Reperations Billede")]
         public string Image { get; set; }
         public Status RepairStatus { get; set; } 
         public double RepPrice { get; set; }

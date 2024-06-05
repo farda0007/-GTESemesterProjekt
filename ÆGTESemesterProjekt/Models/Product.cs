@@ -11,22 +11,30 @@ namespace ÆGTESemesterProjekt.Models
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.None)]
 		public int Id { get; set; }
+		
 		[Display(Name = "Produkt navn")]
 		[Required(ErrorMessage = "Produktet skal have et navn")]
 		[StringLength(100)]
 		public string ProductName { get; set; }
+		
 		[Required(ErrorMessage = "Der skal angives en pris")]
-		public decimal Price { get; set; }
+        [Display(Name = "Produkt Pris")]
+        public decimal Price { get; set; }
 
-		//public int Count { get; set; }
-		public string Description { get; set; }
-		public string ProductImage { get; set; }
-		public Producttype Type { get; set; }
+        //public int Count { get; set; }
+        [Display(Name = "Produkt Beskrivelse")]
+        public string Description { get; set; }
+        
+		[Display(Name = "Produkt Billede")]
+        public string ProductImage { get; set; }
+        
+		[Display(Name = "Produkt Kategori")]
+        public Producttype Type { get; set; }
 
 		[Display(Name = "Er Favorit?")]
 		public bool IsFavourite { get; set; }
 
-		public enum Producttype
+        public enum Producttype
 		{
 			CleaningTool,
 			Headset,

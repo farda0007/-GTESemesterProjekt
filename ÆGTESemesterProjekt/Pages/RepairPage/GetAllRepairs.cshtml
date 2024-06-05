@@ -17,16 +17,22 @@
                             <h6 class="card-subtitle mb-2 text-muted">Id: @product.CaseId</h6>
                             <h5 class="card-text">Angivet produkt</h5>
                             <p class="card-title">@product.RepProduct</p>
-                            <h5 class="card-text">Reperation beskrivelse</h5>
+                            <br /> 
+                            <h5 class="card-text">Reperations beskrivelse</h5>
                             <p class="card-text">@product.Description</p>
-                            <h5 class="card-text">Reperation Pris</h5>
+                            <br />
+                            <h5 class="card-text">Reperations Pris</h5>
                             <p class="card-title">@product.RepPrice</p>
+                            <br />
                             <h5 class="card-text">Dato modtaget.</h5>
                             <p class="card-title">@product.SubDate.ToShortDateString()</p>
+                            <br />
                             <h5 class="card-text">Estimeret dato</h5>
                             <p class="card-title">@product.EstDate.ToShortDateString()</p>
+                            <br />
                             <h5 class="card-text">Status</h5>
                             <p class="card-title">@product.RepairStatus</p>
+                            <br />
                             <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditRepair" asp-route-id="@product.CaseId"><i class="fa-sharp fa-solid fa-pen"></i></a>
                             <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteRepair" asp-route-id="@product.CaseId"><i class="fas fa-trash"></i></a>
 

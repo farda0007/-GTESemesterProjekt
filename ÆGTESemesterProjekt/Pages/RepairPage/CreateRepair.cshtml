@@ -2,45 +2,57 @@
 @model ÆGTESemesterProjekt.Pages.RepairPage.CreateRepairModel
 @{
 }
-<h1>Create new Repair Ticket</h1>
+<head>
+	<link rel="stylesheet" href="~/css/Repair.css" />
+</head>
+
+
+<h1>Opret ny Reperations Ticket</h1>
+
 
 <form method="post">
 	<div class="form-group">
-		<label asp-for="@Model.Repair.CaseId" class="control-label"></label>
+		<label asp-for="@Model.Repair.CaseId" class="control-label">Reperations ID</label>
 		<input asp-for="@Model.Repair.CaseId" class="form-control" />
 		<span asp-validation-for="Repair.CaseId" class="text-danger"></span>
 	</div>
+	<br />
 	<div class="form-group">
-		<label asp-for="@Model.Repair.RepProduct" class="control-label"></label>
+		<label asp-for="@Model.Repair.RepProduct" class="control-label">Produkt til reperation</label>
 		<input asp-for="@Model.Repair.RepProduct" class="form-control" />
 	</div>
+	<br />
 	<div class="form-group">
-		<label asp-for="@Model.Repair.Description" class="control-label"></label>
+		<label asp-for="@Model.Repair.Description" class="control-label">Beskrivelse</label>
 		<input asp-for="@Model.Repair.Description" class="form-control" />
 	</div>
+	<br />
 	<div class="form-group">
-		<label asp-for="@Model.Repair.SubDate" class="control-lable"></label>
+		<label asp-for="@Model.Repair.SubDate" class="control-lable">Indleveret dato</label>
 		<input asp-for="@Model.Repair.SubDate" class="form-control" />
 	</div>
-
+	<br />
 	<div class="form-group">
-		<label asp-for="@Model.Repair.Image" class="control-lable"></label>
-		<input asp-for="@Model.Repair.Image" class="form-control" />
+		<label asp-for="@Model.Repair.Image" class="control-lable">Årsag til reperation</label>
+		<input asp-for="@Model.Repair.Image" class="form-control large-input" />
 		<span asp-validation-for="@Model.Repair.Image" class="text-danger"></span>
 	</div>
-
+	<br />
 	<div class="mb-3">
-		<label for="formFile" class="form-label">Default file input example</label>
+		<label for="formFile" class="form-label">Reperations produkt (Billede)</label>
 		<input class="form-control" type="file" id="formFile">
 	</div>
+	<br />
 	<div class="form-group">
-		<label asp-for="@Model.Repair.EstDate" class="control-lable"></label>
+		<label asp-for="@Model.Repair.EstDate" class="control-lable">Estimeret dato for returnering af produkt</label>
 		<input asp-for="@Model.Repair.EstDate" class="form-control" />
 	</div>
+	<br />
 	<div class="form-group">
-		<label asp-for="@Model.Repair.RepPrice" class="control-lable"></label>
+		<label asp-for="@Model.Repair.RepPrice" class="control-lable">Estimeret pris for reperation</label>
 		<input asp-for="@Model.Repair.RepPrice" class="form-control" />
 	</div>
+	<br />
 	<div class="form-group">
 		<select id="statusSelect">
 			@foreach (var status in Enum.GetValues(typeof(Models.Repair.Status)))

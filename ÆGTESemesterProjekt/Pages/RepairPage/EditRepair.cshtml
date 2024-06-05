@@ -3,50 +3,123 @@
 @{
 }
 <form method="post">
-    <div class="form-group">
+    @* <div class="form-group">
         <label asp-for="Repair.CaseId" class="control-lable"></label>
         <input asp-for="Repair.CaseId" class="form-control" readonly="@(true)" />
     </div>
+    <br />
     <div class="form-group">
-        <label asp-for="Repair.RepProduct" class="control-lable"></label>
+        <label asp-for="Repair.RepProduct" class="control-lable">Angivet Produkt</label>
         <input asp-for="Repair.RepProduct" class="form-control" />
         <span asp-validation-for="Repair.RepProduct" class="text-danger"></span>
     </div>
+    <br />
     <div class="form-group">
-        <label asp-for="Repair.Description" class="control-lable"></label>
+        <label asp-for="Repair.Description" class="control-lable">Reperations Beskrivelse</label>
         <input asp-for="Repair.Description" class="form-control" />
         <span asp-validation-for="Repair.Description" class="text-danger"></span>
     </div>
+    <br />
     <div class="form-group">
-        <label asp-for="Repair.Image" class="control-lable"></label>
+        <label asp-for="Repair.Image" class="control-lable">Billede af angivet Produkt</label>
         <input asp-for="Repair.Image" class="form-control" />
         <span asp-validation-for="Repair.Image" class="text-danger"></span>
+    </div> *@
+
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <div class="form-group" style="text-align: center;">
+                <label asp-for="Repair.Image" class="control-label">Billede af angivet Produkt</label>
+                <img src="@Model.Repair.Image" class="img-fluid" alt="Product Image" />
+                <span asp-validation-for="Repair.Image" class="text-danger"></span>
+
+                @* <label asp-for="Repair.Image" class="control-label"></label>
+                <img src="~/images/@Model.Repair.Image" class="img-fluid" alt="Product Image" />
+                @* <input asp-for="Repair.Image" class="form-control" />*@ 
+                @*<span asp-validation-for="Repair.Image" class="text-danger"></span> *@
+            </div>
+        </div>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: flex-start; padding-left: 20px;">
+            @*------------------------------------------------------------------*@
+            <div class="form-group">
+                <label asp-for="Repair.CaseId" class="control-lable"></label>
+                <input asp-for="Repair.CaseId" class="form-control" readonly="@(true)" />
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Repair.RepProduct" class="control-lable">Angivet Produkt</label>
+                <input asp-for="Repair.RepProduct" class="form-control" />
+                <span asp-validation-for="Repair.RepProduct" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Repair.Description" class="control-lable">Reperations Beskrivelse</label>
+                <input asp-for="Repair.Description" class="form-control" />
+                <span asp-validation-for="Repair.Description" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Repair.Image" class="control-lable">Billede af angivet Produkt</label>
+                <input asp-for="Repair.Image" class="form-control" />
+                <span asp-validation-for="Repair.Image" class="text-danger"></span>
+            </div>
+            @*------------------------------------------------------------------*@
+            <div class="form-group">
+                <label asp-for="Repair.SubDate" class="control-lable">Indleveret Dato</label>
+                <input asp-for="Repair.SubDate" class="form-control" />
+                <span asp-validation-for="Repair.SubDate" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Repair.EstDate" class="control-lable">Estimeret Dato for returnering til kunde</label>
+                <input asp-for="Repair.EstDate" class="form-control" />
+                <span asp-validation-for="Repair.EstDate" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Repair.RepPrice" class="control-lable">Pris for Reperation</label>
+                <input asp-for="Repair.RepPrice" class="form-control" />
+                <span asp-validation-for="Repair.RepPrice" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Repair.RepairStatus" class="control-lable">Reperations Status</label>
+                <input asp-for="Repair.RepairStatus" class="form-control" />
+                <span asp-validation-for="Repair.RepairStatus" class="text-danger"></span>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Repair.SubDate" class="control-lable"></label>
+
+
+    <br />
+    @* <div class="form-group">
+        <label asp-for="Repair.SubDate" class="control-lable">Indleveret Dato</label>
         <input asp-for="Repair.SubDate" class="form-control" />
         <span asp-validation-for="Repair.SubDate" class="text-danger"></span>
     </div>
+    <br />
     <div class="form-group">
-        <label asp-for="Repair.EstDate" class="control-lable"></label>
+        <label asp-for="Repair.EstDate" class="control-lable">Estimeret Dato for returnering til kunde</label>
         <input asp-for="Repair.EstDate" class="form-control" />
         <span asp-validation-for="Repair.EstDate" class="text-danger"></span>
     </div>
+    <br />
     <div class="form-group">
-        <label asp-for="Repair.RepPrice" class="control-lable"></label>
+        <label asp-for="Repair.RepPrice" class="control-lable">Pris for Reperation</label>
         <input asp-for="Repair.RepPrice" class="form-control" />
         <span asp-validation-for="Repair.RepPrice" class="text-danger"></span>
     </div>
+    <br />
     <div class="form-group">
-        <label asp-for="Repair.RepairStatus" class="control-lable"></label>
+        <label asp-for="Repair.RepairStatus" class="control-lable">Reperations Status</label>
         <input asp-for="Repair.RepairStatus" class="form-control" />
         <span asp-validation-for="Repair.RepairStatus" class="text-danger"></span>
-    </div>
+    </div> *@
     <div class="form-group">
-        <input type="submit" value="Update" class="btn btn-primary" />
+        <input type="submit" value="Opdatér" class="btn btn-primary" />
     </div>
 
     <div>
-        <a asp-page="/RepairPage/GetAllRepairs">Back to List</a>
+        <a asp-page="/RepairPage/GetAllRepairs">Tilbage til Reperationer</a>
     </div>
 </form>

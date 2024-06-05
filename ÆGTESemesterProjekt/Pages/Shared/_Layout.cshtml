@@ -140,7 +140,7 @@
                             if (User.Identity.IsAuthenticated)
                             {
                             <li class="nav-item nav-link">
-                                Hello @User.Identity.Name!
+                                Velkommen @User.Identity.Name!
                             </li>
 
                                 @if (User.IsInRole("employee"))
@@ -150,7 +150,7 @@
                                         Administration
                                 </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="nav-link link1" asp-area="" asp-page="/User/GetAllCustomers">Alle medlemmer</a>
+                                        <li><a class="nav-link link1" asp-area="" asp-page="/User/GetAllCustomers">Medlemmer</a>
                                         <li><a class="nav-link link1" asp-area="" asp-page="/RepairPage/GetAllRepairs">Reperationer</a>
                                     </ul>
                                 </div>

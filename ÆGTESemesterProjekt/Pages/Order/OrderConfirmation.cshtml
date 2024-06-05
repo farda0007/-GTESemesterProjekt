@@ -5,20 +5,20 @@
 
 @if (Model.Order != null)
 {
-    <p>Order ID: @Model.Order.OrderId</p>
-    <p>User ID: @Model.Order.UserId</p>
-    <p>Order Date: @Model.Order.Date</p>
-    <p>Total: @Model.Order.FinalPrice</p>
+    <p>Ordre ID: @Model.Order.OrderId</p>
+    <p>Bruger ID: @Model.Order.UserId</p>
+    <p>Ordre Dato: @Model.Order.Date</p>
+    <p>Ialt: @Model.Order.FinalPrice</p>
 
-    <h3>Order Items</h3>
+    <h3>Ordreoversigt</h3>
     <ul>
         @foreach (var item in Model.Order.OrderItems)
         {
-            <li>Product ID: @item.ProductId, Quantity: @item.Count, Price: @item.Price</li>
+            <li>Produkt Id: @item.ProductId, Quantity: @item.Count, Price: @item.Price</li>
         }
     </ul>
 }
 else
 {
-    <p>Order not found.</p>
+    <p>Ordre ikke fundet.</p>
 }
