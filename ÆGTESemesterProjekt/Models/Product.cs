@@ -36,11 +36,11 @@ namespace ÆGTESemesterProjekt.Models
 
         public enum Producttype
 		{
-			CleaningTool,
-			Headset,
+			RengøringsUdstyr,
+			Høretelefoner,
 			Radio,
-			RecordPlayer,
-			Speaker,
+			Pladespiller,
+			Højtaler,
 			Vinyl
 		}
 

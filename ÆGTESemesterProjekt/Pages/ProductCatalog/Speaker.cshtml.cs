@@ -27,7 +27,7 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
         public IActionResult OnGet(string productType)
         {
             // Filter products based on the specified product type
-            SpeakerProducts = _productService.GetProducts().Where(p => p.Type == Producttype.Speaker).ToList();
+            SpeakerProducts = _productService.GetProducts().Where(p => p.Type == Producttype.Højtaler).ToList();
 
             return Page();
         }
