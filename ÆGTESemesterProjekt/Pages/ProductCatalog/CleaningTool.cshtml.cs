@@ -24,7 +24,8 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
 
         public List<Product> CleaningToolProducts { get; private set; }
 
-        public IActionResult OnGet(string productType)
+
+        public IActionResult OnGet()
         {
             // Filter products based on the specified product type
             CleaningToolProducts = _productService.GetProducts().Where(p => p.Type == Producttype.RengøringsUdstyr).ToList();

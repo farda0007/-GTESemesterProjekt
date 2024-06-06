@@ -23,7 +23,7 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
 
         public List<Product> HeadsetProducts { get; private set; }
 
-        public IActionResult OnGet(string productType)
+        public IActionResult OnGet()
         {
             // Filter products based on the specified product type
             HeadsetProducts = _productService.GetProducts().Where(p => p.Type == Producttype.Høretelefoner).ToList();

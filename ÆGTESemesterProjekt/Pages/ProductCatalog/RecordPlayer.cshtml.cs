@@ -24,7 +24,7 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
 
         public List<Product> RecordPlayerProducts { get; private set; }
 
-        public IActionResult OnGet(string productType)
+        public IActionResult OnGet()
         {
             // Filter products based on the specified product type
             RecordPlayerProducts = _productService.GetProducts().Where(p => p.Type == Producttype.Pladespiller).ToList();
