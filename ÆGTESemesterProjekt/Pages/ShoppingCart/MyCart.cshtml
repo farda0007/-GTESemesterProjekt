@@ -15,6 +15,7 @@
                 <th>Produkt Pris</th>
                 <th>Antal</th>
                 <th>Samlet Pris</th>
+                <th>Fjern Produkt</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,14 @@
                         <td>@(shoppingCart.Product.Price)</td>
                         <td>@shoppingCart.Count</td>
                         <td>@(shoppingCart.Count * (shoppingCart.Product?.Price ?? 0))</td>
+                        <td>
+                            <form method="post" asp-page-handler="Delete">
+                                <input type="hidden" name="cartId" value="@shoppingCart.CartId" />
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                 }
                 <tr>
