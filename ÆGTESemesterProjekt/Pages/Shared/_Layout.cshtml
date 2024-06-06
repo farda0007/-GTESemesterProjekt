@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ÆGTESemesterProjekt.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-   <style>
+    <style>
         nav {
             display: flex;
             width: 100vw;
@@ -78,7 +78,7 @@
         .navbar-collapse.collapse.show .link1 {
             color: black !important;
         }
-    </style> 
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-xl border box-shadow sticky-top bg-body-danger" style="height: 100px;">
@@ -87,114 +87,81 @@
                     <img src="~/images/One-of-a-kind.png" style="width:80px; height:80px;" class="d-inline-block" alt="">
                     ATLL
                 </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa-solid fa-heart"></i>
-                        @* aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span> *@
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-heart"></i>
                 </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav flex-grow-1 me-auto mb-2 mb-lg-0">
-                        @* <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/User/CreateUser">Ny bruger</a>
-                        </li> *@
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/AboutUs">Om Os</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Privacy">Privatlivs Politik</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Inspiration">Inspiration</a>
-                    </li>
-                    @* <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/ProductCatalog/Vinyl">Vinyl</a>
-                    </li>
-                    <li class="nav-item-">
-                        <a class="nav-link" asp-area="" asp-page="/ProductCatalog/Radio">Radio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/ProductCatalog/Headset">Headset</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/ProductCatalog/RecordPlayer">Pladeafspiller</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/ProductCatalog/CleaningTool">Rengøringsudstyr</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/ProductCatalog/Speaker">Højtaler</a>
-                    </li> *@
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Products/GetAllProducts">Alle Produkter</a>
-                    </li>
-                    
-
-                    @* @if (User.IsInRole("employee"))
-                    {
-                        <div class="dropdown">
-                            <a class="btn dropdown-toggle text-dark" data-bs-toggle="dropdown">
-                                Administration
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav flex-grow-1 me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/AboutUs">Om Os</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Privacy">Privatlivs Politik</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Inspiration">Inspiration</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Produkter
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="nav-link text-dark" asp-area="" asp-page="/User/GetAllCustomers">Alle medlemmer</a>
-                                <li><a class="nav-link text-dark" asp-area="" asp-page="/RepairPage/GetAllRepairs">Reperationer</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" asp-area="" asp-page="/Products/GetAllProducts">Alle Produkter</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-page="/ProductCatalog/Vinyl">Vinyl</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-page="/ProductCatalog/Radio">Radio</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-page="/ProductCatalog/Headset">Headset</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-page="/ProductCatalog/RecordPlayer">Pladeafspiller</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-page="/ProductCatalog/CleaningTool">Rengøringsudstyr</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-page="/ProductCatalog/Speaker">Højtaler</a></li>
                             </ul>
-                        </div>
-                    } *@
+                        </li>
+
+                
 
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end topoff">
-                        @{
-
-                            if (User.Identity.IsAuthenticated)
-                            {
+                        @if (User.Identity.IsAuthenticated)
+                        {
                             <li class="nav-item nav-link">
                                 Velkommen @User.Identity.Name!
                             </li>
-
-                                @if (User.IsInRole("employee"))
-                                {
+                            @if (User.IsInRole("employee"))
+                            {
                                 <div class="dropdown">
-                                <a class="btn-drop dropdown-toggle" data-bs-toggle="dropdown">
-                                        Administration
-                                </a>
+                                    <a class="btn-drop dropdown-toggle" data-bs-toggle="dropdown">Administration</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="nav-link link1" asp-area="" asp-page="/User/GetAllCustomers">Medlemmer</a>
-                                        <li><a class="nav-link link1" asp-area="" asp-page="/RepairPage/GetAllRepairs">Reperationer</a>
+                                        <a class="nav-link link1" asp-area="" asp-page="/User/GetAllCustomers">Medlemmer</a>
+                                        <a class="nav-link link1" asp-area="" asp-page="/RepairPage/GetAllRepairs">Reperationer</a>
                                     </ul>
                                 </div>
-                                }
-
+                            }
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-page="/Login/LogOut">Log ud</a>
                             </li>
-
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-page="/WishlistPage/Wishlist">
                                     <i class="fa-solid fa-heart"></i>
-                                   
                                 </a>
                             </li>
-
-
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-page="/ShoppingCart/MyCart">
-                                <i class="fa-solid fa-cart-shopping"></i>
+                                    <i class="fa-solid fa-cart-shopping"></i>
                                 </a>
                             </li>
-                            }
-                            else
-                            {
+                        }
+                        else
+                        {
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-page="/Login/LogInPage">
                                     <i class="fa-solid fa-user"></i>
-                                    Log in/Opret Konto
+                                    Log ind/Opret Konto
                                 </a>
                             </li>
-                            }
                         }
+
+                    </div>
+                </div>
             </div>
-        </nav>
-    
+    </nav>
 
 
     <div class="container">
