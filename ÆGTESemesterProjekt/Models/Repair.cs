@@ -29,9 +29,9 @@ namespace ÆGTESemesterProjekt.Models
 
         public enum Status
         {
-            Pending,
-            Finished,
-            InProgress
+            Venter,
+            Færdig,
+            Igangværende
         }
 
         public Repair()
