@@ -24,9 +24,10 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
 
         public List<Product> RadioProducts { get; private set; }
 
-        public IActionResult OnGet(string productType)
+        public IActionResult OnGet()
         {
-            // Filter products based on the specified product type
+            //Først bliver metoden i _productService kaldt, og den henter listen af produkter. Derefter bruges LINQ. "Where" er en LINQ metode, der filtrerer produkter.
+            //"Where" tager et lambda expression som paramatre.
             RadioProducts = _productService.GetProducts().Where(p => p.Type == Producttype.Radio).ToList();
 
             return Page();

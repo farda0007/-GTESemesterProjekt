@@ -1,5 +1,4 @@
-﻿using ÆGTESemesterProjekt.MockData;
-using ÆGTESemesterProjekt.Models;
+﻿using ÆGTESemesterProjekt.Models;
 
 namespace ÆGTESemesterProjekt.Services
 {
@@ -64,16 +63,13 @@ namespace ÆGTESemesterProjekt.Services
     
         public Repair DeleteRepair(int? repairId)
         {
-            foreach (Repair repair in _repairs)
+            var repairItem = _repairs.FirstOrDefault(c => c.CaseId == repairId);
+            if (repairItem != null)
             {
-                if (repair.CaseId == repairId)
-                {
-                    _repairs.Remove(repair);
-                    _genericDbService.DeleteObjectAsync(repair);
-                    return repair;
-                }
+                _repairs.Remove(repairItem);
+                _genericDbService.DeleteObjectAsync(repairItem).Wait();
             }
-            return null;
+            return repairItem;
         }
         public Repair GetRepair(int Id)
         {
