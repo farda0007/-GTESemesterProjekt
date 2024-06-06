@@ -1,5 +1,4 @@
-﻿
-using ÆGTESemesterProjekt.Models;
+﻿using ÆGTESemesterProjekt.Models;
 
 namespace ÆGTESemesterProjekt.Services
 {
