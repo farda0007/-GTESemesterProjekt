@@ -5,6 +5,9 @@
 <h1>Repairs</h1>
 <div class="container mx-auto mt-4" style="max-width: 95%;">
     <div class="row">
+        <p>
+            <a class="btn btn-primary" asp-page="CreateRepair">Opret Ny Ticket</a>
+        </p>
         @if (Model.Repairs != null)
         {
             foreach (var product in Model.Repairs)
@@ -44,7 +47,5 @@
         }
     </div>
 </div>
-<p>
-    <a class="btn btn-primary" asp-page="CreateRepair">Opret Ny Ticket</a>
-</p>
+
 
