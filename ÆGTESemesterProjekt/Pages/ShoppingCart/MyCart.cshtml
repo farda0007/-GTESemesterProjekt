@@ -29,6 +29,12 @@
                         <td>@(shoppingCart.Product.Price)</td>
                         <td>@shoppingCart.Count</td>
                         <td>@(shoppingCart.Count * (shoppingCart.Product?.Price ?? 0))</td>
+                        <td>
+                            <form method="post" asp-page-handler="Delete">
+                                <input type="hidden" name="cartId" value="@shoppingCart.CartId" />
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 }
                 <tr>

@@ -16,15 +16,13 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
         public bool DiscountApplied { get; set; }
 
         private readonly UserService _userService;
-        private readonly OrderService _orderService;
         private readonly ShoppingCartService _shoppingCartService;
         public IEnumerable<Models.ShoppingCart> MyCartProducts { get; set; }
 
-        public MyCartModel(UserService userService, ShoppingCartService shoppingCartService, OrderService orderService)
+        public MyCartModel(UserService userService, ShoppingCartService shoppingCartService)
         {
             _userService = userService;
             _shoppingCartService = shoppingCartService;
-            _orderService = orderService;
         }
 
         public IActionResult OnGet()
@@ -56,6 +54,17 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
             // Runder op og sørger for at vi har 2 decimaler ekstra.
 
             return Page();
+        }
+        public async Task<IActionResult> OnPostDeleteAsync(int cartId)
+        {
+            var cartItem = _shoppingCartService.DeleteCart(cartId);
+
+            // Refresh the cart products after deletion
+            var currentUser = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+            MyCartProducts = _userService.GetCartProducts(currentUser).Result.CartProducts;
+            Totalprice = MyCartProducts.Sum(product => product.Count * (product.Product?.Price ?? 0));
+
+            return RedirectToPage();
         }
     }
 }

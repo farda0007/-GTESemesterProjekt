@@ -22,18 +22,15 @@ namespace ÆGTESemesterProjekt.Services
             _wishlists.Add(wishlist);
             await _dbService.AddObjectAsync(wishlist);
         }
-        public Wishlist DeleteWishlist(int? productId)
+        public Wishlist DeleteWishlist(int? wishlistId)
         {
-            foreach (Wishlist product in _wishlists)
+            var wishlistItem = _wishlists.FirstOrDefault(c => c.WishlistId == wishlistId);
+            if (wishlistItem != null)
             {
-                if (product.WishlistId == productId)
-                {
-                    _wishlists.Remove(product);
-                    _dbService.DeleteObjectAsync(product);
-                    return product;
-                }
+                _wishlists.Remove(wishlistItem);
+                _dbService.DeleteObjectAsync(wishlistItem).Wait();
             }
-            return null;
+            return wishlistItem;
         }
 
         public Wishlist GetWishlist(int Id)

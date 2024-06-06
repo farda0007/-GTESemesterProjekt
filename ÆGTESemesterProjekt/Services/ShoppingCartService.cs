@@ -28,7 +28,16 @@ namespace ÆGTESemesterProjekt.Services
         {
             return _cartList = _dbService.GetObjectsAsync().Result.ToList();
         }
+        public ShoppingCart DeleteCart(int CartId)
+        {
+            var cartItem = _cartList.FirstOrDefault(c => c.CartId == CartId);
+            if (cartItem != null)
+            {
+                _cartList.Remove(cartItem);
+                _dbService.DeleteObjectAsync(cartItem).Wait();
+            }
+            return cartItem;
+        }
 
-        
     }
 }
