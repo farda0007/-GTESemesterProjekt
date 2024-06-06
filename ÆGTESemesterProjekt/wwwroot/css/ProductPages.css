@@ -33,3 +33,13 @@
 img {
     cursor: pointer;
 }
+
+.btn:hover {
+    color: darkorange;
+    background-color: black;
+}
+
+.btn {
+    background-color: darkorange;
+    color: white;
+}
