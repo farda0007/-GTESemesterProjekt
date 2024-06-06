@@ -7,7 +7,7 @@
 </head>
 
 
-<h1>Products</h1>
+<h1>Alle Produkter</h1>
 
 @* div class="container-fluid">
     <div class="row">
@@ -53,7 +53,7 @@
                         <span class="input-group-text">Max.</span>
                     </div>
                     <input asp-for="MaxPrice" class="form-control form-control-sm mx-1" />
-                    <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary mx-2" />
+                    <input type="submit" asp-page-handler="Pris Filter" value="Filter" class="btn btn-primary mx-2" />
                 </div>
                 <br />
                 @if (User.IsInRole("employee"))
