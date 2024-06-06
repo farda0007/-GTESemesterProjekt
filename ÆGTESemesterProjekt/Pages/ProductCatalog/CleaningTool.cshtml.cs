@@ -27,7 +27,8 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
 
         public IActionResult OnGet()
         {
-            // Filter products based on the specified product type
+            //Først bliver metoden i _productService kaldt, og den henter listen af produkter. Derefter bruges LINQ. "Where" er en LINQ metode, der filtrerer produkter.
+            //"Where" tager et lambda expression som paramatre.
             CleaningToolProducts = _productService.GetProducts().Where(p => p.Type == Producttype.RengøringsUdstyr).ToList();
 
             return Page();

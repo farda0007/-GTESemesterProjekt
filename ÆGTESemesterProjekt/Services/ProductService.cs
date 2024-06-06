@@ -80,23 +80,28 @@ namespace ÆGTESemesterProjekt.Services
             }
             return null;
         }
+
+        //Metoden NameSearch returnerer et IEnumerable<Product>, der indeholder produktet der matcher søgekriterien.
 		public IEnumerable<Product> NameSearch(string str)
 		{
+            //Her initialiseres en tom liste
 			List<Product> nameSearch = new List<Product>();
+            //Gå gennem hvert product i _products
 			foreach (Product product in _products)
 			{
                 if (str != null)
                 {
+                    //Både search string og ProductName bliver konverteret til lower case.
+                    //Tjek om productName indeholder search string
                     if (product.ProductName.ToLower().Contains(str.ToLower()))
                     {
                         nameSearch.Add(product);
                     }
                 }
-                
 			}
-
 			return nameSearch;
 		}
+
         public IEnumerable<Product> PriceFilter(int maxPrice, int minPrice = 0)
         {
             List<Product> filterList = new List<Product>();
