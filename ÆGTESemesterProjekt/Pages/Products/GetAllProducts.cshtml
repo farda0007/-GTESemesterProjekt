@@ -7,7 +7,7 @@
 </head>
 
 
-<h1>Alle Produkter</h1>
+<h1>Products</h1>
 
 @* div class="container-fluid">
     <div class="row">
@@ -34,12 +34,12 @@
     </div>
 </div> *@
 
-<div class="container-fluid mx-auto mt-4" style="max-width: 60%;">
+<div class="container-fluid mx-auto mt-4" style="max-width: 80%;">
     <div class="row">
-        <div class="col-md-2 border border-2 pt-2 pb-2 filter-container">
+        <div class="col-xl-2 col-md-4 col-sm-12 border border-2 pt-2 pb-2 filter-container">
             <form method="post" class="form-inline mb-3">
                 <input asp-for="SearchString" class="form-control form-control-sm mb-1" placeholder="Enter search term" />
-                <input type="submit" asp-page-handler="NameSearch" value="Søg" class="btn btn-primary mb-3" />
+                <input type="submit" asp-page-handler="NameSearch" value="Søg" class="btn btn-primary mb-3 w-100" />
             </form>
             <form method="post" class="form-inline">
                 <div class="input-group mb-3">
@@ -53,132 +53,134 @@
                         <span class="input-group-text">Max.</span>
                     </div>
                     <input asp-for="MaxPrice" class="form-control form-control-sm mx-1" />
-                    <input type="submit" asp-page-handler="Pris Filter" value="Filter" class="btn btn-primary mx-2" />
+                    <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary mx-2" />
                 </div>
                 <br />
                 @if (User.IsInRole("employee"))
                 {
-                    <a class="btn btn-primary" asp-page="CreateProduct">Opret Produkt</a>
+                    <a class="btn btn-primary w-100" asp-page="CreateProduct">Opret Produkt</a>
                 }
             </form>
         </div>
 
-        <div class="col-md-10">
+        <div class="col-xl-10 col-md-8 col-sm-12">
             <div class="row">
                 @if (Model.Products != null)
                 {
                     foreach (var product in Model.Products)
                     {
-                        @* var modalId = "modal-" + product.Id; // Generate a unique modal ID *@
 
-                        <div class="col-md-3 col-sm-6">
-                            <div class="card" style="width: 18rem; height: 20rem; margin: 10px; border:none;">
-
-                                @*  <img src="~/images/@product.ProductImage" style="max-width: 95%; display: block; margin: auto; padding: 25px;">
-
-                        <div class="card-body">
-                        <h5 class="card-title">@product.ProductName</h5>
-                        @if (User.IsInRole("employee"))
-                        {
-                        <h6 class="card-subtitle mb-2 text-muted">Id: @product.Id</h6>
-                        }
-                        <p class="card-text">Pris: @product.Price</p>
-                        <p class="card-text">@product.Description</p>
-                        <p class="card-text">@product.Type</p>
-                        <div class="form-group">
-                        </div>  *@
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card" style="width: 16rem; height: 16rem; margin: 10px; border:none;">
 
                                 <div class="container-fluid mt-1">
                                     <a asp-page="DetailProduct" asp-route-id="@product.Id"> <img src="~/images/@product.ProductImage" alt="Image" class="img-thumbnail" title="Detail" style="border:none; position:relative; top:20%;"></a>
 
-                                    @* <a asp-page="DetailProduct" asp-route-id="@product.Id">
-                            <img src="~/images/@product.ProductImage" style="border:none; position:relative; top:20%;">
-                            </a> *@
-
-
-
-
-
-                                    @* <!-- Modal Structure -->
-                            <div class="modal fade" id="@modalId" tabindex="-1" aria-labelledby="@modalId-Label" aria-hidden="true">
-                            <div class="modal-dialog">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                            <h5 class="modal-title" id="@modalId-Label">@product.ProductName</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                            <div class="row">
-                            <div class="col-md-8" style="margin-bottom:0.5rem;">
-                            <img src="~/images/@product.ProductImage" alt="Image" class="img-fluid" style="max-width: 60%; display: block;" >
-                            </div>
-                            <div class="col-md-4">
-                            Beskrivelse:
-                            <p>@product.Description</p>
-                            </div>
-                            </div>
-                            @* <a class="btn btn-primary btn-sm" type="button" title="Detail" asp-page="DetailProduct" asp-route-id="@product.Id"><i class="fa fa-info"></i></a> *@
-                                    @* <p1 style="font-weight:600;">Pris: @product.Price,-</p1> *@
-
-                                    @* @if (User.Identity.IsAuthenticated)
-                            {
-                            <a class="btn btn-primary btn-sm " type="button" title="ShoppingCart" asp-page="/ShoppingCart/CartItem" asp-route-id="@product.Id"><i class="fa fa-shopping-cart"></i></a>
-                            <form asp-page="/WishlistPage/ConfirmWishlist" method="post" style="display:inline-block">
-                            <input type="hidden" name="id" value="@product.Id" />
-                            <button type="submit" class="btn btn-primary btn-sm"><i class="fa-sharp fa-solid fa-heart"></i></button>
-                            </form>
-                            } *@
-                                    @* </div>
-                            <div class="modal-footer">
-                            @if (User.Identity.IsAuthenticated)
-                            {
-                            <a class="btn btn-outline-dark btn-sm" style="color:darkorange;" type="button" title="ShoppingCart" asp-page="/ShoppingCart/CartItem" asp-route-id="@product.Id">Tilføj til ordre</a>
-                            <form asp-page="/WishlistPage/ConfirmWishlist" method="post" style="display:inline-block">
-                            <input type="hidden" name="id" value="@product.Id" />
-                            <button type="submit" class="btn btn-sm" style="color:red" ><i class="fa-sharp fa-solid fa-heart"></i>
-
-
-                            </button>
-                            </form>
-                            @if (User.IsInRole("employee"))
-                            {
-                            <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditProduct" asp-route-id="@product.Id"><i class="fa-sharp fa-solid fa-pen"></i></a>
-                            <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteProduct" asp-route-id="@product.Id"><i class="fas fa-trash"></i></a>
-                            }
-                            }
-                            </div>
-                            </div>
-                            </div>
-                            </div> *@
-
-
-
-
-                                    @* <a class="btn btn-primary btn-sm" type="button" title="Detail" asp-page="DetailProduct" asp-route-id="@product.Id"><i class="fa fa-info"></i></a>
-                            @if (User.IsInRole("employee"))
-                            {
-                            <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditProduct" asp-route-id="@product.Id"><i class="fa-sharp fa-solid fa-pen"></i></a>
-                            <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteProduct" asp-route-id="@product.Id"><i class="fas fa-trash"></i></a>
-                            }
-                            @if (User.Identity.IsAuthenticated)
-                            {
-                            <a class="btn btn-primary btn-sm " type="button" title="ShoppingCart" asp-page="/ShoppingCart/CartItem" asp-route-id="@product.Id"><i class="fa fa-shopping-cart"></i></a>
-                            <form asp-page="/WishlistPage/ConfirmWishlist" method="post" style="display:inline-block">
-                            <input type="hidden" name="id" value="@product.Id" />
-                            <button type="submit" class="btn btn-primary btn-sm"><i class="fa-sharp fa-solid fa-heart"></i></button>
-                            </form>
-                            } *@
-
-
-                                    @*  <a class="btn btn-primary btn-sm" type="button" title="Add To Wishlist" asp-page="/WishlistPage/ConfirmWishlist" asp-route-id="@product.Id"><i class="fa-sharp fa-solid fa-heart"></i></a> *@
-
-                                    @* <a class="btn btn-primary btn-sm" type="button" title="Wishlist" asp-page="/Wishlist/WishlistProduct" asp-route-id=""><i class="fa-sharp fa-solid fa-heart"></i></a> *@
                                 </div>
                             </div>
-                            <p1 class="" style="margin-left: 2rem; font-size:1.25rem;">@product.ProductName</p1> <br />
-                            <p3 class="text-muted" style="margin-left: 2rem;">@product.Type</p3><br />
-                            <p3 class="" style="margin-left: 2rem; font-weight:600; color:darkorange">@product.Price,-</p3>
+                            <div class="card-body">
+                                <p1 class="card-title text-left" style=" font-size:1.25rem; overflow: hidden; text-overflow: ellipsis; ">@product.ProductName</p1> <br />
+                                <p3 class="card-text text-muted">@product.Type</p3><br />
+                                <p3 class="card-text" style="font-weight:600; color:darkorange">@product.Price,-</p3>
+                            </div>
                         </div>
+                        @*  <img src="~/images/@product.ProductImage" style="max-width: 95%; display: block; margin: auto; padding: 25px;">
+
+                <div class="card-body">
+                <h5 class="card-title">@product.ProductName</h5>
+                @if (User.IsInRole("employee"))
+                {
+                <h6 class="card-subtitle mb-2 text-muted">Id: @product.Id</h6>
+                }
+                <p class="card-text">Pris: @product.Price</p>
+                <p class="card-text">@product.Description</p>
+                <p class="card-text">@product.Type</p>
+                <div class="form-group">
+                </div>  *@
+
+                        @* <a asp-page="DetailProduct" asp-route-id="@product.Id">
+                <img src="~/images/@product.ProductImage" style="border:none; position:relative; top:20%;">
+                </a> *@
+
+
+
+
+
+                        @* <!-- Modal Structure -->
+                <div class="modal fade" id="@modalId" tabindex="-1" aria-labelledby="@modalId-Label" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="@modalId-Label">@product.ProductName</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <div class="row">
+                <div class="col-md-8" style="margin-bottom:0.5rem;">
+                <img src="~/images/@product.ProductImage" alt="Image" class="img-fluid" style="max-width: 60%; display: block;" >
+                </div>
+                <div class="col-md-4">
+                Beskrivelse:
+                <p>@product.Description</p>
+                </div>
+                </div>
+                @* <a class="btn btn-primary btn-sm" type="button" title="Detail" asp-page="DetailProduct" asp-route-id="@product.Id"><i class="fa fa-info"></i></a> *@
+                        @* <p1 style="font-weight:600;">Pris: @product.Price,-</p1> *@
+
+                        @* @if (User.Identity.IsAuthenticated)
+                {
+                <a class="btn btn-primary btn-sm " type="button" title="ShoppingCart" asp-page="/ShoppingCart/CartItem" asp-route-id="@product.Id"><i class="fa fa-shopping-cart"></i></a>
+                <form asp-page="/WishlistPage/ConfirmWishlist" method="post" style="display:inline-block">
+                <input type="hidden" name="id" value="@product.Id" />
+                <button type="submit" class="btn btn-primary btn-sm"><i class="fa-sharp fa-solid fa-heart"></i></button>
+                </form>
+                } *@
+                        @* </div>
+                <div class="modal-footer">
+                @if (User.Identity.IsAuthenticated)
+                {
+                <a class="btn btn-outline-dark btn-sm" style="color:darkorange;" type="button" title="ShoppingCart" asp-page="/ShoppingCart/CartItem" asp-route-id="@product.Id">Tilføj til ordre</a>
+                <form asp-page="/WishlistPage/ConfirmWishlist" method="post" style="display:inline-block">
+                <input type="hidden" name="id" value="@product.Id" />
+                <button type="submit" class="btn btn-sm" style="color:red" ><i class="fa-sharp fa-solid fa-heart"></i>
+
+
+                </button>
+                </form>
+                @if (User.IsInRole("employee"))
+                {
+                <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditProduct" asp-route-id="@product.Id"><i class="fa-sharp fa-solid fa-pen"></i></a>
+                <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteProduct" asp-route-id="@product.Id"><i class="fas fa-trash"></i></a>
+                }
+                }
+                </div>
+                </div>
+                </div>
+                </div> *@
+
+
+
+
+                        @* <a class="btn btn-primary btn-sm" type="button" title="Detail" asp-page="DetailProduct" asp-route-id="@product.Id"><i class="fa fa-info"></i></a>
+                @if (User.IsInRole("employee"))
+                {
+                <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditProduct" asp-route-id="@product.Id"><i class="fa-sharp fa-solid fa-pen"></i></a>
+                <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteProduct" asp-route-id="@product.Id"><i class="fas fa-trash"></i></a>
+                }
+                @if (User.Identity.IsAuthenticated)
+                {
+                <a class="btn btn-primary btn-sm " type="button" title="ShoppingCart" asp-page="/ShoppingCart/CartItem" asp-route-id="@product.Id"><i class="fa fa-shopping-cart"></i></a>
+                <form asp-page="/WishlistPage/ConfirmWishlist" method="post" style="display:inline-block">
+                <input type="hidden" name="id" value="@product.Id" />
+                <button type="submit" class="btn btn-primary btn-sm"><i class="fa-sharp fa-solid fa-heart"></i></button>
+                </form>
+                } *@
+
+
+                        @*  <a class="btn btn-primary btn-sm" type="button" title="Add To Wishlist" asp-page="/WishlistPage/ConfirmWishlist" asp-route-id="@product.Id"><i class="fa-sharp fa-solid fa-heart"></i></a> *@
+
+                        @* <a class="btn btn-primary btn-sm" type="button" title="Wishlist" asp-page="/Wishlist/WishlistProduct" asp-route-id=""><i class="fa-sharp fa-solid fa-heart"></i></a> *@
+
 
                     }
                 }
