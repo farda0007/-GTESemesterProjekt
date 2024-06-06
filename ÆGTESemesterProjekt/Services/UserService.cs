@@ -1,6 +1,6 @@
 ﻿using ÆGTESemesterProjekt.DAO;
 using ÆGTESemesterProjekt.EFDbContext;
-using ÆGTESemesterProjekt.MockData;
+
 using ÆGTESemesterProjekt.Models;
 using Microsoft.EntityFrameworkCore;
 
