@@ -44,15 +44,16 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
 
             const string validDiscountCode = "uWu";
             decimal Discount = 0m;
-
+            // M til at convertere fra double til decimal
             if (DiscountCode == validDiscountCode)
             {
                 Discount = 0.10m;
                 DiscountApplied = true;
             }
 
-            DiscountAmount = Totalprice * Discount;
-            FinalPrice = Totalprice - DiscountAmount;
+            DiscountAmount = Math.Round(Totalprice * Discount, 2);
+            FinalPrice = Math.Round(Totalprice - DiscountAmount, 2);
+            // Runder op og sørger for at vi har 2 decimaler ekstra.
 
             return Page();
         }
