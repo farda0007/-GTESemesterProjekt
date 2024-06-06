@@ -26,7 +26,8 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
 
         public IActionResult OnGet()
         {
-            //Find listen af produkter. "Where" er en LINQ metode der bliver brugt til at filtrere produkter. "Where" bruger lambda expression som parameter
+            //Først bliver metoden i _productService kaldt, og den henter listen af produkter. Derefter bruges LINQ. "Where" er en LINQ metode, der filtrerer produkter.
+            //"Where" tager et lambda expression som paramatre.
             RadioProducts = _productService.GetProducts().Where(p => p.Type == Producttype.Radio).ToList();
 
             return Page();
