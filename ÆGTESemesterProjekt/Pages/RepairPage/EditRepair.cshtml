@@ -3,28 +3,6 @@
 @{
 }
 <form method="post">
-    @* <div class="form-group">
-        <label asp-for="Repair.CaseId" class="control-lable"></label>
-        <input asp-for="Repair.CaseId" class="form-control" readonly="@(true)" />
-    </div>
-    <br />
-    <div class="form-group">
-        <label asp-for="Repair.RepProduct" class="control-lable">Angivet Produkt</label>
-        <input asp-for="Repair.RepProduct" class="form-control" />
-        <span asp-validation-for="Repair.RepProduct" class="text-danger"></span>
-    </div>
-    <br />
-    <div class="form-group">
-        <label asp-for="Repair.Description" class="control-lable">Reperations Beskrivelse</label>
-        <input asp-for="Repair.Description" class="form-control" />
-        <span asp-validation-for="Repair.Description" class="text-danger"></span>
-    </div>
-    <br />
-    <div class="form-group">
-        <label asp-for="Repair.Image" class="control-lable">Billede af angivet Produkt</label>
-        <input asp-for="Repair.Image" class="form-control" />
-        <span asp-validation-for="Repair.Image" class="text-danger"></span>
-    </div> *@
 
     <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
         <div style="display: flex; flex-direction: column; align-items: center;">
@@ -32,11 +10,6 @@
                 <label asp-for="Repair.Image" class="control-label">Billede af angivet Produkt</label>
                 <img src="@Model.Repair.Image" class="img-fluid" alt="Product Image" />
                 <span asp-validation-for="Repair.Image" class="text-danger"></span>
-
-                @* <label asp-for="Repair.Image" class="control-label"></label>
-                <img src="~/images/@Model.Repair.Image" class="img-fluid" alt="Product Image" />
-                @* <input asp-for="Repair.Image" class="form-control" />*@ 
-                @*<span asp-validation-for="Repair.Image" class="text-danger"></span> *@
             </div>
         </div>
         <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: flex-start; padding-left: 20px;">
