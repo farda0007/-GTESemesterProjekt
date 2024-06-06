@@ -22,10 +22,10 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
 
 		public List<Product> VinylProducts { get; private set; }
 
-		public IActionResult OnGet(string productType)
+		public IActionResult OnGet()
 		{
-			// Filter products based on the specified product type
-			VinylProducts = _productService.GetProducts().Where(p => p.Type == Producttype.Vinyl).ToList();
+            //Find listen af produkter. "Where" er en LINQ metode der bliver brugt til at filtrere produkter. "Where" bruger lambda expression som parameter
+            VinylProducts = _productService.GetProducts().Where(p => p.Type == Producttype.Vinyl).ToList();
 
 			return Page();
 		}

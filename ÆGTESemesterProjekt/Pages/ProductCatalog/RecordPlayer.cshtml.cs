@@ -24,9 +24,9 @@ namespace ÆGTESemesterProjekt.Pages.ProductCatalog
 
         public List<Product> RecordPlayerProducts { get; private set; }
 
-        public IActionResult OnGet(string productType)
+        public IActionResult OnGet()
         {
-            // Filter products based on the specified product type
+            //Find listen af produkter. "Where" er en LINQ metode der bliver brugt til at filtrere produkter. "Where" bruger lambda expression som parameter
             RecordPlayerProducts = _productService.GetProducts().Where(p => p.Type == Producttype.RecordPlayer).ToList();
 
             return Page();
