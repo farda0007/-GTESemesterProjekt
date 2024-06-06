@@ -55,12 +55,13 @@ namespace ÆGTESemesterProjekt.Services
                         r.RepPrice = repair.RepPrice;
                         r.RepairStatus = repair.RepairStatus;
                         r.EstDate = repair.EstDate;
-                       
+
                     }
                 }
                 _genericDbService.SaveObjects(_repairs);
             }
-    }
+        }
+    
         public Repair DeleteRepair(int? repairId)
         {
             foreach (Repair repair in _repairs)

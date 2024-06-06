@@ -46,8 +46,8 @@
                 @if (User.IsInRole("employee"))
                 {
                     <div class="container">
-                            <a type="button" class="admincontrols" style="margin-bottom: 2px;" title="Edit" asp-page="EditProduct" asp-route-id="@Model.product.Id">Edit Product <i class="fa-sharp fa-solid fa-pen"></i></a>
-                            <a type="button" class="admincontrols" title="Delete" asp-page="DeleteProduct" asp-route-id="@Model.product.Id">Delete Product <i class="fas fa-trash"></i></a>
+                            <a type="button" class="admincontrols" style="margin-bottom: 2px;" title="Edit" asp-page="EditProduct" asp-route-id="@Model.product.Id">Rediger produkt <i class="fa-sharp fa-solid fa-pen"></i></a>
+                            <a type="button" class="admincontrols" title="Delete" asp-page="DeleteProduct" asp-route-id="@Model.product.Id">Slet produkt <i class="fas fa-trash"></i></a>
                     </div>
                 }
             </div>
@@ -58,51 +58,3 @@
 <h2 style="border-bottom: 1px solid rgb(188, 182, 179);"> Beskrivelse</h2>
 <h6>@Model.product.Description</h6>
 </div>
-
-@* <div class="card">
-            <div class="card-body">
-                <h3 class="card-title mb-2"><span>@Model.product.ProductName</span></h3>
-                <div class="card-text mb-4"><span>@Model.product.Description</span></div>
-                <div class="card-text mb-4"><span>@Model.product.Type</span></div>
-                <h6 class="card-footer text-muted"><span>Pris: @Model.product.Price</span></h6>
-            </div>
-        </div> *@
-    @* <div class="col-lg-3 mb-4"></div> *@
-
-
-
-@* <div class="row">
-    <div class="col-md-4">
-        <div>
-            @if (Model.User != null)
-            {
-                <span>User: @Model.User.UserName</span>
-            }
-            else
-            {
-                <span>User not found.</span>
-            }
-        </div>
-        <div>
-            @if (Model.Product != null)
-            {
-                <span>Product: @Model.Product.ProductName</span>
-            }
-            else
-            {
-                <span>Product not found.</span>
-            }
-        </div>
-
-        <form method="post">
-            Count:
-            <input asp-for="Count" class="form-control" />
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-<div>
-    <a asp-page="../Product/GetAllProducts">Back to List</a>
-</div> *@
