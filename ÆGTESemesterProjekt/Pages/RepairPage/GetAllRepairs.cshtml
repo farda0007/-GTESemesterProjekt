@@ -2,49 +2,53 @@
 @model ÆGTESemesterProjekt.Pages.RepairPage.GetAllRepairsModel
 @{
 }
-<h1>Reparationer </h1>
-
-<div class="container mx-auto mt-4" style="max-width: 95%;">
-    <div class="row">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reparationer</title>
+    <link rel="stylesheet" href="~/css/ProductPages.css" />
+</head>
+<body>
+    <div class="container mx-auto mt-4" style="max-width: 95%;">
+        <h1>Reparationer</h1>
         <p>
             <a class="btn btn-primary" asp-page="CreateRepair">Opret Ny Ticket</a>
         </p>
         @if (Model.Repairs != null)
         {
-            foreach (var product in Model.Repairs)
-            {
-                <div class="col-md-3 col-sm-6">
-                    <div class="card" style="width: 18rem; margin: 10px;">
-                        <div class="card-body">
-                            <img src="~/images/@product.Image" style="max-width: 95%; display: block; margin: auto; padding: 25px;">
-                            <h5 class="card-text">Angivet produkt</h5>
-                            <p class="card-title">@product.RepProduct</p>
-                            <br /> 
-                            <h5 class="card-text">Reperations beskrivelse</h5>
-                            <p class="card-text">@product.Description</p>
-                            <br />
-                            <h5 class="card-text">Reperations Pris</h5>
-                            <p class="card-title">@product.RepPrice,-</p>
-                            <br />
-                            <h5 class="card-text">Dato modtaget</h5>
-                            <p class="card-title">@product.SubDate.ToShortDateString()</p>
-                            <br />
-                            <h5 class="card-text">Estimeret dato</h5>
-                            <p class="card-title">@product.EstDate.ToShortDateString()</p>
-                            <br />
-                            <h5 class="card-text">Status</h5>
-                            <p class="card-title">@product.RepairStatus</p>
-                            <br />
-                            <a class="btn btn-primary btn-sm" type="button" title="Redigere" asp-page="EditRepair" asp-route-id="@product.CaseId"><i class="fa-sharp fa-solid fa-pen"></i></a>
-                            <a class="btn btn-danger btn-sm " type="button" title="Slet" asp-page="DeleteRepair" asp-route-id="@product.CaseId"><i class="fas fa-trash"></i></a>
-
-                        </div>
-                    </div>
-                </div>
-
-            }
+            <table class="table table-bordered table-hover table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Billede</th>
+                        <th>Angivet produkt</th>
+                        <th>Reperations beskrivelse</th>
+                        <th>Reperations Pris</th>
+                        <th>Dato modtaget</th>
+                        <th>Estimeret dato</th>
+                        <th>Status</th>
+                        <th>Handlinger</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model.Repairs)
+                    {
+                        <tr>
+                            <td><img src="~/images/@product.Image" style="max-width: 100px;"></td>
+                            <td>@product.RepProduct</td>
+                            <td>@product.Description</td>
+                            <td>@product.RepPrice,-</td>
+                            <td>@product.SubDate.ToShortDateString()</td>
+                            <td>@product.EstDate.ToShortDateString()</td>
+                            <td>@product.RepairStatus</td>
+                            <td>
+                                <a class="btn btn-primary btn-sm" type="button" title="Redigere" asp-page="EditRepair" asp-route-id="@product.CaseId"><i class="fa-sharp fa-solid fa-pen"></i></a>
+                                <a class="btn btn-danger btn-sm" type="button" title="Slet" asp-page="DeleteRepair" asp-route-id="@product.CaseId"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         }
     </div>
-</div>
-
-
+</body>
+</html>
