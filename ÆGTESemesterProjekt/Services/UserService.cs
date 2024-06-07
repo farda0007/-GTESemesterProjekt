@@ -24,9 +24,14 @@ namespace ÆGTESemesterProjekt.Services
         {
             using (var context = new ProductDbContext())
             {
+                
                 var userWithCart = await context.User
+                    //Include inkluderer CartProducts når den henter User. Det sikrer at CartProducts collection loader sammen med User. 
                     .Include(u => u.CartProducts)
-                    .ThenInclude(cp => cp.Product)
+                    //ThenInclude inkluderer "Product" for hvert CartProduct. Det sikrer at for hvert CartProduct, bliver det associserede "Product" også loaded.
+                    .ThenInclude(u => u.Product)
+                    .AsNoTracking()
+                    //Finder den første User der matcher det givet UserId.
                     .FirstOrDefaultAsync(u => u.UserId == user.UserId);
 
                 return userWithCart;
