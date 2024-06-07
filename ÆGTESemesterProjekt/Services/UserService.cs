@@ -30,6 +30,7 @@ namespace ÆGTESemesterProjekt.Services
                     .Include(u => u.CartProducts)
                     //ThenInclude inkluderer "Product" for hvert CartProduct. Det sikrer at for hvert CartProduct, bliver det associserede "Product" også loaded.
                     .ThenInclude(u => u.Product)
+                    //Forbedrer ydelsen
                     .AsNoTracking()
                     //Finder den første User der matcher det givet UserId.
                     .FirstOrDefaultAsync(u => u.UserId == user.UserId);
