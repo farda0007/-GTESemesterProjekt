@@ -32,7 +32,7 @@ namespace ÆGTESemesterProjekt.Pages.WishlistPage
 
         public async Task<IActionResult> OnPostAsync()
         {
-            ÆGTESemesterProjekt.Models.Wishlist deletedWishlist = await _iwishlistService.DeleteWishlistAsync(Wishlist.WishlistId);
+            Models.Wishlist deletedWishlist = await _iwishlistService.DeleteWishlistAsync(Wishlist.WishlistId);
             if (deletedWishlist == null)
                 return RedirectToPage("/NotFound"); //NotFound is not defined yet
             return RedirectToPage("/Wishlist");
