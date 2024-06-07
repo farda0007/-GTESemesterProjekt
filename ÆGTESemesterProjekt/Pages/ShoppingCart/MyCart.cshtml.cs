@@ -57,7 +57,7 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
         }
         public async Task<IActionResult> OnPostDeleteAsync(int cartId)
         {
-            var cartItem = _shoppingCartService.DeleteCart(cartId);
+            await _shoppingCartService.DeleteCart(cartId);
 
             var currentUser = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
             MyCartProducts = _userService.GetCartProducts(currentUser).Result.CartProducts;
