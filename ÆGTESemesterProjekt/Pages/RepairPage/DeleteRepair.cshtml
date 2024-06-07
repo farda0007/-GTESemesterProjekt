@@ -2,11 +2,20 @@
 @model ÆGTESemesterProjekt.Pages.RepairPage.DeleteRepairModel
 @{
 }
-<h1>Slet Reperation></h1>
-<div class="alert alert-danger">
-    <h5>Er du sikker på, at du ville slette dette reperation? - @Model.Repair.RepProduct</h5>
-    <form method="post">
-        <button type="submit" class="btn btn-danger">Ja</button>
-        <a class="btn btn-primary" asp-page="/Repair/GetAllRepairs">Nej</a>
-    </form>
-</div>
+
+<h2>Færdiggør Reparation</h2>
+
+<form method="post">
+    <div>
+        <input asp-for="Repair.CaseId" readonly />
+    </div>
+    <div>
+        <label>Produkt</label>
+        <input asp-for="Repair.RepProduct" readonly />
+    </div>
+    <div>
+        <label>Beskrivelse</label>
+        <input asp-for="Repair.Description" readonly />
+    </div>
+    <button type="submit">Accepter</button>
+</form>

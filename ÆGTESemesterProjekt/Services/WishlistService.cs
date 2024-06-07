@@ -21,17 +21,17 @@ namespace ÆGTESemesterProjekt.Services
             _wishlists.Add(wishlist);
             await _dbService.AddObjectAsync(wishlist);
         }
-        public Wishlist DeleteWishlist(int? wishlistId)
+        public async Task<Wishlist> DeleteWishlistAsync(int? wishlistId)
         {
             var wishlistItem = _wishlists.FirstOrDefault(c => c.WishlistId == wishlistId);
             if (wishlistItem != null)
             {
                 _wishlists.Remove(wishlistItem);
-                _dbService.DeleteObjectAsync(wishlistItem).Wait();
+                await _dbService.DeleteObjectAsync(wishlistItem);
             }
+
             return wishlistItem;
         }
-
         public Wishlist GetWishlist(int Id)
         {
             foreach (Wishlist product in _wishlists)

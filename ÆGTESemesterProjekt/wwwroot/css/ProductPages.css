@@ -27,7 +27,8 @@
 }
 
 .card {
-    background-color: rgba(250,250,250)
+    background-color: rgba(248,248,248);
+    padding-bottom:1em;
 }
 
 img {

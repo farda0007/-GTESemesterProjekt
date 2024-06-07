@@ -5,7 +5,7 @@ namespace ÆGTESemesterProjekt.Services
     public interface IWishlistService
     {
         Task AddWishlistAsync(Wishlist wishlist);
-        Wishlist DeleteWishlist(int? wishlistId);
+        Task<Wishlist> DeleteWishlistAsync(int? wishlistId);
         Wishlist GetWishlist(int Id);
     }
 }
