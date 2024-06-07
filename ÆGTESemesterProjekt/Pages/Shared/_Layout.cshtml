@@ -28,8 +28,15 @@
             color: black;
             font-size: 45px;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            text-decoration: none;
+             text-decoration: none; 
+
         }
+
+        .navbar-logoandtitle:hover {
+            color:darkorange;
+           
+        }
+
 
         li {
             font-size: 13px;
@@ -78,9 +85,55 @@
         .navbar-collapse.collapse.show .link1 {
             color: black !important;
         }
+
+        .offcanvas-body .nav-link {
+            font-size: 1.50rem;
+            font-weight: 600;
+            color: black;
+        }
+
+        .offcanvas-body .nav-link:hover {
+            font-size: 1.75rem;
+            font-weight: 600;
+                color: darkorange;
+            border-bottom: solid 1px;
+        }
+
+        .btn-close {
+
+        }
+
     </style>
 </head>
 <body>
+    <div class="offcanvas offcanvas-start" id="demo">
+        <div class="offcanvas-header">
+            <h1 class="offcanvas-title">Sortiment</h1>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <a class="nav-link" asp-area="" asp-page="/Products/GetAllProducts">Alle Produkter</a>
+            <a class="nav-link" asp-area="" asp-page="/ProductCatalog/Vinyl">Vinyl</a>
+            <a class="nav-link" asp-area="" asp-page="/ProductCatalog/Radio">Radio</a>
+            <a class="nav-link" asp-area="" asp-page="/ProductCatalog/Headset">Headset</a>
+            <a class="nav-link" asp-area="" asp-page="/ProductCatalog/RecordPlayer">Pladeafspiller</a>
+            <a class="nav-link" asp-area="" asp-page="/ProductCatalog/CleaningTool">Rengøringsudstyr</a>
+            <a class="nav-link" asp-area="" asp-page="/ProductCatalog/Speaker">Højtaler</a>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" id="demo1">
+        <div class="offcanvas-header">
+            <h1 class="offcanvas-title">Administration</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+                <a class="nav-link" asp-area="" asp-page="/User/GetAllCustomers">Medlemmer</a>
+                <a class="nav-link" asp-area="" asp-page="/RepairPage/GetAllRepairs">Reperationer</a>
+        </div>
+    </div>
+
+
     <nav class="navbar navbar-expand-xl border box-shadow sticky-top bg-body-danger" style="height: 100px;">
             <div class="container">
                 <a class="navbar-logoandtitle" asp-area="" asp-page="/Index">
@@ -101,6 +154,11 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-page="/Inspiration">Inspiration</a>
                         </li>
+                        <li>
+                    <li class="nav-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+                        Produkter
+                    </li>
+                    </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Produkter
@@ -116,8 +174,6 @@
                             </ul>
                         </li>
 
-                
-
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end topoff">
                         @if (User.Identity.IsAuthenticated)
                         {
@@ -126,25 +182,22 @@
                             </li>
                             @if (User.IsInRole("employee"))
                             {
-                                <div class="dropdown">
-                                    <a class="btn-drop dropdown-toggle" data-bs-toggle="dropdown">Administration</a>
-                                    <ul class="dropdown-menu">
-                                        <a class="nav-link link1" asp-area="" asp-page="/User/GetAllCustomers">Medlemmer</a>
-                                        <a class="nav-link link1" asp-area="" asp-page="/RepairPage/GetAllRepairs">Reperationer</a>
-                                    </ul>
-                                </div>
+                            <li class="nav-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo1">
+                                Administration
+                            </li>
+
                             }
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-page="/Login/LogOut">Log ud</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-page="/WishlistPage/Wishlist">
-                                    <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-heart" style="font-size:1rem"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-page="/ShoppingCart/MyCart">
-                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    <i class="fa-solid fa-cart-shopping" style="font-size:1rem"></i>
                                 </a>
                             </li>
                         }
@@ -152,7 +205,7 @@
                         {
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-page="/Login/LogInPage">
-                                    <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-user" style="font-size:1rem"></i>
                                     Log ind/Opret Konto
                                 </a>
                             </li>
