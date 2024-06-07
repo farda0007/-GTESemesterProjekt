@@ -28,15 +28,18 @@ namespace ÆGTESemesterProjekt.Services
         {
             return _cartList = _dbService.GetObjectsAsync().Result.ToList();
         }
-        public ShoppingCart DeleteCart(int CartId)
+        //Returnerer et ShoppingCart object, parametre int CartId.
+        public async Task DeleteCart(int CartId)
         {
+            //FirstOrDefault er LINQ metode, der returnerer det første element der opfylder en condition
+            //LINQ - søger gennem _cartList, og finder det første objekt hvor CartId == CartId
+            //Lambda specificerer en condition for at finde ShoppingCart objektet.
             var cartItem = _cartList.FirstOrDefault(c => c.CartId == CartId);
             if (cartItem != null)
             {
                 _cartList.Remove(cartItem);
-                _dbService.DeleteObjectAsync(cartItem).Wait();
+                await _dbService.DeleteObjectAsync(cartItem);
             }
-            return cartItem;
         }
 
     }
