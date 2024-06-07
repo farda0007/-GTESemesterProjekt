@@ -38,7 +38,6 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
         {
             var currentUser = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
             MyCartProducts = _userService.GetCartProducts(currentUser).Result.CartProducts;
-            Totalprice = MyCartProducts.Sum(product => product.Count * (product.Product?.Price ?? 0));
 
             const string validDiscountCode = "uWu";
             decimal Discount = 0m;
