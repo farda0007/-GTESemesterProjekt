@@ -5,13 +5,11 @@ namespace ÆGTESemesterProjekt.Services
 	public class ProductService : IProductService
 	{
         private List<Product> _products;
-        //private DbService _dbService;
         private DbGenericService<Product> _genericDbService;
 
         public ProductService(DbGenericService<Product> genericDbService)
         {   
             _genericDbService = genericDbService;
-            //_products = MockProducts.GetMockProducts();
             _products = _genericDbService.GetObjectsAsync().Result.ToList();
             _genericDbService.SaveObjects(_products);
         }

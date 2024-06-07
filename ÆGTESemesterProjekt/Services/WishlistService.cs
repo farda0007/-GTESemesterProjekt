@@ -10,7 +10,6 @@ namespace ÆGTESemesterProjekt.Services
 
         public WishlistService(DbGenericService<Wishlist> dbService)
         {
-            //_wishlists = wishlists;
             _dbService = dbService;
             _wishlists = _dbService.GetObjectsAsync().Result.ToList();
 
@@ -52,11 +51,6 @@ namespace ÆGTESemesterProjekt.Services
         public List<Wishlist> GetWishlistByUserId(int userId)
         {
             return _wishlists.Where(w => w.userId == userId).ToList();
-        }
-
-        public Task<Wishlist> OnGetWishlistItemsById(int wishlistId)
-        {
-            throw new NotImplementedException();
         }
     }
 }

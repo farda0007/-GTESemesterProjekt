@@ -31,15 +31,7 @@ namespace ÆGTESemesterProjekt.Pages.RepairPage
 		{
 			return Page();
 		}
-		//public IActionResult OnPost()
-		//{
-		//    if (!ModelState.IsValid)
-		//    {
-		//        return Page();
-		//    }
-		//    _productService.AddProduct(Product);
-		//    return RedirectToPage("GetAllProducts");
-		//}
+
 		public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)

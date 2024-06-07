@@ -15,24 +15,24 @@ namespace ÆGTESemesterProjekt.Services
         public UserService(UserDbService dbService)
         {
             _dbService = dbService;
-            //Users = MockUsers.GetUsers();
             Users = _dbService.GetObjectsAsync().Result.ToList();
-            //_userJsonFileService.SaveJsonObjects(Users);
             _dbService.SaveObjects(Users);
             //LoggedInUser = Users[0];
         }
 
-        //public async Task<User> GetUserOrders(User user)
-        //{
-        //    return await _dbService.GetOrdersByUserIdAsync(user.UserId);
-        //}
         public async Task<Models.User> GetCartProducts(User user)
         {
             using (var context = new ProductDbContext())
             {
+                
                 var userWithCart = await context.User
+                    //Include inkluderer CartProducts når den henter User. Det sikrer at CartProducts collection loader sammen med User. 
                     .Include(u => u.CartProducts)
-                    .ThenInclude(cp => cp.Product)
+                    //ThenInclude inkluderer "Product" for hvert CartProduct. Det sikrer at for hvert CartProduct, bliver det associserede "Product" også loaded.
+                    .ThenInclude(u => u.Product)
+                    //Forbedrer ydelsen
+                    .AsNoTracking()
+                    //Finder den første User der matcher det givet UserId.
                     .FirstOrDefaultAsync(u => u.UserId == user.UserId);
 
                 return userWithCart;

@@ -6,15 +6,10 @@ namespace ÆGTESemesterProjekt.Services
     {
         private List<Repair> _repairs;
         private DbGenericService<Repair> _genericDbService;
-        //private DbService _dbService;
-        //private DbGenericService<Repair> _dbService;
 
         public RepairService(DbGenericService<Repair> genericDbService)
         {
             _genericDbService = genericDbService;
-            //_dbService = dbService;
-            //_repairs = MockRepairs.GetMockRepairs();
-            //_repairs = JsonFileRepairService.GetJsonObjects().ToList();
             _repairs = _genericDbService.GetObjectsAsync().Result.ToList();
             _genericDbService.SaveObjects(_repairs);
         }
