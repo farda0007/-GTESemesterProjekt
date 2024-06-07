@@ -2,11 +2,25 @@
 @model ÆGTESemesterProjekt.Pages.WishlistPage.DeleteWishlistModel
 @{
 }
-<h1>Slet Fra Ønskeliste</h1>
+@* <h1>Slet Fra Ønskeliste</h1>
 <div class="alert alert-danger">
     <h5>Er du sikker på, at du ville slette produktet fra din ønskeliste?</h5>
     <form method="post">
         <button type="submit" class="btn btn-danger">Ja</button>
         <a class="btn btn-primary" asp-page="/WishlistPage/Wishlist">Nej</a>
     </form>
-</div>
+</div> *@
+<form method="post">
+    <div>
+        <input asp-for="Wishlist.WishlistId" readonly />
+    </div>
+    <div>
+        <label>Produkt</label>
+        <input asp-for="Wishlist.Product" readonly />
+    </div>
+    <div>
+        <label>Beskrivelse</label>
+        <input asp-for="Wishlist.ProductId" readonly />
+    </div>
+    <button type="submit">Accepter</button>
+</form>

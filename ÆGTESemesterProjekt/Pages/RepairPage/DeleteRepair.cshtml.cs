@@ -1,4 +1,5 @@
 using ÆGTESemesterProjekt.Models;
+using ÆGTESemesterProjekt.Pages.RepairPage;
 using ÆGTESemesterProjekt.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -23,18 +24,20 @@ namespace ÆGTESemesterProjekt.Pages.RepairPage
             Repair = _repairService.GetRepair(id);
             if (Repair == null)
             {
-                return RedirectToPage("/NotFound"); //NotFound er ikke defineret endnu
+                return RedirectToPage("/NotFound"); //NotFound is not defined yet
             }
             return Page();
         }
-        public IActionResult OnPost()
+
+        public async Task<IActionResult> OnPostAsync()
         {
-            Models.Repair deletedRepair = _repairService.DeleteRepair(Repair.CaseId);
+            ÆGTESemesterProjekt.Models.Repair deletedRepair = await _repairService.DeleteRepairAsync(Repair.CaseId);
             if (deletedRepair == null)
-                return RedirectToPage("/NotFound"); //NotFound er ikke defineret endnu
+                return RedirectToPage("/NotFound"); //NotFound is not defined yet
             return RedirectToPage("/RepairPage/GetAllRepairs");
         }
 
     }
 }
+
 

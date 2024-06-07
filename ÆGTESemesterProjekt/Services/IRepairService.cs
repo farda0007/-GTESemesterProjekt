@@ -8,7 +8,7 @@ namespace ÆGTESemesterProjekt.Services
         Task AddRepairAsync(Repair repair);
         void AddRepair(Repair repair);
         void UpdateRepair(Repair repair);
-        Repair DeleteRepair(int? repairID);
+        Task<Repair> DeleteRepairAsync(int? repairID);
         Repair GetRepair(int Id);
     }
 }
