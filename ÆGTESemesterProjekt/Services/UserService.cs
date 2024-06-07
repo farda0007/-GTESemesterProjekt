@@ -38,11 +38,20 @@ namespace ÆGTESemesterProjekt.Services
             }
         }
 
-        public async Task<Wishlist> GetUserWishlist(User user)
+        public async Task<Models.User> GetWishlistProducts(User user)
         {
-            return await _dbService.GetWishlistByUserIdAsync(user.UserId);
-        }
+            using (var context = new ProductDbContext())
+            {
 
+                var userWishlist = await context.User
+                    .Include(u => u.WishlistProducts)
+                    .ThenInclude(u => u.Product)
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(u => u.UserId == user.UserId);
+
+                return userWishlist;
+            }
+        }
         public async Task AddUserAsync(User user)
         {
             Users.Add(user);

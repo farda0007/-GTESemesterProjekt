@@ -43,9 +43,9 @@ namespace ÆGTESemesterProjekt.Services
             }
             return null;
         }
-        public List<Wishlist> GetWishlists()
+        public List<Wishlist> GetWishlistProducts()
         {
-            return _wishlists;
+            return _wishlists = _dbService.GetObjectsAsync().Result.ToList();
         }
 
         public List<Wishlist> GetWishlistByUserId(int userId)

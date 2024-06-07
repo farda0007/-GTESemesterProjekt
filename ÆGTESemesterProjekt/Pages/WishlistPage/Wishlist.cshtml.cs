@@ -22,19 +22,21 @@ namespace ÆGTESemesterProjekt.Pages.WishlistPage
             _userService = userService;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-     
-            var userName = HttpContext.User.Identity.Name;
-            var user = _userService.GetUserByUserName(userName);
 
-            MyWishlist = _wishlistService.GetWishlistByUserId(user.UserId);
+            var currentUser = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+            MyWishlist = _userService.GetWishlistProducts(currentUser).Result.WishlistProducts;
+            return Page();
+        }
+        public async Task<IActionResult> OnPostDeleteWishlist(int wishlistId)
+        {
+            await _wishlistService.DeleteWishlistAsync(wishlistId);
 
+            var currentUser = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+            MyWishlist= _userService.GetCartProducts(currentUser).Result.WishlistProducts;
 
-            Products = MyWishlist
-                .Select(w => _productService.GetProduct(w.ProductId))
-
-                .ToList();
+            return RedirectToPage();
         }
     }
 }
