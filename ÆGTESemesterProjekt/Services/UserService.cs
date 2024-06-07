@@ -15,17 +15,11 @@ namespace ÆGTESemesterProjekt.Services
         public UserService(UserDbService dbService)
         {
             _dbService = dbService;
-            //Users = MockUsers.GetUsers();
             Users = _dbService.GetObjectsAsync().Result.ToList();
-            //_userJsonFileService.SaveJsonObjects(Users);
             _dbService.SaveObjects(Users);
             //LoggedInUser = Users[0];
         }
 
-        //public async Task<User> GetUserOrders(User user)
-        //{
-        //    return await _dbService.GetOrdersByUserIdAsync(user.UserId);
-        //}
         public async Task<Models.User> GetCartProducts(User user)
         {
             using (var context = new ProductDbContext())
