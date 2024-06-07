@@ -3,27 +3,31 @@
 @model ÆGTESemesterProjekt.Pages.WishlistPage.WishlistModel
 @{
 }
-<div class="container mx-auto mt-4" style="max-width: 95%;">
+
+<head>
+    <link rel="stylesheet" href="~/css/ProductPages.css" />
+</head>
+
+<div class="container mt-5 py-5" style="background-color: rgb(249,249,249);">
+    <h1 class="display-1 fw-bold" style="color: darkorange; text-align: center;">Ønskeliste</h1>
+</div>
+
+<div class="container" style="max-width: 95%; margin-top: 2%; background-color: rgb(248,247,246); padding: 20px;">
     <div class="row">
-        <h1>Ønskeliste</h1>
         @if (Model.Products != null)
         {
             foreach (var product in Model.Products)
             {
-                <div class="col-md-3 col-sm-6">
-                    <div class="card" style="width: 18rem; margin: 10px;">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="card" style="height: 100%; border: 1px solid rgb(188, 182, 179);">
                         <div class="card-body">
-                            <img src="~/images/@product.ProductImage" style="max-width: 95%; display: block; margin: auto; padding: 25px;">
-
-                            <h5 class="card-title">@product.ProductName</h5>
+                            <img src="~/images/@product.ProductImage" class="card-img-top" style="height: auto; width: 100%; padding: 15px;">
+                            <h5 class="card-title" style="font-size: 1.25rem;">@product.ProductName</h5>
                             <h6 class="card-subtitle mb-2 text-muted">@product.Description</h6>
-                            <h6 class="card-subtitle mb-2 text-muted">@product.Price,-</h6>
-                            
-                            <a class="btn btn-danger btn-sm " type="button" title="Slet" asp-page="DeleteWishlist" asp-route-id="@product.Id"><i class="fas fa-trash"></i></a>
-
-                            <div class="form-group">
-
-                            </div>
+                            <h6 class="card-text" style="color: darkorange;">@product.Price,-</h6>
+                            <a class="btn btn-danger btn-sm" type="button" title="Slet" asp-page="DeleteWishlist" asp-route-id="@product.Id">
+                                <i class="fas fa-trash"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
