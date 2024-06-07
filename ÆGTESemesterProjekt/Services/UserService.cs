@@ -8,7 +8,6 @@ namespace ÆGTESemesterProjekt.Services
     public class UserService
     {
         public List<User> Users { get; set; }
-        //public User LoggedInUser { get; set; }
         private UserDbService _dbService;
 
 

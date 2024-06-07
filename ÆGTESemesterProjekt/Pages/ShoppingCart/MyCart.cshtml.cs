@@ -59,7 +59,6 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
         {
             var cartItem = _shoppingCartService.DeleteCart(cartId);
 
-            // Refresh the cart products after deletion
             var currentUser = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
             MyCartProducts = _userService.GetCartProducts(currentUser).Result.CartProducts;
             Totalprice = MyCartProducts.Sum(product => product.Count * (product.Product?.Price ?? 0));
