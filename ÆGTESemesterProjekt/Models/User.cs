@@ -22,11 +22,11 @@ namespace ÆGTESemesterProjekt.Models
         public virtual ICollection<ShoppingCart> CartProducts { get; set; }
         public User()
         {
-            //UserName = "";
-            //Password = "";
-            //Name = "";
-            //Phone = 0;
-            //Email = "";
+            UserName = "";
+            Password = "";
+            Name = "";
+            Phone = 0;
+            Email = "";
         }
         // fjern evt id.
         public User(string userName, string name, string password, int phone, string email)

@@ -44,3 +44,14 @@ img {
     background-color: darkorange;
     color: white;
 }
+
+.jumbotron {
+    background-color: #f8f9fa;
+    padding: 2rem 1rem;
+}
+
+.small-circle {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
