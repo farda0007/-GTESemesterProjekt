@@ -158,21 +158,6 @@
                     <li class="nav-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
                         Produkter
                     </li>
-                    </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Produkter
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" asp-area="" asp-page="/Products/GetAllProducts">Alle Produkter</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-page="/ProductCatalog/Vinyl">Vinyl</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-page="/ProductCatalog/Radio">Radio</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-page="/ProductCatalog/Headset">Headset</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-page="/ProductCatalog/RecordPlayer">Pladeafspiller</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-page="/ProductCatalog/CleaningTool">Rengøringsudstyr</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-page="/ProductCatalog/Speaker">Højtaler</a></li>
-                            </ul>
-                        </li>
 
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end topoff">
                         @if (User.Identity.IsAuthenticated)
