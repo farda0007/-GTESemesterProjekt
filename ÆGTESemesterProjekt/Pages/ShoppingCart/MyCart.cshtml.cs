@@ -38,7 +38,6 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
         {
             var currentUser = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
             MyCartProducts = _userService.GetCartProducts(currentUser).Result.CartProducts;
-            Totalprice = MyCartProducts.Sum(product => product.Count * (product.Product?.Price ?? 0));
 
             const string validDiscountCode = "uWu";
             decimal Discount = 0m;
@@ -57,9 +56,8 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
         }
         public async Task<IActionResult> OnPostDeleteAsync(int cartId)
         {
-            var cartItem = _shoppingCartService.DeleteCart(cartId);
+            await _shoppingCartService.DeleteCart(cartId);
 
-            // Refresh the cart products after deletion
             var currentUser = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
             MyCartProducts = _userService.GetCartProducts(currentUser).Result.CartProducts;
             Totalprice = MyCartProducts.Sum(product => product.Count * (product.Product?.Price ?? 0));

@@ -55,17 +55,19 @@ namespace ÆGTESemesterProjekt.Services
                 _genericDbService.SaveObjects(_repairs);
             }
         }
-    
-        public Repair DeleteRepair(int? repairId)
+
+        public async Task<Repair> DeleteRepairAsync(int? repairId)
         {
             var repairItem = _repairs.FirstOrDefault(c => c.CaseId == repairId);
             if (repairItem != null)
             {
                 _repairs.Remove(repairItem);
-                _genericDbService.DeleteObjectAsync(repairItem).Wait();
+                await _genericDbService.DeleteObjectAsync(repairItem);
             }
+
             return repairItem;
         }
+
         public Repair GetRepair(int Id)
         {
             foreach (Repair repair in _repairs)

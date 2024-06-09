@@ -37,8 +37,16 @@ namespace ÆGTESemesterProjekt.Services
             var cartItem = _cartList.FirstOrDefault(c => c.CartId == CartId);
             if (cartItem != null)
             {
-                _cartList.Remove(cartItem);
-                await _dbService.DeleteObjectAsync(cartItem);
+                if (cartItem.Count > 1)
+                {
+                    cartItem.Count--;
+                    await _dbService.UpdateObjectAsync(cartItem); 
+                }
+                else
+                {
+                    _cartList.Remove(cartItem);
+                    await _dbService.DeleteObjectAsync(cartItem);
+                }
             }
         }
 

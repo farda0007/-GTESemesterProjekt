@@ -1,3 +1,4 @@
+using ÆGTESemesterProjekt.Models;
 using ÆGTESemesterProjekt.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -19,21 +20,22 @@ namespace ÆGTESemesterProjekt.Pages.WishlistPage
         }
 
 
-        public IActionResult OnGet(int Id)
+        public IActionResult OnGet(int id)
         {
-            Wishlist = _iwishlistService.GetWishlist(Id);
+            Wishlist = _iwishlistService.GetWishlist(id);
             if (Wishlist == null)
             {
-                return RedirectToPage("/NotFound");
+                return RedirectToPage("/NotFound"); //NotFound is not defined yet
             }
             return Page();
         }
-        public IActionResult OnPost()
+
+        public async Task<IActionResult> OnPostAsync()
         {
-            Models.Wishlist deletedProduct = _iwishlistService.DeleteWishlist(Wishlist.WishlistId);
-            if (deletedProduct == null)
-                return RedirectToPage("/NotFound"); //NotFound er ikke defineret endnu
-            return RedirectToPage("Wishlist");
+            Models.Wishlist deletedWishlist = await _iwishlistService.DeleteWishlistAsync(Wishlist.WishlistId);
+            if (deletedWishlist == null)
+                return RedirectToPage("/NotFound"); //NotFound is not defined yet
+            return RedirectToPage("/Wishlist");
         }
 
     }

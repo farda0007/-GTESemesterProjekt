@@ -8,7 +8,6 @@ namespace ÆGTESemesterProjekt.Services
     public class UserService
     {
         public List<User> Users { get; set; }
-        //public User LoggedInUser { get; set; }
         private UserDbService _dbService;
 
 
@@ -24,20 +23,35 @@ namespace ÆGTESemesterProjekt.Services
         {
             using (var context = new ProductDbContext())
             {
+                
                 var userWithCart = await context.User
+                    //Include inkluderer CartProducts når den henter User. Det sikrer at CartProducts collection loader sammen med User. 
                     .Include(u => u.CartProducts)
-                    .ThenInclude(cp => cp.Product)
+                    //ThenInclude inkluderer "Product" for hvert CartProduct. Det sikrer at for hvert CartProduct, bliver det associserede "Product" også loaded.
+                    .ThenInclude(u => u.Product)
+                    //Forbedrer ydelsen
+                    .AsNoTracking()
+                    //Finder den første User der matcher det givet UserId.
                     .FirstOrDefaultAsync(u => u.UserId == user.UserId);
 
                 return userWithCart;
             }
         }
 
-        public async Task<Wishlist> GetUserWishlist(User user)
+        public async Task<Models.User> GetWishlistProducts(User user)
         {
-            return await _dbService.GetWishlistByUserIdAsync(user.UserId);
-        }
+            using (var context = new ProductDbContext())
+            {
 
+                var userWishlist = await context.User
+                    .Include(u => u.WishlistProducts)
+                    .ThenInclude(u => u.Product)
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(u => u.UserId == user.UserId);
+
+                return userWishlist;
+            }
+        }
         public async Task AddUserAsync(User user)
         {
             Users.Add(user);

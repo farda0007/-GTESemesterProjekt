@@ -35,14 +35,16 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
             {
                 return Page();
             }
+            //Henter produktet med det givet Id,
             Product = _productService.GetProduct(id);
+            //Henter brugernavnet fra databasen vha. _userService. Det giver os en user der repræsenterer den aktuelle bruger.
             User = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+            //Binder den gældende user til shoppingCart.
             ShoppingCart.userId = User.UserId;
-
             ShoppingCart.ProductId = Product.Id;
             ShoppingCart.Count = Count;
             _cartService.AddCart(ShoppingCart);
-            return RedirectToPage("/ShoppingCart/MyCart");
+            return RedirectToPage("/Products/GetAllProducts");
 
         }
     }

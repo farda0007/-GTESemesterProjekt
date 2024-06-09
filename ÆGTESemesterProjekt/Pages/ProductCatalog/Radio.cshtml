@@ -9,7 +9,7 @@
 
 <div class="container text-center mt-5 py-5" style="background-color:rgb(249,249,249)">
     <h1 class="display-1 fw-bold" style="color:darkorange;">Radioer</h1>
-    <p class="lead">Har du seriøst ikke råd til Spotify Premium?</p>
+    <p class="lead">Din Daglige Dose Af Lyd</p>
 </div>
 
 <div class="container" style="max-width: 95%; margin-top: 2%; background-color: rgb(248,247,246); padding: 20px;">
@@ -54,10 +54,10 @@
                                 @if (User.Identity.IsAuthenticated)
                                 {
                                     <div class="d-flex justify-content-between p-2">
-                                        <a class="btn btn-sm" type="button" title="ShoppingCart" asp-page="/ShoppingCart/CartItem" asp-route-id="@product.Id"><i class="fa fa-shopping-cart"></i></a>
+                                        <a class="btn btn-sm" type="button" title="ShoppingCart" asp-page="/ShoppingCart/CartItem" asp-route-id="@product.Id"><i class="fa fa-shopping-cart" title="Tilføj til kurv"></i></a>
                                         <form asp-page="/WishlistPage/ConfirmWishlist" method="post" style="display:inline-block">
                                             <input type="hidden" name="id" value="@product.Id" />
-                                            <button type="submit" class="btn btn-sm"><i class="fa-sharp fa-solid fa-heart"></i></button>
+                                            <button type="submit" class="btn btn-sm"><i class="fa-sharp fa-solid fa-heart" title="Tilføj til ønskeliste"></i></button>
                                         </form>
                                     </div>
                                 }

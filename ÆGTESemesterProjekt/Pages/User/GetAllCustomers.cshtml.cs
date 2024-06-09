@@ -13,7 +13,7 @@ namespace ÆGTESemesterProjekt.Pages.User
         {
             this._userService = userService;
         }
-        public List<Models.User> users { get; private set; } = new List<Models.User>();
+        public List<Models.User> users { get; private set; } 
         public void OnGet()
         {
             users = _userService.GetUsers();
