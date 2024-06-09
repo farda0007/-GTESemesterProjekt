@@ -40,22 +40,22 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
             MyCartProducts = _userService.GetCartProducts(currentUser).Result.CartProducts;
 
             const string validDiscountCode = "uWu";
-            decimal Discount = 0m;
-            // M til at convertere fra double til decimal
+            decimal discount = 0m;
+
             if (DiscountCode == validDiscountCode)
             {
-                Discount = 0.10m;
+                discount = 0.10m;
                 DiscountApplied = true;
             }
 
-            DiscountAmount = Math.Round(Totalprice * Discount, 2);
-            FinalPrice = Math.Round(Totalprice - DiscountAmount, 2);
-            // Runder op og sørger for at vi har 2 decimaler ekstra.
+            decimal totalPrice = MyCartProducts.Sum(product => product.Count * (product.Product?.Price ?? 0));
+            DiscountAmount = Math.Round(totalPrice * discount, 2);
+            FinalPrice = Math.Round(totalPrice - DiscountAmount, 2);
 
             return Page();
         }
         public async Task<IActionResult> OnPostDeleteAsync(int cartId)
-        {
+        {   
             await _shoppingCartService.DeleteCart(cartId);
 
             var currentUser = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
