@@ -58,9 +58,9 @@ namespace ÆGTESemesterProjekt.Pages.ShoppingCart
         {   
             await _shoppingCartService.DeleteCart(cartId);
 
-            var currentUser = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
-            MyCartProducts = _userService.GetCartProducts(currentUser).Result.CartProducts;
-            Totalprice = MyCartProducts.Sum(product => product.Count * (product.Product?.Price ?? 0));
+            //var currentUser = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
+            //MyCartProducts = _userService.GetCartProducts(currentUser).Result.CartProducts;
+            //Totalprice = MyCartProducts.Sum(product => product.Count * (product.Product?.Price ?? 0));
 
             return RedirectToPage();
         }
