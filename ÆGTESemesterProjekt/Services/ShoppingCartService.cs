@@ -28,7 +28,6 @@ namespace ÆGTESemesterProjekt.Services
         {
             return _cartList = _dbService.GetObjectsAsync().Result.ToList();
         }
-        //Returnerer et ShoppingCart object, parametre int CartId.
         public async Task DeleteCart(int CartId)
         {
             //FirstOrDefault er LINQ metode, der returnerer det første element der opfylder en condition
