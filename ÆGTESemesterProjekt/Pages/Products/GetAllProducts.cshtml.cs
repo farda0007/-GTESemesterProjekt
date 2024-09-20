@@ -14,7 +14,7 @@ namespace ÆGTESemesterProjekt.Pages.Products
         public int MinPrice { get; set; }
         [BindProperty]
         public int MaxPrice { get; set; }
-        public GetAllProductsModel(IProductService productService) //Dependency Injection
+        public GetAllProductsModel(IProductService productService) 
         {
             this._productService = productService;
         }

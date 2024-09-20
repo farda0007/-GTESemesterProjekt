@@ -44,7 +44,6 @@ namespace ÆGTESemesterProjekt.Pages.Products
         {
             if (User.Identity.IsAuthenticated)
             {
-
                 Product = _productService.GetProduct(id);
                 user = _userService.GetUserByUserName(HttpContext.User.Identity.Name);
                 ShoppingCart.userId = user.UserId;
